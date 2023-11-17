@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/custom_dialog_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:background="?dialogbg"
+    android:paddingTop="33.0dip"
+    android:paddingBottom="33.0dip">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/guidelineLeft"
+        style="@style/GuidelineLeftStyle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/guidelineRight"
+        style="@style/GuidelineRightStyle" />
+
+    <ImageView
+        android:id="@+id/custom_dialog_icon_iv_id"
+        android:layout_width="@dimen/dialog_icon_width"
+        android:layout_height="@dimen/dialog_icon_width"
+        android:scaleType="fitCenter"
+        android:src="?dialogTipIcon"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/custom_dialog_title_tv_id"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dialog_title_margin_t"
+        android:includeFontPadding="false"
+        android:textColor="?dialogMsgColor"
+        android:textSize="@dimen/dialog_title_textsize"
+        app:layout_constraintBottom_toBottomOf="@id/custom_dialog_icon_iv_id"
+        app:layout_constraintLeft_toRightOf="@id/custom_dialog_icon_iv_id"
+        app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+        app:layout_constraintTop_toTopOf="@id/custom_dialog_icon_iv_id" />
+
+    <TextView
+        android:id="@+id/custom_dialog_msg_tv_id"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_msg_margin_t"
+        android:textColor="?dialogMsgColor"
+        android:textSize="@dimen/dialog_msg_textsize"
+        app:layout_constraintLeft_toLeftOf="@id/custom_dialog_title_tv_id"
+        app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+        app:layout_constraintTop_toBottomOf="@id/custom_dialog_title_tv_id" />
+
+    <Button
+        android:id="@+id/custom_dialog_cancle_tv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dialog_btn_margin_t"
+        android:background="?btnBg"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minHeight="@dimen/dialog_btn_minheight"
+        android:paddingLeft="@dimen/dialog_btn_padding_lr"
+        android:paddingTop="@dimen/dialog_btn_padding_tb"
+        android:paddingRight="@dimen/dialog_btn_padding_lr"
+        android:paddingBottom="@dimen/dialog_btn_padding_tb"
+        android:text="@string/str_cancel"
+        android:textColor="?btnTextColor"
+        android:textSize="@dimen/dialog_btn_textsize"
+        app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+        app:layout_constraintTop_toBottomOf="@id/custom_dialog_msg_tv_id" />
+
+    <Button
+        android:id="@+id/custom_dialog_ok_tv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dialog_btn_margin_r"
+        android:background="?btnBg"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minHeight="@dimen/dialog_btn_minheight"
+        android:paddingLeft="@dimen/dialog_btn_padding_lr"
+        android:paddingTop="@dimen/dialog_btn_padding_tb"
+        android:paddingRight="@dimen/dialog_btn_padding_lr"
+        android:paddingBottom="@dimen/dialog_btn_padding_tb"
+        android:text="@string/str_confirm"
+        android:textColor="?btnTextColor"
+        android:textSize="@dimen/dialog_btn_textsize"
+        app:layout_constraintRight_toLeftOf="@id/custom_dialog_cancle_tv_id"
+        app:layout_constraintTop_toTopOf="@id/custom_dialog_cancle_tv_id"
+        app:layout_goneMarginTop="@dimen/dialog_btn_margin_t" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:tag="layout/fragment_add_wifi_network_0">
+
+        <include
+            android:id="@+id/titleLayout"
+            layout="@layout/layout_title" />
+
+        <FrameLayout
+            android:id="@+id/item_network_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="204.0dip"
+            android:layout_marginTop="61.0dip"
+            android:layout_marginEnd="204.0dip"
+            android:background="?itemBg"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/edt_network_name"
+                style="@style/Common.Text.Content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@null"
+                android:duplicateParentState="true"
+                android:focusable="false"
+                android:gravity="end"
+                android:paddingStart="30.0dip"
+                android:paddingTop="12.0dip"
+                android:paddingEnd="30.0dip"
+                android:paddingBottom="12.0dip" />
+
+            <TextView
+                android:id="@+id/tv_title_network_name"
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30.0dip"
+                android:duplicateParentState="true"
+                android:text="@string/add_wifi_network_name" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/item_encrypt_type"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="204.0dip"
+            android:layout_marginTop="13.0dip"
+            android:layout_marginEnd="204.0dip"
+            android:background="?itemBg"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingStart="30.0dip"
+            android:paddingTop="12.0dip"
+            android:paddingEnd="30.0dip"
+            android:paddingBottom="12.0dip">
+
+            <TextView
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:duplicateParentState="true"
+                android:gravity="start"
+                android:text="@string/add_wifi_encrypt_type" />
+
+            <TextView
+                android:id="@+id/selector_encrypt_type"
+                style="@style/Common.Text.Content"
+                android:layout_width="270.0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:drawablePadding="9.0dip"
+                android:duplicateParentState="true"
+                app:drawableEndCompat="@mipmap/ic_encrypt_type_right"
+                app:drawableStartCompat="@mipmap/ic_encrypt_type_left"
+                app:drawableTint="?mainPageItemColor" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/item_enter_pwd"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="204.0dip"
+            android:layout_marginTop="13.0dip"
+            android:layout_marginEnd="204.0dip"
+            android:background="?itemBg"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/edt_enter_pwd"
+                style="@style/Common.Text.Content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@null"
+                android:duplicateParentState="true"
+                android:focusable="false"
+                android:gravity="end"
+                android:paddingStart="30.0dip"
+                android:paddingTop="12.0dip"
+                android:paddingEnd="30.0dip"
+                android:paddingBottom="12.0dip" />
+
+            <TextView
+                android:id="@+id/tv_title_enter_pwd"
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30.0dip"
+                android:duplicateParentState="true"
+                android:text="@string/add_wifi_enter_pwd" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="45.0dip"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_cancel"
+                style="@style/Common.Text.Content"
+                android:layout_width="195.0dip"
+                android:layout_height="48.0dip"
+                android:background="?btnBg"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="@string/add_wifi_cancle"
+                android:textColor="?btnTextColor" />
+
+            <TextView
+                android:id="@+id/btn_connect"
+                style="@style/Common.Text.Content"
+                android:layout_width="195.0dip"
+                android:layout_height="48.0dip"
+                android:layout_marginStart="30.0dip"
+                android:background="?btnBg"
+                android:text="@string/add_wifi_connect"
+                android:textColor="?btnTextColor" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

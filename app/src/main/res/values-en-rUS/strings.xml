@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">Settings</string>
+    <!--Index-->
+    <string name="main_index_title_text">Setting</string>
+    <string name="main_projection_text">Projection Setting</string>
+    <string name="main_wifi_text">Internet</string>
+    <string name="main_bluetooth_text">Bluetooth</string>
+    <string name="main_Universal_text">Universal</string>
+    <string name="main_aboutDevice_text">About Device</string>
+    <!--Projection-->
+    <string name="projection_index_title_text">Projection</string>
+    <string name="projection_index_double_point">Correction-DoublePoint</string>
+    <string name="projection_index_single_point">Correction-SinglePoint</string>
+    <string name="projection_index_size">Size</string>
+    <string name="projection_index_projection_method">Projection Method</string>
+    <string name="projection_size_level_text">Left and right keys to zoom in and out</string>
+    <string name="projection_method_title_text">Projection Method</string>
+    <string name="projection_method_pos_pos">Forward-mounted Forward-projection</string>
+    <string name="projection_method_pos_neg">Forward-mounted Reverse-projection</string>
+    <string name="projection_method_neg_pos">Hanging-mounted Forward-projection</string>
+    <string name="projection_method_neg_neg">Hanging-mounted Reverse-projection</string>
+    <!--Internet-->
+    <string name="net_index_title_text">Internet</string>
+    <string name="net_index_wifi_tv">Wireless</string>
+    <string name="net_index_available_tv">Available networks</string>
+    <string name="net_connect_dialog_ok_button">Confirm</string>
+    <string name="net_connectbypreference_dialog_ok_button">Connect</string>
+    <string name="net_connectbypreference_dialog_ignore_button">Clean Password</string>
+    <string name="net_wifiList_scanToast_tv">Scanning, please wait...</string>
+    <string name="net_wifiList_connectbypreference_title_tv">
+        This network has been saved. Do you want to connect?</string>
+    <string name="net_wifiList_connectbypreference_ignoreTitle_tv">
+        Are you sure you want to clear this network?</string>
+    <string name="net_wifiList_connectbypreference_ignoreConfirm_tv">OK</string>
+    <string name="net_wifiList_connectbypreference_ignoreCancel_tv">Cancel</string>
+    <string name="net_wifiList_connecttoWifi_title_tv">Connecting, please wait...</string>
+    <string name="net_wifiList_connecttoWifi_isConnected_true">Succeeded</string>
+    <string name="net_wifiList_connecttoWifi_isConnected_false">
+        Failed, please try again</string>
+    <string name="net_wifiList_isCheckedText_saved">Saved</string>
+    <string name="net_wifiList_isCheckedText_connected">Connected</string>
+    <!--Bluetooth-->
+    <string name="bluetooth_index_title_text">Bluetooth</string>
+    <string name="bluetooth_index_bt_tv">Bluetooth switch</string>
+    <string name="bluetooth_index_search_title_tv">Devices found</string>
+    <string name="bluetooth_index_search_tv">Searching</string>
+    <string name="bluetooth_index_NotSupport">This device does not support Bluetooth</string>
+    <string name="bluetooth_index_search_again_tv">Search again</string>
+    <string name="bluetooth_index_search_finish">Bluetooth search completed</string>
+    <string name="bluetooth_index_deviceStatus_Bonded">Bonded</string>
+    <string name="bluetooth_index_deviceStatus_Bonding">Bonding</string>
+    <string name="bluetooth_index_deviceStatus_Connected">Connected</string>
+    <string name="bluetooth_index_deviceStatus_BondFiled"> : Pairing failed</string>
+    <string name="bluetooth_index_piarTodevice_title">  Bluetooth pairing request</string>
+    <string name="bluetooth_index_Connectdialog_flag_0">
+        This device has been bound. Do you want to connect?</string>
+    <string name="bluetooth_index_Connectdialog_flag_1">
+        This device has been bound.Are you sure you want to disconnect?</string>
+    <string name="bluetooth_index_connect_succese">Connect succeeded</string>
+    <string name="bluetooth_index_connect_failed">Connect Fail</string>
+    <string name="bluetooth_index_close">Disconnected successfully</string>
+    <string name="bluetooth_dialog_connect">Connect</string>
+    <string name="bluetooth_dialog_cancel">Cancel</string>
+    <string name="bluetooth_dialog_clear">Clear</string>
+    <string name="bluetooth_dialog_pair">Pair</string>
+    <!--Universal-->
+    <string name="universal_index_title_tv">Universal</string>
+    <string name="universal_index_input_tv">Input</string>
+    <string name="universal_index_language_tv">Language</string>
+    <string name="title_language">Language</string>
+    <string name="dialog_changeLanguage_title">Tips</string>
+    <string name="dialog_changeLanguage_message">Switching languages will take effect only after restarting the application. Do you want to switch?</string>
+    <string name="dialog_changeLanguage_btConfirm">Confirm</string>
+    <string name="dialog_changeLanguage_btCancel">Cancel</string>
+    <string name="inputMethod_value_sougou">Sogou Pinyin</string>
+    <string name="inputMethod_value_google">Google Pinyin</string>
+    <string name="inputMethod_value_Aosp">Android Keyboard</string>
+    <!--Device-->
+    <string name="device_index_title_tv">About Device</string>
+    <string name="device_index_info_tv">Device Info</string>
+    <string name="device_index_storage_tv">Device Storage</string>
+    <string name="device_info_deviceNo">Device NO</string>
+    <string name="device_info_androidVersion">Android Version</string>
+    <string name="device_info_softwareVersion">Software Version</string>
+    <string name="device_info_mac_wifi">MAC Address(Wifi)</string>
+    <string name="device_info_mac_bluetooth">MAC Address(Bluetooth)</string>
+    <string name="device_storage_title">Storage</string>
+    <string name="device_storage_internal">Internal Storage</string>
+    <string name="device_storage_total">Total</string>
+    <string name="device_storage_available">Available</string>
+    <string name="device_storage_system">System</string>
+    <string name="device_storage_app">App </string>
+    <string name="device_storage_other">Other </string>
+</resources>

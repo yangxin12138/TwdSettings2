@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.twd.setting.module.network.wifi.EditConfigViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:orientation="vertical"
+        android:tag="layout/fragment_edit_net_config_0">
+
+        <include
+            android:id="@+id/titleLayout"
+            layout="@layout/layout_title" />
+
+        <FrameLayout
+            android:id="@+id/item_switch_config_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="204.0dip"
+            android:layout_marginTop="61.0dip"
+            android:layout_marginEnd="204.0dip"
+            android:background="?itemBg"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="30.0dip"
+            android:paddingTop="12.0dip"
+            android:paddingEnd="30.0dip"
+            android:paddingBottom="12.0dip">
+
+            <TextView
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:duplicateParentState="true"
+                android:text="@string/net_config_network_parameters" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_config_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:background="@null"
+                android:focusable="false"
+                android:thumb="?switch_thumb"
+                app:track="?switch_track" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/item_ip_address"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="204.0dip"
+            android:layout_marginTop="13.0dip"
+            android:layout_marginEnd="204.0dip"
+            android:clickable="false"
+            android:focusable="false">
+
+            <EditText
+                android:id="@+id/edt_ip_address"
+                style="@style/Common.Text.Content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:background="?itemBg"
+                android:clickable="false"
+                android:focusable="false"
+                android:gravity="end"
+                android:paddingStart="30.0dip"
+                android:paddingTop="12.0dip"
+                android:paddingEnd="30.0dip"
+                android:paddingBottom="12.0dip" />
+
+            <TextView
+                android:id="@+id/tv_title_ip_address"
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30.0dip"
+                android:text="@string/net_config_network_ip" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/item_subnet_mask"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="204.0dip"
+            android:layout_marginTop="13.0dip"
+            android:layout_marginEnd="204.0dip">
+
+            <EditText
+                android:id="@+id/edt_subnet_mask"
+                style="@style/Common.Text.Content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:background="?itemBg"
+                android:clickable="false"
+                android:focusable="false"
+                android:gravity="end"
+                android:paddingStart="30.0dip"
+                android:paddingTop="12.0dip"
+                android:paddingEnd="30.0dip"
+                android:paddingBottom="12.0dip" />
+
+            <TextView
+                android:id="@+id/tv_title_subnet_mask"
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30.0dip"
+                android:text="@string/net_config_network_mask" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/item_gateway"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="204.0dip"
+            android:layout_marginTop="13.0dip"
+            android:layout_marginEnd="204.0dip">
+
+            <EditText
+                android:id="@+id/edt_gateway"
+                style="@style/Common.Text.Content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:background="?itemBg"
+                android:clickable="false"
+                android:focusable="false"
+                android:gravity="end"
+                android:paddingStart="30.0dip"
+                android:paddingTop="12.0dip"
+                android:paddingEnd="30.0dip"
+                android:paddingBottom="12.0dip" />
+
+            <TextView
+                android:id="@+id/tv_title_gateway"
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30.0dip"
+                android:text="@string/net_config_network_gateway" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/item_DNS"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="204.0dip"
+            android:layout_marginTop="13.0dip"
+            android:layout_marginEnd="204.0dip">
+
+            <EditText
+                android:id="@+id/edt_DNS"
+                style="@style/Common.Text.Content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:background="?itemBg"
+                android:clickable="false"
+                android:focusable="false"
+                android:gravity="end"
+                android:paddingStart="30.0dip"
+                android:paddingTop="12.0dip"
+                android:paddingEnd="30.0dip"
+                android:paddingBottom="12.0dip" />
+
+            <TextView
+                android:id="@+id/tv_title_DNS"
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="30.0dip"
+                android:text="@string/net_config_network_dns" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="27.0dip"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_save"
+                style="@style/Common.Text.Content"
+                android:layout_width="195.0dip"
+                android:layout_height="48.0dip"
+                android:layout_gravity="center_horizontal"
+                android:background="?btnBg"
+                android:enabled="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="@string/net_config_network_save"
+                android:textColor="?btnTextColor" />
+
+            <TextView
+                android:id="@+id/btn_ignore_network"
+                style="@style/Common.Text.Content"
+                android:layout_width="195.0dip"
+                android:layout_height="48.0dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40.0dip"
+                android:background="?btnBg"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="false"
+                android:text="@string/net_config_network_ignore"
+                android:textColor="?btnTextColor" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

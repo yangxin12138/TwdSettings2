@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemData"
+            type="com.twd.setting.module.bluetooth.model.CachedBluetoothDevice" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/itemRL"
+        style="@style/ItemPaddingStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="?itemBg"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:tag="layout/layout_item_bluetooth_handset_0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:duplicateParentState="true"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:tag="binding_1"
+            android:textColor="?mainPageItemColor"
+            android:textSize="@dimen/bluetooth_item_textsize" />
+
+        <TextView
+            android:id="@+id/handsetStateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:duplicateParentState="true"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="?mainPageItemColor"
+            android:textSize="@dimen/bluetooth_item_textsize" />
+    </RelativeLayout>
+</layout>

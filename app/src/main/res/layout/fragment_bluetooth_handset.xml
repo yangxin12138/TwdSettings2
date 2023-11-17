@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemData"
+            type="com.twd.setting.module.bluetooth.vm.BluetoothHandsetViewModel" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="?mainBg"
+            android:focusable="false"
+            android:orientation="vertical"
+            android:tag="layout/fragment_bluetooth_handset_0">
+
+            <include
+                android:id="@+id/titleLayout"
+                layout="@layout/layout_title" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineLeft"
+                style="@style/GuidelineLeftStyle"
+                android:focusable="false" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineRight"
+                style="@style/GuidelineRightStyle"
+                android:focusable="false" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineTop"
+                style="@style/GuidelineLeftStyle"
+                android:focusable="false"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.235" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bluetoothHandsetRV"
+                style="@style/BluetoothPageItemWidthStyle"
+                android:layout_height="0.0dip"
+                android:layout_marginTop="@dimen/bluetooth_handset_list_margin_t"
+                android:layout_marginBottom="@dimen/bluetooth_handset_list_margin_b"
+                android:focusable="true"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

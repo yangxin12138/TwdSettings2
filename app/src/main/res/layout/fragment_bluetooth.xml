@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.twd.setting.module.bluetooth.vm.BluetoothViewModel" />
+    </data>
+    <!--
+        <FrameLayout
+            android:id="@+id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            tools:ignore="MissingConstraints">
+    -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:tag="layout/fragment_bluetooth_0">
+
+        <include
+            android:id="@+id/titleLayout"
+            layout="@layout/layout_title" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            style="@style/GuidelineLeftStyle"
+            android:focusable="false" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            style="@style/GuidelineRightStyle"
+            android:focusable="false" />
+
+        <Space
+            android:id="@+id/rcvGuidelineRight"
+            android:layout_width="0.0dip"
+            android:layout_height="0.0dip"
+            android:layout_marginStart="@dimen/bluetooth_right_offset"
+            android:focusable="false"
+            app:layout_constraintLeft_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.twd.setting.widgets.SwitchLayoutView
+            android:id="@+id/bluetoothSwitchRL"
+            style="@style/BluetoothPageItemWidthStyle"
+            android:layout_marginTop="@dimen/bluetooth_switchlayout_margin_t"
+            android:background="?mainPageItemBg"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+
+        <TextView
+            android:id="@+id/bluetoothRemoteControlTitleTV"
+            style="@style/BluetoothPageItemTitleStyle"
+            android:focusable="false"
+            android:paddingLeft="0.0dip"
+            android:text="@string/str_common_equipment"
+            app:layout_constraintTop_toBottomOf="@id/bluetoothSwitchRL" />
+
+        <TextView
+            android:id="@+id/bluetoothRemoteControlTV"
+            style="@style/BluetoothPageItemBtnStyle"
+            android:text="@string/str_bluetooth_remote_control"
+            app:layout_constraintTop_toBottomOf="@id/bluetoothRemoteControlTitleTV" />
+
+        <TextView
+            android:id="@+id/bluetoothListTitleTV"
+            style="@style/BluetoothPageItemTitleStyle"
+            android:layout_width="wrap_content"
+            android:focusable="false"
+            android:paddingLeft="0.0dip"
+            android:text="@string/str_devices_found"
+            app:layout_constraintTop_toBottomOf="@id/bluetoothRemoteControlTV" />
+
+        <ProgressBar
+            android:id="@+id/bluetoothListProgress"
+            android:layout_width="@dimen/bluetooth_loading_anim_width"
+            android:layout_height="@dimen/bluetooth_loading_anim_width"
+
+            android:indeterminateBehavior="repeat"
+            android:layout_marginStart="@dimen/bluetooth_loading_anim_margin_l"
+            android:focusable="false"
+
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/bluetoothListTitleTV"
+            app:layout_constraintLeft_toRightOf="@id/bluetoothListTitleTV"
+            app:layout_constraintTop_toTopOf="@id/bluetoothListTitleTV" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bluetoothRV"
+            android:layout_width="0.0dip"
+            android:layout_height="0.0dip"
+            android:layout_marginBottom="@dimen/bluetooth_margin_b"
+            android:fadeScrollbars="false"
+            android:focusable="false"
+            android:paddingRight="@dimen/bluetooth_list_padding_r"
+            android:scrollbarSize="@dimen/scrollbar_thumb_size"
+            android:scrollbarStyle="outsideInset"
+
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/rcvGuidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/bluetoothListTitleTV" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</FrameLayout>-->
+</layout>

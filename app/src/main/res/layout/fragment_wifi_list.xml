@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:orientation="vertical"
+        android:tag="layout/fragment_wifi_list_0">
+
+        <include
+            android:id="@+id/titleLayout"
+            layout="@layout/layout_title" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginStart="174.0dip"
+            android:layout_marginTop="60.0dip"
+            android:layout_marginEnd="174.0dip"
+            android:layout_marginBottom="20.0dip">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_wifi_list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:fadeScrollbars="false"
+                android:paddingTop="1.0dip"
+                android:paddingBottom="1.0dip"
+                android:scrollbarSize="@dimen/scrollbar_thumb_size"
+                android:scrollbarThumbVertical="?scrollbar_thumb_v"
+                android:scrollbarTrackVertical="?scrollbar_track_v"
+                android:scrollbars="vertical" />
+
+            <TextView
+                android:id="@+id/tv_tip_no_wifi"
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="No network available at the moment"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+</layout>

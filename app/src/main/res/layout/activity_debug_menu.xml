@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:tag="layout/activity_debug_menu_0">
+
+        <include
+            android:id="@+id/titleLayout"
+            layout="@layout/layout_title" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            style="@style/GuidelineLeftStyle" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            style="@style/GuidelineRightStyle" />
+
+        <Space
+            android:id="@+id/topMarginSpace"
+            android:layout_width="1.0dip"
+            android:layout_height="0.0dip"
+            app:layout_constraintHeight_percent="0.114"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+
+        <com.twd.setting.widgets.SwitchLayoutView
+            android:id="@+id/testSwitchLayout"
+            style="@style/SwitchLayoutStyle"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            app:descVisible="false"
+            app:layout_constraintTop_toBottomOf="@id/topMarginSpace"
+            app:titleText="@string/str_debugmenu_test_switch" />
+
+        <com.twd.setting.widgets.SwitchLayoutView
+            android:id="@+id/debugSwitchLayout"
+            style="@style/SwitchLayoutStyle"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            app:descVisible="false"
+            app:layout_constraintTop_toBottomOf="@id/testSwitchLayout"
+            app:titleText="@string/str_debugmenu_debug_switch" />
+
+        <TextView
+            android:id="@+id/setMacAddressTv"
+            style="@style/BluetoothPageItemBtnStyle"
+            android:layout_marginTop="@dimen/main_item_margin_t"
+            android:text="@string/str_debugmenu_set_mac_addr"
+            app:layout_constraintTop_toBottomOf="@id/debugSwitchLayout" />
+
+        <TextView
+            android:id="@+id/setSerialNumberTv"
+            style="@style/BluetoothPageItemBtnStyle"
+            android:layout_marginTop="@dimen/main_item_margin_t"
+            android:text="@string/str_debugmenu_set_serial_number"
+            app:layout_constraintTop_toBottomOf="@id/setMacAddressTv" />
+
+        <com.twd.setting.widgets.SwitchLayoutView
+            android:id="@+id/printLogSwitchLayout"
+            style="@style/SwitchLayoutStyle"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            app:descVisible="false"
+            app:layout_constraintTop_toBottomOf="@id/setSerialNumberTv"
+            app:titleText="@string/str_debugmenu_printlog_switch" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

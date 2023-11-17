@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ItemPaddingStyle"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/deviceinfo_item_padding_tb"
+    android:paddingBottom="@dimen/deviceinfo_item_padding_tb">
+
+    <TextView
+        android:id="@+id/leftTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?primaryTextColor"
+        android:textSize="@dimen/deviceinfo_l_textsize" />
+
+    <TextView
+        android:id="@+id/rightTv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="?primaryTextColor"
+        android:textSize="@dimen/deviceinfo_r_textsize" />
+</LinearLayout>

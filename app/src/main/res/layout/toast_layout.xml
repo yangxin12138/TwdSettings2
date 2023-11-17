@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/toast_black"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_toast"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:padding="30.0dip"
+        android:text="toast"
+        android:textColor="@color/white"
+        android:textSize="28.0sp" />
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemData"
+            type="com.twd.setting.utils.binding.ItemLRTextIconData" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/itemRL"
+        style="@style/PaddingLeftRightStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="?mainPageItemBg"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/leftIv"
+            android:tag="binding_1"
+            android:layout_width="@dimen/main_item_left_icon_width"
+            android:layout_height="@dimen/main_item_left_icon_width"
+            android:layout_centerVertical="true"
+            android:duplicateParentState="true"
+            android:scaleType="fitCenter"
+	    app:tint="?mainPageItemColor"
+            app:imageResource="@{itemData.leftIconRes}" />
+
+
+
+        <TextView
+            android:id="@+id/contentTV"
+            android:tag="binding_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/main_item_text_margin_l"
+            android:layout_toEndOf="@id/leftIv"
+
+            android:duplicateParentState="true"
+            android:gravity="center_vertical"
+            android:textColor="?mainPageItemColor"
+            android:text="@{itemData.leftTxt}"
+            android:textSize="@dimen/item_lr_txt_size" />
+
+        <ImageView
+            android:id="@+id/contentTVLeft"
+            android:tag="binding_3"
+            android:layout_width="@dimen/main_item_right_icon_height"
+            android:layout_height="@dimen/main_item_right_icon_height"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:duplicateParentState="true"
+            android:scaleType="fitCenter"
+            app:tint="?mainPageItemColor"
+            app:imageResource="@{itemData.rightIconRes}" />
+    </RelativeLayout>
+</layout>

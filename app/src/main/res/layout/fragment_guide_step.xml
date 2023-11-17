@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:tag="layout/fragment_guide_step_0">
+
+        <include
+            android:id="@+id/customDialog"
+            layout="@layout/custom_dialog" />
+    </FrameLayout>
+</layout>

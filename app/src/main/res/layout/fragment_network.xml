@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.twd.setting.module.network.NetworkViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:tag="layout/fragment_network_0">
+
+        <include
+            android:id="@+id/titleLayout"
+            layout="@layout/layout_title" />
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="174.0dip"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginEnd="174.0dip"
+            android:layout_marginBottom="20.0dip"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/item_wifi_switch"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="18.0dip"
+                android:background="?mainPageItemBg"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="30.0dip"
+                android:paddingTop="13.0dip"
+                android:paddingEnd="30.0dip"
+                android:paddingBottom="13.0dip">
+
+                <TextView
+                    style="@style/Common.Text.Content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:duplicateParentState="true"
+                    android:text="@string/net_wireless_network_switch" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center"
+                    android:background="@null"
+                    android:thumb="?switch_thumb"
+                    app:track="?switch_track" />
+            </FrameLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_wifi_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20.0dip"
+                android:fadeScrollbars="false"
+
+                android:paddingBottom="1.0dip"
+                android:scrollbarSize="@dimen/scrollbar_thumb_size"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarThumbVertical="?scrollbar_thumb_v"
+                android:scrollbarTrackVertical="?scrollbar_track_v"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_wifi_switch" />
+
+            <TextView
+                android:id="@+id/tv_tip_no_wifi"
+                style="@style/Common.Text.Content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="No network available at the moment"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

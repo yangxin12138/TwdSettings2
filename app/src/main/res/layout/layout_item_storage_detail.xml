@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemRL"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/storagedetail_sys_margin_t"
+        android:tag="layout/layout_item_storage_detail_0">
+
+        <ImageView
+            android:id="@+id/itemStorageIv"
+            android:layout_width="@dimen/storagedetail_icon_width"
+            android:layout_height="@dimen/storagedetail_icon_width"
+            android:src="@drawable/ic_sys_storage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?storageDetailItemIconTint" />
+
+        <TextView
+            android:id="@+id/itemStorageNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/storagedetail_text_marginleft"
+            android:text="@string/str_storage_system"
+            android:textColor="?secondaryTextColor"
+            android:textSize="@dimen/storagedetail_textsize"
+            app:layout_constraintLeft_toRightOf="@id/itemStorageIv"
+            app:layout_constraintTop_toTopOf="@id/itemStorageIv" />
+
+        <TextView
+            android:id="@+id/itemSizeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?secondaryTextColor"
+            android:textSize="@dimen/storagedetail_desc_textsize"
+            app:layout_constraintBottom_toBottomOf="@id/itemStorageIv"
+            app:layout_constraintLeft_toLeftOf="@id/itemStorageNameTv" />
+
+        <TextView
+            android:id="@+id/itemFreeSizeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?secondaryTextColor"
+            android:textSize="@dimen/storagedetail_desc_textsize"
+            app:layout_constraintBottom_toBottomOf="@id/itemStorageIv"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/itemStorageIv" />
+
+        <com.twd.setting.widgets.RatioLineCustomView
+            android:id="@+id/itemStorageRlcv"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/storagedetail_chart_margin_t"
+            app:descTextPaddingLeft="@dimen/storage_chart_text_padding_l"
+            app:descTextPaddingTop="@dimen/storage_chart_text_padding_t"
+            app:descTextSize="@dimen/storage_chart_textsize"
+            app:descTextTitleColor="?primaryTextColor"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemStorageIv"
+            app:lineSize="@dimen/storage_chart_size" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/list_divider_size"
+            android:layout_marginTop="@dimen/storagedetail_sys_margin_t"
+            android:background="@color/color_55d9d9d9"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemStorageRlcv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

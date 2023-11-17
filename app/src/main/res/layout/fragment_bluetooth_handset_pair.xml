@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="?mainBg"
+            android:tag="layout/fragment_bluetooth_handset_pair_0">
+
+            <include
+                android:id="@+id/titleLayout"
+                layout="@layout/layout_title" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineLeft"
+                style="@style/GuidelineLeftStyle"
+                android:focusable="false"
+                app:layout_constraintGuide_percent="0.21" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineRight"
+                style="@style/GuidelineRightStyle"
+                android:focusable="false"
+                app:layout_constraintGuide_percent="0.79" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineTop"
+                style="@style/GuidelineLeftStyle"
+                android:focusable="false"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.235" />
+
+            <TextView
+                android:id="@+id/pairTipTv"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="?primaryTextColor"
+                android:textSize="@dimen/bluetooth_handset_pair_tip_textsize"
+                android:visibility="gone"
+                app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+                app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+                app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+
+            <ImageView
+                android:id="@+id/pairTipHandsetIv"
+                android:layout_width="0.0dip"
+                android:layout_height="0.0dip"
+                android:layout_marginTop="@dimen/bluetooth_handset_pair_tipicon_margin_t"
+                android:scaleType="fitEnd"
+                android:src="@drawable/ic_handset_pair_tip"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="w,538:1073"
+                app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+                app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+                app:layout_constraintTop_toBottomOf="@id/pairTipTv" />
+
+            <ImageView
+                android:id="@+id/pairTipLeftIv"
+                android:layout_width="@dimen/bluetooth_handset_pair_tip_animicon_width"
+                android:layout_height="@dimen/bluetooth_handset_pair_tip_animicon_height"
+                android:layout_marginTop="@dimen/bluetooth_handset_pair_tip_animicon_margin_t"
+                android:layout_marginRight="@dimen/bluetooth_handset_pair_tip_animicon_margin_lr"
+                android:scaleType="fitEnd"
+                android:src="@drawable/ic_handset_pair_tip_anim_left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/pairTipHandsetIv"
+                app:layout_constraintTop_toTopOf="@id/pairTipHandsetIv"
+                app:tint="?primaryTextColor" />
+
+            <ImageView
+                android:id="@+id/pairTipRightIv"
+                android:layout_width="@dimen/bluetooth_handset_pair_tip_animicon_width"
+                android:layout_height="@dimen/bluetooth_handset_pair_tip_animicon_height"
+                android:layout_marginLeft="@dimen/bluetooth_handset_pair_tip_animicon_margin_lr"
+                android:layout_marginTop="@dimen/bluetooth_handset_pair_tip_animicon_margin_t"
+                android:scaleType="fitStart"
+                android:src="@drawable/ic_handset_pair_tip_anim_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/pairTipHandsetIv"
+                app:layout_constraintTop_toTopOf="@id/pairTipHandsetIv"
+                app:tint="?primaryTextColor" />
+
+            <ImageView
+                android:id="@+id/pairResultIv"
+                android:layout_width="@dimen/bluetooth_handset_pair_result_icon_width"
+                android:layout_height="@dimen/bluetooth_handset_pair_result_icon_height"
+                android:scaleType="fitCenter"
+                android:src="?handsetPairResultIcon"
+                app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+                app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+
+            <TextView
+                android:id="@+id/pairResultTitleTv"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:textColor="?primaryTextColor"
+                android:textSize="@dimen/bluetooth_handset_pair_result_textsize"
+                app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+                app:layout_constraintRight_toLeftOf="@id/pairResultIv"
+                app:layout_constraintTop_toTopOf="@id/pairResultIv" />
+
+            <TextView
+                android:id="@+id/pairResultDescTv"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/bluetooth_handset_pair_result_desc_margin_t"
+                android:lineSpacingMultiplier="1.5"
+                android:textColor="?primaryTextColor"
+                android:textSize="@dimen/bluetooth_handset_pair_result_desc_textsize"
+                app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+                app:layout_constraintRight_toLeftOf="@id/pairResultIv"
+                app:layout_constraintTop_toBottomOf="@id/pairResultTitleTv" />
+
+            <LinearLayout
+                android:id="@+id/pairResultBtnLL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bluetooth_handset_pair_result_btn_margin_b"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="@dimen/bluetooth_handset_pair_result_btn_width"
+                    android:layout_height="wrap_content"
+                    android:background="?btnBg"
+                    android:focusable="true"
+                    android:paddingTop="@dimen/bluetooth_handset_pair_result_btn_padding_tb"
+                    android:paddingBottom="@dimen/bluetooth_handset_pair_result_btn_padding_tb"
+                    android:text="@string/str_cancel"
+                    android:textColor="?btnTextColor"
+                    android:textSize="@dimen/bluetooth_handset_pair_result_btn_textsize" />
+
+                <Button
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="@dimen/bluetooth_handset_pair_result_btn_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/bluetooth_handset_pair_result_btn_margin_l"
+                    android:background="?btnBg"
+                    android:focusable="true"
+                    android:paddingTop="@dimen/bluetooth_handset_pair_result_btn_padding_tb"
+                    android:paddingBottom="@dimen/bluetooth_handset_pair_result_btn_padding_tb"
+                    android:text="@string/str_retry"
+                    android:textColor="?btnTextColor"
+                    android:textSize="@dimen/bluetooth_handset_pair_result_btn_textsize" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

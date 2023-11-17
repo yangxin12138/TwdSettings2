@@ -1,0 +1,255 @@
+ └─setting
+     │  MainActivity.java
+     │  SettingApplication.java
+     │
+     ├─base
+     │  │  BaseActivity.java      //设置主题
+*    │  │  BaseBindingVmActivity.java
+*    │  │  BaseBindingVmFragment.java
+*    │  │  BaseFragment.java
+*    │  │  BaseModel.java
+     │  │  BaseViewModel.java
+*    │  │  FragmentOnKeyListener.java
+*    │  │  IDispose.java
+*    │  │  IModel.java
+     │  │
+     │  └─observer
+*    │          MyDisposableObserver.java
+*    │          MyObserver.java
+     │
+     ├─commonlibrary
+     │  └─Utils
+*    │      │  CommonFunction.java
+     │      │  ReflectUtils.java
+*    │      │  RxTransUtils.java
+     │      │  StringUtils.java
+     │      │  ToastUtils.java
+*    │      │  Utils.java
+     │      │
+     │      └─event
+*    │              SingleLiveEvent.java
+     │
+     ├─module
+     │  │  MainFragment.java
+     │  │  MainItemVisible.java
+     │  │  MainViewModel.java
+     │  │
+     │  ├─bluetooth
+     │  │  │  BluetoothActivity.java
+     │  │  │
+     │  │  ├─adapter
+     │  │  │      BluetoothHandsetListAdapter.java
+     │  │  │      BluetoothListAdapter.java
+     │  │  │
+     │  │  ├─bluetoothlib
+     │  │  │      A2dpProfile.java
+     │  │  │      AlwaysDiscoverable.java
+     │  │  │      BluetoothCallback.java
+     │  │  │      BluetoothCallbackHelper.java
+     │  │  │      BluetoothEventManager.java
+     │  │  │      BluetoothHandsetFilter.java
+     │  │  │      BluetoothPairingController.java
+     │  │  │      BluetoothPairingReceiver.java
+     │  │  │      CachedBluetoothDeviceManager.java
+     │  │  │      HidProfile.java
+     │  │  │      LocalBluetoothManager.java
+     │  │  │      LocalBluetoothProfile.java
+     │  │  │      LocalBluetoothProfileManager.java
+     │  │  │      OnBluetoothResultCallback.java
+     │  │  │
+     │  │  ├─dialog
+     │  │  │      PairingRequestDialogView.java
+     │  │  │
+     │  │  ├─fragment
+     │  │  │      BluetoothFragment.java
+     │  │  │      BluetoothHandsetFragment.java
+     │  │  │      BluetoothHandsetPairFragment.java
+     │  │  │
+     │  │  ├─holder
+     │  │  │      BluetoothHandsetViewHolder.java
+     │  │  │      BluetoothSearchViewHolder.java
+     │  │  │      BluetoothViewHolder.java
+     │  │  │
+     │  │  ├─model
+     │  │  │      BluetoothItemState.java
+     │  │  │      CachedBluetoothDevice.java
+     │  │  │      HandsetPairState.java
+     │  │  │
+     │  │  └─vm
+     │  │          BluetoothHandsetPairViewModel.java
+     │  │          BluetoothHandsetViewModel.java
+     │  │          BluetoothViewModel.java
+     │  │
+     │  ├─common
+     │  │  │  CommonActivity.java
+     │  │  │
+     │  │  ├─adapter
+     │  │  │      InputMethodAdapter.java
+     │  │  │
+     │  │  ├─fragment
+     │  │  │      CommonFragment.java
+     │  │  │      InputMethodEditorFragment.java
+     │  │  │
+     │  │  ├─holder
+     │  │  │      InputMethodViewHolder.java
+     │  │  │
+     │  │  ├─model
+     │  │  │      CommonSettingVisible.java
+     │  │  │      InputMethodData.java
+     │  │  │
+     │  │  └─vm
+     │  │          CommonViewModel.java
+     │  │
+     │  ├─network
+     │  │  │  EditNetConfigFragment.java
+     │  │  │  NetworkActivity.java
+     │  │  │  NetworkChangeReceiver.java
+     │  │  │  NetworkConstant.java
+     │  │  │  NetworkFragment.java
+     │  │  │  NetworkViewModel.java
+     │  │  │
+     │  │  ├─ether
+     │  │  │      EthernetConfigsFragment.java
+     │  │  │      EthernetConfigsRepository.java
+     │  │  │      EthernetConfigsViewModel.java
+     │  │  │      EthernetUtil.java
+     │  │  │
+     │  │  ├─model
+*    │  │  │      NetConfigInfo.java
+*    │  │  │      NetworkBadging.java
+*    │  │  │      NetworkKey.java
+*    │  │  │      RssiCurve.java
+     │  │  │      ScoredNetwork.java
+*    │  │  │      TimestampedScoredNetwork.java
+     │  │  │      WifiAccessPoint.java
+*    │  │  │      WifiKey.java
+*    │  │  │      WifiListUiState.java
+     │  │  │      WifiNetworkScoreCache.java
+     │  │  │      WifiSsid.java
+     │  │  │
+     │  │  ├─repository
+     │  │  │      ConnectivityListener.java
+     │  │  │      Ipv4ConnectInfoRepository.java
+     │  │  │      NetConfigsRepository.java
+     │  │  │      WifiConnectRepository.java
+     │  │  │      WifiRepository.java
+     │  │  │      WifiScanRepository.java
+     │  │  │      WifiStateRepository.java
+     │  │  │      WifiTrackerRepository.java
+     │  │  │
+     │  │  ├─setup
+     │  │  │      AddStartState.java
+     │  │  │      AddWifiNetworkState.java
+     │  │  │      AdvancedOptionsFlowInfo.java
+     │  │  │      ConnectAuthFailureState.java
+     │  │  │      ConnectFailedState.java
+     │  │  │      ConnectRejectedByApState.java
+     │  │  │      ConnectState.java
+     │  │  │      ConnectTimeOutState.java
+     │  │  │      EnterPasswordState.java
+     │  │  │      FinishState.java
+     │  │  │      KnownNetworkState.java
+     │  │  │      MessageFragment.java
+     │  │  │      OptionsOrConnectState.java
+     │  │  │      SuccessState.java
+     │  │  │      UserChoiceInfo.java
+     │  │  │      WifiConnectivityGuidedStepFragment.java
+     │  │  │
+     │  │  ├─speed
+     │  │  │      DownloadUrlModel.java
+     │  │  │      DownloadUrlPresenter.java
+     │  │  │      DownloadUrlRequest.java
+     │  │  │      NetSpeedInfo.java
+     │  │  │      NetworkSpeedFragment.java
+     │  │  │      NetworkSpeedTester.java
+     │  │  │      NetworkSpeedViewModel.java
+     │  │  │
+     │  │  ├─util
+     │  │  │      AccessibilityHelper.java
+     │  │  │      ReflectHelper.java
+     │  │  │      State.java
+     │  │  │      StateMachine.java
+     │  │  │      Transition.java
+     │  │  │      WifiConfigHelper.java
+     │  │  │      WifiSecurityUtil.java
+     │  │  │
+     │  │  └─wifi
+     │  │          AddNetworkFragment.java
+     │  │          AddWifiNetworkActivity.java
+     │  │          EditConfigViewModel.java
+     │  │          EnterPasswordFragment.java
+     │  │          WifiConfigFragment.java
+     │  │          WifiConnectionActivity.java
+     │  │          WifiListFragment.java
+     │  │          WifiListRvAdapter.java
+     │  │          WifiSignalHelper.java
+     │  │          WifiViewModel.java
+     │  │
+     │  └─systemequipment
+     │      │  DeviceInfosActivity.java
+     │      │  StorageDetailActivity.java
+     │      │  SysEquipmentActivity.java
+     │      │
+     │      ├─adapter
+     │      │      DeviceInfosAdapter.java
+     │      │      StorageDetailAdapter.java
+     │      │
+     │      ├─fragment
+     │      │      DeviceInfosFragment.java
+     │      │      SysEquipmentFragment.java
+     │      │
+     │      ├─holder
+     │      │      DeviceInfosViewHolder.java
+     │      │      StorageDetailViewHolder.java
+     │      │
+     │      ├─model
+     │      │      DeviceInfoItem.java
+     │      │      StorageInfoData.java
+     │      │
+     │      ├─repository
+     │      │      StorageDetailRepository.java
+     │      │      SysEquipmentRepository.java
+     │      │
+     │      └─vm
+     │              StorageDetailViewModel.java
+     │              SysEquipmentViewModel.java
+     │
+     ├─utils
+*    │  │  BluetoothUtils.java
+*    │  │  CollectionUtils.java
+*    │  │  ConfigInfo.java
+*    │  │  HLog.java
+     │  │  KkUtils.java
+     │  │  NetworkUtils.java
+     │  │  RomSizeTools.java
+*    │  │  StringUtil.java
+*    │  │  ThreadPoolsUtils.java
+*    │  │  ThreadUtils.java
+*    │  │  TimeUtils.java
+     │  │  UiUtils.java
+     │  │  UsbScanTool.java
+     │  │
+     │  ├─binding
+*    │  │      BluetoothItemClickHandle.java
+*    │  │      ItemClickHandle.java
+*    │  │      ItemLRTextIconClickHandle.java
+*    │  │      ItemLRTextIconData.java
+*    │  │      MyViewBindingAdapter.java
+     │  │
+     │  ├─constant
+*    │  │      TimeConstants.java
+     │  │
+     │  └─manager
+*    │          DataMapUtils.java
+*    │          ViewManager.java
+     │
+     └─widgets
+*            BaseView.java
+*            CustomDialog.java
+             CustomDialView.java
+*            DialogTools.java
+*            DialogView.java    //设置主题
+             MarginTopItemDecoration.java
+             RatioLineCustomView.java
+*            SwitchLayoutView.java
+*            ToastTools.java

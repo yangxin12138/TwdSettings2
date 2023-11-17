@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.twd.setting.module.common.vm.CommonViewModel" />
+
+        <variable
+            name="itemData"
+            type="com.twd.setting.utils.binding.ItemLRTextIconData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:tag="layout/fragment_common_0">
+
+        <include
+            android:id="@+id/titleLayout"
+            layout="@layout/layout_title" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            style="@style/GuidelineLeftStyle" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            style="@style/GuidelineRightStyle" />
+
+        <Space
+            android:id="@+id/topMarginSpace"
+            android:layout_width="1.0dip"
+            android:layout_height="0.0dip"
+            app:layout_constraintHeight_percent="0.114"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+
+        <include
+            android:id="@+id/imeLayout"
+            android:tag="0"
+            layout="@layout/layout_item_system_equipment"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            bind:itemData="@{viewModel.imeData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/topMarginSpace" />
+
+        <include
+            android:id="@+id/settingsLayout"
+            android:tag="1"
+            layout="@layout/layout_item_system_equipment"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+            bind:itemData="@{viewModel.settingsData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/imeLayout" />
+
+        <com.twd.setting.widgets.SwitchLayoutView
+            android:id="@+id/screenSaverSwitchRL"
+            style="@style/BluetoothPageItemWidthStyle"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+            android:background="?mainPageItemBg"
+            android:clickable="true"
+            android:focusable="true"
+            app:descText="@string/str_screensaver_tip"
+            app:layout_constraintTop_toBottomOf="@id/settingsLayout"
+            app:titleText="@string/str_screensaver" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

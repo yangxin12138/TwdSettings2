@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:clickable="false"
+        android:thumb="?switch_thumb"
+        android:track="?switch_track" />
+
+    <TextView
+        android:id="@+id/switchTitle"
+        android:textColor="?enableFocusableTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:duplicateParentState="true"
+        android:text="@string/str_bluetooth_switch"
+        android:textSize="@dimen/switchlayout_textsize" />
+
+    <TextView
+        android:id="@+id/switchDesc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/switchTitle"
+        android:layout_marginTop="@dimen/switchlayout_msg_margin_t"
+        android:layout_toLeftOf="@id/switchBtn"
+        android:duplicateParentState="true"
+        android:ellipsize="end"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="@string/str_bluetooth_switch_desc"
+        android:textSize="@dimen/switchlayout_msg_textsize" />
+</merge>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.twd.setting.module.MainViewModel" />
+
+        <variable
+            name="itemData"
+            type="com.twd.setting.utils.binding.ItemLRTextIconData" />
+    </data>
+    <!--<FrameLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:ignore="MissingConstraints">-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:descendantFocusability="afterDescendants"
+        android:tag="layout/fragment_main_0">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            style="@style/GuidelineLeftStyle"
+            app:layout_constraintGuide_percent="0.078" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            style="@style/GuidelineRightStyle"
+            app:layout_constraintGuide_percent="0.9" />
+
+
+        <TextView
+            android:id="@+id/titleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textColor="?primaryTextColor"
+            android:textSize="@dimen/main_title_textsize"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.067" />
+
+        <TextView
+            android:id="@+id/rightBigIconTv"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_projector"
+            android:drawablePadding="@dimen/main_big_icon_drawable_padding"
+            android:gravity="center_horizontal"
+            android:textColor="?primaryTextColor"
+            android:textSize="@dimen/main_title_textsize"
+            app:drawableTint="?primaryTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.219" />
+
+        <Space
+            android:id="@+id/topSpace"
+            style="@style/MainItemStyle"
+            android:layout_marginBottom="0.0dip"
+            app:layout_constraintBottom_toTopOf="@id/projectorItem"
+            app:layout_constraintTop_toBottomOf="@id/titleTV"
+            app:layout_constraintVertical_weight="0.3"
+            tools:ignore="MissingConstraints" />
+
+
+        <include
+            android:id="@+id/projectorItem"
+            style="@style/MainItemStyle"
+            layout="@layout/layout_item_main"
+            bind:itemData="@{viewModel.projectorData}"
+            app:layout_constraintBottom_toTopOf="@id/signalSourceItem"
+            app:layout_constraintTop_toBottomOf="@id/topSpace" />
+
+        <include
+            android:id="@+id/signalSourceItem"
+            style="@style/MainItemStyle"
+            layout="@layout/layout_item_main"
+            bind:itemData="@{viewModel.signalSourceData}"
+            app:layout_constraintBottom_toTopOf="@id/networkItem"
+            app:layout_constraintTop_toBottomOf="@id/projectorItem" />
+
+        <include
+            android:id="@+id/networkItem"
+            style="@style/MainItemStyle"
+            layout="@layout/layout_item_main"
+            bind:itemData="@{viewModel.networkData}"
+            app:layout_constraintBottom_toTopOf="@id/bluetoothItem"
+            app:layout_constraintTop_toBottomOf="@id/signalSourceItem" />
+
+        <include
+            android:id="@+id/bluetoothItem"
+            style="@style/MainItemStyle"
+            layout="@layout/layout_item_main"
+            bind:itemData="@{viewModel.bluetoothData}"
+            app:layout_constraintBottom_toTopOf="@id/commonItem"
+            app:layout_constraintTop_toBottomOf="@id/networkItem" />
+
+        <include
+            android:id="@+id/commonItem"
+            style="@style/MainItemStyle"
+            layout="@layout/layout_item_main"
+            bind:itemData="@{viewModel.commonData}"
+            app:layout_constraintBottom_toTopOf="@id/systemEquipmentItem"
+            app:layout_constraintTop_toBottomOf="@id/bluetoothItem" />
+
+        <include
+            android:id="@+id/systemEquipmentItem"
+            style="@style/MainItemStyle"
+            layout="@layout/layout_item_main"
+            bind:itemData="@{viewModel.systemEquipmentData}"
+            app:layout_constraintBottom_toTopOf="@id/debugMenuItem"
+            app:layout_constraintTop_toBottomOf="@id/commonItem" />
+
+        <include
+            android:id="@+id/debugMenuItem"
+            style="@style/MainItemStyle"
+            layout="@layout/layout_item_main"
+            bind:itemData="@{itemData}"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/bottomSpace"
+            app:layout_constraintTop_toBottomOf="@id/systemEquipmentItem" />
+
+        <Space
+            android:id="@+id/bottomSpace"
+            style="@style/MainItemStyle"
+            android:layout_marginBottom="0.0dip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/debugMenuItem"
+            app:layout_constraintVertical_weight="0.2"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</FrameLayout>-->
+</layout>
