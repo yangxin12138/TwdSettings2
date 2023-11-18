@@ -26,6 +26,7 @@ import com.twd.setting.module.bluetooth.BluetoothActivity;
 import com.twd.setting.module.common.CommonActivity;
 import com.twd.setting.module.device.DeviceActivity;
 import com.twd.setting.module.network.NetworkActivity;
+import com.twd.setting.module.projector.ProjectorActivity;
 import com.twd.setting.module.systemequipment.SysEquipmentActivity;
 import com.twd.setting.module.universal.UniversalActivity;
 import com.twd.setting.utils.UiUtils;
@@ -71,16 +72,7 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
                 }
             }
         } else if (id == R.id.projectorItem) {
-            localMainItemVisible = viewModel.getMainItemLayoutVisibleData();
-            if (localMainItemVisible != null)
-            {
-                if (localMainItemVisible.getProjectorCname() != null)
-                {
-                    intent = new Intent();
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.setComponent(localMainItemVisible.getProjectorCname());
-                }
-            }
+            intent = new Intent(mActivity, ProjectorActivity.class);
         }
 
         if (intent != null) {

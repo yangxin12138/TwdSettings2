@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.twd.setting.module.projector.vm.ProjectionViewModel" />
+        <variable
+            name="itemData"
+            type="com.twd.setting.utils.binding.ItemLRTextIconData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:tag="layout/fragment_sys_equipment_0">
+
+        <include
+            android:id="@+id/titleLayout"
+            layout="@layout/layout_title" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            style="@style/GuidelineLeftStyle" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            style="@style/GuidelineRightStyle" />
+
+        <Space
+            android:id="@+id/topSpace"
+            android:layout_width="1.0dip"
+            android:layout_height="0.0dip"
+            app:layout_constraintHeight_percent="0.114"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+
+        <include
+            android:id="@+id/posPosInclude"
+            android:tag="0"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            bind:itemData="@{viewModel.posPosData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/topSpace" />
+
+        <include
+            android:id="@+id/posNegInclude"
+            android:tag="1"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+            bind:itemData="@{viewModel.posNegData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/posPosInclude" />
+        <include
+            android:id="@+id/negPosInclude"
+            android:tag="2"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+            bind:itemData="@{viewModel.negPosData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/posNegInclude" />
+        <include
+            android:id="@+id/negNegInclude"
+            android:tag="3"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+            bind:itemData="@{viewModel.negNegData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/negPosInclude" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

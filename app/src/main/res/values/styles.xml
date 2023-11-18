@@ -192,6 +192,10 @@
         <item name="storageDetailItemIconTint">@color/white</item>
         <item name="switch_thumb">@drawable/selector_switch_thumb_white</item>
         <item name="switch_track">@drawable/selector_switch_bg_lightblue_gray</item>
+        <item name="trape_dots">@drawable/trape_dot_white</item>
+        <item name="projection_bg">@drawable/trape_background_iceblue</item>
+        <item name="arrow_horizontal">@mipmap/arrow_horizont_white</item>
+        <item name="arrow_vertical">@mipmap/arrow_vertical_white</item>
     </style>
 
     <style name="Theme.TVSettings2.StarrySkyBlue" parent="@style/Theme.TVSettings2.Base">
@@ -235,6 +239,10 @@
         <item name="storageDetailItemIconTint">@color/white</item>
         <item name="switch_thumb">@drawable/selector_switch_thumb_white</item>
         <item name="switch_track">@drawable/selector_switch_bg_blue_gray</item>
+        <item name="trape_dots">@drawable/trape_dot_white</item>
+        <item name="projection_bg">@drawable/trape_background_starblue</item>
+        <item name="arrow_horizontal">@mipmap/arrow_horizont_white</item>
+        <item name="arrow_vertical">@mipmap/arrow_vertical_white</item>
     </style>
 
     <style name="Theme.TVSettings2.White" parent="@style/Theme.TVSettings2.Base">
@@ -276,5 +284,9 @@
         <item name="storageDetailItemIconTint">@color/color_999999</item>
         <item name="switch_thumb">@drawable/selector_switch_thumb_white</item>
         <item name="switch_track">@drawable/selector_switch_bg_orange_gray</item>
+        <item name="trape_dots">@drawable/trape_dot</item>
+        <item name="projection_bg">@drawable/trape_background</item>
+        <item name="arrow_horizontal">@mipmap/arrow_horizont</item>
+        <item name="arrow_vertical">@mipmap/arrow_vertical</item>
     </style>
 </resources>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.twd.setting.module.projector.vm.ProjectorViewModel" />
+        <variable
+            name="itemData"
+            type="com.twd.setting.utils.binding.ItemLRTextIconData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="?mainBg"
+        android:tag="layout/fragment_sys_equipment_0">
+
+        <include
+            android:id="@+id/titleLayout"
+            layout="@layout/layout_title" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            style="@style/GuidelineLeftStyle" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            style="@style/GuidelineRightStyle" />
+
+        <Space
+            android:id="@+id/topSpace"
+            android:layout_width="1.0dip"
+            android:layout_height="0.0dip"
+            app:layout_constraintHeight_percent="0.114"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+
+        <include
+            android:id="@+id/twoPointInclude"
+            android:tag="0"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            bind:itemData="@{viewModel.twoPointData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/topSpace" />
+
+        <include
+            android:id="@+id/fourPointInclude"
+            android:tag="1"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+            bind:itemData="@{viewModel.fourPointData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/twoPointInclude" />
+        <include
+            android:id="@+id/sizeInclude"
+            android:tag="2"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+            bind:itemData="@{viewModel.sizeData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/fourPointInclude" />
+        <include
+            android:id="@+id/projectionInclude"
+            android:tag="3"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+            bind:itemData="@{viewModel.projectionData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/sizeInclude" />
+<!--
+        <include
+            android:id="@+id/twoPointInclude"
+            style="@style/ProjectorItemStyle"
+            layout="@layout/layout_item_projector"
+            bind:itemData="@{viewModel.twoPointData}"
+            app:layout_constraintBottom_toTopOf="@id/fourPointInclude"
+            app:layout_constraintTop_toBottomOf="@id/topSpace" />
+
+        <include
+            android:id="@+id/fourPointInclude"
+            style="@style/ProjectorItemStyle"
+            layout="@layout/layout_item_projector"
+            bind:itemData="@{viewModel.fourPointData}"
+            app:layout_constraintBottom_toTopOf="@id/sizeInclude"
+            app:layout_constraintTop_toBottomOf="@id/twoPointInclude" />
+
+        <include
+            android:id="@+id/sizeInclude"
+            style="@style/ProjectorItemStyle"
+            layout="@layout/layout_item_projector"
+            bind:itemData="@{viewModel.sizeData}"
+            app:layout_constraintBottom_toTopOf="@id/projectionInclude"
+            app:layout_constraintTop_toBottomOf="@id/fourPointInclude" />
+
+        <include
+            android:id="@+id/projectionInclude"
+            style="@style/ProjectorItemStyle"
+            layout="@layout/layout_item_projector"
+            bind:itemData="@{viewModel.projectionData}"
+            app:layout_constraintBottom_toTopOf="@id/bottomSpace"
+            app:layout_constraintTop_toBottomOf="@id/sizeInclude" />
+
+        <Space
+            android:id="@+id/bottomSpace"
+            style="@style/MainItemStyle"
+            android:layout_marginBottom="0.0dip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/projectionInclude"
+            app:layout_constraintVertical_weight="0.2"
+            tools:ignore="MissingConstraints" />
+           -->
+       <!--         <include
+                    android:id="@+id/twoPointInclude"
+                    layout="@layout/layout_item_projector"
+                    style="@style/MainItemStyle"
+                    app:itemData="@{viewModel.twoPointData}"
+                    android:layout_marginTop="@dimen/main_item_margin_t" />
+
+                <include
+                    android:id="@+id/fourPointInclude"
+                    layout="@layout/layout_item_projector"
+                    style="@style/MainItemStyle"
+                    app:itemData="@{viewModel.fourPointData}"
+                    android:layout_marginTop="@dimen/main_item_margin_t" />
+
+                <include
+                    android:id="@+id/sizeInclude"
+                    layout="@layout/layout_item_projector"
+                    style="@style/MainItemStyle"
+                    app:itemData="@{viewModel.sizeData}"
+                    android:layout_marginTop="@dimen/main_item_margin_t" />
+
+                <include
+                    android:id="@+id/projectionInclude"
+                    layout="@layout/layout_item_projector"
+                    style="@style/MainItemStyle"
+                    app:itemData="@{viewModel.projectionData}"
+                    android:layout_marginTop="@dimen/main_item_margin_t" />
+-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

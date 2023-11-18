@@ -563,6 +563,7 @@
     <dimen name="double_tv_horizontal_paddingStart">230dp</dimen>
     <dimen name="double_tv_horizontal_paddingTop">15dp</dimen>
     <dimen name="main_tv_textSize">20sp</dimen>
+    <dimen name="main_tv_marginRight">570dp</dimen>
     <dimen name="projection_title_textSize">30sp</dimen>
     <dimen name="main_tv_textSize_small">15sp</dimen>
     <dimen name="doublePoint_iv_width">600dp</dimen>
