@@ -170,8 +170,8 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
 //            }
 //            else
 //            {
-            //binding.signalSourceItem.itemRL.setVisibility(View.GONE);
-            binding.signalSourceItem.itemRL.setVisibility(View.VISIBLE);
+            binding.signalSourceItem.itemRL.setVisibility(View.GONE);
+            //binding.signalSourceItem.itemRL.setVisibility(View.VISIBLE);
 //            }
 //            if (paramMainItemVisible.isBluetoothVisible())
 //            {
@@ -183,7 +183,7 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
 //                binding.bluetoothItem.itemRL.setVisibility(View.GONE);
 //            }
             //setItemFocusAndHeight(paramMainItemVisible.isProjectorVisible(), paramMainItemVisible.isSourceVisible(), i);
-            setItemFocusAndHeight(true, true, 6);
+            setItemFocusAndHeight(true, true, 5);
         }
     }
 
