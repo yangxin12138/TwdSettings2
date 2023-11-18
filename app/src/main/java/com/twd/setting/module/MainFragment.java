@@ -24,6 +24,7 @@ import com.twd.setting.base.FragmentOnKeyListener;
 import com.twd.setting.databinding.FragmentMainBinding;
 import com.twd.setting.module.bluetooth.BluetoothActivity;
 import com.twd.setting.module.common.CommonActivity;
+import com.twd.setting.module.device.DeviceActivity;
 import com.twd.setting.module.network.NetworkActivity;
 import com.twd.setting.module.systemequipment.SysEquipmentActivity;
 import com.twd.setting.module.universal.UniversalActivity;
@@ -51,7 +52,7 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
         if (id == R.id.debugMenuItem) {
             //intent = new Intent(mActivity, DebugMenuActivity.class);
         } else if (id == R.id.systemEquipmentItem) {
-            intent = new Intent(mActivity, SysEquipmentActivity.class);
+            intent = new Intent(mActivity, DeviceActivity.class);
         } else if (id == R.id.commonItem) {
             intent = new Intent(mActivity, UniversalActivity.class);
         } else if (id == R.id.bluetoothItem) {

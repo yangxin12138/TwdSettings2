@@ -102,6 +102,10 @@
         <activity android:name=".module.universal.UniversalActivity"/>
         <activity android:name=".module.universal.UniversalInputActivity"/>
         <activity android:name=".module.universal.UniversalLanguageActivity"/>
+
+        <activity android:name=".module.device.DeviceActivity"/>
+        <activity android:name=".module.device.DeviceInfoActivity"/>
+        <activity android:name=".module.device.DeviceStorageActivity"/>
     </application>
 
 </manifest>
