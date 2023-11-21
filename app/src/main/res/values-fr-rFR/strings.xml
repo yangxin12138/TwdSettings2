@@ -22,17 +22,17 @@
     <string name="str_bluetooth_dialog_unbond_msg">Une fois la connexion d\'appairage terminée, l\'appareil peut accéder à votre téléviseur</string>
     <string name="str_bluetooth_dialog_unbond_title">%s Demande d\'appairage Bluetooth</string>
     <string name="str_bluetooth_handset_dialog_unbond_msg">Le dissociation de la télécommande Bluetooth affectera la commande vocale</string>
-    <string name="str_bluetooth_handset_pair_desc">"Afin d'utiliser normalement la télécommande Bluetooth,
-Ne désactivez pas la fonction Bluetooth après un couplage réussi."</string>
-    <string name="str_bluetooth_handset_pair_guide">Appuyez et maintenez le bouton "OK" pendant 5 secondes jusqu'à ce que le voyant vert clignote</string>
-    <string name="str_bluetooth_handset_pair_retry_desc">"Afin d'utiliser normalement la télécommande Bluetooth,
-Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth."</string>
+    <string name="str_bluetooth_handset_pair_desc">Afin d\'utiliser normalement la télécommande Bluetooth,
+Ne désactivez pas la fonction Bluetooth après un couplage réussi.</string>
+    <string name="str_bluetooth_handset_pair_guide">Appuyez et maintenez le bouton "OK" pendant 5 secondes jusqu\'à ce que le voyant vert clignote</string>
+    <string name="str_bluetooth_handset_pair_retry_desc">Afin d\'utiliser normalement la télécommande Bluetooth,
+Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.</string>
     <string name="str_bluetooth_handset_pairing">La télécommande Bluetooth est en cours de couplage•••</string>
     <string name="str_bluetooth_pair_fail">Échec du couplage</string>
     <string name="str_bluetooth_pair_success">Couplage réussi</string>
     <string name="str_bluetooth_paring_request_content">Une fois couplé, l\'appareil peut accéder à votre projecteur, veuillez saisir le code de couplage ci-dessus sur l\'appareil et cliquez sur Confirmer</string>
     <string name="str_bluetooth_paring_request_title">depuis %1$s demande d\'appairage</string>
-    <string name="str_bluetooth_paring_request_title_passkey">depuis %1$s demande d\'appairage, code d\'appairage de l'appareil：%2$s</string>
+    <string name="str_bluetooth_paring_request_title_passkey">depuis %1$s demande d\'appairage, code d\'appairage de l\'appareil：%2$s</string>
     <string name="str_bluetooth_remote_control">Télécommande Bluetooth</string>
     <string name="str_bluetooth_stop_search">Arrêter la recherche</string>
     <string name="str_bluetooth_switch">Commutateur Bluetooth</string>
