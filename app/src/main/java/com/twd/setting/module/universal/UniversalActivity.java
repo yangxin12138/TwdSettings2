@@ -59,8 +59,22 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         //当前输入法
         PackageManager packageManager = getPackageManager();
         String selectedInputMethodId = Settings.Secure.getString(getContentResolver(),Settings.Secure.DEFAULT_INPUT_METHOD);
+        Log.i("yangxin", "onResume: 当前输入法是  = " + selectedInputMethodId);
         ComponentName componentName = ComponentName.unflattenFromString(selectedInputMethodId);
         ApplicationInfo applicationInfo;
+        if (componentName == null){
+            Log.i("yangxin", "onResume: componentName  = null" );
+        }else {
+            Log.i("yangxin", "onResume: componentName  不为空" );
+            try {
+                applicationInfo = packageManager.getApplicationInfo(componentName.getPackageName(), 0);
+                CharSequence appName = packageManager.getApplicationLabel(applicationInfo);
+                Log.i("yangxin", "onResume: appName = " + appName );
+            } catch (PackageManager.NameNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         try {
             applicationInfo = packageManager.getApplicationInfo(componentName.getPackageName(), 0);
             CharSequence appName = packageManager.getApplicationLabel(applicationInfo);

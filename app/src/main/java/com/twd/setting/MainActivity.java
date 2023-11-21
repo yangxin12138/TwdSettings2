@@ -3,22 +3,30 @@ package com.twd.setting;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.inputmethod.InputMethodInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.twd.setting.base.BaseActivity;
+import com.twd.setting.bean.InputItem;
 import com.twd.setting.databinding.FragmentMainBinding;
 import com.twd.setting.module.MainFragment;
 import com.twd.setting.module.bluetooth.BluetoothActivity;
 import com.twd.setting.module.bluetooth.fragment.BluetoothFragment;
 import com.twd.setting.utils.KkUtils;
 import com.twd.setting.utils.UiUtils;
+
+import java.util.List;
 
 /*
 public class MainActivity extends AppCompatActivity {
@@ -88,7 +96,33 @@ public class MainActivity
         SharedPreferences inputPreferences = getSharedPreferences("inputMethod", Context.MODE_PRIVATE);
         String input = inputPreferences.getString("input",null);
         if (input!=null) {
+            //用户切换过输入法
+            Log.i(TAG, "onCreate: 第一次走直接设置默认输入法 = " + input);
             Settings.Secure.putString(getContentResolver(),Settings.Secure.DEFAULT_INPUT_METHOD,input);
+        }else {
+            //第一次打开，没有切换过输入法
+            //当前输入法
+            PackageManager packageManager = getPackageManager();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            String selectedInputMethodId = Settings.Secure.getString(getContentResolver(),Settings.Secure.DEFAULT_INPUT_METHOD);
+            //获取已启用的输入法列表
+            List<InputMethodInfo> inputMethods = imm.getInputMethodList();
+            for (InputMethodInfo inputMethod : inputMethods) {
+                String packageName = inputMethod.getPackageName();
+                String inputMethodID = inputMethod.getId();
+                try {
+                    CharSequence appName = packageManager.getApplicationLabel(packageManager.getApplicationInfo(packageName, 0));
+                    String inputMethodAppName = appName.toString();
+                    Log.i(TAG, "inputMethodAppName = " + inputMethodAppName + ",inputMethodID = " + inputMethodID);
+                    if (inputMethodID.equals(selectedInputMethodId)) {
+                        SharedPreferences.Editor editor = inputPreferences.edit();
+                        editor.putString("input",inputMethodID);
+                        editor.commit();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
         Log.d(TAG, "onCreate  savedInstanceState=" + paramBundle + "   intent=" + getIntent());
         curFragment = MainFragment.newInstance();
