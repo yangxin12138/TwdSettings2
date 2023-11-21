@@ -3,6 +3,8 @@ package com.twd.setting.module.universal;
 import android.annotation.SuppressLint;
 import android.app.Instrumentation;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -39,6 +41,7 @@ public class UniversalInputActivity extends AppCompatActivity implements Adapter
     InputItemAdapter adapter;
     private final Context context = this;
     String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
+    SharedPreferences inputPreferences;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,7 +63,8 @@ public class UniversalInputActivity extends AppCompatActivity implements Adapter
 
     private void initView(){
         input_listView = findViewById(R.id.universal_input_listView);
-
+         inputPreferences= getSharedPreferences("inputMethod", Context.MODE_PRIVATE);
+        PackageManager packageManager = getPackageManager();
         //检测当前已安装的输入法
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         String selectedInputMethodId = Settings.Secure.getString(getContentResolver(),Settings.Secure.DEFAULT_INPUT_METHOD);
@@ -70,7 +74,20 @@ public class UniversalInputActivity extends AppCompatActivity implements Adapter
             InputItem inputItem = null;
             String packageName = inputMethod.getPackageName();
             String inputMethodID = inputMethod.getId();
-            if (packageName.contains("sogou")){
+            try {
+                CharSequence appName = packageManager.getApplicationLabel(packageManager.getApplicationInfo(packageName, 0));
+                String inputMethodAppName = appName.toString();
+                Log.i(TAG,"inputMethodAppName = "+inputMethodAppName+",inputMethodID = " + inputMethodID);
+                inputItem = new InputItem(inputMethodAppName,inputMethodID,false);
+                if (inputMethodID.equals(selectedInputMethodId)){
+                    inputItem.setSelected(true);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+            /*if (packageName.contains("sogou")){
                 inputItem = new InputItem(getString(R.string.inputMethod_value_sougou),inputMethodID,false);
                 if (inputMethodID.equals(selectedInputMethodId)){
                     inputItem.setSelected(true);
@@ -85,8 +102,9 @@ public class UniversalInputActivity extends AppCompatActivity implements Adapter
                 if (inputMethodID.equals(selectedInputMethodId)){
                     inputItem.setSelected(true);
                 }
-            }
-            inputItems.add(inputItem);
+            }*/
+
+            if (inputItem != null)inputItems.add(inputItem);
             Log.i(TAG, "initView: packageName = " + packageName + ",id = " + inputMethodID);
         }
         adapter = new InputItemAdapter(context,inputItems);
@@ -112,7 +130,9 @@ public class UniversalInputActivity extends AppCompatActivity implements Adapter
         * 设置当前选中的输入法为启用的输入法*/
         InputItem selectedInputItem = inputItems.get(position);
         Settings.Secure.putString(getContentResolver(),Settings.Secure.DEFAULT_INPUT_METHOD,selectedInputItem.getInputId());
-
+        SharedPreferences.Editor editor = inputPreferences.edit();
+        editor.putString("input", selectedInputItem.getInputId());
+        editor.commit();
         simulateBackKeyPress();
         Log.i(TAG,"onItemClick: -------点击事件--------");
     }

@@ -3,10 +3,14 @@ package com.twd.setting;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.twd.setting.base.BaseActivity;
 import com.twd.setting.databinding.FragmentMainBinding;
@@ -81,7 +85,11 @@ public class MainActivity
     protected void onCreate(Bundle paramBundle) {
         //     UiUtils.updateTheme((SettingApplication)getApplication());
         super.onCreate(paramBundle);
-
+        SharedPreferences inputPreferences = getSharedPreferences("inputMethod", Context.MODE_PRIVATE);
+        String input = inputPreferences.getString("input",null);
+        if (input!=null) {
+            Settings.Secure.putString(getContentResolver(),Settings.Secure.DEFAULT_INPUT_METHOD,input);
+        }
         Log.d(TAG, "onCreate  savedInstanceState=" + paramBundle + "   intent=" + getIntent());
         curFragment = MainFragment.newInstance();
         //UiUtils.replaceFragment(getSupportFragmentManager(), R.id.content, curFragment);

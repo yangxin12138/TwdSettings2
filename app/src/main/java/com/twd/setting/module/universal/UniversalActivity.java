@@ -1,11 +1,16 @@
 package com.twd.setting.module.universal;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -52,14 +57,27 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         super.onResume();
         initView();
         //当前输入法
+        PackageManager packageManager = getPackageManager();
         String selectedInputMethodId = Settings.Secure.getString(getContentResolver(),Settings.Secure.DEFAULT_INPUT_METHOD);
-        if (selectedInputMethodId.contains("sogou")){
+        ComponentName componentName = ComponentName.unflattenFromString(selectedInputMethodId);
+        ApplicationInfo applicationInfo;
+        try {
+            applicationInfo = packageManager.getApplicationInfo(componentName.getPackageName(), 0);
+            CharSequence appName = packageManager.getApplicationLabel(applicationInfo);
+            // 使用appName变量，这是当前输入法应用的名称
+            String currentInputMethodAppName = appName.toString();
+            tv_inputCurrent.setText(currentInputMethodAppName);
+            // 在这里进行进一步的处理
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        /*if (selectedInputMethodId.contains("sogou")){
             tv_inputCurrent.setText(getString(R.string.inputMethod_value_sougou));
         } else if (selectedInputMethodId.contains("inputmethod.pinyin")) {
             tv_inputCurrent.setText(getString(R.string.inputMethod_value_google));
         } else if (selectedInputMethodId.contains("inputmethod.latin")) {
             tv_inputCurrent.setText(getString(R.string.inputMethod_value_Aosp));
-        }
+        }*/
 
         //当前语言
         Locale currentLocal  = getResources().getConfiguration().locale;
