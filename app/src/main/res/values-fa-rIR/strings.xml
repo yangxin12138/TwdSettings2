@@ -208,6 +208,7 @@
     <string name="device_index_info_tv">اطلاعات محلی</string>
     <string name="device_index_storage_tv">ذخیره سازی دستگاه</string>
     <string name="device_index_factory_tv">بازیابی کارخانه</string>
+    <string name="factory_dialog_title">بازگرداندن تنظیمات کارخانه همه داده ها را پاک می کند و سپس راه اندازی مجدد می شود.</string>
     <string name="device_info_deviceNo">شناسه دستگاه</string>
     <string name="device_info_androidVersion">Android نسخه</string>
     <string name="device_info_softwareVersion">شماره نرم افزار</string>

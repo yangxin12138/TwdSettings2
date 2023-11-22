@@ -208,6 +208,7 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="device_index_info_tv">Yerel parametreler</string>
     <string name="device_index_storage_tv">Cihaz Belleği</string>
     <string name="device_index_factory_tv">Onarım Fabrikası</string>
+    <string name="factory_dialog_title">Fabrika ayarlarının geri yüklenmesi tüm verileri temizleyecek ve ardından yeniden başlatacaktır..</string>
     <string name="device_info_deviceNo">Cihaz No</string>
     <string name="device_info_androidVersion">Android Sürüm</string>
     <string name="device_info_softwareVersion">Yazılım numarası</string>

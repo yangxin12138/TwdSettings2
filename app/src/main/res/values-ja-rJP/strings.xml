@@ -208,6 +208,7 @@
     <string name="device_index_info_tv">地元の情報</string>
     <string name="device_index_storage_tv">デバイスストレージ</string>
     <string name="device_index_factory_tv">工場を復元する</string>
+    <string name="factory_dialog_title">工場出荷時の設定に復元すると、すべてのデータが消去され、再起動されます。</string>
     <string name="device_info_deviceNo">デバイス番号</string>
     <string name="device_info_androidVersion">Android版</string>
     <string name="device_info_softwareVersion">ソフトウェア番号</string>

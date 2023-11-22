@@ -102,7 +102,7 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         final TextView factoryTitle = dialogView.findViewById(R.id.factory_title);
         final LinearLayout okBT = dialogView.findViewById(R.id.factory_ok_bt);
         final LinearLayout cancelBT = dialogView.findViewById(R.id.factory_cancel_bt);
-        factoryTitle.setText("恢复出厂设置会重启");
+        factoryTitle.setText(getString(R.string.factory_dialog_title));
         FactoryDialog.show();
 
         okBT.setOnClickListener(new View.OnClickListener() {

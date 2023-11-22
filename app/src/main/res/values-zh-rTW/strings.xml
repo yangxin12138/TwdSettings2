@@ -207,6 +207,7 @@
     <string name="device_index_info_tv">本機資訊</string>
     <string name="device_index_storage_tv">裝置儲存</string>
     <string name="device_index_factory_tv">恢復出廠</string>
+    <string name="factory_dialog_title">恢復出廠設定會清空所有資料後重啟.</string>
     <string name="device_info_deviceNo">設備號</string>
     <string name="device_info_androidVersion">Android版本</string>
     <string name="device_info_softwareVersion">軟體號</string>

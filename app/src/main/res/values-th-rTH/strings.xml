@@ -209,6 +209,7 @@
     <string name="device_index_info_tv">ข้อมูลท้องถิ่น</string>
     <string name="device_index_storage_tv">อุปกรณ์จัดเก็บข้อมูล</string>
     <string name="device_index_factory_tv">คืนค่าโรงงาน</string>
+    <string name="factory_dialog_title">การคืนค่าการตั้งค่าจากโรงงานจะล้างข้อมูลทั้งหมดแล้วรีสตาร์ท.</string>
     <string name="device_info_deviceNo">หมายเลขอุปกรณ์</string>
     <string name="device_info_androidVersion">Androidเวอร์ชัน</string>
     <string name="device_info_softwareVersion">หมายเลขซอฟต์แวร์</string>

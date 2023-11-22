@@ -206,6 +206,7 @@
     <string name="device_index_info_tv">местная информация</string>
     <string name="device_index_storage_tv">Хранилище устройства</string>
     <string name="device_index_factory_tv">Восстановить завод</string>
+    <string name="factory_dialog_title">Восстановление заводских настроек приведет к удалению всех данных и последующей перезагрузке..</string>
     <string name="device_info_deviceNo">Номер устройства</string>
     <string name="device_info_androidVersion">Android Версия</string>
     <string name="device_info_softwareVersion">Номер программного обеспечения</string>

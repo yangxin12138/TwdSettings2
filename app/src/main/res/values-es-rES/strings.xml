@@ -208,6 +208,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="device_index_info_tv">información local</string>
     <string name="device_index_storage_tv">Almacenamiento del dispositivo</string>
     <string name="device_index_factory_tv">Restaurar fábrica</string>
+    <string name="factory_dialog_title">Restaurar la configuración de fábrica borrará todos los datos y luego se reiniciará.</string>
     <string name="device_info_deviceNo">Número de dispositivo</string>
     <string name="device_info_androidVersion">Android Versión</string>
     <string name="device_info_softwareVersion">Número de software</string>

@@ -207,6 +207,7 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="device_index_info_tv">lokale Informationen</string>
     <string name="device_index_storage_tv">Gerätespeicher</string>
     <string name="device_index_factory_tv">Werk wiederherstellen</string>
+    <string name="factory_dialog_title">Durch das Wiederherstellen der Werkseinstellungen werden alle Daten gelöscht und dann neu gestartet.</string>
     <string name="device_info_deviceNo">Gerätenr</string>
     <string name="device_info_androidVersion">Android Version</string>
     <string name="device_info_softwareVersion">Softwarenummer</string>

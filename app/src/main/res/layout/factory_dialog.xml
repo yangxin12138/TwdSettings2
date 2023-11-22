@@ -35,7 +35,7 @@
                 android:duplicateParentState="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Cancel"
+                android:text="@string/dialog_changeLanguage_btCancel"
                 android:textSize="30sp"
                 android:gravity="center"
                 android:textColor="?factory_textColor"/>
@@ -56,7 +56,7 @@
                 android:duplicateParentState="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Confirm"
+                android:text="@string/dialog_changeLanguage_btConfirm"
                 android:textSize="30sp"
                 android:gravity="center"
                 android:textColor="?factory_textColor"/>

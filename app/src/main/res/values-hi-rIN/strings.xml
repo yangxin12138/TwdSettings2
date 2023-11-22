@@ -208,6 +208,7 @@
     <string name="device_index_info_tv">स्थानीय जानकारी</string>
     <string name="device_index_storage_tv">डिवाइस स्टोरेज</string>
     <string name="device_index_factory_tv">फ़ैक्टरी पुनर्स्थापित करें</string>
+    <string name="factory_dialog_title">फ़ैक्टरी सेटिंग्स को पुनर्स्थापित करने से सभी डेटा साफ़ हो जाएगा और फिर पुनः आरंभ होगा।</string>
     <string name="device_info_deviceNo">डिवाइस नं</string>
     <string name="device_info_androidVersion">Androidसंस्करण</string>
     <string name="device_info_softwareVersion">सॉफ्टवेयर नंबर</string>
