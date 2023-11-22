@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Cancel"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:textColor="?factory_textColor"/>
         </LinearLayout>
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Confirm"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:textColor="?factory_textColor"/>
         </LinearLayout>

@@ -3,7 +3,9 @@ package com.twd.setting.module.device;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -107,6 +109,11 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View view) {
                 Log.i(TAG, "onClick: factory ok");
+                try {
+                    startFactoryDefault(context);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -118,4 +125,16 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
     }
+
+    public static void startFactoryDefault(Context context) throws Exception {
+        if (Build.VERSION.SDK_INT < 26) {
+            context.sendBroadcast(new Intent("android.intent.action.MASTER_CLEAR"));
+        } else {
+            Intent intent = new Intent("android.intent.action.FACTORY_RESET");
+            intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+            intent.setPackage("android");
+            context.sendBroadcast(intent);
+        }
+    }
+
 }

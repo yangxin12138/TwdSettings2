@@ -4,15 +4,15 @@
     <item android:state_pressed="true">
         <shape>
             <solid android:color="#f33e25" />
-            <corners android:radius="4.0dip" />
+            <corners android:radius="20.0dip" />
         </shape>
     </item>
     <item android:state_focused="true" android:state_enabled="true">
         <layer-list>
             <item>
                 <shape>
-                    <stroke android:width="1.0dip" android:color="@color/white77" />
-                    <corners android:radius="4.0dip" />
+                    <stroke android:width="4.0dip" android:color="@color/black" />
+                    <corners android:radius="20.0dip" />
                 </shape>
             </item>
             <item>
@@ -23,16 +23,31 @@
             <item>
                 <shape>
                     <solid android:color="#f33e25" />
-                    <corners android:radius="4.0dip" />
+                    <corners android:radius="20.0dip" />
                 </shape>
             </item>
         </layer-list>
     </item>
     <item android:state_focused="false" android:state_enabled="true">
-        <shape>
-            <solid android:color="@color/white77" />
-            <corners android:radius="4.0dip" />
-        </shape>
+        <layer-list>
+            <item>
+                <shape>
+                    <stroke android:width="2.0dip" android:color="@color/black" />
+                    <corners android:radius="20.0dip" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <padding android:left="4.5dip" android:top="4.5dip" android:right="4.5dip" android:bottom="4.5dip" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <solid android:color="@color/transparent" />
+                    <corners android:radius="20.0dip" />
+                </shape>
+            </item>
+        </layer-list>
     </item>
     <item android:state_enabled="false">
         <shape>
