@@ -94,5 +94,35 @@
                 android:layout_height="@dimen/devices_storage_iv_height"
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/devices_LL_factory"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/devices_content_LL_height"
+            android:layout_marginTop="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="?bBg">
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/devices_tv_factory"
+                android:text="@string/device_index_factory_tv"
+                android:textSize="@dimen/devices_storage_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/devices_storage_tv_marginStart"
+                android:textDirection="ltr"/>
+            <ImageView
+                android:duplicateParentState="true"
+                android:id="@+id/arrow_factory"
+                android:src="?arrowSrc"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/devices_storage_iv_height"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

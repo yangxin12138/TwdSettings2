@@ -207,6 +207,7 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="device_index_title_tv">À propos de l\'appareil</string>
     <string name="device_index_info_tv">Informations locales</string>
     <string name="device_index_storage_tv">Stockage de l\'appareil</string>
+    <string name="device_index_factory_tv">Restaurer l\'usine</string>
     <string name="device_info_deviceNo">Numéro d\'appareil</string>
     <string name="device_info_androidVersion">Android Version</string>
     <string name="device_info_softwareVersion">Numéro de logiciel</string>

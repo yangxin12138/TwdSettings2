@@ -206,6 +206,7 @@
     <string name="device_index_title_tv">장치 정보</string>
     <string name="device_index_info_tv">장치 정보</string>
     <string name="device_index_storage_tv">장치 저장소</string>
+    <string name="device_index_factory_tv">공장 복원</string>
     <string name="device_info_deviceNo">장치 번호</string>
     <string name="device_info_androidVersion">안드로이드 버전</string>
     <string name="device_info_softwareVersion">소프트웨어 번호</string>

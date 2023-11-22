@@ -207,6 +207,7 @@
     <string name="device_index_title_tv">デバイスについて</string>
     <string name="device_index_info_tv">地元の情報</string>
     <string name="device_index_storage_tv">デバイスストレージ</string>
+    <string name="device_index_factory_tv">工場を復元する</string>
     <string name="device_info_deviceNo">デバイス番号</string>
     <string name="device_info_androidVersion">Android版</string>
     <string name="device_info_softwareVersion">ソフトウェア番号</string>

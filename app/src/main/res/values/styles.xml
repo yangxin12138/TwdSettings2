@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <style name="DialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
     <style name="BluetoothPageItemBtnStyle" parent="@style/BluetoothPageItemWidthStyle">
         <item name="android:textSize">@dimen/bluetooth_item_textsize</item>
         <item name="android:textColor">?enableFocusableTextColor</item>

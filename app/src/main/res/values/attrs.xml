@@ -25,6 +25,7 @@
         <attr name="scaleValue5" format="float" />
         <attr name="startColor" format="color" />
         <attr name="textColor" format="color" />
+        <attr name="factory_textColor" format="color"/>
         <attr name="textSize" format="dimension" />
         <attr name="unitText" format="string" />
         <attr name="unitTextSize" format="dimension" />

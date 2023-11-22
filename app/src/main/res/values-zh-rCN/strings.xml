@@ -456,6 +456,7 @@ Example: 24"</string>
     <string name="device_index_title_tv">关于设备</string>
     <string name="device_index_info_tv">本机信息</string>
     <string name="device_index_storage_tv">设备存储</string>
+    <string name="device_index_factory_tv">恢复出厂设置</string>
     <string name="device_info_deviceNo">设备号</string>
     <string name="device_info_androidVersion">Android版本</string>
     <string name="device_info_softwareVersion">软件号</string>

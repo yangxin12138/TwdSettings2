@@ -221,6 +221,7 @@
         <item name="storage_systemcolor">@color/storage_charts_iceblue_system</item>
         <item name="storage_appcolor">@color/storage_charts_iceblue_app</item>
         <item name="storage_othercolor">@color/storage_charts_iceblue_other</item>
+        <item name="factory_textColor">@color/selector_factory_textcolor</item>
     </style>
 
     <!--木棉白-->
@@ -255,6 +256,7 @@
         <item name="storage_systemcolor">@color/storage_charts_kapokwhite_system</item>
         <item name="storage_appcolor">@color/storage_charts_kapokwhite_app</item>
         <item name="storage_othercolor">@color/storage_charts_kapokwhite_other</item>
+        <item name="factory_textColor">@color/selector_factory_textcolor</item>
     </style>
 
     <style name="Theme.StarBlue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -288,5 +290,6 @@
         <item name="storage_systemcolor">@color/storage_charts_starblue_system</item>
         <item name="storage_appcolor">@color/storage_charts_starblue_app</item>
         <item name="storage_othercolor">@color/storage_charts_starblue_other</item>
+        <item name="factory_textColor">@color/selector_factory_textcolor</item>
     </style>
 </resources>

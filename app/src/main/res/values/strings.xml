@@ -455,6 +455,7 @@ Example: 24"</string>
     <string name="device_index_title_tv">About Device</string>
     <string name="device_index_info_tv">Device Info</string>
     <string name="device_index_storage_tv">Device Storage</string>
+    <string name="device_index_factory_tv">Restore Factory</string>
     <string name="device_info_deviceNo">Device NO</string>
     <string name="device_info_androidVersion">Android Version</string>
     <string name="device_info_softwareVersion">Software Version</string>

@@ -207,6 +207,7 @@
     <string name="device_index_title_tv">درباره دستگاه</string>
     <string name="device_index_info_tv">اطلاعات محلی</string>
     <string name="device_index_storage_tv">ذخیره سازی دستگاه</string>
+    <string name="device_index_factory_tv">بازیابی کارخانه</string>
     <string name="device_info_deviceNo">شناسه دستگاه</string>
     <string name="device_info_androidVersion">Android نسخه</string>
     <string name="device_info_softwareVersion">شماره نرم افزار</string>
