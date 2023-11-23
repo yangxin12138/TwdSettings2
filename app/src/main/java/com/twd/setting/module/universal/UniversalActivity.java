@@ -98,14 +98,14 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         Configuration configuration = new Configuration();
         configuration.setLocale(currentLocal);
         String name = configuration.locale.getDisplayName(currentLocal);
-        String currentLanguage = name + "_" + currentLocal.getLanguage() + "_" + currentLocal.getCountry();
+        String currentLanguage = currentLocal.getLanguage() + "_" + currentLocal.getCountry();
         Log.i("Language", "onResume: currentLanguage = " + currentLanguage);
-
+        //currentLanguage = en_US
         if (currentLanguage.contains("zh_CN")){
             tv_languageCurrent.setText("简体中文");
         } else if (currentLanguage.contains("zh_TW")) {
             tv_languageCurrent.setText("繁體中文");
-        } else  if(currentLanguage.equals("English_en_")){
+        } else  if(currentLanguage.equals("en_US")){
             tv_languageCurrent.setText("English");
         } else if (currentLanguage.contains("ja_JP")) {
             tv_languageCurrent.setText("日本語");

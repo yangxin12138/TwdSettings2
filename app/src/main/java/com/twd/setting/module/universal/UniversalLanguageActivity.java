@@ -79,18 +79,20 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
         //获取当前的语言code
         Locale currentLocale = getResources().getConfiguration().locale;
         String currentLanguageCode = currentLocale.getLanguage()+"_"+currentLocale.getCountry();
-
+        Log.i(TAG, "initView: 当前语言是：" + currentLanguageCode);
+        //initView: 当前语言是：en_US
         for (Locale locale : availableLocales) {
             String language =locale.getDisplayName(locale)+"_"+locale.getLanguage()+"_"+locale.getCountry();
             String languageCode = locale.getLanguage()+"_"+locale.getCountry();
             if (!language.isEmpty() && !languageList.contains(language)) {
+                Log.i(TAG, "initView: " + language);
                 languageList.add(language);
             }
             LanguageBean languageBean = null;
             Map<String,String> languageMap = new HashMap<>();
             languageMap.put("zh_CN","简体中文"); //简体中文
             languageMap.put("zh_TW","繁體中文"); //繁体中文
-            languageMap.put("en_","English"); //英语
+            languageMap.put("en_US","English"); //英语
             languageMap.put("ja_JP","日本語"); //日语
             languageMap.put("ko_KR","한국어"); //韩语-韩国
             languageMap.put("th_TH","ไทย (ไทย)"); //泰语-泰国
@@ -105,11 +107,11 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             languageMap.put("fa_IR","فارسی (ایران)");//波斯语-伊朗
             languageMap.put("tr_TR","Türkçe (Türkiye)");//土耳其语-土耳其
 
-            List<String> supportedLanguages = Arrays.asList("zh_CN","zh_TW","en_","ja_JP"
+            List<String> supportedLanguages = Arrays.asList("zh_CN","zh_TW","en_US","ja_JP"
                                                     ,"ko_KR","th_TH","hi_IN","fr_FR","de_DE","it_IT"
                                                     ,"ru_RU","es_ES","pt_PT","ar_SA","fa_IR","tr_TR");
             for (String language_sup : supportedLanguages){
-                if (language_sup.equals(languageCode)){
+                if (language_sup.equals(languageCode) && !language.equals("English (United States,Computer)_en_US")){
                     String languageName = languageMap.get(language_sup);
                     languageBean = new LanguageBean(languageName,languageCode,false);
                     if (languageCode.equals(currentLanguageCode)){
@@ -118,10 +120,6 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                     languageBeans.add(languageBean);
                 }
             }
-        }
-        //添加语言
-        for (String language : languageList) {
-            System.out.println(language);
         }
         languageItemAdapter = new LanguageItemAdapter(context,languageBeans);
         language_listView.setAdapter(languageItemAdapter);
@@ -161,8 +159,8 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                     changeSystemLanguage(Locale.SIMPLIFIED_CHINESE);
                 } else if (indexLanguage.equals("zh_TW") ) {
                     changeSystemLanguage(Locale.TRADITIONAL_CHINESE);
-                } else if (indexLanguage.equals("en_")) {
-                    changeSystemLanguage(Locale.ENGLISH);
+                } else if (indexLanguage.equals("en_US")) {
+                    changeSystemLanguage(new Locale("en","US"));
                 } else if (indexLanguage.equals("ja_JP")) {
                     changeSystemLanguage(Locale.JAPAN);
                 } else if (indexLanguage.equals("ko_KR")) {
