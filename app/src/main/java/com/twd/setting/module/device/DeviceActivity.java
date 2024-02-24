@@ -32,8 +32,8 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
     private ImageView arrow_storage;
     private ImageView arrow_factory;
     private Context context;
-    String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
-
+    //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
+    String theme_code = "1";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         switch (theme_code){

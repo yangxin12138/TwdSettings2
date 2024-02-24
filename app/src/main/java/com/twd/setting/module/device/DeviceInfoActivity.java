@@ -23,8 +23,8 @@ public class DeviceInfoActivity extends AppCompatActivity {
     private TextView tv_macAddressBluetooth_value;
     private static final String TAG = DeviceInfoActivity.class.getName();
     private Context context = this;
-    String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
-
+    //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
+    String theme_code = "1";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         switch (theme_code){
