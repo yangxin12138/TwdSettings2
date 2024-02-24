@@ -9,6 +9,7 @@ import com.twd.setting.R;
 import com.twd.setting.base.BaseViewModel;
 import com.twd.setting.commonlibrary.Utils.event.SingleLiveEvent;
 import com.twd.setting.module.systemequipment.repository.SysEquipmentRepository;
+import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.binding.ItemLRTextIconData;
 
 import android.app.Application;
@@ -26,9 +27,9 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     public static final int ITEM_SINGLE_POINT = 2;
     public static final int ITEM_SIZE = 3;
     public static final int ITEM_PROJECTION= 4;
-    private static final String PATH_CONTROL_MIPI = "/sys/ir/control_mipi";
-    private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
-    private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";
+    private static final String PATH_CONTROL_MIPI = "persist.sys.projection";
+/*    private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
+    private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";*/
 
     private static final String TAG = "ProjectorViewModel";
     private final MutableLiveData<Integer> _ClickItem = new SingleLiveEvent();
@@ -111,11 +112,11 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         if(postion == 0){
             projectionData.setRightTxt(getApplication().getString(R.string.projection_pos_pos));
         } else if (postion == 1) {
-            projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_neg));
-        } else if (postion == 2) {
             projectionData.setRightTxt(getApplication().getString(R.string.projection_pos_neg));
-        } else if (postion == 3) {
+        } else if (postion == 2) {
             projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_pos));
+        } else if (postion == 3) {
+            projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_neg));
         }else {
             projectionData.setRightTxt(null);
         }
@@ -123,14 +124,14 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
 
     public int getProjectionItem(){
         int ret = 0;
-        ret = readProjectionValue(PATH_CONTROL_MIPI);//readProjectionValue(PATH_DEV_PRO_INFO2);
-        if(ret == 0){
+        ret = Integer.parseInt(SystemPropertiesUtils.getProperty(PATH_CONTROL_MIPI,"5"));//readProjectionValue(PATH_DEV_PRO_INFO2);
+        /*if(ret == 0){
             if(Build.HARDWARE.equals("mt6735")){
                 ret = readProjectionValue(PATH_DEV_PRO_INFO2);
             }else {
                 ret = readProjectionValue(PATH_DEV_PRO_INFO);
             }
-        }
+        }*/
         return ret;
     }
 

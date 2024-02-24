@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.IBinder;
+import android.os.Parcel;
 import android.util.Log;
 
 import com.twd.setting.base.BaseViewModel;
@@ -11,6 +13,8 @@ import com.twd.setting.module.projector.keystone.Lcd;
 import com.twd.setting.module.projector.keystone.Vertex;
 import com.twd.setting.module.systemequipment.repository.SysEquipmentRepository;
 import com.twd.setting.utils.SystemPropertiesUtils;
+
+import java.lang.reflect.Method;
 
 public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
@@ -23,10 +27,16 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public static final String PROP_RB_ORIGIN = "ro.sys.keystone.rb";
     public static final String PROP_LB_ORIGIN = "ro.sys.keystone.lb";
     public static final String ORIGIN_NULL = "0,0";
-    public static final String PROP_LT = "persist.sys.keystone.lt";
-    public static final String PROP_RT = "persist.sys.keystone.rt";
-    public static final String PROP_RB = "persist.sys.keystone.rb";
-    public static final String PROP_LB = "persist.sys.keystone.lb";
+
+    //yangxin
+    public static final String PROP_LTX = "persist.display.keystone_ltx";
+    public static final String PROP_LTY = "persist.display.keystone_lty";
+    public static final String PROP_RTX = "persist.display.keystone_rtx";
+    public static final String PROP_RTY = "persist.display.keystone_rty";
+    public static final String PROP_LBX = "persist.display.keystone_lbx";
+    public static final String PROP_LBY = "persist.display.keystone_lby";
+    public static final String PROP_RBX = "persist.display.keystone_rbx";
+    public static final String PROP_RBY = "persist.display.keystone_rby";
     public static final String PROP_KEYSTONE_UPDATE = "persist.sys.keystone.update";
 
 
@@ -58,6 +68,16 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public final int MODE_ONEPOINT = 1;
     public final int MODE_TWOPOINT = 0;
     public final int MODE_UNKOWN = -1;
+    //yangxin
+    private IBinder mSurfaceFlinger;
+    private float mLeftBottomX = 0;
+    private float mLeftBottomY = 0;
+    private float mRightBottomX = 0;
+    private float mRightBottomY = 0;
+    private float mLeftTopX = 0;
+    private float mLeftTopY = 0;
+    private float mRightTopX = 0;
+    private float mRightTopY = 0;
 
     public KeystoneViewModel(Application paramApplication) {
         super(paramApplication);
@@ -200,6 +220,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
                 updateBottomRight();
                 break;
         }
+        updateALL();
     }
 
     public void restoreKeystone(){
@@ -214,26 +235,83 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public void updateTopLeft(){
         float zoomx = lcdValidWidth_top*vZoom/10/2/2;
         float movex = vTopLeft.getX()*lcd.getStepX()*(20-vZoom)/20;
-        Log.d(TAG,"getX():"+vTopLeft.getX()+", getStepX():"+lcd.getStepX());
+        Log.d(TAG,"updateTopLeft: zoomx = "+zoomx+",movex = "+movex+",vTopLeftOrigin.getX() = "+vTopLeftOrigin.getX()+",lcd.getStepX() = "+lcd.getStepX()+",vZoom = "+vZoom);
         float x = vTopLeftOrigin.getX() + (zoomx + movex);
+        if (x<0){x = Math.abs(x);}
+        mLeftTopX = x;
+        String xString = Float.toString(x);
         float zoomy = lcdValidHeight_left*vZoom/10/2/2;
         float movey = vTopLeft.getY()*lcd.getStepY()*(20-vZoom)/20;
+        Log.d(TAG, "updateTopLeft: zoomy = "+zoomy+",movey = "+movey+",vTopLeftOrigin.getY() = "+vTopLeftOrigin.getY()+",lcd.getStepY() = "+lcd.getStepY());
         float y = vTopLeftOrigin.getY() - (zoomy + movey);
-        Log.d(TAG, "setTopLeft: "+x+","+y+",zoom:"+vZoom+"origin("+vTopLeftOrigin.getX()+","+vTopLeftOrigin.getY()
-                +"),zoom("+zoomx+","+zoomy+"),move("+movex+","+movey+")");
-        SystemPropertiesUtils.setProperty(PROP_LT,x+","+y);
+        if (y<0){y = Math.abs(y);}
+        y = (float) (y * 1.75);
+        mLeftTopY = y;
+        String yString = Float.toString(y);
+        //SystemPropertiesUtils.setProperty(PROP_LT,x+","+y);
+        SystemPropertiesUtils.setProperty(PROP_LTX,xString);
+        SystemPropertiesUtils.setProperty(PROP_LTY,yString);
+    }
+
+
+    private void updateALL(){
+        try {
+            try {
+                Class<?> serviceManagerClass = Class.forName("android.os.ServiceManager");
+                Method getServiceMethod = serviceManagerClass.getMethod("getService", String.class);
+
+                // 调用getService方法
+                mSurfaceFlinger = (IBinder) getServiceMethod.invoke(null, "SurfaceFlinger");
+
+                // 使用IBinder对象进行后续操作
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (mSurfaceFlinger != null) {
+                Log.i(TAG, "ParcelToFlinger prepare for data!");
+                Parcel data = Parcel.obtain();
+                data.writeInterfaceToken("android.ui.ISurfaceComposer");
+                Log.d(TAG, "updateALL: mLeftBottomX = " + mLeftBottomX + ",mLeftBottomY = " + mLeftBottomY + ",mLeftTopX = " +
+                        mLeftTopX + ",mLeftTopY = "+ mLeftTopY+",mRightTopX="+mRightTopX+",mRightTopY="+mRightTopY+",mRightBottomX="+
+                        mRightBottomX+",mRightBottomY="+mRightBottomY);
+                data.writeFloat((float)((double)mLeftBottomX * 0.001));
+                data.writeFloat((float)((double)mLeftBottomY * 0.001));
+                data.writeFloat((float)((double)mLeftTopX * 0.001));
+                data.writeFloat((float)((double)mLeftTopY * 0.001));
+                data.writeFloat((float)((double)mRightTopX * 0.001));
+                data.writeFloat((float)((double)mRightTopY * 0.001));
+                data.writeFloat((float)((double)mRightBottomX * 0.001));
+                data.writeFloat((float)((double)mRightBottomY * 0.001));
+                mSurfaceFlinger.transact(1050, data, null, 0);
+                data.recycle();
+            } else {
+                Log.i(TAG,"error get surfaceflinger service");
+            }
+        } catch (Exception ex) {
+            Log.i(TAG,"error talk with surfaceflinger service");
+        }
     }
 
     public void updateTopRight(){
         float zoomx = lcdValidWidth_top*vZoom/10/2/2;
         float movex = vTopRight.getX()*lcd.getStepX()*(20-vZoom)/20;
         float x = vTopRightOrigin.getX() - (zoomx + movex);
+        if (x<0){x = Math.abs(x);}
+        mRightTopX = x;
+        String xString = Float.toString(x);
         float zoomy = lcdValidHeight_right*vZoom/10/2/2;
         float movey = vTopRight.getY()*lcd.getStepY()*(20-vZoom)/20;
         float y = vTopRightOrigin.getY() - (zoomy + movey);
+        Log.d(TAG, "updateTopRight: zoomy = "+zoomy+",movey = "+movey+",vTopRightOrigin.getY() = "+vTopRightOrigin.getY()+",lcd.getStepY() = "+lcd.getStepY());
+        if (y<0){y = Math.abs(y);}
+        y = (float) (y * 1.75);
+        mRightTopY = y;
+        String yString = Float.toString(y);
         Log.d(TAG, "setTopRight: "+x+","+y+",zoom:"+vZoom+"origin("+vTopRightOrigin.getX()+","+vTopRightOrigin.getY()
                 +"),zoom("+zoomx+","+zoomy+"),move("+movex+","+movey+")");
-        SystemPropertiesUtils.setProperty(PROP_RT,x+","+y);
+        //SystemPropertiesUtils.setProperty(PROP_RT,x+","+y);
+        SystemPropertiesUtils.setProperty(PROP_RTX,xString);
+        SystemPropertiesUtils.setProperty(PROP_RTY,yString);
     }
 
     public void updateBottomLeft(){
@@ -253,10 +331,17 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
             x = vBottomLeftOrigin.getX() + (zoomx + movex);
             y = vBottomLeftOrigin.getY() + (zoomy + movey);
         }
+        y = (float) (y * 1.75);
+        mLeftBottomX = x;
+        mLeftBottomY = y;
+        String xString = Float.toString(x);
+        String yString = Float.toString(y);
 
         Log.d(TAG, "setBottomLeft: "+x+","+y+",zoom:"+vZoom+"origin("+vBottomLeftOrigin.getX()+","+vBottomLeftOrigin.getY()
                 +"),zoom("+zoomx+","+zoomy+"),move("+movex+","+movey+")");
-        SystemPropertiesUtils.setProperty(PROP_LB,x+","+y);
+        //SystemPropertiesUtils.setProperty(PROP_LB,x+","+y);
+        SystemPropertiesUtils.setProperty(PROP_LBX,xString);
+        SystemPropertiesUtils.setProperty(PROP_LBY,yString);
     }
 
     public void updateBottomRight(){
@@ -276,13 +361,22 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
             x = vBottomRightOrigin.getX() - (zoomx + movex);
             y = vBottomRightOrigin.getY() + (zoomy + movey);
         }
+        if (x < 0){x = Math.abs(x);}
+        if (y < 0){y = Math.abs(y);}
+        y = (float) (y * 1.75);
+        mRightBottomX = x;
+        mRightBottomY = y;
+        String xString = Float.toString(x);
+        String yString = Float.toString(y);
 
         Log.d(TAG, "setBottomRight: "+x+","+y+",zoom:"+vZoom+"origin("+vBottomRightOrigin.getX()+","+vBottomRightOrigin.getY()
                 +"),zoom("+zoomx+","+zoomy+"),move("+movex+","+movey+")");
-        SystemPropertiesUtils.setProperty(PROP_RB,x+","+y);
+        //SystemPropertiesUtils.setProperty(PROP_RB,x+","+y);
+        SystemPropertiesUtils.setProperty(PROP_RBX,xString);
+        SystemPropertiesUtils.setProperty(PROP_RBY,yString);
     }
 
-    public void updateTopLeft(String value){
+   /* public void updateTopLeft(String value){
         SystemPropertiesUtils.setProperty(PROP_LT,value);
     }
     public void updateTopRight(String value){
@@ -293,7 +387,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     }
     public void updateBottomRight(String value){
         SystemPropertiesUtils.setProperty(PROP_RB,value);
-    }
+    }*/
     public void update(){
         SystemPropertiesUtils.setProperty(PROP_KEYSTONE_UPDATE,"1");
     }
@@ -463,6 +557,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
         updateTopLeft();
         updateBottomLeft();
+        updateALL();
     }
     public void leftZoomIn(){
         vTopLeft.doTop();
@@ -472,6 +567,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
         updateTopLeft();
         updateBottomLeft();
+        updateALL();
     }
     public void rightZoomOut(){
         vTopRight.doBottom();
@@ -481,6 +577,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
         updateTopRight();
         updateBottomRight();
+        updateALL();
     }
     public void rightZoomIn(){
         vTopRight.doTop();
@@ -490,6 +587,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
         updateTopRight();
         updateBottomRight();
+        updateALL();
     }
     public void topZoomOut(){
         vTopLeft.doRight();
@@ -504,6 +602,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
             updateBottomLeft();
             updateBottomRight();
         }
+        updateALL();
     }
     public void topZoomIn(){
         vTopLeft.doLeft();
@@ -518,6 +617,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
             updateBottomLeft();
             updateBottomRight();
         }
+        updateALL();
     }
     public void bottomZoomOut(){
         vBottomRight.doLeft();
@@ -527,6 +627,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
         updateBottomLeft();
         updateBottomRight();
+        updateALL();
     }
     public void bottomZoomIn(){
         vBottomRight.doRight();
@@ -536,6 +637,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
         updateBottomLeft();
         updateBottomRight();
+        updateALL();
     }
     public void saveZoom(){
         editor.putInt("zoom_x",zoom_x);

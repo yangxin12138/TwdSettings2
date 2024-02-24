@@ -73,28 +73,28 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
                     switch (keyCode){
                         case KeyEvent.KEYCODE_DPAD_UP:
                             if(viewModel.isVertical()){
-                                viewModel.twoLeft();
+                                viewModel.twoBottom();
                             }else {
                                 viewModel.twoTop();
                             }
                             break;
                         case KeyEvent.KEYCODE_DPAD_DOWN:
                             if(viewModel.isVertical()){
-                                viewModel.twoRight();
+                                viewModel.twoTop();
                             }else {
                                 viewModel.twoBottom();
                             }
                             break;
                         case KeyEvent.KEYCODE_DPAD_LEFT:
                             if(viewModel.isVertical()){
-                                viewModel.twoBottom();
+                                viewModel.twoRight();
                             }else {
                                 viewModel.twoLeft();
                             }
                             break;
                         case KeyEvent.KEYCODE_DPAD_RIGHT:
                             if(viewModel.isVertical()){
-                                viewModel.twoTop();
+                                viewModel.twoLeft();
                             }else {
                                 viewModel.twoRight();
                             }

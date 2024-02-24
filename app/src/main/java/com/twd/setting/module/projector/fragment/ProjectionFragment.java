@@ -13,6 +13,7 @@ import com.twd.setting.R;
 import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentProjectionBinding;
 import com.twd.setting.module.projector.vm.ProjectionViewModel;
+import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.UiUtils;
 
 import java.io.File;
@@ -22,9 +23,9 @@ import java.io.PrintStream;
 public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjectionBinding, ProjectionViewModel> {
 
     private static final String TAG = "ProjectorFragment";
-    private static final String PATH_CONTROL_MIPI = "/sys/ir/control_mipi";
-    private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
-    private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";
+    private static final String PATH_CONTROL_MIPI = "persist.sys.projection";
+ /*   private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
+    private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";*/
     private static final int VALUE_POSITIVE_DRESS = 0;
     private static final int VALUE_DRESSING_REAR = 2;
     private static final int VALUE_HOISTING_FRONT = 3;
@@ -46,33 +47,32 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
     }
 
     private void gotoPosPos() {
-        setProjectionMode(VALUE_POSITIVE_DRESS);
+        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(0));
         setIconChange(0);
     }
 
     private void gotoPosNeg() {
-        setProjectionMode(VALUE_DRESSING_REAR);
+        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(1));
         setIconChange(1);
     }
     private void gotoNegPos() {
-        setProjectionMode(VALUE_HOISTING_FRONT);
+        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(2));
         setIconChange(2);
     }
 
     private void gotoNegNeg() {
-        setProjectionMode(VALUE_HOISTING_REAR);
+        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(3));
         setIconChange(3);
     }
 
     public static void setProjectionMode(int mode) {
-
         writeFile(PATH_CONTROL_MIPI, String.valueOf(mode));
 
-        if(Build.HARDWARE.equals("mt6735")){
+        /*if(Build.HARDWARE.equals("mt6735")){
             writeFile(PATH_DEV_PRO_INFO2, String.valueOf(mode));
         }else{
             writeFile(PATH_DEV_PRO_INFO, String.valueOf(mode));
-        }
+        }*/
     }
 
     public void setIconChange(int postion){

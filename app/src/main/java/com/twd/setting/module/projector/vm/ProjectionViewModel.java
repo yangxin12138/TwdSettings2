@@ -12,6 +12,7 @@ import com.twd.setting.R;
 import com.twd.setting.base.BaseViewModel;
 import com.twd.setting.commonlibrary.Utils.event.SingleLiveEvent;
 import com.twd.setting.module.systemequipment.repository.SysEquipmentRepository;
+import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.binding.ItemLRTextIconData;
 
 import java.io.BufferedReader;
@@ -23,9 +24,9 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
     public static final int ITEM_POS_NEG = 2;
     public static final int ITEM_NEG_POS = 3;
     public static final int ITEM_NEG_NEG = 4;
-    private static final String PATH_CONTROL_MIPI = "/sys/ir/control_mipi";
-    private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
-    private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";
+    private static final String PATH_CONTROL_MIPI = "persist.sys.projection";
+ /*   private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
+    private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";*/
 
     private static final String TAG = "ProjectionViewModel";
     private final MutableLiveData<Integer> _ClickItem = new SingleLiveEvent();
@@ -80,19 +81,19 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
             negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0);
         } else if (postion == 1) {
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
-            posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0);
-            negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0);
-            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, R.drawable.icon_projection_selected_black);
-        } else if (postion == 2) {
-            posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, R.drawable.icon_projection_selected_black);
             negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0);
             negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0);
-        } else if (postion == 3) {
+        } else if (postion == 2) {
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0);
             negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, R.drawable.icon_projection_selected_black);
             negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0);
+        } else if (postion == 3) {
+            posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
+            posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0);
+            negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0);
+            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, R.drawable.icon_projection_selected_black);
         }else {
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0);
@@ -112,10 +113,11 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
 
     public int getInitIcon(){
         int ret = 0;
-        ret = readProjectionValue(PATH_CONTROL_MIPI);//readProjectionValue(PATH_DEV_PRO_INFO2);
-        if(ret == 0){
+        ret = Integer.parseInt(SystemPropertiesUtils.getProperty(PATH_CONTROL_MIPI,"5"));//readProjectionValue(PATH_DEV_PRO_INFO2);
+        /*if(ret == 0){
             ret = readProjectionValue(PATH_DEV_PRO_INFO);
-        }
+        }*/
+        Log.d(TAG, "getInitIcon: ret = "+ret);
         return ret;
     }
     private static int readProjectionValue(String path) {

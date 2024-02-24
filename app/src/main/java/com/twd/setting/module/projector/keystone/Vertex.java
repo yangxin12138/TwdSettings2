@@ -1,11 +1,14 @@
 package com.twd.setting.module.projector.keystone;
 
+import android.util.Log;
+
 public class Vertex {
     public int x = 0;
     public int y = 0;
     public int point = 0;
     public int maxXStep =100;
     public int maxYStep=100;
+    private static final String TAG = "Vertex";
 
     public void setX(int value){
         x = value;
@@ -63,14 +66,28 @@ public class Vertex {
     public void doLeft(){
         switch (point){
             case 0:
+                Log.d(TAG, "doLeft: case0");
+                x = x - 1;
+                if(x<0){
+                    x = 0;
+                }
+                break;
             case 3:
+                Log.d(TAG, "doLeft: case3");
                 x = x - 1;
                 if(x<0){
                     x = 0;
                 }
                 break;
             case 1:
+                Log.d(TAG, "doLeft: case1");
+                x = x + 1;
+                if(x > maxXStep){
+                    x = maxXStep;
+                }
+                break;
             case 2:
+                Log.d(TAG, "doLeft: case2");
                 x = x + 1;
                 if(x > maxXStep){
                     x = maxXStep;
@@ -83,14 +100,29 @@ public class Vertex {
     public void doRight(){
         switch (point){
             case 0:
+                Log.d(TAG, "doRight: case0");
+                Log.d(TAG, "doRight: case3");
+                x = x + 1;
+                if(x>maxXStep){
+                    x = maxXStep;
+                }
+                break;
             case 3:
+                Log.d(TAG, "doRight: case3");
                 x = x + 1;
                 if(x>maxXStep){
                     x = maxXStep;
                 }
                 break;
             case 1:
+                Log.d(TAG, "doRight: case1");
+                x = x - 1;
+                if(x < 0){
+                    x = 0;
+                }
+                break;
             case 2:
+                Log.d(TAG, "doRight: case2");
                 x = x - 1;
                 if(x < 0){
                     x = 0;
@@ -103,14 +135,28 @@ public class Vertex {
     public void doTop(){
         switch (point){
             case 0:
+                Log.d(TAG, "doTop: case0");
+                y = y - 1;
+                if(y<0){
+                    y = 0;
+                }
+                break;
             case 1:
+                Log.d(TAG, "doTop: case1");
                 y = y - 1;
                 if(y<0){
                     y = 0;
                 }
                 break;
             case 2:
+                Log.d(TAG, "doTop: case2");
+                y = y + 1;
+                if(y>maxYStep){
+                    y = maxYStep;
+                }
+                break;
             case 3:
+                Log.d(TAG, "doTop: case3");
                 y = y + 1;
                 if(y>maxYStep){
                     y = maxYStep;
@@ -123,14 +169,28 @@ public class Vertex {
     public void doBottom(){
         switch (point){
             case 0:
+                Log.d(TAG, "doBottom: case0");
+                y = y + 1;
+                if(y>maxYStep){
+                    y = maxYStep;
+                }
+                break;
             case 1:
+                Log.d(TAG, "doBottom: case1");
                 y = y + 1;
                 if(y>maxYStep){
                     y = maxYStep;
                 }
                 break;
             case 2:
+                Log.d(TAG, "doBottom: case2");
+                y = y - 1;
+                if(y<0){
+                    y = 0;
+                }
+                break;
             case 3:
+                Log.d(TAG, "doBottom: case3");
                 y = y - 1;
                 if(y<0){
                     y = 0;
