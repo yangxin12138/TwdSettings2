@@ -115,6 +115,17 @@
         <activity android:name=".module.device.DeviceActivity"/>
         <activity android:name=".module.device.DeviceInfoActivity"/>
         <activity android:name=".module.device.DeviceStorageActivity"/>
+
+        <receiver android:name=".module.bluetooth.bluetoothlib.BluetoothPairingReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.bluetooth.device.action.PAIRING_REQUEST"/>
+                <action android:name="android.bluetooth.device.action.PAIRING_CANCEL"/>
+                <action android:name="android.bluetooth.device.action.BOND_STATE_CHANGED"/>
+                <action android:name="android.bluetooth.device.action.CONNECTION_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

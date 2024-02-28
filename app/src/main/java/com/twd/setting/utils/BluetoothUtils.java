@@ -139,13 +139,17 @@ public class BluetoothUtils {
     }
 
     public static void showPairingRequestDialogView(Intent paramIntent, Context paramContext) {
-        try {
-            if (PairingRequestDialogView.isShow) {
+        Log.d(TAG, "showPairingRequestDialogView: 蓝牙走这里");
+        Object localObject = new BluetoothPairingController(paramIntent, paramContext);
+        ((BluetoothPairingController) localObject).onPair(null);
+        return;
+        /*try {
+            *//*if (PairingRequestDialogView.isShow) {
                 Log.d("BluetoothUtils", "settings-bt : mPairingRequestDialogView is already showed,return");
                 return;
-            }
-            Object localObject = new BluetoothPairingController(paramIntent, paramContext);
-            PairingRequestDialogView view = new PairingRequestDialogView(paramContext, (BluetoothPairingController) localObject);
+            }*//*
+            *//*Object localObject = new BluetoothPairingController(paramIntent, paramContext);
+            PairingRequestDialogView view = new PairingRequestDialogView(paramContext, (BluetoothPairingController) localObject);*//*
             int i = ((BluetoothPairingController) localObject).getDialogType();
 
             Log.d("BluetoothUtils", "settings-bt : showPairingRequestDialogView paring type:" + i);
@@ -160,8 +164,10 @@ public class BluetoothUtils {
             }
             return;
         } catch (Exception e) {
+
+            //((BluetoothPairingController) localObject).onPair(null);
             Log.d(TAG, "showPairingRequestDialogView  faild");
         } finally {
-        }
+        }*/
     }
 }

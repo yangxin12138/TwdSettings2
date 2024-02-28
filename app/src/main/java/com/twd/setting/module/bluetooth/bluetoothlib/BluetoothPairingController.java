@@ -1,13 +1,17 @@
 package com.twd.setting.module.bluetooth.bluetoothlib;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
 
 import com.twd.setting.commonlibrary.Utils.ReflectUtils;
 import com.twd.setting.module.bluetooth.dialog.PairingRequestDialogView;
@@ -33,8 +37,10 @@ public class BluetoothPairingController
     private String mPasskeyFormatted;
     private int mType;
     private String mUserInput;
+    private Context mContext;
 
     public BluetoothPairingController(Intent paramIntent, Context paramContext) {
+        this.mContext = paramContext;
         this.mDevice = ((BluetoothDevice) paramIntent.getParcelableExtra("android.bluetooth.device.extra.DEVICE"));
         this.mType = paramIntent.getIntExtra("android.bluetooth.device.extra.PAIRING_VARIANT", Integer.MIN_VALUE);
         int i = paramIntent.getIntExtra("android.bluetooth.device.extra.PAIRING_KEY", Integer.MIN_VALUE);
@@ -83,33 +89,44 @@ public class BluetoothPairingController
         return String.format(Locale.US, "%06d", new Object[]{Integer.valueOf(paramInt)});
     }
 
-    private void onPair(String paramString) {
-        Log.d(TAG, "Pairing dialog accepted");
- /*   switch (mType)
-    {
-    default: 
-      Log.d(TAG, "error :Incorrect pairing type received");
-      return;
-    }
-    try
-    {
-      ReflectUtils.reflect(mDevice).method("setRemoteOutOfBandData").get();
-      return;
-    }
-    catch (Exception e) {}
-    byte[] bytes = convertPinToBytes(mPasskeyFormatted);
-    if (paramString != null)
-    {
-      mDevice.setPin(paramString);
-      return;
-      mDevice.setPairingConfirmation(true);
-      return;
-      int i = Integer.parseInt(paramString);
-      ReflectUtils.reflect(mDevice).method("setPasskey", new Object[] { Integer.valueOf(i) }).get();
-    }
+    public void onPair(String paramString) {
+        Log.d(TAG, "配对开始");
+        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        Log.d(TAG, "onPair: mType = " +mType);
+       /* switch (mType) {
+            default:
+                Log.d(TAG, "error :Incorrect pairing type received");
+                return;
+        }
+        try {
+            ReflectUtils.reflect(mDevice).method("setRemoteOutOfBandData").get();
+            return;
+        } catch (Exception e) {
+        }
+        byte[] bytes = convertPinToBytes(mPasskeyFormatted);
+        if (paramString != null) {
+            mDevice.setPin(paramString.getBytes());
+          return;
+          mDevice.setPairingConfirmation(true);
+          int i = Integer.parseInt(paramString);
+          ReflectUtils.reflect(mDevice).method("setPasskey", new Object[] { Integer.valueOf(i) }).get();
+        }*/
+        switch (mType){
+            case BluetoothDevice.PAIRING_VARIANT_PIN:
+                mDevice.setPin(paramString.getBytes());
+                break;
+            case BluetoothDevice.PAIRING_VARIANT_PASSKEY_CONFIRMATION:
+                mDevice.setPairingConfirmation(true);
+                break;
+            default:
+                //do noting
+                mDevice.setPairingConfirmation(true);
+                Log.e(TAG, "收到其他类型");
+                break;
+        }
 
-  */
-        return;
     }
 
     @SuppressLint("MissingPermission")
