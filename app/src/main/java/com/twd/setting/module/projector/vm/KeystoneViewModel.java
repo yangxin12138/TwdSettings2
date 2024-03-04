@@ -78,12 +78,14 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     private float mLeftTopY = 0;
     private float mRightTopX = 0;
     private float mRightTopY = 0;
+    private String projectorMode;
 
     public KeystoneViewModel(Application paramApplication) {
         super(paramApplication);
         lcd = new Lcd(getApplication());
         getKeystoneOrigin();
         getInitKeystone(getApplication());
+        projectorMode = SystemPropertiesUtils.getProperty("persist.sys.projection","0");
     }
 
     public void getKeystoneOrigin(){
@@ -399,13 +401,25 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public String getOnePointInfo(int point){
         switch (point){
             case 0:
-                return vTopLeft.toString();
+                if (projectorMode.equals("0")){return vTopLeft.toString();}
+                else if (projectorMode.equals("1")) {return vTopRight.toString();}
+                else if (projectorMode.equals("2")) {return vBottomRight.toString();}
+                else if (projectorMode.equals("3")) {return vBottomLeft.toString();}
             case 1:
-                return vTopRight.toString();
+                if (projectorMode.equals("0")){return vTopRight.toString();}
+                else if (projectorMode.equals("1")) {return vTopLeft.toString();}
+                else if (projectorMode.equals("2")) {return vBottomLeft.toString();}
+                else if (projectorMode.equals("3")) {return vBottomRight.toString();}
             case 3:
-                return vBottomLeft.toString();
+                if (projectorMode.equals("0")){return vBottomLeft.toString();}
+                else if (projectorMode.equals("1")) {return vBottomRight.toString();}
+                else if (projectorMode.equals("2")) {return vTopRight.toString();}
+                else if (projectorMode.equals("3")) {return vTopLeft.toString();}
             case 2:
-                return vBottomRight.toString();
+                if (projectorMode.equals("0")){return vBottomRight.toString();}
+                else if (projectorMode.equals("1")) {return vBottomLeft.toString();}
+                else if (projectorMode.equals("2")) {return vTopLeft.toString();}
+                else if (projectorMode.equals("3")) {return vTopRight.toString();}
             default:
                 break;
         }
