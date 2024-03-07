@@ -1,11 +1,24 @@
 package com.twd.setting.module.network.wifi;
 
+import static com.twd.setting.commonlibrary.Utils.Utils.runOnUiThread;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
+import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputFilter.LengthFilter;
@@ -13,6 +26,8 @@ import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +35,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
@@ -47,6 +63,7 @@ public class EnterPasswordFragment
     private StateMachine mStateMachine;
     private UserChoiceInfo mUserChoiceInfo;
     private ScanResult scanResult;
+    private Context mContext;
 
     public static EnterPasswordFragment newInstance() {
         return new EnterPasswordFragment();
@@ -139,6 +156,17 @@ public class EnterPasswordFragment
         mStateMachine = ((StateMachine) new ViewModelProvider(requireActivity()).get(StateMachine.class));
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
     public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
         Log.d(TAG,"onCreateView");
         binding = (FragmentEnterPwdBinding) DataBindingUtil.inflate(paramLayoutInflater, R.layout.fragment_enter_pwd, paramViewGroup, false);
@@ -219,8 +247,96 @@ public class EnterPasswordFragment
                 Log.d(TAG,"btnConnect onclick:"+binding.edtEnterPwd.getText().toString());
                 setWifiConfigurationPassword(binding.edtEnterPwd.getText().toString());
                 mStateMachine.getListener().onComplete(18);
-                WifiListFragment.clearSelectedSSID();
+                String ssid = binding.titleLayout.titleTV.getText().toString();
+                String password = binding.edtEnterPwd.getText().toString();
+                connectToWifi(ssid,password);
+                //WifiListFragment.clearSelectedSSID();
             }
         });
     }
+
+    private void showToast(String text){
+        Toast toast = new Toast(mContext);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        View layout = inflater.inflate(R.layout.my_toast,(ViewGroup) mActivity.findViewById(R.id.custom_toast_layout));
+
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.setView(layout);
+        TextView Text = layout.findViewById(R.id.custom_toast_message);
+        Text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+        Text.setText(text);
+        toast.show();
+    }
+
+    private void connectToWifi(String ssid,String password){
+        WifiConfiguration wifiConfiguration = new WifiConfiguration();
+        wifiConfiguration.SSID = "\"" + ssid + "\"";
+        wifiConfiguration.preSharedKey = "\"" + password + "\"";
+
+        WifiManager wifiManager = (WifiManager) requireContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+        //如果wifi已启用,请禁用它以确保连接新网络
+        if (wifiManager.isWifiEnabled()){
+            wifiManager.setWifiEnabled(false);
+        }
+
+        //添加并启用网络配置
+        int networkId = wifiManager.addNetwork(wifiConfiguration);
+        wifiManager.enableNetwork(networkId,true);
+
+        //重新启用wifi
+        wifiManager.setWifiEnabled(true);
+        /*new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (getCurrentWifiSsid(wifiManager).equals(ssid)){
+                    Log.d(TAG, "run: 连接成功2秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                    showToast("连接成功");
+                }else {
+                    showToast("-----------连接失败-------");
+                    Log.d(TAG, "run: 连接失败2秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                }
+            }
+        },2000);*/
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (getCurrentWifiSsid(wifiManager).equals(ssid)){
+                    Log.d(TAG, "run: 连接成功4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                    showToast(mContext.getResources().getString(R.string.wifi_setup_connection_success));
+                }else {
+                    showToast(mContext.getResources().getString(R.string.bluetooth_index_connect_failed));
+                    Log.d(TAG, "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                }
+            }
+        },4000);
+    }
+
+    private String getCurrentWifiSsid(WifiManager wifiManager){
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        String ssid;
+        if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
+            ssid = wifiInfo.getSSID().replace("\"","");
+        }else {
+            ssid = "默认网络";
+        }
+        return ssid;
+    }
+    private boolean isCurrentlyConnectedToWifi(String ssid) {
+        Log.d(TAG, "isCurrentlyConnectedToWifi: 111");
+        WifiManager wifiManager = (WifiManager) mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+
+        if (wifiInfo != null) {
+            Log.d(TAG, "isCurrentlyConnectedToWifi: 222");
+            String currentSSID = wifiInfo.getSSID().replace("\"","");
+            Log.d(TAG, "isCurrentlyConnectedToWifi: currentSSID = " + currentSSID + ", ssid = " + ssid);
+            if (currentSSID != null && currentSSID.equals(ssid)) {
+                return true; // 当前连接的WiFi的SSID与指定的SSID相同
+            }
+        }
+        return false; // 当前连接的WiFi的SSID与指定的SSID不同
+    }
+
 }

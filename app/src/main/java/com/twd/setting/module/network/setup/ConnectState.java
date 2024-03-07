@@ -364,7 +364,7 @@ public class ConnectState
         }
 
         public void onDestroy() {
-            if (!isNetworkConnected()) {
+            /*if (!isNetworkConnected()) {
                 mWifiManager.disconnect();
             }
             mConnectivityListener.stop();
@@ -372,7 +372,7 @@ public class ConnectState
             mHandler.removeMessages(1);
             if ((Build.VERSION.SDK_INT >= 21) && (Build.VERSION.SDK_INT <= 24)) {
                 unregisterConnectResult();
-            }
+            }*/
             super.onDestroy();
         }
 
