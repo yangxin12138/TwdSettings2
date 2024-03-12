@@ -41,7 +41,6 @@ public class NetworkListActivity extends AppCompatActivity
     public static String selectedBSSID;
     public static String selectedSSID;
     private WifiListRvAdapter adapter;
-    private AlertDialog loadingDialog;
     private RecyclerView rvWifiList;
 
     private ConnectivityListener mConnectivityListener;
@@ -75,7 +74,7 @@ public class NetworkListActivity extends AppCompatActivity
         mConnectivityListener = new ConnectivityListener(this, new ConnectivityListener.Listener() {
             @Override
             public void onConnectivityChange() {
-                updateWifi();;
+                updateWifi();
             }
         },getLifecycle());
         wifiManager = (WifiManager) this.getApplicationContext().getSystemService(WIFI_SERVICE);

@@ -323,7 +323,7 @@ public class ConnectState
             super.onCreate(paramBundle);
             Log.d(TAG,"onCreate");
             if (Build.VERSION.SDK_INT < 21) {
-                ToastTools.Instance().showToast(requireContext(), "安卓版本低于5.0");
+                //ToastTools.Instance().showToast(requireContext(), "安卓版本低于5.0");
                 requireActivity().finish();
                 return;
             }
@@ -341,7 +341,7 @@ public class ConnectState
                 registerConnectResult();
             } else {
                 if (Build.VERSION.SDK_INT > 29) {
-                    ToastTools.Instance().showToast(requireContext(), "安卓版本高于10.0");
+                    //ToastTools.Instance().showToast(requireContext(), "安卓版本高于10.0");
 					requireActivity().finish();
 					return;
                 }
@@ -405,7 +405,7 @@ public class ConnectState
         void proceedDependOnNetworkState() {
             Log.d(TAG,"proceedDependOnNetworkState");
             if (Build.VERSION.SDK_INT < 21) {
-                ToastTools.Instance().showToast(requireContext(), "系统版本低于 5.0");
+                //ToastTools.Instance().showToast(requireContext(), "系统版本低于 5.0");
                 return;
             }
             if (Build.VERSION.SDK_INT < 24) {
@@ -425,7 +425,7 @@ public class ConnectState
                 } catch (ClassNotFoundException localClassNotFoundException) {
                 } catch (NoSuchMethodException localNoSuchMethodException) {
                 } catch (IllegalAccessException localIllegalAccessException) {
-                    ToastTools.Instance().showToast(requireContext(), "连接失败");
+                    //ToastTools.Instance().showToast(requireContext(), "连接失败");
                     Log.d("ConnectToWifiFragment", "method WifiManager.connect(WifiConfiguration, WifiManager.ActionListener) exception");
                     localIllegalAccessException.printStackTrace();
                 }

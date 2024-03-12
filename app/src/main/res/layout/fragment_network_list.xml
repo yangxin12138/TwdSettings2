@@ -30,7 +30,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20.0dip"
             android:fadeScrollbars="false"
-
             android:paddingBottom="1.0dip"
             android:scrollbarSize="@dimen/scrollbar_thumb_size"
             android:scrollbarStyle="outsideInset"
