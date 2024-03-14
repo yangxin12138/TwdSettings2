@@ -19,7 +19,7 @@
             android:layout_marginStart="@dimen/devices_title_iv_marginStart"
             android:layout_gravity="center_vertical"/>
         <TextView
-            android:text="@string/device_index_title_tv"
+            android:text="@string/str_system_equipment"
             android:textColor="?textColor"
             android:textSize="@dimen/devices_title_tv_textSize"
             android:layout_width="wrap_content"
