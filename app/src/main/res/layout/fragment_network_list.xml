@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?mainBg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="174.0dip"
+            android:layout_marginTop="100.0dip"
+            android:layout_marginEnd="174.0dip"
+            android:layout_marginBottom="20.0dip"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/net_index_title_text"
+                android:textSize="30sp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_wifi_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20.0dip"
+                android:fadeScrollbars="false"
+                android:paddingBottom="1.0dip"
+                android:scrollbarSize="@dimen/scrollbar_thumb_size"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarThumbVertical="?scrollbar_thumb_v"
+                android:scrollbarTrackVertical="?scrollbar_track_v"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_wifi_switch" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
