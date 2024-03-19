@@ -2,14 +2,22 @@ package com.twd.setting.module.network.setup;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -44,7 +52,7 @@ public class KnownNetworkState
 
     public void processBackward() {
         Log.d(TAG,"processBackward");
-        KnownNetworkFragment localKnownNetworkFragment = new KnownNetworkFragment();
+        KnownNetworkFragment localKnownNetworkFragment = new KnownNetworkFragment(mActivity);
         mFragment = localKnownNetworkFragment;
         State.FragmentChangeListener localFragmentChangeListener = (State.FragmentChangeListener) mActivity;
         if (localFragmentChangeListener != null) {
@@ -54,7 +62,7 @@ public class KnownNetworkState
 
     public void processForward() {
         Log.d(TAG,"processForward");
-        KnownNetworkFragment localKnownNetworkFragment = new KnownNetworkFragment();
+        KnownNetworkFragment localKnownNetworkFragment = new KnownNetworkFragment(mActivity);
         mFragment = localKnownNetworkFragment;
         State.FragmentChangeListener localFragmentChangeListener = (State.FragmentChangeListener) mActivity;
         if (localFragmentChangeListener != null) {
@@ -66,8 +74,16 @@ public class KnownNetworkState
             extends WifiConnectivityGuidedStepFragment {
         private StateMachine mStateMachine;
         private UserChoiceInfo mUserChoiceInfo;
+        private Context mContext;
+        SharedPreferences wifiInfoPreferences;
+        FragmentActivity mActivity;
+
+        public KnownNetworkFragment(FragmentActivity mActivity) {
+            this.mActivity = mActivity;
+        }
 
         public void onCreate(Bundle paramBundle) {
+            mContext = requireContext();
             mUserChoiceInfo = ((UserChoiceInfo) new ViewModelProvider(requireActivity()).get(UserChoiceInfo.class));
             mStateMachine = ((StateMachine) new ViewModelProvider(requireActivity()).get(StateMachine.class));
             super.onCreate(paramBundle);
@@ -127,12 +143,16 @@ public class KnownNetworkState
                 method_str = getString(R.string.title_wifi_known_network, new Object[]{ssid});
             }
             ((TextView) this.binding.customDialog.getRoot().findViewById(R.id.custom_dialog_title_tv_id)).setText(method_str);
-            TextView textView = binding.customDialog.getRoot().findViewById(R.id.custom_dialog_cancle_tv_id);
-            textView.setText(getString(R.string.wifi_forget_network));
+            TextView tv_forget = binding.customDialog.getRoot().findViewById(R.id.custom_dialog_cancle_tv_id);
+            tv_forget.setText(getString(R.string.wifi_forget_network));
             //paramView.setOnClickListener(new KnownNetworkState.KnownNetworkFragment..ExternalSyntheticLambda0(this));
             String finalSsid = ssid;
+            String wifiInfo_ssid = finalSsid;
+            wifiInfoPreferences= requireContext().getSharedPreferences("wifi_info",Context.MODE_PRIVATE);
+            String wifiInfo_password = wifiInfoPreferences.getString(wifiInfo_ssid,"000");
+            Log.d(TAG, "onViewCreated: wifiInfo_password = " + wifiInfo_password+"wifiInfo_ssid = " + wifiInfo_ssid);
             Log.d(TAG,"SSID: "+finalSsid);
-            textView.setOnClickListener(new View.OnClickListener() {
+            tv_forget.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.d(TAG,"ignore "+finalSsid);
@@ -154,6 +174,10 @@ public class KnownNetworkState
                                 if (forget != null) {
                                     forget.setAccessible(true);
                                     forget.invoke(wifiManager, wifiConfiguration.networkId, null);
+                                    SharedPreferences.Editor editor = wifiInfoPreferences.edit();
+                                    editor.remove(wifiInfo_ssid);
+                                    editor.apply();
+                                    //Log.d(TAG, "onClick: ssid = " + wifiInfo_ssid + ",password = "+wifiInfoPreferences.getString(wifiInfo_ssid,"0.0"));
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -165,21 +189,83 @@ public class KnownNetworkState
 
                 }
             });
-            TextView textView2 = binding.customDialog.getRoot().findViewById(R.id.custom_dialog_ok_tv_id);
-            textView2.setText(getString(R.string.wifi_connect));
+            TextView tv_connect = binding.customDialog.getRoot().findViewById(R.id.custom_dialog_ok_tv_id);
+            tv_connect.setText(getString(R.string.wifi_connect));
             //paramView.setOnClickListener(new KnownNetworkState.KnownNetworkFragment..ExternalSyntheticLambda1(this));
-            textView2.setOnClickListener(new View.OnClickListener() {
+            tv_connect.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.d(TAG,"connect");
+                    connectToWifi(wifiInfo_ssid,wifiInfo_password);
                     WifiListFragment.clearSelectedSSID();
                     mStateMachine.getListener().onComplete(0);
                 }
             });
             if(is_alive){
-                textView2.setVisibility(View.INVISIBLE);
+                tv_connect.setVisibility(View.INVISIBLE);
             }
-            textView.requestFocus();
+            tv_forget.requestFocus();
+        }
+
+        private void connectToWifi(String ssid,String password){
+            WifiConfiguration wifiConfiguration = new WifiConfiguration();
+            wifiConfiguration.SSID = "\"" + ssid + "\"";
+            wifiConfiguration.preSharedKey = "\"" + password + "\"";
+            Log.d(TAG, "connectToWifi: wifiConfiguration.SSID = " + wifiConfiguration.SSID + ",wifiConfiguration.preSharedKey = " + wifiConfiguration.preSharedKey);
+            WifiManager wifiManager = (WifiManager) mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+            //添加并启用网络配置
+            int networkId = wifiManager.addNetwork(wifiConfiguration);
+            if (networkId != -1){
+                Log.d(TAG, "connectToWifi: wifi正在连接");
+                wifiManager.disconnect();
+                wifiManager.enableNetwork(networkId,true);
+                wifiManager.reconnect();
+            }else {
+                Log.d(TAG, "connectToWifi: wifi连接失败");
+            }
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (getCurrentWifiSsid(wifiManager).equals(ssid)){
+                        Log.d(TAG, "run: 连接成功4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                        showToast(mContext.getResources().getString(R.string.wifi_setup_connection_success));
+                    }else {
+                        showToast(mContext.getResources().getString(R.string.bluetooth_index_connect_failed));
+                        Log.d(TAG, "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                    }
+                    SharedPreferences.Editor editor = wifiInfoPreferences.edit();
+                    editor.putString(ssid,password);
+                    Log.d(TAG, "run: SharedPreferences = " + ssid + ","+password);
+                    editor.apply();
+                }
+            },4000);
+        }
+
+        private String getCurrentWifiSsid(WifiManager wifiManager){
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            String ssid;
+            if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
+                ssid = wifiInfo.getSSID().replace("\"","");
+            }else {
+                ssid = "无连接";
+            }
+            return ssid;
+        }
+
+        private void showToast(String text){
+            Toast toast = new Toast(mContext);
+            LayoutInflater inflater = LayoutInflater.from(mContext);
+            View layout = inflater.inflate(R.layout.my_toast,(ViewGroup) mActivity.findViewById(R.id.custom_toast_layout));
+
+            toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
+            toast.setView(layout);
+            TextView Text = layout.findViewById(R.id.custom_toast_message);
+            Text.setTextSize(TypedValue.COMPLEX_UNIT_SP,24);
+            Text.setText(text);
+            toast.show();
         }
     }
+
 }
