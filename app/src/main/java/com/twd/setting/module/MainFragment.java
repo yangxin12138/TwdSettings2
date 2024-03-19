@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +97,7 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
             binding.rightBigIconTv.setCompoundDrawables(null, localDrawable, null, null);
         }
         binding.rightBigIconTv.setText(paramInt2);
+        binding.rightBigIconTv.setTextSize(TypedValue.COMPLEX_UNIT_SP,40);
     }
 
     private void setClickListener() {
@@ -222,17 +224,17 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
         if (id == R.id.debugMenuItem) {
             setBigIconText(R.drawable.ic_debug_menu_v, R.string.str_debug_menu, iconWidth, iconWidth);
         } else if (id == R.id.systemEquipmentItem) {
-            setBigIconText(R.drawable.ic_sys_equipment_v, R.string.str_system_equipment, iconWidth, (int) (iconWidth * 0.619F));
+            setBigIconText(R.drawable.about_black, R.string.str_system_equipment, iconWidth, (int) (iconWidth * 0.619F));
         } else if (id == R.id.commonItem) {
-            setBigIconText(R.drawable.ic_common_v, R.string.str_common, iconWidth, iconWidth);
+            setBigIconText(R.drawable.setup_black, R.string.str_common, iconWidth, iconWidth);
         } else if (id == R.id.bluetoothItem) {
-            setBigIconText(R.drawable.ic_bluetooth_v, R.string.str_bluetooth, (int) (iconWidth * 0.6F), iconWidth);
+            setBigIconText(R.drawable.bluetooth_black, R.string.str_bluetooth, (int) (iconWidth * 0.6F), iconWidth);
         } else if (id == R.id.networkItem) {
-            setBigIconText(R.drawable.ic_network_v, R.string.str_network, iconWidth, (int) (iconWidth * 0.725F));
+            setBigIconText(R.drawable.wifi_black, R.string.str_network, iconWidth, (int) (iconWidth * 0.725F));
         } else if (id == R.id.signalSourceItem) {
             setBigIconText(R.drawable.ic_signal_source_v, R.string.str_signal_source, iconWidth, (int) (iconWidth * 0.5476F));
         } else if (id == R.id.projectorItem) {
-            setBigIconText(R.drawable.ic_projector_v, R.string.str_projector_setting, iconWidth, iconWidth);
+            setBigIconText(R.drawable.projection_black, R.string.str_projector_setting, iconWidth, iconWidth);
         }
     }
 
