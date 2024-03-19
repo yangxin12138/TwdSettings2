@@ -2,6 +2,9 @@ package com.twd.setting.module.network.wifi;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.wifi.SupplicantState;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -208,22 +211,43 @@ public class WifiListRvAdapter
                 return;
             }
             binding.tvSSID.setText(wifiAccessPoint.getSsidStr());
-            String str;
+            String str = null;
             Log.d("WifiListAdapter","=========WifiAccessPoint:"+wifiAccessPoint);
 
-            if (wifiAccessPoint.isActive()) {
+            WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+            String ssid = getCurrentWifiSsid(wifiManager);
+            if (wifiAccessPoint.getSsidStr().equals(ssid)){
+                str = context.getString(R.string.wifi_state_connected);
+            }else if (wifiAccessPoint.isSaved()){
+                str = context.getString(R.string.wifi_state_saved);
+            }else {
+                str = "";
+            }
+            /*if (wifiAccessPoint.isActive()) {
                 str = context.getString(R.string.wifi_state_connected);
             } else if (wifiAccessPoint.isSaved()) {
                 str = context.getString(R.string.wifi_state_saved);
             } else {
                 str = "";
-            }
+            }*/
+
             binding.tvTip.setText(str);
             Drawable drawable = WifiSignalHelper.getIconSignalStrength(context, wifiAccessPoint);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             binding.tvTip.setCompoundDrawablePadding(60);
             binding.tvTip.setCompoundDrawables(null, null, drawable, null);
             binding.tvTip.setVisibility(View.VISIBLE);
+        }
+
+        private String getCurrentWifiSsid(WifiManager wifiManager){
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            String ssid;
+            if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
+                ssid = wifiInfo.getSSID().replace("\"","");
+            }else {
+                ssid = "默认网络";
+            }
+            return ssid;
         }
     }
 }

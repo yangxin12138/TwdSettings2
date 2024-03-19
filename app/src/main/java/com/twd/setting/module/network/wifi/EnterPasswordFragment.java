@@ -1,11 +1,16 @@
 package com.twd.setting.module.network.wifi;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.wifi.ScanResult;
+import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputFilter.LengthFilter;
@@ -13,6 +18,8 @@ import android.text.InputType;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
@@ -47,6 +55,8 @@ public class EnterPasswordFragment
     private StateMachine mStateMachine;
     private UserChoiceInfo mUserChoiceInfo;
     private ScanResult scanResult;
+    private Context mContext;
+    int type ;
 
     public static EnterPasswordFragment newInstance() {
         return new EnterPasswordFragment();
@@ -139,6 +149,17 @@ public class EnterPasswordFragment
         mStateMachine = ((StateMachine) new ViewModelProvider(requireActivity()).get(StateMachine.class));
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
     public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
         Log.d(TAG,"onCreateView");
         binding = (FragmentEnterPwdBinding) DataBindingUtil.inflate(paramLayoutInflater, R.layout.fragment_enter_pwd, paramViewGroup, false);
@@ -219,8 +240,102 @@ public class EnterPasswordFragment
                 Log.d(TAG,"btnConnect onclick:"+binding.edtEnterPwd.getText().toString());
                 setWifiConfigurationPassword(binding.edtEnterPwd.getText().toString());
                 mStateMachine.getListener().onComplete(18);
-                WifiListFragment.clearSelectedSSID();
+                //WifiListFragment.clearSelectedSSID();
+                String ssid = binding.titleLayout.titleTV.getText().toString();
+                String password = binding.edtEnterPwd.getText().toString();
+                connectToWifi(ssid,password);
             }
         });
+    }
+
+    private void showToast(String text){
+        Toast toast = new Toast(mContext);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        View layout = inflater.inflate(R.layout.my_toast,(ViewGroup) mActivity.findViewById(R.id.custom_toast_layout));
+
+        toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
+        toast.setView(layout);
+        TextView Text = layout.findViewById(R.id.custom_toast_message);
+        Text.setTextSize(TypedValue.COMPLEX_UNIT_SP,24);
+        Text.setText(text);
+        toast.show();
+    }
+
+    private void connectToWifi(String ssid,String password){
+        WifiConfiguration wifiConfiguration = new WifiConfiguration();
+        wifiConfiguration.SSID = "\"" + ssid + "\"";
+        wifiConfiguration.preSharedKey = "\"" + password + "\"";
+        Log.d(TAG, "connectToWifi: wifiConfiguration.SSID = " + wifiConfiguration.SSID + ",wifiConfiguration.preSharedKey = " + wifiConfiguration.preSharedKey);
+        WifiManager wifiManager = (WifiManager) requireContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+        //如果wifi已启用，请禁用它以确保连接新网络
+        /*if (wifiManager.isWifiEnabled()){
+            wifiManager.setWifiEnabled(false);
+        }*/
+
+        //添加并启用网络配置
+        int networkId = wifiManager.addNetwork(wifiConfiguration);
+        if (networkId != -1 ){
+            Log.d(TAG, "connectToWifi: wifi 正在连接");
+            wifiManager.disconnect();
+            wifiManager.enableNetwork(networkId,true);
+            wifiManager.reconnect();
+        }else {
+            Log.d(TAG, "connectToWifi: wifi 连接失败");
+        }
+       /* wifiManager.enableNetwork(networkId,true);
+
+        //重新启用wifi
+        wifiManager.setWifiEnabled(true);
+        wifiManager.reconnect();*/
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (getCurrentWifiSsid(wifiManager).equals(ssid)){
+                    Log.d(TAG, "run: 连接成功4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                    showToast(mContext.getResources().getString(R.string.wifi_setup_connection_success));
+                }else {
+                    showToast(mContext.getResources().getString(R.string.bluetooth_index_connect_failed));
+                    Log.d(TAG, "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                }
+            }
+        },4000);
+    }
+
+    private String getCurrentWifiSsid(WifiManager wifiManager){
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        String ssid;
+        if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
+            ssid = wifiInfo.getSSID().replace("\"","");
+        }else {
+            ssid = "无连接";
+        }
+        return ssid;
+    }
+
+    private boolean isCurrentlyConnectedToWifi(String ssid){
+        WifiManager wifiManager = (WifiManager) mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+
+        if (wifiInfo != null){
+            String currentSSID = wifiInfo.getSSID().replace("\"","");
+            if (currentSSID != null && currentSSID.equals(ssid)){
+                return true;//当前连接的WIFI的SSID与指定的SSID相同
+            }
+        }
+        return false;//当前连接的WIFI的SSID与指定的SSID不同
+    }
+    /**
+     *获取热点的加密类型
+     */
+    private int getType(ScanResult scanResult){
+        if (scanResult.capabilities.contains("WPA")){
+            type = 2;
+        } else if (scanResult.capabilities.contains("WEP")) {
+            type = 1;
+        } else {
+            type = 0;
+        }
+        return type;
     }
 }

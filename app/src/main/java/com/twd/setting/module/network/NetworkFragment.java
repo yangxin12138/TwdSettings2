@@ -23,6 +23,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.twd.setting.R;
 import com.twd.setting.base.BaseFragment;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+import android.net.NetworkInfo;
+import android.net.wifi.SupplicantState;
+import android.net.wifi.WifiInfo;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.twd.setting.databinding.FragmentNetworkBinding;
 import com.twd.setting.module.network.model.WifiAccessPoint;
 import com.twd.setting.module.network.model.WifiAccessPoint.AccessPointListener;
@@ -191,6 +199,10 @@ public class NetworkFragment
         wifiManager = ((WifiManager)requireContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE));
     }
 
+    private boolean isChecked(){
+        return binding.switchWifi.isChecked();
+    }
+
     public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
         binding = (FragmentNetworkBinding) DataBindingUtil.inflate(paramLayoutInflater, R.layout.fragment_network, paramViewGroup, false);
         return binding.getRoot();
@@ -201,8 +213,14 @@ public class NetworkFragment
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        requireContext().unregisterReceiver(wifiReceiver);
+    }
+
+    @Override
     public void onFocusRequest(View view, int paramInt) {
-        Log.d(TAG, "onFocusRequest view: "+view+",int:"+paramInt);
+        /*Log.d(TAG, "onFocusRequest view: "+view+",int:"+paramInt);
         LinearLayoutManager localLinearLayoutManager = (LinearLayoutManager) binding.rvWifiList.getLayoutManager();
         if (view != null) {
             view.requestFocus();
@@ -214,7 +232,7 @@ public class NetworkFragment
         }
         if (localLinearLayoutManager != null) {
             localLinearLayoutManager.scrollToPosition(paramInt);
-        }
+        }*/
     }
 
     @Override
@@ -253,6 +271,9 @@ public class NetworkFragment
     public void onResume() {
         super.onResume();
 		updateConnectivity();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+        requireContext().registerReceiver(wifiReceiver, intentFilter);
     }
     @Override
     public void onStart() {
@@ -265,36 +286,83 @@ public class NetworkFragment
     public void onViewCreated(View paramView, Bundle paramBundle) {
         super.onViewCreated(paramView, paramBundle);
         initTitle(paramView, R.string.str_network);
-        binding.rvWifiList.setLayoutManager(new LinearLayoutManager(requireContext()));
+        //binding.rvWifiList.setLayoutManager(new LinearLayoutManager(requireContext()));
 		adapter = new WifiListRvAdapter();
         adapter.setWifiAccessPoints(wifiAccessPoints);
         adapter.setItemClickListener(this);
         binding.itemWifiSwitch.requestFocus();
+        binding.itemWifiAvailable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), NetworkListActivity.class));
+            }
+        });
         binding.itemWifiSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "itemWifiSwitch onClick");
                 if(binding.switchWifi.isChecked()){
                     wifiManager.setWifiEnabled(false);
-                    binding.rvWifiList.setVisibility(View.GONE);
-                    wifiAccessPoints.clear();
+                    /*binding.rvWifiList.setVisibility(View.GONE);
+                    wifiAccessPoints.clear();*/
                     adapter.clearAll();
-                    adapter.notifyWifiAccessPoints();
+                    binding.itemWifiAvailable.setVisibility(View.GONE);
+                    //adapter.notifyWifiAccessPoints();
                 }else {
                     wifiManager.setWifiEnabled(true);
-                    binding.rvWifiList.setVisibility(View.VISIBLE);
-                    loadingDialog.show();
+                    /*binding.rvWifiList.setVisibility(View.VISIBLE);
+                    loadingDialog.show();*/
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            binding.itemWifiAvailable.setVisibility(View.VISIBLE);
+                        }
+                    },8000);
                 }
             }
         });
-		binding.rvWifiList.setItemAnimator(null);
+        if (wifiManager.isWifiEnabled()){
+            binding.itemWifiAvailable.setVisibility(View.VISIBLE);
+        }else {
+            binding.itemWifiAvailable.setVisibility(View.GONE);
+        }
+		/*binding.rvWifiList.setItemAnimator(null);
         binding.rvWifiList.setAdapter(adapter);
-        binding.rvWifiList.addItemDecoration(new MarginTopItemDecoration(getResources().getDimensionPixelSize(R.dimen.net_rc_item_margin_t)));
+        binding.rvWifiList.addItemDecoration(new MarginTopItemDecoration(getResources().getDimensionPixelSize(R.dimen.net_rc_item_margin_t)));*/
         loadingDialog = DialogTools.getLoadingDialog(requireContext(),getString(R.string.wifi_state_scan)  /*"正在扫描 WIFI ..."*/);
-        loadingDialog.show();
+        //loadingDialog.show();
 
     }
     public void onWifiListChanged() {
         updateWifiList();
     }
+
+    private String getCurrentWifiSsid(WifiManager wifiManager){
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        String ssid;
+        if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
+            ssid = wifiInfo.getSSID().replace("\"","");
+        }else {
+            ssid = "无连接";
+        }
+        return ssid;
+    }
+
+    private final BroadcastReceiver wifiReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (WifiManager.NETWORK_STATE_CHANGED_ACTION.equals(intent.getAction())) {
+                NetworkInfo networkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    // WiFi已连接
+                    // 处理连接WiFi的逻辑
+                    binding.itemWifiAvailableName.setText(getCurrentWifiSsid(wifiManager));
+                } else {
+                    // WiFi断开连接
+                    // 处理断开WiFi的逻辑
+                    binding.itemWifiAvailableName.setText(getCurrentWifiSsid(wifiManager));
+                }
+            }
+        }
+    };
 }

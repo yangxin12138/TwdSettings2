@@ -207,28 +207,30 @@ public class ConnectState
         }
 
         private boolean isNetworkConnected() {
-            NetworkInfo networkInfo = ((ConnectivityManager) requireContext().getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
-            if (networkInfo == null) {
-                if (DEBUG) {
-                    Log.d(TAG, "NetworkInfo is null; network is not connected");
+            if (isAdded()){
+                NetworkInfo networkInfo = ((ConnectivityManager) requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+                if (networkInfo == null) {
+                    if (DEBUG) {
+                        Log.d(TAG, "NetworkInfo is null; network is not connected");
+                    }
+                    return false;
                 }
-                return false;
-            }
-            Log.d(TAG, "NetworkInfo: " + networkInfo.toString());
+                Log.d(TAG, "NetworkInfo: " + networkInfo.toString());
 
-            if ((networkInfo.isConnected()) && (networkInfo.getType() == 1)) {
-                WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
-                if (wifiInfo == null) {
-                    Log.d(TAG, "Connected to nothing");
+                if ((networkInfo.isConnected()) && (networkInfo.getType() == 1)) {
+                    WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+                    if (wifiInfo == null) {
+                        Log.d(TAG, "Connected to nothing");
+                    } else {
+                        Log.d(TAG, "Connected to " + wifiInfo.getSSID());
+                    }
+
+                    if ((wifiInfo != null) && (wifiInfo.getSSID().equals(mWifiConfiguration.SSID))) {
+                        return true;
+                    }
                 } else {
-                    Log.d(TAG, "Connected to " + wifiInfo.getSSID());
+                    Log.d(TAG, "Network is not connected");
                 }
-
-                if ((wifiInfo != null) && (wifiInfo.getSSID().equals(mWifiConfiguration.SSID))) {
-                    return true;
-                }
-            } else {
-                Log.d(TAG, "Network is not connected");
             }
             return false;
         }
@@ -364,7 +366,7 @@ public class ConnectState
         }
 
         public void onDestroy() {
-            if (!isNetworkConnected()) {
+            /*if (!isNetworkConnected()) {
                 mWifiManager.disconnect();
             }
             mConnectivityListener.stop();
@@ -372,7 +374,7 @@ public class ConnectState
             mHandler.removeMessages(1);
             if ((Build.VERSION.SDK_INT >= 21) && (Build.VERSION.SDK_INT <= 24)) {
                 unregisterConnectResult();
-            }
+            }*/
             super.onDestroy();
         }
 
@@ -409,7 +411,7 @@ public class ConnectState
                 return;
             }
             if (Build.VERSION.SDK_INT < 24) {
-                connect();
+                //connect();
                 return;
             }
             if (Build.VERSION.SDK_INT <= 29) {

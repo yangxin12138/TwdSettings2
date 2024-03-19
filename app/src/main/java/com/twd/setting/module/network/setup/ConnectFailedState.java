@@ -3,7 +3,9 @@ package com.twd.setting.module.network.setup;
 import android.net.wifi.WifiConfiguration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -64,8 +66,13 @@ public class ConnectFailedState
 
         public void onResume() {
             super.onResume();
-            ToastTools.Instance().showToast(requireContext(), "未知错误");
+            //ToastTools.Instance().showToast(requireContext(), "未知错误");
             mStateMachine.getListener().onComplete(StateMachine.SELECT_WIFI);//6
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
+            return null;
         }
 
         public void onViewCreated(View paramView, Bundle paramBundle) {
