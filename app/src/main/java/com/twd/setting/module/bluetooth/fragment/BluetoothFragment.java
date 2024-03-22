@@ -276,14 +276,33 @@ public class BluetoothFragment
         binding.bluetoothSwitchRL.requestFocus();
         if (BluetoothUtils.isSupportBluetooth()) {
             //Log.d(TAG, "蓝牙设备名："+mBluetoothAdapter.getName());
-            binding.bluetoothSwitchRL.setEnabled(true);
+            /*binding.bluetoothSwitchRL.setEnabled(true);
             binding.bluetoothSwitchRL.setSwitchEnable(true);
             updateViewEnable(paramView.isEnabled());
             binding.bluetoothSwitchRL.setChecked(paramView.isEnabled());
             if (paramView.isEnabled()) {
                 BluetoothUtils.setScanMode(mBluetoothAdapter, 23);
+            }*/
+            Log.d(TAG, "onViewCreated: 蓝牙支持");
+            if (mBluetoothAdapter.isEnabled()){
+                Log.d(TAG, "onViewCreated: 蓝牙已打开");
+                binding.bluetoothSwitchRL.setEnabled(true);
+                binding.bluetoothSwitchRL.setSwitchEnable(true);
+                updateViewEnable(paramView.isEnabled());
+                binding.bluetoothSwitchRL.setChecked(paramView.isEnabled());
+                if (paramView.isEnabled()){
+                    BluetoothUtils.setScanMode(mBluetoothAdapter,23);
+                }
+            }else {
+                Log.d(TAG, "onViewCreated: 蓝牙已关闭");
+                binding.bluetoothSwitchRL.setEnabled(true);
+                binding.bluetoothSwitchRL.setSwitchEnable(true);
+                updateViewEnable(false);
+                binding.bluetoothSwitchRL.setChecked(false);
+                binding.bluetoothSwitchRL.requestFocus();
             }
         } else {
+            Log.d(TAG, "onViewCreated: 设备不支持蓝牙");
             ToastUtils.showShort(mActivity.getString(R.string.str_unsupport_bluetooth_tip));
             binding.bluetoothSwitchRL.setEnabled(false);
             binding.bluetoothSwitchRL.setSwitchEnable(false);
