@@ -64,6 +64,7 @@ public class EnterPasswordFragment
     private UserChoiceInfo mUserChoiceInfo;
     private ScanResult scanResult;
     private Context mContext;
+    private SharedPreferences wifiInfoPreferences;
 
     public static EnterPasswordFragment newInstance() {
         return new EnterPasswordFragment();
@@ -154,6 +155,7 @@ public class EnterPasswordFragment
         Log.d(TAG,"onCreate");
         mUserChoiceInfo = ((UserChoiceInfo) new ViewModelProvider(requireActivity()).get(UserChoiceInfo.class));
         mStateMachine = ((StateMachine) new ViewModelProvider(requireActivity()).get(StateMachine.class));
+        wifiInfoPreferences = requireContext().getSharedPreferences("wifi_info",Context.MODE_PRIVATE);
     }
 
     @Override
@@ -309,6 +311,10 @@ public class EnterPasswordFragment
                     showToast(mContext.getResources().getString(R.string.bluetooth_index_connect_failed));
                     Log.d(TAG, "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
                 }
+                SharedPreferences.Editor editor = wifiInfoPreferences.edit();
+                editor.putString(ssid,password);
+                Log.d(TAG, "run: SharedPreferences = " + ssid + ","+password);
+                editor.apply();
             }
         },4000);
     }
