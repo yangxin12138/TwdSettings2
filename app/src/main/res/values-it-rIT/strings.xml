@@ -208,6 +208,7 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="device_index_info_tv">Informazioni locali</string>
     <string name="device_index_storage_tv">Archiviazione del dispositivo</string>
     <string name="device_index_factory_tv">Ripristina la fabbrica</string>
+    <string name="device_index_update_tv">Aggiornamento del sistema</string>
     <string name="factory_dialog_title">Il ripristino delle impostazioni di fabbrica cancellerà tutti i dati e quindi si riavvierà.</string>
     <string name="device_info_deviceNo">Dispositivo n</string>
     <string name="device_info_androidVersion">Android Versione</string>
@@ -233,4 +234,5 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="projection_neg_pos">Installazione a soffitto con proiezione frontale</string>
     <string name="projection_neg_neg">Retroproiezione per installazione a soffitto</string>
     <string name="size_adjustment_control_info">Tasti sinistra e destra per ingrandire e rimpicciolire</string>
+    <string name="network_available_title">Reti disponibili</string>
 </resources>

@@ -208,6 +208,7 @@
     <string name="device_index_info_tv">اطلاعات محلی</string>
     <string name="device_index_storage_tv">ذخیره سازی دستگاه</string>
     <string name="device_index_factory_tv">بازیابی کارخانه</string>
+    <string name="device_index_update_tv">به روزرسانی سیستم</string>
     <string name="factory_dialog_title">بازگرداندن تنظیمات کارخانه همه داده ها را پاک می کند و سپس راه اندازی مجدد می شود.</string>
     <string name="device_info_deviceNo">شناسه دستگاه</string>
     <string name="device_info_androidVersion">Android نسخه</string>
@@ -233,4 +234,5 @@
     <string name="projection_neg_pos">نصب آویز، پخش از جلو</string>
     <string name="projection_neg_neg">نصب آویز، پخش از پشت</string>
     <string name="size_adjustment_control_info">کلیدهای چپ و راست برای بزرگنمایی و بزرگنمایی</string>
+    <string name="network_available_title">شبکه های موجود</string>
 </resources>

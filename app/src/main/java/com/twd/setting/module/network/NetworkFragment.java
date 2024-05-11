@@ -161,7 +161,7 @@ public class NetworkFragment
         if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
             ssid = wifiInfo.getSSID().replace("\"","");
         }else {
-            ssid = "默认网络";
+            ssid = "";
         }
         return ssid;
     }

@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start|center"
                     android:duplicateParentState="true"
-                    android:text="可用网络" />
+                    android:text="@string/network_available_title" />
 
                 <TextView
                     android:id="@+id/item_wifi_available_name"
@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:duplicateParentState="true"
-                    android:text="默认网络"/>
+                    android:text=""/>
             </FrameLayout>
             <!--<androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_wifi_list"

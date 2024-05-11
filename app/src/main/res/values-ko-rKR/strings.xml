@@ -207,6 +207,7 @@
     <string name="device_index_info_tv">장치 정보</string>
     <string name="device_index_storage_tv">장치 저장소</string>
     <string name="device_index_factory_tv">공장 복원</string>
+    <string name="device_index_update_tv">시스템 업데이트</string>
     <string name="factory_dialog_title">공장 설정을 복원하면 모든 데이터가 지워지고 다시 시작됩니다.</string>
     <string name="device_info_deviceNo">장치 번호</string>
     <string name="device_info_androidVersion">안드로이드 버전</string>
@@ -232,4 +233,5 @@
     <string name="projection_neg_pos">천장 설치 전면 투사</string>
     <string name="projection_neg_neg">천장 설치 후면 투사</string>
     <string name="size_adjustment_control_info">확대 및 축소하는 왼쪽 및 오른쪽 키</string>
+    <string name="network_available_title">사용 가능한 네트워크</string>
 </resources>

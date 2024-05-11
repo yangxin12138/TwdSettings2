@@ -209,6 +209,7 @@
     <string name="device_index_info_tv">ข้อมูลท้องถิ่น</string>
     <string name="device_index_storage_tv">อุปกรณ์จัดเก็บข้อมูล</string>
     <string name="device_index_factory_tv">คืนค่าโรงงาน</string>
+    <string name="device_index_update_tv">การอัปเดตระบบ</string>
     <string name="factory_dialog_title">การคืนค่าการตั้งค่าจากโรงงานจะล้างข้อมูลทั้งหมดแล้วรีสตาร์ท.</string>
     <string name="device_info_deviceNo">หมายเลขอุปกรณ์</string>
     <string name="device_info_androidVersion">Androidเวอร์ชัน</string>
@@ -234,4 +235,5 @@
     <string name="projection_neg_pos">การฉายภาพด้านหน้าการติดตั้งฝ้าเพดาน</string>
     <string name="projection_neg_neg">การฉายภาพด้านหลังการติดตั้งฝ้าเพดาน</string>
     <string name="size_adjustment_control_info">ปุ่มซ้ายและขวาเพื่อซูมเข้าและออก</string>
+    <string name="network_available_title">เครือข่ายที่มีอยู่</string>
 </resources>

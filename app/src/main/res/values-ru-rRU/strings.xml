@@ -206,6 +206,7 @@
     <string name="device_index_info_tv">местная информация</string>
     <string name="device_index_storage_tv">Хранилище устройства</string>
     <string name="device_index_factory_tv">Восстановить завод</string>
+    <string name="device_index_update_tv">Обновление системы</string>
     <string name="factory_dialog_title">Восстановление заводских настроек приведет к удалению всех данных и последующей перезагрузке..</string>
     <string name="device_info_deviceNo">Номер устройства</string>
     <string name="device_info_androidVersion">Android Версия</string>
@@ -231,4 +232,5 @@
     <string name="projection_neg_pos">Подвесной монтаж, фронтальная проекция</string>
     <string name="projection_neg_neg">Потолочный монтаж, обратная проекция</string>
     <string name="size_adjustment_control_info">Клавиши влево и вправо для увеличения и уменьшения масштаба</string>
+    <string name="network_available_title">Доступные сети</string>
 </resources>

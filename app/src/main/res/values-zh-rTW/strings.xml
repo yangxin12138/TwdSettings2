@@ -207,6 +207,7 @@
     <string name="device_index_info_tv">本機資訊</string>
     <string name="device_index_storage_tv">裝置儲存</string>
     <string name="device_index_factory_tv">恢復出廠</string>
+    <string name="device_index_update_tv">系統更新</string>
     <string name="factory_dialog_title">恢復出廠設定會清空所有資料後重啟.</string>
     <string name="device_info_deviceNo">設備號</string>
     <string name="device_info_androidVersion">Android版本</string>
@@ -232,4 +233,5 @@
     <string name="projection_neg_pos">吊裝正投</string>
     <string name="projection_neg_neg">吊裝背投</string>
     <string name="size_adjustment_control_info">左右鍵縮放尺寸</string>
+    <string name="network_available_title">可用網路</string>
 </resources>
