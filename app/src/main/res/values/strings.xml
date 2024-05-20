@@ -456,6 +456,7 @@ Example: 24"</string>
     <string name="device_index_info_tv">Device Info</string>
     <string name="device_index_storage_tv">Device Storage</string>
     <string name="device_index_factory_tv">Restore Factory</string>
+    <string name="device_index_update_tv">System Update</string>
     <string name="factory_dialog_title">Restoring factory settings will clear all data and then restart.</string>
     <string name="device_info_deviceNo">Device NO</string>
     <string name="device_info_androidVersion">Android Version</string>
@@ -481,4 +482,5 @@ Example: 24"</string>
     <string name="projection_neg_pos">Hanging and Front</string>
     <string name="projection_neg_neg">Hanging and Back</string>
     <string name="size_adjustment_control_info">Left and right keys to zoom in size</string>
+    <string name="network_available_title">Available Networks</string>
 </resources>

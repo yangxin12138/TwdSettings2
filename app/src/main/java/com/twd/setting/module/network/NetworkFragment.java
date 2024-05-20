@@ -343,7 +343,7 @@ public class NetworkFragment
         if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
             ssid = wifiInfo.getSSID().replace("\"","");
         }else {
-            ssid = "无连接";
+            ssid = "";
         }
         return ssid;
     }

@@ -206,6 +206,7 @@
     <string name="device_index_info_tv">معلومات الجهاز</string>
     <string name="device_index_storage_tv">جهاز تخزين</string>
     <string name="device_index_factory_tv">استعادة المصنع</string>
+    <string name="device_index_update_tv">تحديث النظام</string>
     <string name="factory_dialog_title">ستؤدي استعادة إعدادات المصنع إلى مسح جميع البيانات ثم إعادة التشغيل.</string>
     <string name="device_info_deviceNo">رقم الجهاز</string>
     <string name="device_info_androidVersion">Android إصدار</string>
@@ -231,4 +232,5 @@
     <string name="projection_neg_pos">تركيب معلق، إسقاط أمامي</string>
     <string name="projection_neg_neg">تركيب السقف، الإسقاط الخلفي</string>
     <string name="size_adjustment_control_info">مفاتيح اليسار واليمين للتكبير والتصغير</string>
+    <string name="network_available_title">الشبكات المتاحة</string>
     </resources>

@@ -1,6 +1,7 @@
 package com.twd.setting.module.device;
 
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -25,12 +26,15 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
     private LinearLayout LL_info;
     private LinearLayout LL_storage;
     private LinearLayout LL_factory;
+    private LinearLayout LL_update;
     private TextView tv_info;
     private TextView tv_storage;
     private TextView tv_factory;
+    private TextView tv_update;
     private ImageView arrow_info;
     private ImageView arrow_storage;
     private ImageView arrow_factory;
+    private ImageView arrow_update;
     private Context context;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
     String theme_code = "1";
@@ -63,16 +67,20 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         LL_info = findViewById(R.id.devices_LL_Info);
         LL_storage = findViewById(R.id.devices_LL_storage);
         LL_factory = findViewById(R.id.devices_LL_factory);
+        LL_update = findViewById(R.id.devices_LL_update);
         tv_info = findViewById(R.id.devices_tv_Info);
         tv_storage = findViewById(R.id.devices_tv_storage);
         tv_factory = findViewById(R.id.devices_tv_factory);
+        tv_update = findViewById(R.id.devices_tv_update);
         arrow_info = findViewById(R.id.arrow_info);
         arrow_storage = findViewById(R.id.arrow_storage);
         arrow_factory = findViewById(R.id.arrow_factory);
+        arrow_update = findViewById(R.id.arrow_update);
 
         LL_info.setOnClickListener(this::onClick);
         LL_storage.setOnClickListener(this::onClick);
         LL_factory.setOnClickListener(this::onClick);
+        LL_update.setOnClickListener(this::onClick);
 
         LL_info.requestFocus();
     }
@@ -86,7 +94,11 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         }else if (view.getId() == R.id.devices_LL_storage){
             intent = new Intent(this,DeviceStorageActivity.class);
             startActivity(intent);
-        }else {
+        } else if (view.getId() == R.id.devices_LL_update) {
+            intent = new Intent();
+            intent.setComponent(new ComponentName("com.vsoontech.mos.ota","com.linkin.ota.activity.DownloadActivity"));
+            startActivity(intent);
+        } else {
             showDialog();
         }
     }

@@ -208,6 +208,7 @@
     <string name="device_index_info_tv">地元の情報</string>
     <string name="device_index_storage_tv">デバイスストレージ</string>
     <string name="device_index_factory_tv">工場を復元する</string>
+    <string name="device_index_update_tv">システムアップデート</string>
     <string name="factory_dialog_title">工場出荷時の設定に復元すると、すべてのデータが消去され、再起動されます。</string>
     <string name="device_info_deviceNo">デバイス番号</string>
     <string name="device_info_androidVersion">Android版</string>
@@ -231,4 +232,5 @@
     <string name="projection_neg_pos">吊り下げと正面</string>
     <string name="projection_neg_neg">ぶら下がって後ろに</string>
     <string name="size_adjustment_control_info">左右のキーでズームインおよびズームアウトします</string>
+    <string name="network_available_title">利用可能なネットワーク</string>
 </resources>

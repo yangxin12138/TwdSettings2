@@ -207,6 +207,7 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="device_index_info_tv">informações locais</string>
     <string name="device_index_storage_tv">Dispositivo de armazenamento</string>
     <string name="device_index_factory_tv">Restaurar fábrica</string>
+    <string name="device_index_update_tv">Atualização do sistema</string>
     <string name="factory_dialog_title">A restauração das configurações de fábrica limpará todos os dados e reiniciará.</string>
     <string name="device_info_deviceNo">Dispositivo Não</string>
     <string name="device_info_androidVersion">Android Versão</string>
@@ -232,4 +233,5 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="projection_neg_pos">Instalação no teto, projeção frontal</string>
     <string name="projection_neg_neg">Instalação no teto, projeção traseira</string>
     <string name="size_adjustment_control_info">Teclas esquerda e direita para aumentar e diminuir o zoom</string>
+    <string name="network_available_title">Redes disponíveis</string>
 </resources>
