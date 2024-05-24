@@ -3,6 +3,7 @@ package com.twd.setting.module.network.wifi;
 import static android.content.Context.WIFI_SERVICE;
 import static com.twd.setting.module.network.wifi.WifiConnectionActivity.TAG;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.wifi.SupplicantState;
@@ -10,13 +11,17 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
@@ -34,6 +39,7 @@ public class WifiListRvAdapter
     public static final String LOG_TAG = "WifiListRvAdapter";
     public IWifiItemClickListener itemClickListener;
     private List<WifiAccessPoint> wifiAccessPoints = new ArrayList<WifiAccessPoint>();
+
 
     public void clearAll() {
         List localList = getWifiAccessPoints();
@@ -192,13 +198,27 @@ public class WifiListRvAdapter
             extends RecyclerView.ViewHolder {
         private final LayoutItemWifiListBinding binding;
         private final Context context;
+        private final Activity mActivity;
+        private boolean isToastDisplayed = false;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             binding = DataBindingUtil.bind(itemView);
             context = binding.getRoot().getContext();
+            mActivity = (Activity) binding.getRoot().getContext();
         }
+        public void showToast(String text){
+            Toast toast = new Toast(context);
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View layout = inflater.inflate(R.layout.my_toast,(ViewGroup) mActivity.findViewById(R.id.custom_toast_layout));
 
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+            toast.setView(layout);
+            TextView Text = layout.findViewById(R.id.custom_toast_message);
+            Text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+            Text.setText(text);
+            toast.show();
+        }
         /*
         public ViewHolder(LayoutItemWifiListBinding layoutItemWifiListBinding)
         {
@@ -220,6 +240,10 @@ public class WifiListRvAdapter
             if (wifiAccessPoint.getSsidStr().equals(ssid)){
                 Log.d(TAG, "bind: wifiAccessPoint.getSsidStr() = " + wifiAccessPoint.getSsidStr() + ", ssid = " + ssid);
                 str = context.getString(R.string.wifi_state_connected);
+                /*if (!isToastDisplayed){
+                    showToast(context.getResources().getString(R.string.wifi_setup_connection_success));
+                    isToastDisplayed = true;
+                }*/
             }else if (wifiAccessPoint.isSaved()){
                 str = context.getString(R.string.wifi_state_saved);
             }else {

@@ -316,7 +316,7 @@ public class EnterPasswordFragment
                 Log.d(TAG, "run: SharedPreferences = " + ssid + ","+password);
                 editor.apply();
             }
-        },4000);
+        },8000);
     }
 
     private String getCurrentWifiSsid(WifiManager wifiManager){
