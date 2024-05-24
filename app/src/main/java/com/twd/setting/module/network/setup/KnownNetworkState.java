@@ -233,7 +233,7 @@ public class KnownNetworkState
                         Log.d(TAG, "run: 连接成功4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
                         showToast(mContext.getResources().getString(R.string.wifi_setup_connection_success));
                     }else {
-                        showToast(mContext.getResources().getString(R.string.bluetooth_index_connect_failed));
+                        //showToast(mContext.getResources().getString(R.string.bluetooth_index_connect_failed));
                         Log.d(TAG, "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
                     }
                     SharedPreferences.Editor editor = wifiInfoPreferences.edit();
