@@ -233,4 +233,5 @@
     <string name="projection_neg_neg">تركيب السقف، الإسقاط الخلفي</string>
     <string name="size_adjustment_control_info">مفاتيح اليسار واليمين للتكبير والتصغير</string>
     <string name="network_available_title">الشبكات المتاحة</string>
+    <string name="projector_auto_title">الإسقاط التلقائي</string>
     </resources>

@@ -235,4 +235,5 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="projection_neg_neg">Instalación colgante, proyección trasera</string>
     <string name="size_adjustment_control_info">Teclas izquierda y derecha para acercar y alejar</string>
     <string name="network_available_title">Redes disponibles</string>
+    <string name="projector_auto_title">Proyección automática</string>
 </resources>

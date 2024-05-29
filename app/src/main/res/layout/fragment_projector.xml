@@ -38,6 +38,16 @@
             app:layout_constraintHeight_percent="0.114"
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
             app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+        <include
+            android:id="@+id/autoInclude"
+            android:tag="0"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            bind:itemData="@{viewModel.autoData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/topSpace" />
 
         <include
             android:id="@+id/twoPointInclude"
@@ -45,10 +55,11 @@
             layout="@layout/layout_item_projector"
             android:layout_width="0.0dip"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_ime_bar_margin_t"
             bind:itemData="@{viewModel.twoPointData}"
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
             app:layout_constraintRight_toRightOf="@id/guidelineRight"
-            app:layout_constraintTop_toBottomOf="@id/topSpace" />
+            app:layout_constraintTop_toBottomOf="@id/autoInclude" />
 
         <include
             android:id="@+id/fourPointInclude"
@@ -83,75 +94,5 @@
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
             app:layout_constraintRight_toRightOf="@id/guidelineRight"
             app:layout_constraintTop_toBottomOf="@id/sizeInclude" />
-<!--
-        <include
-            android:id="@+id/twoPointInclude"
-            style="@style/ProjectorItemStyle"
-            layout="@layout/layout_item_projector"
-            bind:itemData="@{viewModel.twoPointData}"
-            app:layout_constraintBottom_toTopOf="@id/fourPointInclude"
-            app:layout_constraintTop_toBottomOf="@id/topSpace" />
-
-        <include
-            android:id="@+id/fourPointInclude"
-            style="@style/ProjectorItemStyle"
-            layout="@layout/layout_item_projector"
-            bind:itemData="@{viewModel.fourPointData}"
-            app:layout_constraintBottom_toTopOf="@id/sizeInclude"
-            app:layout_constraintTop_toBottomOf="@id/twoPointInclude" />
-
-        <include
-            android:id="@+id/sizeInclude"
-            style="@style/ProjectorItemStyle"
-            layout="@layout/layout_item_projector"
-            bind:itemData="@{viewModel.sizeData}"
-            app:layout_constraintBottom_toTopOf="@id/projectionInclude"
-            app:layout_constraintTop_toBottomOf="@id/fourPointInclude" />
-
-        <include
-            android:id="@+id/projectionInclude"
-            style="@style/ProjectorItemStyle"
-            layout="@layout/layout_item_projector"
-            bind:itemData="@{viewModel.projectionData}"
-            app:layout_constraintBottom_toTopOf="@id/bottomSpace"
-            app:layout_constraintTop_toBottomOf="@id/sizeInclude" />
-
-        <Space
-            android:id="@+id/bottomSpace"
-            style="@style/MainItemStyle"
-            android:layout_marginBottom="0.0dip"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/projectionInclude"
-            app:layout_constraintVertical_weight="0.2"
-            tools:ignore="MissingConstraints" />
-           -->
-       <!--         <include
-                    android:id="@+id/twoPointInclude"
-                    layout="@layout/layout_item_projector"
-                    style="@style/MainItemStyle"
-                    app:itemData="@{viewModel.twoPointData}"
-                    android:layout_marginTop="@dimen/main_item_margin_t" />
-
-                <include
-                    android:id="@+id/fourPointInclude"
-                    layout="@layout/layout_item_projector"
-                    style="@style/MainItemStyle"
-                    app:itemData="@{viewModel.fourPointData}"
-                    android:layout_marginTop="@dimen/main_item_margin_t" />
-
-                <include
-                    android:id="@+id/sizeInclude"
-                    layout="@layout/layout_item_projector"
-                    style="@style/MainItemStyle"
-                    app:itemData="@{viewModel.sizeData}"
-                    android:layout_marginTop="@dimen/main_item_margin_t" />
-
-                <include
-                    android:id="@+id/projectionInclude"
-                    layout="@layout/layout_item_projector"
-                    style="@style/MainItemStyle"
-                    app:itemData="@{viewModel.projectionData}"
-                    android:layout_marginTop="@dimen/main_item_margin_t" />
--->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

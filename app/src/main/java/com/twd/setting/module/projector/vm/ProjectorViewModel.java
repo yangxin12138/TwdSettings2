@@ -40,6 +40,7 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
             _ClickItem.postValue(Integer.valueOf(((Integer) view.getId()).intValue()));
         }
     };
+    private ItemLRTextIconData autoData;
     private ItemLRTextIconData twoPointData;
     private ItemLRTextIconData fourPointData;
     private ItemLRTextIconData sizeData;
@@ -59,6 +60,8 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     public ItemLRTextIconData getTwoPointData() {
         return twoPointData;
     }
+
+    public ItemLRTextIconData getAutoData(){return autoData;}
 
     public OnClickListener getItemClickListener() {
         return _itemClickListener;
@@ -88,19 +91,20 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     public void initData(Application paramApplication) {
         int postion = getProjectionItem();
         if(postion == 0){
-            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_pos_pos), 0, R.drawable.ic_baseline_arrow_forward_ios_24);
+            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_pos_pos), 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         } else if (postion == 1) {
-            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_pos_neg), 0, R.drawable.ic_baseline_arrow_forward_ios_24);
+            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_pos_neg), 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         } else if (postion == 2) {
-            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_neg_pos), 0, R.drawable.ic_baseline_arrow_forward_ios_24);
+            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_neg_pos), 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         } else if (postion == 3) {
-            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_neg_neg), 0, R.drawable.ic_baseline_arrow_forward_ios_24);
+            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_neg_neg), 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         }else {
-            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
+            projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         }
-        twoPointData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projector_two_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
-        fourPointData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projector_four_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
-        sizeData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projector_size_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
+        autoData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
+        twoPointData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projector_two_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        fourPointData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projector_four_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        sizeData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projector_size_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
 
 
     }

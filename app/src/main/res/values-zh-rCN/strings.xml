@@ -484,4 +484,5 @@ Example: 24"</string>
     <string name="projection_neg_neg">吊装背投</string>
     <string name="size_adjustment_control_info">左右键缩放尺寸</string>
     <string name="network_available_title">可用网络</string>
+    <string name="projector_auto_title">自动投影</string>
 </resources>

@@ -96,4 +96,5 @@
     <string name="device_storage_other">Other </string>
 
     <string name="network_available_title">Available Networks</string>
+    <string name="projector_auto_title">Auto Projection</string>
 </resources>
