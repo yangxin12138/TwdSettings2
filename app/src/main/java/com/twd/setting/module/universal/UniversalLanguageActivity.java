@@ -190,12 +190,12 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                     changeSystemLanguage(new Locale("tr","TR"));
                 }
 
-                // 关闭当前应用程序
-                finish();
+                /*// 关闭当前应用程序
+                finish();*/
 
                 // 重新启动应用程序
-                Intent restartIntent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-                restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Intent restartIntent = new Intent(getApplicationContext(), UniversalLanguageActivity.class);
+                restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(restartIntent);
 
             }
