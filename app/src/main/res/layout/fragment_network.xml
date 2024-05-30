@@ -72,8 +72,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="18.0dip"
                 android:background="?mainPageItemBg"
-                android:clickable="true"
-                android:focusable="true"
+                android:clickable="false"
+                android:focusable="false"
                 android:paddingStart="30.0dip"
                 android:paddingTop="13.0dip"
                 android:paddingEnd="30.0dip"
@@ -96,13 +96,12 @@
                     android:duplicateParentState="true"
                     android:text=""/>
             </FrameLayout>
-            <!--<androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_wifi_list"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/network_wifi_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20.0dip"
                 android:fadeScrollbars="false"
-
                 android:paddingBottom="1.0dip"
                 android:scrollbarSize="@dimen/scrollbar_thumb_size"
                 android:scrollbarStyle="outsideInset"
@@ -111,8 +110,7 @@
                 android:scrollbars="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_wifi_switch" />-->
-
+                app:layout_constraintTop_toBottomOf="@id/item_wifi_switch" />
 
             <TextView
                 android:id="@+id/tv_tip_no_wifi"
