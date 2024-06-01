@@ -195,6 +195,7 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="universal_index_title_tv">Universel</string>
     <string name="universal_index_input_tv">Saisir</string>
     <string name="universal_index_language_tv">langue</string>
+    <string name="universal_index_permission_tv">Autorisations</string>
     <string name="title_language">langue</string>
     <string name="dialog_changeLanguage_title">conseils</string>
     <string name="dialog_changeLanguage_message">Le changement de paramètre de langue nécessite le redémarrage de l\'application pour prendre effet. Voulez-vous changer?</string>

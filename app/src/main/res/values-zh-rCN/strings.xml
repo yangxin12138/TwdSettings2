@@ -444,6 +444,7 @@ Example: 24"</string>
     <string name="universal_index_title_tv">通用</string>
     <string name="universal_index_input_tv">输入法</string>
     <string name="universal_index_language_tv">语言</string>
+    <string name="universal_index_permission_tv">权限管理</string>
     <string name="title_language">语言</string>
     <string name="dialog_changeLanguage_title">提示</string>
     <string name="dialog_changeLanguage_message">切换语言设置需要重启应用后生效,是否切换?</string>

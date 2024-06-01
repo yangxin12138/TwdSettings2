@@ -95,7 +95,7 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
             negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0,View.GONE,View.VISIBLE);
             negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, R.drawable.icon_projection_selected_black,View.GONE,View.VISIBLE);
         }else {
-            posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0,View.GONE,View.VISIBLE);
+            posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, R.drawable.icon_projection_selected_black,View.GONE,View.VISIBLE);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0,View.GONE,View.VISIBLE);
             negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0,View.GONE,View.VISIBLE);
             negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0,View.GONE,View.VISIBLE);

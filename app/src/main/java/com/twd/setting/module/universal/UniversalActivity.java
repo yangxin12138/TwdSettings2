@@ -26,6 +26,7 @@ import java.util.Locale;
 public class UniversalActivity extends AppCompatActivity implements View.OnClickListener {
     private LinearLayout LL_input;
     private LinearLayout LL_language;
+    private LinearLayout LL_permission;
     private TextView tv_input;
     private TextView tv_language;
     private TextView tv_inputCurrent;
@@ -140,6 +141,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
     private void initView(){
         LL_input = findViewById(R.id.universal_LL_input);
         LL_language = findViewById(R.id.universal_LL_language);
+        LL_permission = findViewById(R.id.universal_LL_permission);
         tv_input = findViewById(R.id.universal_tv_input);
         tv_language = findViewById(R.id.universal_tv_language);
         tv_inputCurrent = findViewById(R.id.universal_tv_inputcurrent);
@@ -149,6 +151,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
 
         LL_input.setOnClickListener(this);
         LL_language.setOnClickListener(this);
+        LL_permission.setOnClickListener(this);
 
         LL_input.requestFocus();
     }
@@ -159,9 +162,11 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         if (view.getId() == R.id.universal_LL_input){
             intent = new Intent(this,UniversalInputActivity.class);
             startActivity(intent);
-        }else {
+        }else if (view.getId() == R.id.universal_LL_language){
             intent = new Intent(this,UniversalLanguageActivity.class);
             startActivity(intent);
+        }else {
+            //TODO:权限Intent
         }
     }
 }

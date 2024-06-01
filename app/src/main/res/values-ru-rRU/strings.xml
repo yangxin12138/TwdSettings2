@@ -193,6 +193,7 @@
     <string name="universal_index_title_tv">Универсальный</string>
     <string name="universal_index_input_tv">Вход</string>
     <string name="universal_index_language_tv">язык</string>
+    <string name="universal_index_permission_tv">Разрешения</string>
     <string name="title_language">язык</string>
     <string name="dialog_changeLanguage_title">намекать</string>
     <string name="dialog_changeLanguage_message">Для изменения языковых настроек необходимо перезапустить приложение. Хотите переключиться?</string>

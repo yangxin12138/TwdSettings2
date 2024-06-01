@@ -194,6 +194,7 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="universal_index_title_tv">Allgemein</string>
     <string name="universal_index_input_tv">Eingabe Methode</string>
     <string name="universal_index_language_tv">Sprache</string>
+    <string name="universal_index_permission_tv">Berechtigungen</string>
     <string name="title_language">Sprache</string>
     <string name="dialog_changeLanguage_title">Hinweis</string>
     <string name="dialog_changeLanguage_message">Das Ändern der Spracheinstellungen erfordert einen Neustart der App, damit es wirksam wird. Möchten Sie wechseln?</string>

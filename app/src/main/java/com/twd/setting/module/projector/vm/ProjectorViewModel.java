@@ -122,7 +122,7 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         } else if (postion == 3) {
             projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_neg));
         }else {
-            projectionData.setRightTxt(null);
+            projectionData.setRightTxt(getApplication().getString(R.string.projection_pos_pos));
         }
     }
 

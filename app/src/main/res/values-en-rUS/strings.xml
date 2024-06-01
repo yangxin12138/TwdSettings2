@@ -67,6 +67,7 @@
     <string name="universal_index_title_tv">Universal</string>
     <string name="universal_index_input_tv">Input</string>
     <string name="universal_index_language_tv">Language</string>
+    <string name="universal_index_permission_tv">Permissions</string>
     <string name="title_language">Language</string>
     <string name="dialog_changeLanguage_title">Tips</string>
     <string name="dialog_changeLanguage_message">Switching languages will take effect only after restarting the application. Do you want to switch?</string>

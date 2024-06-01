@@ -194,6 +194,7 @@
     <string name="universal_index_title_tv">공통</string>
     <string name="universal_index_input_tv">입력</string>
     <string name="universal_index_language_tv">언어</string>
+    <string name="universal_index_permission_tv">권한</string>
     <string name="title_language">언어</string>
     <string name="dialog_changeLanguage_title">힌트</string>
     <string name="dialog_changeLanguage_message">언어 설정을 전환하려면 앱을 다시 시작해야 적용됩니다. 전환하시겠습니까?</string>

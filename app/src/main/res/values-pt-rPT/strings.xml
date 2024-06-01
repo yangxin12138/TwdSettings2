@@ -194,6 +194,7 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="universal_index_title_tv">Universal</string>
     <string name="universal_index_input_tv">Entrada</string>
     <string name="universal_index_language_tv">linguagem</string>
+    <string name="universal_index_permission_tv">Permissões</string>
     <string name="title_language">linguagem</string>
     <string name="dialog_changeLanguage_title">dica</string>
     <string name="dialog_changeLanguage_message">A alteração das configurações de idioma requer a reinicialização do aplicativo para que entre em vigor. Quer mudar?</string>
