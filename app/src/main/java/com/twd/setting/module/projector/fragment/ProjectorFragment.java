@@ -16,6 +16,7 @@ import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentProjectorBinding;
 import com.twd.setting.module.projector.ProjectionActivity;
 import com.twd.setting.module.projector.vm.ProjectorViewModel;
+import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.UiUtils;
 
 public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBinding, ProjectorViewModel> implements View.OnFocusChangeListener {
@@ -23,6 +24,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private int selectItem = 4;
     SharedPreferences autoPreferences;
     boolean isAuto;
+    public static final String PROP_AUTOFOCUS = "persist.sys.keystone.autofocus";
     private void clickItem(int item) {
         isAuto = autoPreferences.getBoolean("AutoMode",false);
         Log.i(TAG, "clickItem: isAuto = "+ isAuto);
@@ -58,6 +60,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             isAuto = false;
             editor.putBoolean("AutoMode",false).apply();
             //TODO:手动模式
+            SystemPropertiesUtils.setProperty(PROP_AUTOFOCUS,"0");
         }else {//原本是未选中，手动模式，点击后变成自动模式
 
             /*binding.twoPointInclude.itemRL.setVisibility(View.GONE);
@@ -73,6 +76,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             isAuto = true;
             editor.putBoolean("AutoMode",true).apply();
             //TODO:自动模式
+            SystemPropertiesUtils.setProperty(PROP_AUTOFOCUS,"1");
         }
 
     }
@@ -136,7 +140,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.autoInclude.itemRL.requestFocus();
         }
         autoPreferences = getContext().getSharedPreferences("SaveAutoMode", Context.MODE_PRIVATE);
-        initAutoMode(autoPreferences);
+        initAutoMode();
     }
 
     public void onViewCreated(View paramView, Bundle paramBundle) {
@@ -155,8 +159,16 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         setClickListener();
     }
 
-    private void initAutoMode(SharedPreferences autoPreferences){
-        isAuto= autoPreferences.getBoolean("AutoMode",false);
+    private void initAutoMode(){
+        String AutoFocus = SystemPropertiesUtils.getProperty(PROP_AUTOFOCUS,"3");
+        if (AutoFocus.equals("1")){isAuto = true; } else if (AutoFocus.equals("0")) {isAuto = false;}else {
+            isAuto=false;
+            Log.i(TAG, "initAutoMode: 参数不正常 = "+AutoFocus);
+        }
+        Log.i(TAG, "initAutoMode: AutoFocus = "+ AutoFocus);
+        SharedPreferences.Editor editor = autoPreferences.edit();
+        editor.putBoolean("AutoMode",isAuto);
+        editor.apply();
         Log.i(TAG, "initAutoMode: 初始化 AutoMode = "+isAuto);
         if (isAuto){
             binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
