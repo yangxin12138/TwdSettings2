@@ -99,10 +99,12 @@ public class BluetoothFragment
                 }
                 if (device.isBonded()) {
                     Log.d(TAG, "device.isBonded,  do unBondDeviceDialog");
-                    unBondDeviceDialog(device);
+                    bondedDeviceDialog(device);
+                    //unBondDeviceDialog(device);
                 } else {
                     Log.d(TAG, "device.is not Bonded,  do BondDeviceDialog");
-                    bondedDeviceDialog(device);
+                    //bondedDeviceDialog(device);
+                    unBondDeviceDialog(device);
                 }
 
 
