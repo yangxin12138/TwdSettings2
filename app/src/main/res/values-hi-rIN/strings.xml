@@ -195,7 +195,8 @@
     <string name="universal_index_title_tv">सामान्य</string>
     <string name="universal_index_input_tv">इनपुट</string>
     <string name="universal_index_language_tv">भाषा</string>
-    <string name="universal_index_permission_tv">अनुमतियां</string>
+    <string name="universal_index_deviceName_tv">डिवाइस का नाम</string>
+    <string name="universal_index_Screensaver_tv">स्क्रीन सेवर</string>
     <string name="title_language">भाषा</string>
     <string name="dialog_changeLanguage_title">संकेत देना</string>
     <string name="dialog_changeLanguage_message">भाषा सेटिंग्स को बदलने के लिए प्रभावी होने के लिए एप्लिकेशन को पुनरारंभ करना आवश्यक है। क्या आप स्विच करना चाहते हैं?</string>

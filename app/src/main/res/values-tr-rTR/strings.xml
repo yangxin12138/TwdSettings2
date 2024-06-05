@@ -195,7 +195,8 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="universal_index_title_tv">Evrensel</string>
     <string name="universal_index_input_tv">Giriş</string>
     <string name="universal_index_language_tv">dil</string>
-    <string name="universal_index_permission_tv">İzinler</string>
+    <string name="universal_index_deviceName_tv">Cihaz adı</string>
+    <string name="universal_index_Screensaver_tv">Ekran koruyucusu</string>
     <string name="title_language">dil</string>
     <string name="dialog_changeLanguage_title">ipucu</string>
     <string name="dialog_changeLanguage_message">Dil ayarlarını değiştirmenin etkili olması için uygulamanın yeniden başlatılması gerekir. Geçiş yapmak istiyor musunuz?</string>

@@ -118,7 +118,7 @@
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/universal_LL_permission"
+            android:id="@+id/universal_LL_deviceName"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="@dimen/universal_content_LL_height"
@@ -128,8 +128,49 @@
             android:background="?bBg">
             <TextView
                 android:duplicateParentState="true"
-                android:id="@+id/universal_tv_permission"
-                android:text="@string/universal_index_permission_tv"
+                android:id="@+id/universal_tv_deviceName"
+                android:text="@string/universal_index_deviceName_tv"
+                android:textSize="@dimen/universal_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/universal_tv_marginStart"
+                android:textDirection="ltr"/>
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/universal_tv_namecurrent"
+                android:text=""
+                android:textSize="@dimen/universal_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_vertical" />
+            <ImageView
+                android:duplicateParentState="true"
+                android:id="@+id/arrow_deviceName"
+                android:src="?arrowSrc"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/universal_current_arrow_height"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/universal_LL_Screensaver"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/universal_content_LL_height"
+            android:layout_marginTop="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="?bBg">
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/universal_tv_Screensaver"
+                android:text="@string/universal_index_Screensaver_tv"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
                 android:layout_width="0dp"
@@ -140,7 +181,7 @@
                 android:textDirection="ltr"/>
             <ImageView
                 android:duplicateParentState="true"
-                android:id="@+id/arrow_permission"
+                android:id="@+id/arrow_Screensaver"
                 android:src="?arrowSrc"
                 android:layout_width="0dp"
                 android:layout_weight="1"

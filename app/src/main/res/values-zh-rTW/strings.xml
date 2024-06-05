@@ -194,7 +194,8 @@
     <string name="universal_index_title_tv">通用</string>
     <string name="universal_index_input_tv">輸入法</string>
     <string name="universal_index_language_tv">語言</string>
-    <string name="universal_index_permission_tv">權限管理</string>
+    <string name="universal_index_deviceName_tv">設備名稱</string>
+    <string name="universal_index_Screensaver_tv">螢幕保護</string>
     <string name="title_language">語言</string>
     <string name="dialog_changeLanguage_title">提示</string>
     <string name="dialog_changeLanguage_message">切換語言設置需要重啟設備後生效,是否切換?</string>

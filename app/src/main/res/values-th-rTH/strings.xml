@@ -196,7 +196,8 @@
     <string name="universal_index_title_tv">สากล</string>
     <string name="universal_index_input_tv">วิธีการป้อนข้อมูล</string>
     <string name="universal_index_language_tv">ภาษา</string>
-    <string name="universal_index_permission_tv">สิทธิ์</string>
+    <string name="universal_index_deviceName_tv">ชื่ออุปกรณ์</string>
+    <string name="universal_index_Screensaver_tv">สกรีนเซฟเวอร์</string>
     <string name="title_language">ภาษา</string>
     <string name="dialog_changeLanguage_title">คำใบ้</string>
     <string name="dialog_changeLanguage_message">การเปลี่ยนการตั้งค่าภาษาจำเป็นต้องรีสตาร์ทแอปจึงจะมีผล คุณต้องการเปลี่ยนหรือไม่</string>

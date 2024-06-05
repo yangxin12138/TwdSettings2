@@ -1,5 +1,6 @@
 package com.twd.setting.module.universal;
 
+import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -9,11 +10,14 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,13 +28,15 @@ import com.twd.setting.utils.SystemPropertiesUtils;
 import java.util.Locale;
 
 public class UniversalActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = "UniversalActivity";
     private LinearLayout LL_input;
     private LinearLayout LL_language;
-    private LinearLayout LL_permission;
+    private LinearLayout LL_device;
     private TextView tv_input;
     private TextView tv_language;
     private TextView tv_inputCurrent;
     private TextView tv_languageCurrent;
+    private TextView tv_deviceNameCurrent;
 
     private ImageView arrow_input;
     private ImageView arrow_language;
@@ -136,22 +142,27 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         } else if (currentLanguage.contains("tr_TR")) {
             tv_languageCurrent.setText("Türkçe (Türkiye)");
         }
+
+        //设备名称
+        tv_deviceNameCurrent.setText(SystemPropertiesUtils.getDeviceName(this));
+        Log.i(TAG, "onResume: getDeviceName = "+SystemPropertiesUtils.getDeviceName(this));
     }
 
     private void initView(){
         LL_input = findViewById(R.id.universal_LL_input);
         LL_language = findViewById(R.id.universal_LL_language);
-        LL_permission = findViewById(R.id.universal_LL_permission);
+        LL_device = findViewById(R.id.universal_LL_deviceName);
         tv_input = findViewById(R.id.universal_tv_input);
         tv_language = findViewById(R.id.universal_tv_language);
         tv_inputCurrent = findViewById(R.id.universal_tv_inputcurrent);
         tv_languageCurrent = findViewById(R.id.universal_tv_languagecurrent);
+        tv_deviceNameCurrent = findViewById(R.id.universal_tv_namecurrent);
         arrow_input = findViewById(R.id.arrow_input);
         arrow_language = findViewById(R.id.arrow_language);
 
         LL_input.setOnClickListener(this);
         LL_language.setOnClickListener(this);
-        LL_permission.setOnClickListener(this);
+        LL_device.setOnClickListener(this);
 
         LL_input.requestFocus();
     }
@@ -165,8 +176,48 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         }else if (view.getId() == R.id.universal_LL_language){
             intent = new Intent(this,UniversalLanguageActivity.class);
             startActivity(intent);
-        }else {
-            //TODO:权限Intent
+        }else if (view.getId() == R.id.universal_LL_deviceName){
+            showDialog();
         }
+    }
+
+    private void showDialog(){
+        Dialog NameDialog = new Dialog(this,R.style.DialogStyle);
+
+        //加载自定义布局文件
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.dialog_devicename,null);
+        NameDialog.setContentView(dialogView);
+        dialogView.setPadding(100,0,100,50);
+
+        final EditText deviceNameEdit = dialogView.findViewById(R.id.deviceName_edit);
+        final LinearLayout okBT = dialogView.findViewById(R.id.deviceName_ok_bt);
+        final LinearLayout cancelBT = dialogView.findViewById(R.id.deviceName_cancel_bt);
+
+        NameDialog.show();
+        okBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String deviceName = deviceNameEdit.getText().toString();
+                if (!deviceName.isEmpty()){
+                    //TODO
+                    SystemPropertiesUtils.setDeviceName(UniversalActivity.this,deviceName);
+                    NameDialog.dismiss();
+
+                    Intent restartIntent = new Intent(getApplicationContext(), UniversalActivity.class);
+                    restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(restartIntent);
+                }else {
+                    Toast.makeText(UniversalActivity.this, "输入的设备名不能为空", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        cancelBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NameDialog.dismiss();
+            }
+        });
     }
 }
