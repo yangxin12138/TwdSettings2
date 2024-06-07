@@ -195,6 +195,7 @@
     <string name="universal_index_language_tv">язык</string>
     <string name="universal_index_deviceName_tv">Имя устройства</string>
     <string name="universal_index_Screensaver_tv">Заставка</string>
+    <string name="universal_index_access_tv">Разрешения</string>
     <string name="title_language">язык</string>
     <string name="dialog_changeLanguage_title">намекать</string>
     <string name="dialog_changeLanguage_message">Для изменения языковых настроек необходимо перезапустить приложение. Хотите переключиться?</string>

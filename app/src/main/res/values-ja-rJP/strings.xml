@@ -197,6 +197,7 @@
     <string name="universal_index_language_tv">言語</string>
     <string name="universal_index_deviceName_tv">装置名</string>
     <string name="universal_index_Screensaver_tv">スクリーンセーバー</string>
+    <string name="universal_index_access_tv">権限</string>
     <string name="title_language">言語</string>
     <string name="dialog_changeLanguage_title">ヒント</string>
     <string name="dialog_changeLanguage_message">言語設定を切り替えるには、アプリを再起動する必要があります。切り替えますか?</string>

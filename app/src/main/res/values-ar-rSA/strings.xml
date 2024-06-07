@@ -195,6 +195,7 @@
     <string name="universal_index_language_tv">لغة</string>
     <string name="universal_index_deviceName_tv">اسم الجهاز</string>
     <string name="universal_index_Screensaver_tv">شاشة التوقف</string>
+    <string name="universal_index_access_tv">الأذونات</string>
     <string name="title_language">لغة</string>
     <string name="dialog_changeLanguage_title">تَلمِيح</string>
     <string name="dialog_changeLanguage_message">يتطلب تبديل إعدادات اللغة إعادة تشغيل التطبيق ليصبح ساري المفعول. هل تريد التبديل؟</string>

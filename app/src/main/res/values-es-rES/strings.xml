@@ -197,6 +197,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="universal_index_language_tv">idioma</string>
     <string name="universal_index_deviceName_tv">Nombre del dispositivo</string>
     <string name="universal_index_Screensaver_tv">Protector de pantalla</string>
+    <string name="universal_index_access_tv">Permisos</string>
     <string name="title_language">idioma</string>
     <string name="dialog_changeLanguage_title">Consejos</string>
     <string name="dialog_changeLanguage_message">Cambiar la configuración de idioma requiere reiniciar la aplicación para que surta efecto. ¿Quieres cambiar?</string>

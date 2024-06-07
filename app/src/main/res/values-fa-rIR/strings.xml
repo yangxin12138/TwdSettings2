@@ -197,6 +197,7 @@
     <string name="universal_index_language_tv">زبان</string>
     <string name="universal_index_deviceName_tv">نام دستگاه</string>
     <string name="universal_index_Screensaver_tv">محافظ صفحه نمایش</string>
+    <string name="universal_index_access_tv">مجوزها</string>
     <string name="title_language">زبان</string>
     <string name="dialog_changeLanguage_title">اشاره</string>
     <string name="dialog_changeLanguage_message">بعد از تغییر تنظیمات زبان باید برنامه را ریستارت کنید تا اعمال شود آیا تغییری ایجاد شده است؟</string>

@@ -32,16 +32,20 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
     private LinearLayout LL_input;
     private LinearLayout LL_language;
     private LinearLayout LL_device;
+    private LinearLayout LL_screensaver;
+    private LinearLayout LL_access;
     private TextView tv_input;
     private TextView tv_language;
     private TextView tv_inputCurrent;
     private TextView tv_languageCurrent;
     private TextView tv_deviceNameCurrent;
+    private TextView tv_screensaverTime;
 
     private ImageView arrow_input;
     private ImageView arrow_language;
     /*String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");*/
     String theme_code = "1";
+    private int selectItem ;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,6 +68,17 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
     protected void onResume() {
         super.onResume();
         initView();
+        if(selectItem == 0){
+            LL_input.requestFocus();
+        } else if (selectItem ==1) {
+            LL_language.requestFocus();
+        } else if (selectItem ==2) {
+            LL_device.requestFocus();
+        } else if (selectItem ==3) {
+            LL_screensaver.requestFocus();
+        } else if (selectItem == 4) {
+            LL_access.requestFocus();
+        }
         //当前输入法
         PackageManager packageManager = getPackageManager();
         String selectedInputMethodId = Settings.Secure.getString(getContentResolver(),Settings.Secure.DEFAULT_INPUT_METHOD);
@@ -152,17 +167,22 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         LL_input = findViewById(R.id.universal_LL_input);
         LL_language = findViewById(R.id.universal_LL_language);
         LL_device = findViewById(R.id.universal_LL_deviceName);
+        LL_screensaver = findViewById(R.id.universal_LL_Screensaver);
+        LL_access = findViewById(R.id.universal_LL_access);
         tv_input = findViewById(R.id.universal_tv_input);
         tv_language = findViewById(R.id.universal_tv_language);
         tv_inputCurrent = findViewById(R.id.universal_tv_inputcurrent);
         tv_languageCurrent = findViewById(R.id.universal_tv_languagecurrent);
         tv_deviceNameCurrent = findViewById(R.id.universal_tv_namecurrent);
+        tv_screensaverTime = findViewById(R.id.universal_tv_screensaverTime);
         arrow_input = findViewById(R.id.arrow_input);
         arrow_language = findViewById(R.id.arrow_language);
 
         LL_input.setOnClickListener(this);
         LL_language.setOnClickListener(this);
         LL_device.setOnClickListener(this);
+        LL_screensaver.setOnClickListener(this);
+        LL_access.setOnClickListener(this);
 
         LL_input.requestFocus();
     }
@@ -171,13 +191,29 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         Intent intent;
         if (view.getId() == R.id.universal_LL_input){
+            selectItem = 0;
             intent = new Intent(this,UniversalInputActivity.class);
             startActivity(intent);
         }else if (view.getId() == R.id.universal_LL_language){
+            selectItem = 1;
             intent = new Intent(this,UniversalLanguageActivity.class);
             startActivity(intent);
         }else if (view.getId() == R.id.universal_LL_deviceName){
+            selectItem = 2;
             showDialog();
+        } else if (view.getId() == R.id.universal_LL_Screensaver) {
+            selectItem = 3;
+            intent = new Intent();
+            intent.setComponent(new ComponentName("com.android.tv.settings","com.android.tv.settings.device.display.daydream.DaydreamActivity"));
+            startActivity(intent);
+        }else {
+            selectItem = 4;
+            intent = new Intent(Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
+            if (intent.resolveActivity(getPackageManager())!=null){
+                startActivity(intent);
+            } else {
+                Log.i(TAG, "onCreate: 不可以解析");
+            }
         }
     }
 

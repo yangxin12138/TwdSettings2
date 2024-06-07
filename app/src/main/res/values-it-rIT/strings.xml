@@ -197,6 +197,7 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="universal_index_language_tv">Lingua</string>
     <string name="universal_index_deviceName_tv">Nome del dispositivo</string>
     <string name="universal_index_Screensaver_tv">Salvaschermo</string>
+    <string name="universal_index_access_tv">Autorizzazioni</string>
     <string name="title_language">Lingua</string>
     <string name="dialog_changeLanguage_title">Suggerimento</string>
     <string name="dialog_changeLanguage_message">Per rendere effettiva la modifica delle impostazioni della lingua è necessario riavviare l\'app. Vuoi cambiare?</string>
