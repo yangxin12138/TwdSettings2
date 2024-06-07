@@ -81,7 +81,8 @@
         <activity
             android:name="com.twd.setting.module.network.NetworkActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:launchMode="singleInstance"/>
         <activity
             android:name="com.twd.setting.module.network.wifi.WifiConnectionActivity"
             android:exported="true"
@@ -96,7 +97,8 @@
         <activity
             android:name="com.twd.setting.module.bluetooth.BluetoothActivity"
             android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleInstance"/>
         <!--<service android:exported="true" android:name="com.twd.setting.module.localserver.LocalServer" android:process="com.twd.setting.localservice"/> -->
         <activity
             android:name=".MainActivity"
