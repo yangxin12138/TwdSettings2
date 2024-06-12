@@ -190,6 +190,9 @@ public class BluetoothViewModel
         if (mLocalManager == null) {
             return;
         }
+        disConnectAll();
+        updateListView(mLocalManager.getCachedDeviceManager().getCachedDevicesCopy());
+
         if ((device != null) && (device.getDevice() != null)) {
             if (!device.isConnected()) {
                 device.connect();
@@ -203,6 +206,14 @@ public class BluetoothViewModel
     public void disConnect(CachedBluetoothDevice device) {
         if (device != null) {
             device.disconnect();
+        }
+    }
+
+    public void disConnectAll(){
+        List<CachedBluetoothDevice> cachedBluetoothDevices = mLocalManager.getCachedDeviceManager().getCachedDevicesCopy();
+        for (CachedBluetoothDevice cachedBluetoothDevice : cachedBluetoothDevices){
+            Log.i(TAG, "disConnectAll: disconnect : "+cachedBluetoothDevice.getName().toString());
+            disConnect(cachedBluetoothDevice);
         }
     }
 
