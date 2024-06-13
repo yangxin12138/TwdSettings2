@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".module.universal.TimeAndDateActivity">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/universal_title_marginTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/universal_title_iv_width"
+            android:layout_height="@dimen/universal_title_iv_height"
+            android:src="?arrowBack_src"
+            android:layout_marginStart="@dimen/universal_title_iv_marginStart"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:text="时间和日期"
+            android:textColor="?textColor"
+            android:textSize="@dimen/universal_title_tv_textSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/universal_title_tv_marginStart"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:text="时间选择"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:textSize="25sp"/>
+    </LinearLayout>
+</LinearLayout>
