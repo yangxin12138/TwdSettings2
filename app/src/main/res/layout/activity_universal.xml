@@ -212,7 +212,7 @@
             <TextView
                 android:duplicateParentState="true"
                 android:id="@+id/universal_tv_access"
-                android:text="@string/universal_index_Screensaver_tv"
+                android:text="@string/universal_index_access_tv"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
                 android:layout_width="0dp"
@@ -224,6 +224,37 @@
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_access"
+                android:src="?arrowSrc"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/universal_current_arrow_height"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/universal_LL_time"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/universal_content_LL_height"
+            android:layout_marginTop="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="?bBg">
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/universal_tv_time"
+                android:text="时间和日期"
+                android:textSize="@dimen/universal_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="9"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/universal_tv_marginStart"
+                android:textDirection="ltr"/>
+            <ImageView
+                android:duplicateParentState="true"
+                android:id="@+id/arrow_time"
                 android:src="?arrowSrc"
                 android:layout_width="0dp"
                 android:layout_weight="1"

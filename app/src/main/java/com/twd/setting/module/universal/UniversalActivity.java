@@ -34,6 +34,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
     private LinearLayout LL_device;
     private LinearLayout LL_screensaver;
     private LinearLayout LL_access;
+    private LinearLayout LL_time;
     private TextView tv_input;
     private TextView tv_language;
     private TextView tv_inputCurrent;
@@ -169,6 +170,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         LL_device = findViewById(R.id.universal_LL_deviceName);
         LL_screensaver = findViewById(R.id.universal_LL_Screensaver);
         LL_access = findViewById(R.id.universal_LL_access);
+        LL_time = findViewById(R.id.universal_LL_time);
         tv_input = findViewById(R.id.universal_tv_input);
         tv_language = findViewById(R.id.universal_tv_language);
         tv_inputCurrent = findViewById(R.id.universal_tv_inputcurrent);
