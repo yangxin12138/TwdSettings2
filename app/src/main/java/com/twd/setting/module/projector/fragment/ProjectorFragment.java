@@ -14,11 +14,13 @@ import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentProjectorBinding;
 import com.twd.setting.module.projector.ProjectionActivity;
 import com.twd.setting.module.projector.vm.ProjectorViewModel;
+import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.UiUtils;
 
 public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBinding, ProjectorViewModel> {
     private static final String TAG = "ProjectorFragment";
     private int selectItem = 0;
+
 
     private void clickItem(int item) {
         Log.d(TAG,"clickItem: "+item);

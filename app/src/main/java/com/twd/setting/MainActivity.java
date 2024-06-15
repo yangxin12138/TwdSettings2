@@ -23,6 +23,8 @@ import com.twd.setting.databinding.FragmentMainBinding;
 import com.twd.setting.module.MainFragment;
 import com.twd.setting.module.bluetooth.BluetoothActivity;
 import com.twd.setting.module.bluetooth.fragment.BluetoothFragment;
+import com.twd.setting.module.device.DeviceInfoActivity;
+import com.twd.setting.module.projector.ProjectorActivity;
 import com.twd.setting.utils.KkUtils;
 import com.twd.setting.utils.UiUtils;
 
@@ -127,14 +129,24 @@ public class MainActivity
         Log.d(TAG, "onCreate  savedInstanceState=" + paramBundle + "   intent=" + getIntent());
         curFragment = MainFragment.newInstance();
         //UiUtils.replaceFragment(getSupportFragmentManager(), R.id.content, curFragment);
-        UiUtils.replaceFragment(getSupportFragmentManager(), 16908290, curFragment);
-        showMenu(getIntent());
+        /*UiUtils.replaceFragment(getSupportFragmentManager(), 16908290, curFragment);
+        showMenu(getIntent());*/
+
+        Intent intent = new Intent(this, ProjectorActivity.class);
+        startActivity(intent);
     }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy  intent=" + getIntent());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        finish();
     }
 
     @Override
