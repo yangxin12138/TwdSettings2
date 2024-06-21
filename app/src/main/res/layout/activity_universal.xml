@@ -243,7 +243,7 @@
             <TextView
                 android:duplicateParentState="true"
                 android:id="@+id/universal_tv_time"
-                android:text="时间和日期"
+                android:text="@string/str_timeanddate"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
                 android:layout_width="0dp"

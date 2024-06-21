@@ -71,6 +71,7 @@
     <string name="universal_index_Screensaver_tv">Screensaver</string>
     <string name="universal_index_access_tv">Permissions</string>
     <string name="title_language">Language</string>
+    <string name="str_timeanddate">Time&amp;Date</string>
     <string name="dialog_changeLanguage_title">Tips</string>
     <string name="dialog_changeLanguage_message">Switching languages will take effect only after restarting the application. Do you want to switch?</string>
     <string name="dialog_changeLanguage_btConfirm">Confirm</string>

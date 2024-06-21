@@ -41,6 +41,7 @@
     <string name="str_bluetooth_toast_connect_failed">Bluetooth-устройство：%s Соединение не удалось</string>
     <string name="str_cancel">Отмена</string>
     <string name="str_common">Универсальный</string>
+    <string name="str_timeanddate">Время и дата</string>
     <string name="str_common_equipment">Часто используемое оборудование</string>
     <string name="str_common_settings">Общие настройки</string>
     <string name="str_complete">Заканчивать</string>

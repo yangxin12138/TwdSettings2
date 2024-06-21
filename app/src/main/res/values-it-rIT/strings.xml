@@ -41,6 +41,7 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="str_bluetooth_toast_connect_failed">dispositivo bluetooth：%s Connessione fallita</string>
     <string name="str_cancel">Annulla</string>
     <string name="str_common">universale</string>
+    <string name="str_timeanddate">Ora e data</string>
     <string name="str_common_equipment">Attrezzatura di uso comune</string>
     <string name="str_common_settings">Impostazioni generali</string>
     <string name="str_complete">Fine</string>

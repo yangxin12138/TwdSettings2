@@ -182,6 +182,7 @@ Example: 8080"</string>
     <string name="str_bluetooth_toast_connect_failed">蓝牙设备：%s 连接失败</string>
     <string name="str_cancel">取消</string>
     <string name="str_common">通用</string>
+    <string name="str_timeanddate">时间与日期</string>
     <string name="str_common_equipment">常用设备</string>
     <string name="str_common_settings">通用设置</string>
     <string name="str_complete">完成</string>

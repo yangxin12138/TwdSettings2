@@ -41,6 +41,7 @@
     <string name="str_bluetooth_toast_connect_failed">دستگاه بلوتوث：%s  ارتباط ناموفق بود</string>
     <string name="str_cancel">لغو کنید</string>
     <string name="str_common">جهانی</string>
+    <string name="str_timeanddate">زمان و تاریخ</string>
     <string name="str_common_equipment">تجهیزات متداول</string>
     <string name="str_common_settings">تنظیمات عمومی</string>
     <string name="str_complete">پایان</string>

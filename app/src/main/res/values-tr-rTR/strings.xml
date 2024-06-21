@@ -41,6 +41,7 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="str_bluetooth_toast_connect_failed">bluetooth cihazı：%s Bağlantı başarısız oldu</string>
     <string name="str_cancel">İptal etmek</string>
     <string name="str_common">Evrensel</string>
+    <string name="str_timeanddate">Saat ve Tarih</string>
     <string name="str_common_equipment">Yaygın olarak kullanılan ekipmanlar</string>
     <string name="str_common_settings">Genel Ayarlar</string>
     <string name="str_complete">Sona ermek</string>

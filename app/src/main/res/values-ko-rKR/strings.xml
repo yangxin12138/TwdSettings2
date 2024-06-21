@@ -42,6 +42,7 @@
     <string name="str_bluetooth_toast_connect_failed">블루투스 장치：%s 연결에 실패</string>
     <string name="str_cancel">취소</string>
     <string name="str_common">만능인</string>
+    <string name="str_timeanddate">시간과 날짜</string>
     <string name="str_common_equipment">일반적으로 사용되는 장비</string>
     <string name="str_common_settings">일반 설정</string>
     <string name="str_complete">마치다</string>

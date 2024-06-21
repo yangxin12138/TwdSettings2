@@ -79,6 +79,8 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
             LL_screensaver.requestFocus();
         } else if (selectItem == 4) {
             LL_access.requestFocus();
+        } else if (selectItem == 5) {
+            LL_time.requestFocus();
         }
         //当前输入法
         PackageManager packageManager = getPackageManager();
@@ -185,6 +187,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         LL_device.setOnClickListener(this);
         LL_screensaver.setOnClickListener(this);
         LL_access.setOnClickListener(this);
+        LL_time.setOnClickListener(this);
 
         LL_input.requestFocus();
     }
@@ -208,7 +211,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
             intent = new Intent();
             intent.setComponent(new ComponentName("com.android.tv.settings","com.android.tv.settings.device.display.daydream.DaydreamActivity"));
             startActivity(intent);
-        }else {
+        }else if (view.getId() == R.id.universal_LL_access){
             selectItem = 4;
             intent = new Intent(Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
             if (intent.resolveActivity(getPackageManager())!=null){
@@ -216,6 +219,12 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
             } else {
                 Log.i(TAG, "onCreate: 不可以解析");
             }
+        }else {
+            selectItem = 5;
+            intent = new Intent();
+            intent.setComponent(new ComponentName("com.twd.timedate2","com.twd.timedate2.MainActivity"));
+            //com.twd.timedate2/com.twd.timedate2.MainActivity
+            startActivity(intent);
         }
     }
 

@@ -42,6 +42,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="str_bluetooth_toast_connect_failed">dispositivo bluetooth：%s La conexión falló</string>
     <string name="str_cancel">Cancelar</string>
     <string name="str_common">Universal</string>
+    <string name="str_timeanddate">Hora y fecha</string>
     <string name="str_common_equipment">Equipos de uso común</string>
     <string name="str_common_settings">Configuración general</string>
     <string name="str_complete">Finalizar</string>

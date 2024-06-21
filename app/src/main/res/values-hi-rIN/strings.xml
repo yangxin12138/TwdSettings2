@@ -42,6 +42,7 @@
     <string name="str_bluetooth_toast_connect_failed">ब्लूटूथ डिवाइस：%s कनेक्शन विफल</string>
     <string name="str_cancel">रद्द करना</string>
     <string name="str_common">सार्वभौमिक</string>
+    <string name="str_timeanddate">समय और दिनांक</string>
     <string name="str_common_equipment">सामान्यतः प्रयुक्त उपकरण</string>
     <string name="str_common_settings">सामान्य सेटिंग्स</string>
     <string name="str_complete">खत्म करना</string>

@@ -41,6 +41,7 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="str_bluetooth_toast_connect_failed">dispositivo bluetooth：%s Falha na conexão</string>
     <string name="str_cancel">Cancelar</string>
     <string name="str_common">Universal</string>
+    <string name="str_timeanddate">Hora e Data</string>
     <string name="str_common_equipment">Equipamento comumente usado</string>
     <string name="str_common_settings">Configurações Gerais</string>
     <string name="str_complete">Terminar</string>

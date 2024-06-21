@@ -42,6 +42,7 @@
     <string name="str_bluetooth_toast_connect_failed">อุปกรณ์บลูทูธ：%s การเชื่อมต่อล้มเหลว</string>
     <string name="str_cancel">ยกเลิก</string>
     <string name="str_common">สากล</string>
+    <string name="str_timeanddate">เวลาและวันที่</string>
     <string name="str_common_equipment">อุปกรณ์ที่ใช้กันทั่วไป</string>
     <string name="str_common_settings">การตั้งค่าทั่วไป</string>
     <string name="str_complete">เสร็จ</string>

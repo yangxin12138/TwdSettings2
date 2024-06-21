@@ -41,6 +41,7 @@
     <string name="str_bluetooth_toast_connect_failed">ブルートゥースデバイス：%s 接続に失敗しました</string>
     <string name="str_cancel">キャンセル</string>
     <string name="str_common">ユニバーサル</string>
+    <string name="str_timeanddate">日付と時刻</string>
     <string name="str_common_equipment">よく使われる設備</string>
     <string name="str_common_settings">一般設定</string>
     <string name="str_complete">仕上げる</string>

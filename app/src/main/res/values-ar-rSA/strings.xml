@@ -40,6 +40,7 @@
     <string name="str_bluetooth_toast_connect_failed">جهاز بلوتوث ：%s فشل الاتصال</string>
     <string name="str_cancel">يلغي</string>
     <string name="str_common">عالمي</string>
+    <string name="str_timeanddate">الوقت و التاريخ</string>
     <string name="str_common_equipment">المعدات شائعة الاستخدام</string>
     <string name="str_common_settings">الاعدادات العامة</string>
     <string name="str_complete">ينهي</string>

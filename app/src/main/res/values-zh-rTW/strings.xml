@@ -41,6 +41,7 @@
     <string name="str_bluetooth_toast_connect_failed">藍牙裝置：%s 連線失敗</string>
     <string name="str_cancel">取消</string>
     <string name="str_common">一般</string>
+    <string name="str_timeanddate">時間和日期</string>
     <string name="str_common_equipment">常用設備</string>
     <string name="str_common_settings">通用設定</string>
     <string name="str_complete">完成</string>

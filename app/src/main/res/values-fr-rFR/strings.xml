@@ -41,6 +41,7 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="str_bluetooth_toast_connect_failed">appareil Bluetooth：%s La connexion a échoué</string>
     <string name="str_cancel">Annuler</string>
     <string name="str_common">Universel</string>
+    <string name="str_timeanddate">Heure et date</string>
     <string name="str_common_equipment">Équipement couramment utilisé</string>
     <string name="str_common_settings">Réglages généraux</string>
     <string name="str_complete">Finition</string>

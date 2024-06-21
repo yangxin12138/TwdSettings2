@@ -39,6 +39,7 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="str_bluetooth_toast_connect_failed">Bluetooth-Gerät：%s Verbindung fehlgeschlagen</string>
     <string name="str_cancel">Stornieren</string>
     <string name="str_common">Universal</string>
+    <string name="str_timeanddate">Zeit und Datum</string>
     <string name="str_common_equipment">Häufig verwendete Ausrüstung</string>
     <string name="str_common_settings">Allgemeine Einstellungen</string>
     <string name="str_complete">Beenden</string>

@@ -182,6 +182,7 @@ Please click 'Try Again' to pair the Bluetooth remote control again."</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth device: %s connect failed</string>
     <string name="str_cancel">cancel</string>
     <string name="str_common">Common</string>
+    <string name="str_timeanddate">Time&amp;Date</string>
     <string name="str_common_equipment">Common Equipment</string>
     <string name="str_common_settings">Common Settings</string>
     <string name="str_complete">complete</string>
