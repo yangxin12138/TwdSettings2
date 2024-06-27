@@ -237,5 +237,5 @@
     <string name="projection_neg_neg">Потолочный монтаж, обратная проекция</string>
     <string name="size_adjustment_control_info">Клавиши влево и вправо для увеличения и уменьшения масштаба</string>
     <string name="network_available_title">Доступные сети</string>
-    <string name="projector_auto_title">Автоматическое проецирование</string>
+    <string name="projector_auto_title">Вертикальное трапецеидальное искажение</string>
 </resources>

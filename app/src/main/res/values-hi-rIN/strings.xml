@@ -239,5 +239,5 @@
     <string name="projection_neg_neg">पीछे का प्रक्षेपण पीछे का प्रक्षेपण</string>
     <string name="size_adjustment_control_info">ज़ूम इन और ज़ूम आउट करने के लिए बाएँ और दाएँ कुंजियों का उपयोग करे</string>
     <string name="network_available_title">उपलब्ध नेटवर्क</string>
-    <string name="projector_auto_title">ऑटो प्रोजेक्शन</string>
+    <string name="projector_auto_title">वर्टिकल कीस्टोन</string>
 </resources>

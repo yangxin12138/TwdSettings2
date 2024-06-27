@@ -237,5 +237,5 @@
     <string name="projection_neg_neg">ぶら下がって後ろに</string>
     <string name="size_adjustment_control_info">左右のキーでズームインおよびズームアウトします</string>
     <string name="network_available_title">利用可能なネットワーク</string>
-    <string name="projector_auto_title">自動投影</string>
+    <string name="projector_auto_title">垂直キーストーン</string>
 </resources>
