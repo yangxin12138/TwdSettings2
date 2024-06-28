@@ -33,6 +33,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class BluetoothViewModel
@@ -190,7 +191,14 @@ public class BluetoothViewModel
         if (mLocalManager == null) {
             return;
         }
-        disConnectAll();
+        String deviceName = device.getName();
+        //判断是否是要连接语音助手，要连接语音助手则断开其他的语音助手即可，其他设备不用管。 要连接其他的设备断开其他的设备就可，语音助手不管
+        if (Objects.equals(deviceName, "语音助手")){
+            disConnectAllVoiceAssistant();
+        }else {
+            disConnectAllOtherDevice();
+        }
+        //disConnectAll();
         updateListView(mLocalManager.getCachedDeviceManager().getCachedDevicesCopy());
 
         if ((device != null) && (device.getDevice() != null)) {
@@ -212,8 +220,30 @@ public class BluetoothViewModel
     public void disConnectAll(){
         List<CachedBluetoothDevice> cachedBluetoothDevices = mLocalManager.getCachedDeviceManager().getCachedDevicesCopy();
         for (CachedBluetoothDevice cachedBluetoothDevice : cachedBluetoothDevices){
-            Log.i(TAG, "disConnectAll: disconnect : "+cachedBluetoothDevice.getName().toString());
+            Log.i(TAG, "disConnectAll: disconnect : "+ cachedBluetoothDevice.getName());
             disConnect(cachedBluetoothDevice);
+        }
+    }
+
+    public void disConnectAllOtherDevice(){
+        List<CachedBluetoothDevice> cachedBluetoothDevices = mLocalManager.getCachedDeviceManager().getCachedDevicesCopy();
+        for (CachedBluetoothDevice cachedBluetoothDevice : cachedBluetoothDevices){
+            Log.i(TAG, "disConnectAll: disconnect : "+ cachedBluetoothDevice.getName());
+            String currentName = cachedBluetoothDevice.getName();
+            if (!currentName.equals("语音助手")){
+                disConnect(cachedBluetoothDevice);
+            }
+        }
+    }
+    //断开所有的语音助手
+    public void disConnectAllVoiceAssistant(){
+        List<CachedBluetoothDevice> cachedBluetoothDevices = mLocalManager.getCachedDeviceManager().getCachedDevicesCopy();
+        for (CachedBluetoothDevice cachedBluetoothDevice : cachedBluetoothDevices){
+            Log.i(TAG, "disConnectAll: disconnect : "+ cachedBluetoothDevice.getName());
+            String currentName = cachedBluetoothDevice.getName();
+            if (currentName.equals("语音助手")){
+                disConnect(cachedBluetoothDevice);
+            }
         }
     }
 
