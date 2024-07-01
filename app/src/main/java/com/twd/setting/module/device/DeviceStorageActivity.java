@@ -41,7 +41,7 @@ public class DeviceStorageActivity extends AppCompatActivity {
     private ImageView legend_other;
 
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
-    String theme_code = "1";
+    String theme_code = "0";
     TypedArray typedArray;
 
     @Override

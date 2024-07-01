@@ -27,7 +27,7 @@
             android:layout_centerVertical="true"
             android:duplicateParentState="true"
             android:scaleType="fitCenter"
-	    app:tint="?mainPageItemColor"
+	        app:tint="?mainPageItemColor"
             app:imageResource="@{itemData.leftIconRes}" />
 
 

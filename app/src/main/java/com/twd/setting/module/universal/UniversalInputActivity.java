@@ -41,7 +41,7 @@ public class UniversalInputActivity extends AppCompatActivity implements Adapter
     InputItemAdapter adapter;
     private final Context context = this;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
-    String theme_code = "1";
+    String theme_code = "0";
     SharedPreferences inputPreferences;
 
     @Override

@@ -193,6 +193,7 @@
     <style name="Theme.IceBlue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="background_color">@color/background_color</item>
         <item name="textColor">@color/selector_iceblue_textcolor</item>
+        <item name="editTextColor">@color/white</item>
         <item name="arrowSrc">@drawable/selector_iceblue_arrow</item>
         <item name="main_projection_src">@drawable/selector_iceblue_projection</item>
         <item name="main_internet_src">@drawable/selector_iceblue_internet</item>
@@ -228,6 +229,7 @@
     <style name="Theme.KapokWhite" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="background_color">@color/white</item>
         <item name="textColor">@color/selector_kapokwhite_textcolor</item>
+        <item name="editTextColor">@color/black</item>
         <item name="arrowSrc">@drawable/selector_kapokwhite_arrow</item>
         <item name="main_projection_src">@drawable/selector_kapokwhite_projection</item>
         <item name="main_internet_src">@drawable/selector_kapokwhite_internet</item>
@@ -262,6 +264,7 @@
     <style name="Theme.StarBlue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="background_color">@color/customStarBlue</item>
         <item name="textColor">@color/customWhite</item>
+        <item name="editTextColor">@color/white</item>
         <item name="arrowSrc">@drawable/selector_starblue_arrow</item>
         <item name="main_projection_src">@drawable/projection</item>
         <item name="main_internet_src">@drawable/wifi</item>

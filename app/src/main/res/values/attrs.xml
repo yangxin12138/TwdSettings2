@@ -111,4 +111,5 @@
     <attr name="storage_systemcolor" format="color"/>
     <attr name="storage_appcolor" format="color"/>
     <attr name="storage_othercolor" format="color"/>
+    <attr name="editTextColor" format="color"/>
 </resources>

@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape>
-            <solid android:color="#f33e25" />
-            <corners android:radius="20.0dip" />
+            <solid android:color="@color/white" />
+            <corners android:radius="25.0dip" />
         </shape>
     </item>
     <item android:state_focused="true" android:state_enabled="true">
         <layer-list>
             <item>
                 <shape>
-                    <stroke android:width="4.0dip" android:color="@color/black" />
-                    <corners android:radius="20.0dip" />
+                    <stroke android:width="4.0dip" android:color="@color/white" />
+                    <corners android:radius="25.0dip" />
                 </shape>
             </item>
             <item>
@@ -22,8 +22,8 @@
             </item>
             <item>
                 <shape>
-                    <solid android:color="#f33e25" />
-                    <corners android:radius="20.0dip" />
+                    <solid android:color="@color/white" />
+                    <corners android:radius="25.0dip" />
                 </shape>
             </item>
         </layer-list>
@@ -32,7 +32,7 @@
         <layer-list>
             <item>
                 <shape>
-                    <stroke android:width="2.0dip" android:color="@color/black" />
+                    <stroke android:width="4.0dip" android:color="@color/white" />
                     <corners android:radius="20.0dip" />
                 </shape>
             </item>

@@ -45,7 +45,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
     private ImageView arrow_input;
     private ImageView arrow_language;
     /*String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");*/
-    String theme_code = "1";
+    String theme_code = "0";
     private int selectItem ;
 
     @Override
