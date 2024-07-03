@@ -53,7 +53,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class EnterPasswordFragment
-        extends BaseFragment {
+        extends BaseFragment implements View.OnFocusChangeListener {
     public static final String ARG_SCAN_RESULT = "ARG_SCAN_RESULT";
     private static final int PSK_MIN_LENGTH = 8;
     private static final int WEP_MIN_LENGTH = 5;
@@ -255,6 +255,7 @@ public class EnterPasswordFragment
                 //WifiListFragment.clearSelectedSSID();
             }
         });
+        binding.edtEnterPwd.setOnFocusChangeListener(this);
     }
 
     private void showToast(String text){
@@ -345,4 +346,16 @@ public class EnterPasswordFragment
         return false; // 当前连接的WiFi的SSID与指定的SSID不同
     }
 
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus){
+            if (v.getId() == R.id.edt_enter_pwd){
+                binding.tvTipPwdNum.setTextColor(getResources().getColor(R.color.color_0f39e9));
+            }
+        }else {
+            if (v.getId() == R.id.edt_enter_pwd){
+                binding.tvTipPwdNum.setTextColor(getResources().getColor(R.color.white));
+            }
+        }
+    }
 }
