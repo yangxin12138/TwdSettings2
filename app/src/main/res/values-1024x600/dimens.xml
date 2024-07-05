@@ -32,8 +32,8 @@
     <dimen name="singlePoint_ld_marginBottom">65dp</dimen>
     <dimen name="singlePoint_rd_marginEnd">65dp</dimen>
     <dimen name="singlePoint_rd_marginBottom">65dp</dimen>
-    <dimen name="singlePoint_iv_width">1000dp</dimen>
-    <dimen name="singlePoint_iv_height">500dp</dimen>
+    <dimen name="singlePoint_iv_width">800dp</dimen>
+    <dimen name="singlePoint_iv_height">400dp</dimen>
     <dimen name="singlePoint_iv_marginStart">60dp</dimen>
     <dimen name="singlePoint_iv_marginTop">50dp</dimen>
     <dimen name="size_iv_width">650dp</dimen>
@@ -45,7 +45,7 @@
     <dimen name="size_text_textSize">20sp</dimen>
     <dimen name="size_seek_width">500dp</dimen>
     <dimen name="size_seek_height">40dp</dimen>
-    <dimen name="size_iv_height">450dp</dimen>
+    <dimen name="size_iv_height">350dp</dimen>
     <dimen name="size_seek_marginLeft">350dp</dimen>
     <dimen name="size_seek_marginTop">20dp</dimen>
     <dimen name="size_textLevel_textSize">50sp</dimen>
