@@ -2,6 +2,8 @@ package com.twd.setting.module.network.wifi;
 
 import static com.twd.setting.commonlibrary.Utils.Utils.runOnUiThread;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -32,6 +34,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -65,6 +69,7 @@ public class EnterPasswordFragment
     private ScanResult scanResult;
     private Context mContext;
     private SharedPreferences wifiInfoPreferences;
+    private int connectMode = 1;
 
     public static EnterPasswordFragment newInstance() {
         return new EnterPasswordFragment();
@@ -236,6 +241,22 @@ public class EnterPasswordFragment
                 //setWifiConfigurationPassword();
             }
         });
+        binding.edtEnterPwd.setImeOptions(EditorInfo.IME_ACTION_SEND);
+        binding.edtEnterPwd.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    //处理事件
+                    Log.i(TAG, "onEditorAction: 回车键回调触发");
+                    //收起软键盘
+                    InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    connectMode = 0;
+                    binding.btnConnect.requestFocus();
+                }
+                return false;
+            }
+        });
 
         StringBuilder localStringBuilder = new StringBuilder();
         localStringBuilder.append("prevPassword: ");
@@ -246,13 +267,19 @@ public class EnterPasswordFragment
         binding.btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG,"btnConnect onclick:"+binding.edtEnterPwd.getText().toString());
-                setWifiConfigurationPassword(binding.edtEnterPwd.getText().toString());
-                mStateMachine.getListener().onComplete(18);
-                String ssid = binding.titleLayout.titleTV.getText().toString();
-                String password = binding.edtEnterPwd.getText().toString();
-                connectToWifi(ssid,password);
-                //WifiListFragment.clearSelectedSSID();
+                if(connectMode == 1){
+                    Log.d(TAG,"btnConnect onclick:"+binding.edtEnterPwd.getText().toString());
+                    setWifiConfigurationPassword(binding.edtEnterPwd.getText().toString());
+                    mStateMachine.getListener().onComplete(18);
+                    String ssid = binding.titleLayout.titleTV.getText().toString();
+                    String password = binding.edtEnterPwd.getText().toString();
+                    connectToWifi(ssid,password);
+                    //WifiListFragment.clearSelectedSSID();
+                }else {
+                    connectMode = 1;
+                    Log.i(TAG, "onClick: 连接按键获得焦点 btnConnect.requestFocus();");
+                }
+
             }
         });
         binding.edtEnterPwd.setOnFocusChangeListener(this);

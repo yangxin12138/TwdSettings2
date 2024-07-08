@@ -81,7 +81,7 @@
         <activity
             android:name="com.twd.setting.module.network.NetworkActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:windowSoftInputMode="adjustPan"
             android:launchMode="singleInstance"/>
         <activity
             android:name="com.twd.setting.module.network.wifi.WifiConnectionActivity"
