@@ -32,6 +32,8 @@
             android:layout_marginTop="@dimen/size_seek_marginTop"
             android:max="10"
             android:progress="@{viewModel.zoom}"
+            android:progressTint="@color/white"
+            android:progressBackgroundTint="@color/black"
             android:focusable="true" />
 
         <TextView
