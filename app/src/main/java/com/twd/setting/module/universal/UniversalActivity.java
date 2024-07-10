@@ -10,8 +10,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -47,7 +49,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
     /*String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");*/
     String theme_code = "0";
     private int selectItem ;
-
+    int connectMode = 1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         switch (theme_code){
@@ -236,27 +238,52 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         View dialogView = inflater.inflate(R.layout.dialog_devicename,null);
         NameDialog.setContentView(dialogView);
         dialogView.setPadding(100,0,100,50);
-
+        Log.i(TAG, "showDialog: ----yangxin----");
         final EditText deviceNameEdit = dialogView.findViewById(R.id.deviceName_edit);
         final LinearLayout okBT = dialogView.findViewById(R.id.deviceName_ok_bt);
         final LinearLayout cancelBT = dialogView.findViewById(R.id.deviceName_cancel_bt);
 
+        deviceNameEdit.setImeOptions(EditorInfo.IME_ACTION_SEND);
+        deviceNameEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                Log.i(TAG, "onEditorAction: 软键盘回调----判断");
+                if (actionId == EditorInfo.IME_ACTION_SEND
+                        || actionId == EditorInfo.IME_ACTION_DONE
+                        || (event != null && KeyEvent.KEYCODE_ENTER == event.getKeyCode() && KeyEvent.ACTION_DOWN == event.getAction())) {
+                    //处理事件
+                    Log.i(TAG, "onEditorAction: 软键盘回调----判断成功");
+                    //收起软键盘
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    connectMode = 0;
+                    okBT.requestFocus();
+                }
+                return false;
+            }
+        });
         NameDialog.show();
         okBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String deviceName = deviceNameEdit.getText().toString();
-                if (!deviceName.isEmpty()){
-                    //TODO
-                    SystemPropertiesUtils.setDeviceName(UniversalActivity.this,deviceName);
-                    NameDialog.dismiss();
+                if (connectMode == 1){
+                    if (!deviceName.isEmpty()){
+                        //TODO
+                        SystemPropertiesUtils.setDeviceName(UniversalActivity.this,deviceName);
+                        NameDialog.dismiss();
 
-                    Intent restartIntent = new Intent(getApplicationContext(), UniversalActivity.class);
-                    restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    startActivity(restartIntent);
+                        Intent restartIntent = new Intent(getApplicationContext(), UniversalActivity.class);
+                        restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(restartIntent);
+                    }else {
+                        Toast.makeText(UniversalActivity.this, "输入的设备名不能为空", Toast.LENGTH_SHORT).show();
+                    }
                 }else {
-                    Toast.makeText(UniversalActivity.this, "输入的设备名不能为空", Toast.LENGTH_SHORT).show();
+                    connectMode = 1;
+                    Log.i(TAG, "onClick: 确认按键获得焦点 okBT.requestFocus();");
                 }
+
             }
         });
 

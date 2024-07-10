@@ -110,7 +110,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".module.universal.UniversalActivity"/>
+        <activity android:name=".module.universal.UniversalActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".module.universal.UniversalInputActivity"/>
         <activity android:name=".module.universal.UniversalLanguageActivity"/>
 
