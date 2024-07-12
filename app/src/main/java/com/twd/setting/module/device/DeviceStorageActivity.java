@@ -111,13 +111,14 @@ public class DeviceStorageActivity extends AppCompatActivity {
         double other_Long = 0;
 
         //总容量
-        String totalRom = getTotalRom();
-        String total = totalRom.substring(0, totalRom.indexOf("GB")).trim();
-        Log.i(TAG, "initView: total = " + total);
-        total_Long= InternationalReplace(total);
+        String totalRom = SystemPropertiesUtils.readSystemProp();
+        Log.i(TAG, "initView: totalRom = "+totalRom);
+//        String total = totalRom.substring(0, totalRom.indexOf("GB")).trim();
+//        Log.i(TAG, "initView: total = " + total);
+//        total_Long= InternationalReplace(total);
 
         //可用容量
-        String availableRom = getAvailableStorage().replace(",",".");
+       /* String availableRom = getAvailableStorage().replace(",",".");
         String available = availableRom.substring(0,availableRom.indexOf("GB")).trim();
         Log.i(TAG, "initView: availableFormat = " + available);
         String formattedAvailable = formatNumberWithCommas(available);
@@ -155,7 +156,7 @@ public class DeviceStorageActivity extends AppCompatActivity {
         //其他占用
         double otherRom = total_Long - (available_Long + system_Long + app_Long);
         Log.i(TAG, "initView:  total = " + total_Long +", available = " + available_Long + ", system =" + system_Long +", app = " + app_Long);
-        String formattedOther = "";
+        String formattedOther = "";*/
          /*if (Locale.getDefault().getLanguage().equals("tr")){
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.getDefault());
             decimalFormatSymbols.setDecimalSeparator(',');
@@ -165,31 +166,31 @@ public class DeviceStorageActivity extends AppCompatActivity {
         }else {
             formattedOther = String.format("%.2f", otherRom).replace(",",".");
         }*/
-        formattedOther = String.format("%.2f",otherRom).replace(",",".");
+       /* formattedOther = String.format("%.2f",otherRom).replace(",",".");
         Log.i(TAG, "initView: other = " + formattedOther);
         String finnalOther = formatNumberWithCommas(formattedOther);
         if (Locale.getDefault().getLanguage().equals("ar") || Locale.getDefault().getLanguage().equals("fa")){
             other_Long = InternationalReplace(finnalOther);
         }else {
             other_Long = InternationalReplace(formattedOther);
-        }
+        }*/
 
         if (Locale.getDefault().getLanguage().equals("ar") || Locale.getDefault().getLanguage().equals("fa")){
            storage_total.setText(totalRom + ":" + getString(R.string.device_storage_total));
-           storage_available.setText(availableRom + " : " + getString(R.string.device_storage_available));
+           /*storage_available.setText(availableRom + " : " + getString(R.string.device_storage_available));
            storage_system.setText(systemRom + " : " + getString(R.string.device_storage_system));
            storage_app.setText(appRom + " : " + getString(R.string.device_storage_app));
-           storage_other.setText(formattedOther + "GB" + ":" + getString(R.string.device_storage_other));
+           storage_other.setText(formattedOther + "GB" + ":" + getString(R.string.device_storage_other));*/
         }else {
             Log.i(TAG, "initView: storage_total = " + storage_total.getText());
             storage_total.setText(getString(R.string.device_storage_total) + ":" + totalRom);
-            storage_available.setText(getString(R.string.device_storage_available) + ":" + availableRom);
+            /*storage_available.setText(getString(R.string.device_storage_available) + ":" + availableRom);
             storage_system.setText(getString(R.string.device_storage_system) + ":" + systemRom);
             storage_app.setText(getString(R.string.device_storage_app) + ":" + appRom);
-            storage_other.setText(getString(R.string.device_storage_other)+ ":"+ formattedOther + "GB");
+            storage_other.setText(getString(R.string.device_storage_other)+ ":"+ formattedOther + "GB");*/
         }
 
-        Draw_Charts(total_Long,available_Long,system_Long,app_Long,other_Long);
+        //Draw_Charts(total_Long,available_Long,system_Long,app_Long,other_Long);
     }
 
     //RAM内存大小, 返回1GB/2GB/3GB/4GB/8G/16G

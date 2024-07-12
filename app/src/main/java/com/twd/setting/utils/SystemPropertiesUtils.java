@@ -11,6 +11,12 @@ import android.util.Log;
 import androidx.core.app.ActivityCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 
 public class SystemPropertiesUtils {
@@ -71,5 +77,28 @@ public class SystemPropertiesUtils {
             Log.v(TAG, "Bluetooth adapter is null. Running on device without bluetooth?");
         }
         LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(ACTION_DEVICE_NAME_UPDATE));
+    }
+
+    public static String readSystemProp(){
+        String line = "";
+        try {
+            File file = new File("/system/etc/settings.ini");
+            FileInputStream fis = new FileInputStream(file);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            while ((line = reader.readLine()) != null) {
+                if (line.contains("STORAGE_SIMPLE_SYSDATA")) {
+                    // 这里可以进一步解析line来获取STORAGE_SIMPLE_SYSDATA的值
+                    String value = line.split("=")[1]; // 获取等号后面的值
+                    reader.close();
+                    fis.close();
+                    return value;
+                }
+            }
+            reader.close();
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "1GB+8GB";
     }
 }
