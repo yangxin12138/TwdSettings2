@@ -1,257 +1,257 @@
- ©¸©¤setting
-     ©¦  MainActivity.java
-     ©¦  SettingApplication.java
-     ©¦
-     ©À©¤base
-     ©¦  ©¦  BaseActivity.java      //ÉèÖÃÖ÷Ìâ
-*    ©¦  ©¦  BaseBindingVmActivity.java
-*    ©¦  ©¦  BaseBindingVmFragment.java
-*    ©¦  ©¦  BaseFragment.java
-*    ©¦  ©¦  BaseModel.java
-     ©¦  ©¦  BaseViewModel.java
-*    ©¦  ©¦  FragmentOnKeyListener.java
-*    ©¦  ©¦  IDispose.java
-*    ©¦  ©¦  IModel.java
-     ©¦  ©¦
-     ©¦  ©¸©¤observer
-*    ©¦          MyDisposableObserver.java
-*    ©¦          MyObserver.java
-     ©¦
-     ©À©¤commonlibrary
-     ©¦  ©¸©¤Utils
-*    ©¦      ©¦  CommonFunction.java
-     ©¦      ©¦  ReflectUtils.java
-*    ©¦      ©¦  RxTransUtils.java
-     ©¦      ©¦  StringUtils.java
-     ©¦      ©¦  ToastUtils.java
-*    ©¦      ©¦  Utils.java
-     ©¦      ©¦
-     ©¦      ©¸©¤event
-*    ©¦              SingleLiveEvent.java
-     ©¦
-     ©À©¤module
-     ©¦  ©¦  MainFragment.java
-     ©¦  ©¦  MainItemVisible.java
-     ©¦  ©¦  MainViewModel.java
-     ©¦  ©¦
-     ©¦  ©À©¤bluetooth
-     ©¦  ©¦  ©¦  BluetoothActivity.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤adapter
-     ©¦  ©¦  ©¦      BluetoothHandsetListAdapter.java
-     ©¦  ©¦  ©¦      BluetoothListAdapter.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤bluetoothlib
-     ©¦  ©¦  ©¦      A2dpProfile.java
-     ©¦  ©¦  ©¦      AlwaysDiscoverable.java
-     ©¦  ©¦  ©¦      BluetoothCallback.java
-     ©¦  ©¦  ©¦      BluetoothCallbackHelper.java
-     ©¦  ©¦  ©¦      BluetoothEventManager.java
-     ©¦  ©¦  ©¦      BluetoothHandsetFilter.java
-     ©¦  ©¦  ©¦      BluetoothPairingController.java
-     ©¦  ©¦  ©¦      BluetoothPairingReceiver.java
-     ©¦  ©¦  ©¦      CachedBluetoothDeviceManager.java
-     ©¦  ©¦  ©¦      HidProfile.java
-     ©¦  ©¦  ©¦      LocalBluetoothManager.java
-     ©¦  ©¦  ©¦      LocalBluetoothProfile.java
-     ©¦  ©¦  ©¦      LocalBluetoothProfileManager.java
-     ©¦  ©¦  ©¦      OnBluetoothResultCallback.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤dialog
-     ©¦  ©¦  ©¦      PairingRequestDialogView.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤fragment
-     ©¦  ©¦  ©¦      BluetoothFragment.java
-     ©¦  ©¦  ©¦      BluetoothHandsetFragment.java
-     ©¦  ©¦  ©¦      BluetoothHandsetPairFragment.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤holder
-     ©¦  ©¦  ©¦      BluetoothHandsetViewHolder.java
-     ©¦  ©¦  ©¦      BluetoothSearchViewHolder.java
-     ©¦  ©¦  ©¦      BluetoothViewHolder.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤model
-     ©¦  ©¦  ©¦      BluetoothItemState.java
-     ©¦  ©¦  ©¦      CachedBluetoothDevice.java
-     ©¦  ©¦  ©¦      HandsetPairState.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©¸©¤vm
-     ©¦  ©¦          BluetoothHandsetPairViewModel.java
-     ©¦  ©¦          BluetoothHandsetViewModel.java
-     ©¦  ©¦          BluetoothViewModel.java
-     ©¦  ©¦
-     ©¦  ©À©¤common
-     ©¦  ©¦  ©¦  CommonActivity.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤adapter
-     ©¦  ©¦  ©¦      InputMethodAdapter.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤fragment
-     ©¦  ©¦  ©¦      CommonFragment.java
-     ©¦  ©¦  ©¦      InputMethodEditorFragment.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤holder
-     ©¦  ©¦  ©¦      InputMethodViewHolder.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤model
-     ©¦  ©¦  ©¦      CommonSettingVisible.java
-     ©¦  ©¦  ©¦      InputMethodData.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©¸©¤vm
-     ©¦  ©¦          CommonViewModel.java
-     ©¦  ©¦
-     ©¦  ©À©¤network
-     ©¦  ©¦  ©¦  EditNetConfigFragment.java
-     ©¦  ©¦  ©¦  NetworkActivity.java
-     ©¦  ©¦  ©¦  NetworkChangeReceiver.java
-     ©¦  ©¦  ©¦  NetworkConstant.java
-     ©¦  ©¦  ©¦  NetworkFragment.java
-     ©¦  ©¦  ©¦  NetworkViewModel.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤ether
-     ©¦  ©¦  ©¦      EthernetConfigsFragment.java
-     ©¦  ©¦  ©¦      EthernetConfigsRepository.java
-     ©¦  ©¦  ©¦      EthernetConfigsViewModel.java
-     ©¦  ©¦  ©¦      EthernetUtil.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤model
-*    ©¦  ©¦  ©¦      NetConfigInfo.java
-*    ©¦  ©¦  ©¦      NetworkBadging.java
-*    ©¦  ©¦  ©¦      NetworkKey.java
-*    ©¦  ©¦  ©¦      RssiCurve.java
-     ©¦  ©¦  ©¦      ScoredNetwork.java
-*    ©¦  ©¦  ©¦      TimestampedScoredNetwork.java
-     ©¦  ©¦  ©¦      WifiAccessPoint.java
-*    ©¦  ©¦  ©¦      WifiKey.java
-*    ©¦  ©¦  ©¦      WifiListUiState.java
-     ©¦  ©¦  ©¦      WifiNetworkScoreCache.java
-     ©¦  ©¦  ©¦      WifiSsid.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤repository
-     ©¦  ©¦  ©¦      ConnectivityListener.java
-     ©¦  ©¦  ©¦      Ipv4ConnectInfoRepository.java
-     ©¦  ©¦  ©¦      NetConfigsRepository.java
-     ©¦  ©¦  ©¦      WifiConnectRepository.java
-     ©¦  ©¦  ©¦      WifiRepository.java
-     ©¦  ©¦  ©¦      WifiScanRepository.java
-     ©¦  ©¦  ©¦      WifiStateRepository.java
-     ©¦  ©¦  ©¦      WifiTrackerRepository.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤setup
-     ©¦  ©¦  ©¦      AddStartState.java
-     ©¦  ©¦  ©¦      AddWifiNetworkState.java
-     ©¦  ©¦  ©¦      AdvancedOptionsFlowInfo.java
-     ©¦  ©¦  ©¦      ConnectAuthFailureState.java
-     ©¦  ©¦  ©¦      ConnectFailedState.java
-     ©¦  ©¦  ©¦      ConnectRejectedByApState.java
-     ©¦  ©¦  ©¦      ConnectState.java
-     ©¦  ©¦  ©¦      ConnectTimeOutState.java
-     ©¦  ©¦  ©¦      EnterPasswordState.java
-     ©¦  ©¦  ©¦      FinishState.java
-     ©¦  ©¦  ©¦      KnownNetworkState.java
-     ©¦  ©¦  ©¦      MessageFragment.java
-     ©¦  ©¦  ©¦      OptionsOrConnectState.java
-     ©¦  ©¦  ©¦      SuccessState.java
-     ©¦  ©¦  ©¦      UserChoiceInfo.java
-     ©¦  ©¦  ©¦      WifiConnectivityGuidedStepFragment.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤speed
-     ©¦  ©¦  ©¦      DownloadUrlModel.java
-     ©¦  ©¦  ©¦      DownloadUrlPresenter.java
-     ©¦  ©¦  ©¦      DownloadUrlRequest.java
-     ©¦  ©¦  ©¦      NetSpeedInfo.java
-     ©¦  ©¦  ©¦      NetworkSpeedFragment.java
-     ©¦  ©¦  ©¦      NetworkSpeedTester.java
-     ©¦  ©¦  ©¦      NetworkSpeedViewModel.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©À©¤util
-     ©¦  ©¦  ©¦      AccessibilityHelper.java
-     ©¦  ©¦  ©¦      ReflectHelper.java
-     ©¦  ©¦  ©¦      State.java
-     ©¦  ©¦  ©¦      StateMachine.java
-     ©¦  ©¦  ©¦      Transition.java
-     ©¦  ©¦  ©¦      WifiConfigHelper.java
-     ©¦  ©¦  ©¦      WifiSecurityUtil.java
-     ©¦  ©¦  ©¦
-     ©¦  ©¦  ©¸©¤wifi
-     ©¦  ©¦          AddNetworkFragment.java
-     ©¦  ©¦          AddWifiNetworkActivity.java
-     ©¦  ©¦          EditConfigViewModel.java
-     ©¦  ©¦          EnterPasswordFragment.java
-     ©¦  ©¦          WifiConfigFragment.java
-     ©¦  ©¦          WifiConnectionActivity.java
-     ©¦  ©¦          WifiListFragment.java
-     ©¦  ©¦          WifiListRvAdapter.java
-     ©¦  ©¦          WifiSignalHelper.java
-     ©¦  ©¦          WifiViewModel.java
-     ©¦  ©¦
-     ©¦  ©¸©¤systemequipment
-     ©¦      ©¦  DeviceInfosActivity.java
-     ©¦      ©¦  StorageDetailActivity.java
-     ©¦      ©¦  SysEquipmentActivity.java
-     ©¦      ©¦
-     ©¦      ©À©¤adapter
-     ©¦      ©¦      DeviceInfosAdapter.java
-     ©¦      ©¦      StorageDetailAdapter.java
-     ©¦      ©¦
-     ©¦      ©À©¤fragment
-     ©¦      ©¦      DeviceInfosFragment.java
-     ©¦      ©¦      SysEquipmentFragment.java
-     ©¦      ©¦
-     ©¦      ©À©¤holder
-     ©¦      ©¦      DeviceInfosViewHolder.java
-     ©¦      ©¦      StorageDetailViewHolder.java
-     ©¦      ©¦
-     ©¦      ©À©¤model
-     ©¦      ©¦      DeviceInfoItem.java
-     ©¦      ©¦      StorageInfoData.java
-     ©¦      ©¦
-     ©¦      ©À©¤repository
-     ©¦      ©¦      StorageDetailRepository.java
-     ©¦      ©¦      SysEquipmentRepository.java
-     ©¦      ©¦
-     ©¦      ©¸©¤vm
-     ©¦              StorageDetailViewModel.java
-     ©¦              SysEquipmentViewModel.java
-     ©¦
-     ©À©¤utils
-*    ©¦  ©¦  BluetoothUtils.java
-*    ©¦  ©¦  CollectionUtils.java
-*    ©¦  ©¦  ConfigInfo.java
-*    ©¦  ©¦  HLog.java
-     ©¦  ©¦  KkUtils.java
-     ©¦  ©¦  NetworkUtils.java
-     ©¦  ©¦  RomSizeTools.java
-*    ©¦  ©¦  StringUtil.java
-*    ©¦  ©¦  ThreadPoolsUtils.java
-*    ©¦  ©¦  ThreadUtils.java
-*    ©¦  ©¦  TimeUtils.java
-     ©¦  ©¦  UiUtils.java
-     ©¦  ©¦  UsbScanTool.java
-     ©¦  ©¦
-     ©¦  ©À©¤binding
-*    ©¦  ©¦      BluetoothItemClickHandle.java
-*    ©¦  ©¦      ItemClickHandle.java
-*    ©¦  ©¦      ItemLRTextIconClickHandle.java
-*    ©¦  ©¦      ItemLRTextIconData.java
-*    ©¦  ©¦      MyViewBindingAdapter.java
-     ©¦  ©¦
-     ©¦  ©À©¤constant
-*    ©¦  ©¦      TimeConstants.java
-     ©¦  ©¦
-     ©¦  ©¸©¤manager
-*    ©¦          DataMapUtils.java
-*    ©¦          ViewManager.java
-     ©¦
-     ©¸©¤widgets
+ ï¿½ï¿½ï¿½ï¿½setting
+     ï¿½ï¿½  MainActivity.java
+     ï¿½ï¿½  SettingApplication.java
+     ï¿½ï¿½
+     ï¿½ï¿½ï¿½ï¿½base
+     ï¿½ï¿½  ï¿½ï¿½  BaseActivity.java      //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+*    ï¿½ï¿½  ï¿½ï¿½  BaseBindingVmActivity.java
+*    ï¿½ï¿½  ï¿½ï¿½  BaseBindingVmFragment.java
+*    ï¿½ï¿½  ï¿½ï¿½  BaseFragment.java
+*    ï¿½ï¿½  ï¿½ï¿½  BaseModel.java
+     ï¿½ï¿½  ï¿½ï¿½  BaseViewModel.java
+*    ï¿½ï¿½  ï¿½ï¿½  FragmentOnKeyListener.java
+*    ï¿½ï¿½  ï¿½ï¿½  IDispose.java
+*    ï¿½ï¿½  ï¿½ï¿½  IModel.java
+     ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½observer
+*    ï¿½ï¿½          MyDisposableObserver.java
+*    ï¿½ï¿½          MyObserver.java
+     ï¿½ï¿½
+     ï¿½ï¿½ï¿½ï¿½commonlibrary
+     ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½Utils
+*    ï¿½ï¿½      ï¿½ï¿½  CommonFunction.java
+     ï¿½ï¿½      ï¿½ï¿½  ReflectUtils.java
+*    ï¿½ï¿½      ï¿½ï¿½  RxTransUtils.java
+     ï¿½ï¿½      ï¿½ï¿½  StringUtils.java
+     ï¿½ï¿½      ï¿½ï¿½  ToastUtils.java
+*    ï¿½ï¿½      ï¿½ï¿½  Utils.java
+     ï¿½ï¿½      ï¿½ï¿½
+     ï¿½ï¿½      ï¿½ï¿½ï¿½ï¿½event
+*    ï¿½ï¿½              SingleLiveEvent.java
+     ï¿½ï¿½
+     ï¿½ï¿½ï¿½ï¿½module
+     ï¿½ï¿½  ï¿½ï¿½  MainFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  MainItemVisible.java
+     ï¿½ï¿½  ï¿½ï¿½  MainViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½bluetooth
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½  BluetoothActivity.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½adapter
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothHandsetListAdapter.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothListAdapter.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½bluetoothlib
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      A2dpProfile.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      AlwaysDiscoverable.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothCallback.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothCallbackHelper.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothEventManager.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothHandsetFilter.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothPairingController.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothPairingReceiver.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      CachedBluetoothDeviceManager.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      HidProfile.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      LocalBluetoothManager.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      LocalBluetoothProfile.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      LocalBluetoothProfileManager.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      OnBluetoothResultCallback.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½dialog
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      PairingRequestDialogView.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½fragment
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothHandsetFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothHandsetPairFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½holder
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothHandsetViewHolder.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothSearchViewHolder.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothViewHolder.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½model
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      BluetoothItemState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      CachedBluetoothDevice.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      HandsetPairState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½vm
+     ï¿½ï¿½  ï¿½ï¿½          BluetoothHandsetPairViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½          BluetoothHandsetViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½          BluetoothViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½common
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½  CommonActivity.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½adapter
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      InputMethodAdapter.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½fragment
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      CommonFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      InputMethodEditorFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½holder
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      InputMethodViewHolder.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½model
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      CommonSettingVisible.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      InputMethodData.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½vm
+     ï¿½ï¿½  ï¿½ï¿½          CommonViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½network
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½  EditNetConfigFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½  NetworkActivity.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½  NetworkChangeReceiver.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½  NetworkConstant.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½  NetworkFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½  NetworkViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ether
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      EthernetConfigsFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      EthernetConfigsRepository.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      EthernetConfigsViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      EthernetUtil.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½model
+*    ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      NetConfigInfo.java
+*    ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      NetworkBadging.java
+*    ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      NetworkKey.java
+*    ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      RssiCurve.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      ScoredNetwork.java
+*    ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      TimestampedScoredNetwork.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiAccessPoint.java
+*    ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiKey.java
+*    ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiListUiState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiNetworkScoreCache.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiSsid.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½repository
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      ConnectivityListener.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      Ipv4ConnectInfoRepository.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      NetConfigsRepository.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiConnectRepository.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiRepository.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiScanRepository.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiStateRepository.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiTrackerRepository.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½setup
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      AddStartState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      AddWifiNetworkState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      AdvancedOptionsFlowInfo.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      ConnectAuthFailureState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      ConnectFailedState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      ConnectRejectedByApState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      ConnectState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      ConnectTimeOutState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      EnterPasswordState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      FinishState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      KnownNetworkState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      MessageFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      OptionsOrConnectState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      SuccessState.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      UserChoiceInfo.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiConnectivityGuidedStepFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½speed
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      DownloadUrlModel.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      DownloadUrlPresenter.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      DownloadUrlRequest.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      NetSpeedInfo.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      NetworkSpeedFragment.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      NetworkSpeedTester.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      NetworkSpeedViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½util
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      AccessibilityHelper.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      ReflectHelper.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      State.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      StateMachine.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      Transition.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiConfigHelper.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½      WifiSecurityUtil.java
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½wifi
+     ï¿½ï¿½  ï¿½ï¿½          AddNetworkFragment.java
+     ï¿½ï¿½  ï¿½ï¿½          AddWifiNetworkActivity.java
+     ï¿½ï¿½  ï¿½ï¿½          EditConfigViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½          EnterPasswordFragment.java
+     ï¿½ï¿½  ï¿½ï¿½          WifiConfigFragment.java
+     ï¿½ï¿½  ï¿½ï¿½          WifiConnectionActivity.java
+     ï¿½ï¿½  ï¿½ï¿½          WifiListFragment.java
+     ï¿½ï¿½  ï¿½ï¿½          WifiListRvAdapter.java
+     ï¿½ï¿½  ï¿½ï¿½          WifiSignalHelper.java
+     ï¿½ï¿½  ï¿½ï¿½          WifiViewModel.java
+     ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½systemequipment
+     ï¿½ï¿½      ï¿½ï¿½  DeviceInfosActivity.java
+     ï¿½ï¿½      ï¿½ï¿½  StorageDetailActivity.java
+     ï¿½ï¿½      ï¿½ï¿½  SysEquipmentActivity.java
+     ï¿½ï¿½      ï¿½ï¿½
+     ï¿½ï¿½      ï¿½ï¿½ï¿½ï¿½adapter
+     ï¿½ï¿½      ï¿½ï¿½      DeviceInfosAdapter.java
+     ï¿½ï¿½      ï¿½ï¿½      StorageDetailAdapter.java
+     ï¿½ï¿½      ï¿½ï¿½
+     ï¿½ï¿½      ï¿½ï¿½ï¿½ï¿½fragment
+     ï¿½ï¿½      ï¿½ï¿½      DeviceInfosFragment.java
+     ï¿½ï¿½      ï¿½ï¿½      SysEquipmentFragment.java
+     ï¿½ï¿½      ï¿½ï¿½
+     ï¿½ï¿½      ï¿½ï¿½ï¿½ï¿½holder
+     ï¿½ï¿½      ï¿½ï¿½      DeviceInfosViewHolder.java
+     ï¿½ï¿½      ï¿½ï¿½      StorageDetailViewHolder.java
+     ï¿½ï¿½      ï¿½ï¿½
+     ï¿½ï¿½      ï¿½ï¿½ï¿½ï¿½model
+     ï¿½ï¿½      ï¿½ï¿½      DeviceInfoItem.java
+     ï¿½ï¿½      ï¿½ï¿½      StorageInfoData.java
+     ï¿½ï¿½      ï¿½ï¿½
+     ï¿½ï¿½      ï¿½ï¿½ï¿½ï¿½repository
+     ï¿½ï¿½      ï¿½ï¿½      StorageDetailRepository.java
+     ï¿½ï¿½      ï¿½ï¿½      SysEquipmentRepository.java
+     ï¿½ï¿½      ï¿½ï¿½
+     ï¿½ï¿½      ï¿½ï¿½ï¿½ï¿½vm
+     ï¿½ï¿½              StorageDetailViewModel.java
+     ï¿½ï¿½              SysEquipmentViewModel.java
+     ï¿½ï¿½
+     ï¿½ï¿½ï¿½ï¿½utils
+*    ï¿½ï¿½  ï¿½ï¿½  BluetoothUtils.java
+*    ï¿½ï¿½  ï¿½ï¿½  CollectionUtils.java
+*    ï¿½ï¿½  ï¿½ï¿½  ConfigInfo.java
+*    ï¿½ï¿½  ï¿½ï¿½  HLog.java
+     ï¿½ï¿½  ï¿½ï¿½  KkUtils.java
+     ï¿½ï¿½  ï¿½ï¿½  NetworkUtils.java
+     ï¿½ï¿½  ï¿½ï¿½  RomSizeTools.java
+*    ï¿½ï¿½  ï¿½ï¿½  StringUtil.java
+*    ï¿½ï¿½  ï¿½ï¿½  ThreadPoolsUtils.java
+*    ï¿½ï¿½  ï¿½ï¿½  ThreadUtils.java
+*    ï¿½ï¿½  ï¿½ï¿½  TimeUtils.java
+     ï¿½ï¿½  ï¿½ï¿½  UiUtils.java
+     ï¿½ï¿½  ï¿½ï¿½  UsbScanTool.java
+     ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½binding
+*    ï¿½ï¿½  ï¿½ï¿½      BluetoothItemClickHandle.java
+*    ï¿½ï¿½  ï¿½ï¿½      ItemClickHandle.java
+*    ï¿½ï¿½  ï¿½ï¿½      ItemLRTextIconClickHandle.java
+*    ï¿½ï¿½  ï¿½ï¿½      ItemLRTextIconData.java
+*    ï¿½ï¿½  ï¿½ï¿½      MyViewBindingAdapter.java
+     ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½constant
+*    ï¿½ï¿½  ï¿½ï¿½      TimeConstants.java
+     ï¿½ï¿½  ï¿½ï¿½
+     ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½manager
+*    ï¿½ï¿½          DataMapUtils.java
+*    ï¿½ï¿½          ViewManager.java
+     ï¿½ï¿½
+     ï¿½ï¿½ï¿½ï¿½widgets
 *            BaseView.java
 *            CustomDialog.java
              CustomDialView.java
 *            DialogTools.java
-*            DialogView.java    //ÉèÖÃÖ÷Ìâ
+*            DialogView.java    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              MarginTopItemDecoration.java
              RatioLineCustomView.java
 *            SwitchLayoutView.java
 *            ToastTools.java
 
-# allwinner
+# allwinner-713-cn

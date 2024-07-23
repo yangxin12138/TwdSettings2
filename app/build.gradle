@@ -12,7 +12,7 @@ android {
         //noinspection ExpiredTargetSdkVersion
         targetSdk 33
         versionCode 1
-        versionName "1.0.3"
+        versionName "1.0.4beta"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,7 +29,7 @@ android {
             applicationVariants.all { variant ->
                 variant.outputs.all {
                     def buildTypeName = variant.buildType.name
-                    outputFileName = "${rootProject.name}_${buildTypeName}_v${variant.versionName}.apk"
+                    outputFileName = "${rootProject.name}_projector_v${variant.versionName}.apk"
                 }
             }
         }
