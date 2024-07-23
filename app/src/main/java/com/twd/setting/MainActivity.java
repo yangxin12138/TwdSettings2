@@ -25,7 +25,8 @@ import com.twd.setting.module.bluetooth.BluetoothActivity;
 import com.twd.setting.module.bluetooth.fragment.BluetoothFragment;
 import com.twd.setting.utils.KkUtils;
 import com.twd.setting.utils.UiUtils;
-
+import com.twd.setting.module.device.DeviceInfoActivity;
+import com.twd.setting.module.projector.ProjectorActivity;
 import java.util.List;
 
 /*
@@ -127,8 +128,11 @@ public class MainActivity
         Log.d(TAG, "onCreate  savedInstanceState=" + paramBundle + "   intent=" + getIntent());
         curFragment = MainFragment.newInstance();
         //UiUtils.replaceFragment(getSupportFragmentManager(), R.id.content, curFragment);
-        UiUtils.replaceFragment(getSupportFragmentManager(), 16908290, curFragment);
-        showMenu(getIntent());
+        /*UiUtils.replaceFragment(getSupportFragmentManager(), 16908290, curFragment);
+        showMenu(getIntent());*/
+
+        Intent intent = new Intent(this, ProjectorActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -143,6 +147,12 @@ public class MainActivity
             curFragment.onKeyDown(keycode, keyEvent);
         }
         return super.onKeyDown(keycode, keyEvent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        finish();
     }
 
     @Override
