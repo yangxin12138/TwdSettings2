@@ -240,4 +240,5 @@
     <string name="size_adjustment_control_info">کلیدهای چپ و راست برای بزرگنمایی و بزرگنمایی</string>
     <string name="network_available_title">شبکه های موجود</string>
     <string name="projector_auto_title">کیستون عمودی</string>
+    <string name="wifi_no_passwd_info">اتصال به این شبکه:</string>
 </resources>

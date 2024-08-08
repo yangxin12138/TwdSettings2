@@ -241,4 +241,5 @@
     <string name="size_adjustment_control_info">ปุ่มซ้ายและขวาเพื่อซูมเข้าและออก</string>
     <string name="network_available_title">เครือข่ายที่มีอยู่</string>
     <string name="projector_auto_title">คีย์สโตนแนวตั้ง</string>
+    <string name="wifi_no_passwd_info">เชื่อมต่อกับเครือข่ายนี้:</string>
 </resources>

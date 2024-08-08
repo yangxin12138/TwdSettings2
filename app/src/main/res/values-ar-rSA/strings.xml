@@ -238,4 +238,5 @@
     <string name="size_adjustment_control_info">مفاتيح اليسار واليمين للتكبير والتصغير</string>
     <string name="network_available_title">الشبكات المتاحة</string>
     <string name="projector_auto_title">حجر الزاوية العمودي</string>
-    </resources>
+    <string name="wifi_no_passwd_info">الاتصال بهذه الشبكة:</string>
+</resources>

@@ -68,7 +68,10 @@
 
         android:theme="@style/Theme.TVSettings2.IceCreamBlue"
         tools:targetApi="31">
-        <!-- <activity android:exported="false" android:name="com.twd.setting.module.debugmenu.DebugMenuActivity"/>-->
+        <activity
+            android:name=".module.network.wifi.NoPasswordNetActivity"
+            android:exported="false" />
+        <!-- <activity android:exported="false" android:name="com.twd.setting.module.debugmenu.DebugMenuActivity"/> -->
         <activity
             android:name="com.twd.setting.module.projector.ProjectorActivity"
             android:exported="true" />

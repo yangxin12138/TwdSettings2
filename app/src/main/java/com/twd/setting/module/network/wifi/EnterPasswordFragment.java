@@ -353,7 +353,7 @@ public class EnterPasswordFragment
         if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
             ssid = wifiInfo.getSSID().replace("\"","");
         }else {
-            ssid = "默认网络";
+            ssid = "NoConnect";
         }
         return ssid;
     }

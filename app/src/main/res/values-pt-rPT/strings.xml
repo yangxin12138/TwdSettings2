@@ -239,4 +239,5 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="size_adjustment_control_info">Teclas esquerda e direita para aumentar e diminuir o zoom</string>
     <string name="network_available_title">Redes disponíveis</string>
     <string name="projector_auto_title">Angulação vertical</string>
+    <string name="wifi_no_passwd_info">Ligue-se a esta rede:</string>
 </resources>

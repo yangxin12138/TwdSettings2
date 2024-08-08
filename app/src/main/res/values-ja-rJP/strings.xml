@@ -238,4 +238,5 @@
     <string name="size_adjustment_control_info">左右のキーでズームインおよびズームアウトします</string>
     <string name="network_available_title">利用可能なネットワーク</string>
     <string name="projector_auto_title">垂直キーストーン</string>
+    <string name="wifi_no_passwd_info">このネットワークに接続します:</string>
 </resources>

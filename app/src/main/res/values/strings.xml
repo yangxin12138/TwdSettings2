@@ -368,6 +368,7 @@ Example: 24"</string>
     <string name="net_config_network_save">Save</string>
     <string name="net_config_network_ignore">Ignore this network</string>
     <string name="wifi_enter_passwd_info">Please enter the connection password</string>
+    <string name="wifi_no_passwd_info">Connect to this network : </string>
     <string name="wifi_enter_passwd_connect">Connect</string>
     <string name="add_wifi_network_name">Network Name</string>
     <string name="add_wifi_encrypt_type">Encryption Type</string>

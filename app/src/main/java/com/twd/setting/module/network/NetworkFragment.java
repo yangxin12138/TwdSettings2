@@ -42,6 +42,7 @@ import com.twd.setting.module.network.repository.ConnectivityListener;
 import com.twd.setting.module.network.speed.DownloadUrlPresenter;
 import com.twd.setting.module.network.speed.NetworkSpeedFragment;
 import com.twd.setting.module.network.wifi.AddWifiNetworkActivity;
+import com.twd.setting.module.network.wifi.NoPasswordNetActivity;
 import com.twd.setting.module.network.wifi.WifiConfigFragment;
 import com.twd.setting.module.network.wifi.WifiConnectionActivity;
 import com.twd.setting.module.network.wifi.WifiListFragment;
@@ -294,7 +295,15 @@ public class NetworkFragment
         }else {
             selectedSSID = paramWifiAccessPoint.getSsidStr();
             selectedBSSID = paramWifiAccessPoint.getBssid();
-            startActivity(WifiConnectionActivity.createIntent(getContext(),paramWifiAccessPoint));
+            Log.i("yangxin", "onItemClick: NetworkFragment ----onItemClick成功读取参数 selectedSSID = " + selectedSSID);
+            int security = paramWifiAccessPoint.getSecurity();
+            if (security == 0){
+                Log.i("yangxin", "onItemClick: NetworkFragment --------没密码");
+                startActivity(new Intent(getContext(), NoPasswordNetActivity.class).putExtra("net_ssid",paramWifiAccessPoint.getSsidStr()));
+            }else {
+                startActivity(WifiConnectionActivity.createIntent(getContext(),paramWifiAccessPoint));
+            }
+
         }
     }
 
