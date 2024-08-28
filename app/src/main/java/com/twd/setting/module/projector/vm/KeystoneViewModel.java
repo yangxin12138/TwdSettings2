@@ -157,10 +157,10 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     }
     public void setKeystoneMode(int _mode){
         if(_mode == MODE_ONEPOINT){
-            vTopLeft.setMaxX(100);vTopLeft.setMaxY(100);
-            vTopRight.setMaxX(100);vTopRight.setMaxY(100);
-            vBottomLeft.setMaxX(100);vBottomLeft.setMaxY(100);
-            vBottomRight.setMaxX(100);vBottomRight.setMaxY(100);
+            vTopLeft.setMaxX(50);vTopLeft.setMaxY(50);
+            vTopRight.setMaxX(50);vTopRight.setMaxY(50);
+            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(50);
+            vBottomRight.setMaxX(50);vBottomRight.setMaxY(50);
 
             zoom_x = 0;
             zoom_y = 0;
