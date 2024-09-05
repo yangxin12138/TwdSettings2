@@ -101,7 +101,6 @@ public class Vertex {
         switch (point){
             case 0:
                 Log.d(TAG, "doRight: case0");
-                Log.d(TAG, "doRight: case3");
                 x = x + 1;
                 if(x>maxXStep){
                     x = maxXStep;
