@@ -98,10 +98,9 @@
 
     <style name="MainItemStyle">
         <item name="android:layout_width">0.0dip</item>
-        <item name="android:layout_height">0.0dip</item>
+        <item name="android:layout_height">@dimen/universal_content_LL_height</item>
         <item name="android:layout_marginBottom">@dimen/main_item_margin_t</item>
         <item name="layout_constraintLeft_toLeftOf">@id/guidelineLeft</item>
-        <item name="layout_constraintVertical_weight">1.0</item>
         <item name="layout_constraintWidth_percent">0.47</item>
     </style>
 
