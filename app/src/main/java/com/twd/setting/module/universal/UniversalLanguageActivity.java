@@ -107,10 +107,11 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             languageMap.put("ar_SA","العربية (المملكة العربية السعودية)");//阿拉伯语-沙特阿拉伯
             languageMap.put("fa_IR","فارسی (ایران)");//波斯语-伊朗
             languageMap.put("tr_TR","Türkçe (Türkiye)");//土耳其语-土耳其
+            languageMap.put("pl_PL","Polski (Polska)");//波兰语-波兰
 
             List<String> supportedLanguages = Arrays.asList("zh_CN","zh_TW","en_US","ja_JP"
                                                     ,"ko_KR","th_TH","hi_IN","fr_FR","de_DE","it_IT"
-                                                    ,"ru_RU","es_ES","pt_PT","ar_SA","fa_IR","tr_TR");
+                                                    ,"ru_RU","es_ES","pt_PT","ar_SA","fa_IR","tr_TR","pl_PL");
             for (String language_sup : supportedLanguages){
                 if (language_sup.equals(languageCode) && !language.equals("English (United States,Computer)_en_US")){
                     String languageName = languageMap.get(language_sup);
@@ -188,6 +189,8 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                     changeSystemLanguage(new Locale("fa","IR"));
                 } else if (indexLanguage.equals("tr_TR")) {
                     changeSystemLanguage(new Locale("tr","TR"));
+                } else if (indexLanguage.equals("pl_PL")) {
+                    changeSystemLanguage(new Locale("pl","PL"));
                 }
 
                 /*// 关闭当前应用程序
