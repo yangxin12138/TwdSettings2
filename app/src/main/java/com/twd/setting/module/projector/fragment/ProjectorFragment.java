@@ -161,7 +161,10 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
 
     private void initAutoMode(){
         String AutoFocus = SystemPropertiesUtils.getProperty(PROP_AUTOFOCUS,"3");
-        if (AutoFocus.equals("1")){isAuto = true; } else if (AutoFocus.equals("0")) {isAuto = false;}else {
+        if (AutoFocus.equals("1")){isAuto = true; } else if (AutoFocus.equals("0")) {isAuto = false;}else if(AutoFocus.equals("-1")){
+            isAuto = false;
+            Log.i(TAG,"initAutoMode: 设备不支持");
+        }else {
             isAuto=false;
             Log.i(TAG, "initAutoMode: 参数不正常 = "+AutoFocus);
         }
@@ -199,7 +202,12 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
             binding.twoPointInclude.itemRL.setFocusable(true);
             binding.fourPointInclude.itemRL.setFocusable(true);
-            binding.autoInclude.switchAuto.setChecked(false);
+            if (AutoFocus.equals("-1")){
+                this.viewModel.setAutoIncludeVisibility(false);
+            }else {
+                this.viewModel.setAutoIncludeVisibility(true);
+                binding.autoInclude.switchAuto.setChecked(false);
+            }
         }
         binding.twoPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
         binding.fourPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
