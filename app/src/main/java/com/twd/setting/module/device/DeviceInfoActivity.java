@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.twd.setting.R;
 import com.twd.setting.utils.SystemPropertiesUtils;
 
+import java.util.Objects;
+
 public class DeviceInfoActivity extends AppCompatActivity {
     private TextView tv_MachineNO_value;
     private TextView tv_androidVersion_value;
@@ -72,7 +74,14 @@ public class DeviceInfoActivity extends AppCompatActivity {
     /*
     * 获取安卓版本号*/
     private void setAndroidVersion(){
-        String version = Build.VERSION.RELEASE;
+        String version;
+        if (!Objects.equals(SystemPropertiesUtils.readSystemVersion(), " ")){
+            Log.i(TAG, "setAndroidVersion: 读到自定义版本号 = " + SystemPropertiesUtils.readSystemVersion());
+            version = SystemPropertiesUtils.readSystemVersion();
+        }else {
+            Log.i(TAG, "setAndroidVersion: 没读到版本号 = Build.VERSION.RELEASE " + Build.VERSION.RELEASE);
+            version = Build.VERSION.RELEASE;
+        }
         tv_androidVersion_value.setText(version);
         Log.i(TAG, "setAndroidVersion: ----------version = " + version);
     }
