@@ -21,13 +21,14 @@ import android.view.View.OnClickListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Objects;
 
 public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     public static final int ITEM_TWO_POINT = 1;
     public static final int ITEM_SINGLE_POINT = 2;
     public static final int ITEM_SIZE = 3;
     public static final int ITEM_PROJECTION= 4;
-    private static final String PATH_CONTROL_MIPI = "/sys/ir/control_mipi";
+    private static final String PATH_CONTROL_MIPI = "persist.sys.projection";
     private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
     private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";
 
@@ -89,14 +90,14 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     }*/
 
     public void initData(Application paramApplication) {
-        int postion = getProjectionItem();
-        if(postion == 0){
+        String postion = SystemPropertiesUtils.getProperty(PATH_CONTROL_MIPI,"0");
+        if(Objects.equals(postion, "0")){
             projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_pos_pos), 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
-        } else if (postion == 1) {
+        } else if (Objects.equals(postion, "1")) {
             projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_pos_neg), 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
-        } else if (postion == 2) {
+        } else if (Objects.equals(postion, "2")) {
             projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_neg_pos), 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
-        } else if (postion == 3) {
+        } else if (Objects.equals(postion, "3")) {
             projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_neg_neg), 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         }else {
             projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
@@ -112,60 +113,17 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     @Override
     public void onResume(@NonNull LifecycleOwner owner) {
         super.onResume(owner);
-        int postion = getProjectionItem();
-        if(postion == 0){
+        String postion = SystemPropertiesUtils.getProperty(PATH_CONTROL_MIPI,"0");
+        if(Objects.equals(postion, "0")){
             projectionData.setRightTxt(getApplication().getString(R.string.projection_pos_pos));
-        } else if (postion == 1) {
-            projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_neg));
-        } else if (postion == 2) {
+        } else if (Objects.equals(postion, "1")) {
             projectionData.setRightTxt(getApplication().getString(R.string.projection_pos_neg));
-        } else if (postion == 3) {
+        } else if (Objects.equals(postion, "2")) {
             projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_pos));
+        } else if (Objects.equals(postion, "3")) {
+            projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_neg));
         }else {
             projectionData.setRightTxt(null);
         }
-    }
-
-    public int getProjectionItem(){
-        int ret = 0;
-        ret = readProjectionValue(PATH_CONTROL_MIPI);//readProjectionValue(PATH_DEV_PRO_INFO2);
-        /*if(ret == 0){
-            if(Build.HARDWARE.equals("mt6735")){
-                ret = readProjectionValue(PATH_DEV_PRO_INFO2);
-            }else {
-                ret = readProjectionValue(PATH_DEV_PRO_INFO);
-            }
-        }*/
-        return ret;
-    }
-
-    private static int readProjectionValue(String path) {
-        File file = new File(path);
-        if (file.exists()) {
-            BufferedReader reader = null;
-            try {
-                reader = new BufferedReader(new FileReader(file));
-                int read = reader.read();
-                Log.d(TAG, "read " + path + ": " + read);
-                if (read != -1) {
-                    return read - '0';
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Read " + path + ": error", e);
-                e.printStackTrace();
-            } finally {
-                if (reader != null) {
-                    try {
-                        reader.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        } else {
-            Log.w(TAG, path + " is not exist");
-        }
-        Log.i(TAG, "read " + path + ": defalut 0");
-        return 0;
     }
 }
