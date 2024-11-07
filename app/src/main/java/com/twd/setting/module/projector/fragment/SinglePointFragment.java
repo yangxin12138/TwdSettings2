@@ -15,6 +15,8 @@ import com.twd.setting.databinding.FragmentSinglePointBinding;
 import com.twd.setting.module.projector.vm.KeystoneViewModel;
 import com.twd.setting.utils.SystemPropertiesUtils;
 
+import java.util.Objects;
+
 public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePointBinding, KeystoneViewModel> {
     private static final String TAG = "SinglePointFragment";
     private int nowPoint = 0;
@@ -24,6 +26,8 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
     public final int MODE_TWOPOINT = 0;
     public final int MODE_UNKOWN = -1;
     private String projectorMode;
+    private String control_x;
+    private String control_y;
 
     public static SinglePointFragment newInstance() {
         return new SinglePointFragment();
@@ -45,7 +49,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
 
         prefs = getActivity().getSharedPreferences("ty_keystone", Context.MODE_PRIVATE);
         int mode = prefs.getInt("mode",MODE_UNKOWN);
-        Log.d("SinglePoint", "TrapezoidalSinglePointActivity mode: "+mode);
+        Log.d("SinglePoint", "TrapezoidalSinglePointActivity 1111mode: "+mode);
         if(mode == MODE_TWOPOINT || mode == MODE_UNKOWN){
             SharedPreferences.Editor editor = prefs.edit();
             editor.putInt("mode",MODE_ONEPOINT);
@@ -61,17 +65,31 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
             nowPoint = 0;
         }
 
-        projectorMode = SystemPropertiesUtils.getProperty("persist.sys.projection","0");
-        Log.d(TAG, "onViewCreated: projectorMode = " + projectorMode);
-        if (projectorMode.equals("1")){
-            nowPoint = 1;
-        }else if (projectorMode.equals("0")){
-            nowPoint = 0;
-        } else if (projectorMode.equals("2")) {
-            nowPoint = 2;
-        } else if (projectorMode.equals("3")) {
-            nowPoint = 3;
+        control_x = SystemPropertiesUtils.getProperty("persist.sys.keystone.mirror_x","0");
+        control_y = SystemPropertiesUtils.getProperty("persist.sys.keystone.mirror_y","0");
+        Log.d("SinglePoint","control_x = " + control_x + ",control_y = "+control_y);
+        if (Objects.equals(control_x, "0") && Objects.equals(control_y, "0")){//PosPos
+            Log.i("SinglePoint", "onViewCreated: PosPos");
+            projectorMode = "0";
+        } else if (Objects.equals(control_x, "1") && Objects.equals(control_y, "0")) {//PosNeg
+            Log.i("SinglePoint", "onViewCreated: PosNeg");
+            projectorMode = "1";
+        } else if (Objects.equals(control_x, "1") && Objects.equals(control_y, "1")) {//NegPos
+            Log.i("SinglePoint", "onViewCreated: NegPos");
+            projectorMode = "2";
+        } else if (Objects.equals(control_x, "0") && Objects.equals(control_y, "1")) {//NegNeg
+            Log.i("SinglePoint", "onViewCreated: NegNeg");
+            projectorMode = "3";
         }
+        /*if (projectorMode.equals("1")){//posneg
+            nowPoint = 1;
+        }else if (projectorMode.equals("0")){//pospos
+            nowPoint = 0;
+        } else if (projectorMode.equals("2")) {//negpos
+            nowPoint = 2;
+        } else if (projectorMode.equals("3")) {//negneg
+            nowPoint = 3;
+        }*/
         binding.ivSingleLeftUp.setFocusable(true);
         binding.ivSingleLeftUp.requestFocus();
         binding.ivSingleLeftUp.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +99,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                 binding.ivSingleRightUp.requestFocus();
                 binding.ivSingleRightUp.setVisibility(View.VISIBLE);
                 binding.ivSingleLeftUp.setVisibility(View.INVISIBLE);
-                if (projectorMode.equals("0") ){
+                /*if (projectorMode.equals("0") ){
                     nowPoint = 1;
                 } else if (projectorMode.equals("1")) {
                     nowPoint = 0;
@@ -89,7 +107,8 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                     nowPoint = 3;
                 } else if (projectorMode.equals("3")) {
                     nowPoint = 2;
-                }
+                }*/
+                nowPoint = 1;
             }
         });
         binding.ivSingleLeftUp.setOnKeyListener(new View.OnKeyListener() {
@@ -107,7 +126,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                 binding.ivSingleRightDown.requestFocus();
                 binding.ivSingleRightDown.setVisibility(View.VISIBLE);
                 binding.ivSingleRightUp.setVisibility(View.INVISIBLE);
-                if (projectorMode.equals("0")){
+                /*if (projectorMode.equals("0")){
                     nowPoint = 2;
                 } else if (projectorMode.equals("1")) {
                     nowPoint = 3;
@@ -115,7 +134,8 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                     nowPoint = 0;
                 } else if (projectorMode.equals("3")) {
                     nowPoint = 1;
-                }
+                }*/
+                nowPoint = 2;
             }
         });
         binding.ivSingleRightUp.setOnKeyListener(new View.OnKeyListener() {
@@ -132,7 +152,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                 binding.ivSingleLeftDown.requestFocus();
                 binding.ivSingleLeftDown.setVisibility(View.VISIBLE);
                 binding.ivSingleRightDown.setVisibility(View.INVISIBLE);
-                if (projectorMode.equals("0")){
+                /*if (projectorMode.equals("0")){
                     nowPoint = 3;
                 } else if (projectorMode.equals("1")) {
                     nowPoint = 2;
@@ -140,7 +160,8 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                     nowPoint = 1;
                 } else if (projectorMode.equals("3")) {
                     nowPoint = 0;
-                }
+                }*/
+                nowPoint = 3;
             }
         });
         binding.ivSingleRightDown.setOnKeyListener(new View.OnKeyListener() {
@@ -157,7 +178,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                 binding.ivSingleLeftUp.requestFocus();
                 binding.ivSingleLeftUp.setVisibility(View.VISIBLE);
                 binding.ivSingleLeftDown.setVisibility(View.INVISIBLE);
-                if (projectorMode.equals("0")){
+                /*if (projectorMode.equals("0")){
                     nowPoint = 0;
                 } else if (projectorMode.equals("1")) {
                     nowPoint = 1;
@@ -165,7 +186,8 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                     nowPoint = 2;
                 } else if (projectorMode.equals("3")) {
                     nowPoint = 3;
-                }
+                }*/
+                nowPoint = 0;
             }
         });
         binding.ivSingleLeftDown.setOnKeyListener(new View.OnKeyListener() {

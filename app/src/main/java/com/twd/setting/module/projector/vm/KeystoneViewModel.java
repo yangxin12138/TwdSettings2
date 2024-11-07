@@ -15,6 +15,7 @@ import com.twd.setting.module.systemequipment.repository.SysEquipmentRepository;
 import com.twd.setting.utils.SystemPropertiesUtils;
 
 import java.lang.reflect.Method;
+import java.util.Objects;
 
 public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
@@ -85,13 +86,26 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     private float mRightTopX = 0;
     private float mRightTopY = 0;
     private String projectorMode;
+    private String control_x;
+    private String control_y;
 
     public KeystoneViewModel(Application paramApplication) {
         super(paramApplication);
         lcd = new Lcd(getApplication());
         getKeystoneOrigin();
         getInitKeystone(getApplication());
-        projectorMode = SystemPropertiesUtils.getProperty("persist.sys.projection","0");
+
+        control_x = SystemPropertiesUtils.getProperty("persist.sys.keystone.mirror_x","0");
+        control_y = SystemPropertiesUtils.getProperty("persist.sys.keystone.mirror_y","0");
+        if (Objects.equals(control_x, "0") && Objects.equals(control_y, "0")){//PosPos
+            projectorMode = "0";
+        } else if (Objects.equals(control_x, "1") && Objects.equals(control_y, "0")) {//PosNeg
+            projectorMode = "1";
+        } else if (Objects.equals(control_x, "1") && Objects.equals(control_y, "1")) {//NegPos
+            projectorMode = "2";
+        } else if (Objects.equals(control_x, "0") && Objects.equals(control_y, "1")) {//NegNeg
+            projectorMode = "3";
+        }
     }
 
     public void getKeystoneOrigin(){
@@ -414,25 +428,13 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public String getOnePointInfo(int point){
         switch (point){
             case 0:
-                if (projectorMode.equals("0")){return vTopLeft.toString();}
-                else if (projectorMode.equals("1")) {return vTopRight.toString();}
-                else if (projectorMode.equals("2")) {return vBottomRight.toString();}
-                else if (projectorMode.equals("3")) {return vBottomLeft.toString();}
+                return vTopLeft.toString();
             case 1:
-                if (projectorMode.equals("0")){return vTopRight.toString();}
-                else if (projectorMode.equals("1")) {return vTopLeft.toString();}
-                else if (projectorMode.equals("2")) {return vBottomLeft.toString();}
-                else if (projectorMode.equals("3")) {return vBottomRight.toString();}
+                return vTopRight.toString();
             case 3:
-                if (projectorMode.equals("0")){return vBottomLeft.toString();}
-                else if (projectorMode.equals("1")) {return vBottomRight.toString();}
-                else if (projectorMode.equals("2")) {return vTopRight.toString();}
-                else if (projectorMode.equals("3")) {return vTopLeft.toString();}
+                return vBottomLeft.toString();
             case 2:
-                if (projectorMode.equals("0")){return vBottomRight.toString();}
-                else if (projectorMode.equals("1")) {return vBottomLeft.toString();}
-                else if (projectorMode.equals("2")) {return vTopLeft.toString();}
-                else if (projectorMode.equals("3")) {return vTopRight.toString();}
+                return vBottomRight.toString();
             default:
                 break;
         }
@@ -441,16 +443,52 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public void oneLeft(int point){
         switch (point){
             case 0:
-                vTopLeft.doLeft();
+                switch (projectorMode) {
+                    case "0":
+                    case "3":
+                        vTopLeft.doLeft();
+                        break;
+                    case "1":
+                    case "2":
+                        vTopLeft.doRight();
+                        break;
+                }
                 break;
             case 1:
-                vTopRight.doLeft();
-                break;
-            case 3:
-                vBottomLeft.doLeft();
+                switch (projectorMode){
+                    case "0":
+                    case "3":
+                        vTopRight.doLeft();
+                        break;
+                    case "1":
+                    case "2":
+                        vTopRight.doRight();
+                        break;
+                }
                 break;
             case 2:
-                vBottomRight.doLeft();
+                switch (projectorMode){
+                    case "0":
+                    case "3":
+                        vBottomRight.doLeft();
+                        break;
+                    case "1":
+                    case "2":
+                        vBottomRight.doRight();
+                        break;
+                }
+                break;
+            case 3:
+                switch (projectorMode){
+                    case "0":
+                    case "3":
+                        vBottomLeft.doLeft();
+                        break;
+                    case "1":
+                    case "2":
+                        vBottomLeft.doRight();
+                        break;
+                }
                 break;
             default:
                 break;
@@ -462,16 +500,52 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public void oneRight(int point){
         switch (point){
             case 0:
-                vTopLeft.doRight();
+                switch (projectorMode){
+                    case "0":
+                    case "3":
+                        vTopLeft.doRight();
+                        break;
+                    case "1":
+                    case "2":
+                        vTopLeft.doLeft();
+                        break;
+                }
                 break;
             case 1:
-                vTopRight.doRight();
-                break;
-            case 3:
-                vBottomLeft.doRight();
+                switch (projectorMode){
+                    case "0":
+                    case "3":
+                        vTopRight.doRight();
+                        break;
+                    case "1":
+                    case "2":
+                        vTopRight.doLeft();
+                        break;
+                }
                 break;
             case 2:
-                vBottomRight.doRight();
+                switch (projectorMode){
+                    case "0":
+                    case "3":
+                        vBottomRight.doRight();
+                        break;
+                    case "1":
+                    case "2":
+                        vBottomRight.doLeft();
+                        break;
+                }
+                break;
+            case 3:
+                switch (projectorMode) {
+                    case "0":
+                    case "3":
+                        vBottomLeft.doRight();
+                        break;
+                    case "1":
+                    case "2":
+                        vBottomLeft.doLeft();
+                        break;
+                }
                 break;
             default:
                 break;
@@ -483,16 +557,52 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public void oneTop(int point){
         switch (point){
             case 0:
-                vTopLeft.doTop();
+                switch (projectorMode){
+                    case "0":
+                    case "1":
+                        vTopLeft.doTop();
+                        break;
+                    case "2":
+                    case "3":
+                        vTopLeft.doBottom();
+                        break;
+                }
                 break;
             case 1:
-                vTopRight.doTop();
-                break;
-            case 3:
-                vBottomLeft.doTop();
+                switch (projectorMode){
+                    case "0":
+                    case "1":
+                        vTopRight.doTop();
+                        break;
+                    case "2":
+                    case "3":
+                        vTopRight.doBottom();
+                        break;
+                }
                 break;
             case 2:
-                vBottomRight.doTop();
+                switch (projectorMode){
+                    case "0":
+                    case "1":
+                        vBottomRight.doTop();
+                        break;
+                    case "2":
+                    case "3":
+                        vBottomRight.doBottom();
+                        break;
+                }
+                break;
+            case 3:
+                switch (projectorMode){
+                    case "0":
+                    case "1":
+                        vBottomLeft.doTop();
+                        break;
+                    case "2":
+                    case "3":
+                        vBottomLeft.doBottom();
+                        break;
+                }
                 break;
             default:
                 break;
@@ -504,16 +614,52 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public void oneBottom(int point){
         switch (point){
             case 0:
-                vTopLeft.doBottom();
+                switch (projectorMode){
+                    case "0":
+                    case "1":
+                        vTopLeft.doBottom();
+                        break;
+                    case "2":
+                    case "3":
+                        vTopLeft.doTop();
+                        break;
+                }
                 break;
             case 1:
-                vTopRight.doBottom();
-                break;
-            case 3:
-                vBottomLeft.doBottom();
+                switch (projectorMode){
+                    case "0":
+                    case "1":
+                       vTopRight.doBottom();
+                       break;
+                    case "2":
+                    case "3":
+                        vTopRight.doTop();
+                        break;
+                }
                 break;
             case 2:
-                vBottomRight.doBottom();
+                switch (projectorMode){
+                    case "0":
+                    case "1":
+                        vBottomRight.doBottom();
+                        break;
+                    case "2":
+                    case "3":
+                        vBottomRight.doTop();
+                        break;
+                }
+                break;
+            case 3:
+                switch (projectorMode){
+                    case "0":
+                    case "1":
+                        vBottomLeft.doBottom();
+                        break;
+                    case "2":
+                    case "3":
+                        vBottomLeft.doTop();
+                        break;
+                }
                 break;
             default:
                 break;

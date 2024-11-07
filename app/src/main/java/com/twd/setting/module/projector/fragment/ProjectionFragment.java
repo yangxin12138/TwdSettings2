@@ -26,6 +26,9 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
     private static final String PATH_CONTROL_MIPI = "persist.sys.projection";
  /*   private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
     private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";*/
+    private static final String PATH_CONTROL_X = "persist.sys.keystone.mirror_x";
+    private static final String PATH_CONTROL_Y = "persist.sys.keystone.mirror_y";
+    public static final String  PATH_CONTROL_UPDATE = "persist.sys.keystone.update";
     private static final int VALUE_POSITIVE_DRESS = 0;
     private static final int VALUE_DRESSING_REAR = 2;
     private static final int VALUE_HOISTING_FRONT = 3;
@@ -47,32 +50,61 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
     }
 
     private void gotoPosPos() {
-        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(0));
+        setProjectionMode(0);
         setIconChange(0);
     }
 
     private void gotoPosNeg() {
-        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(1));
+        setProjectionMode(1);
         setIconChange(1);
     }
     private void gotoNegPos() {
-        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(2));
+        setProjectionMode(2);
         setIconChange(2);
     }
 
     private void gotoNegNeg() {
-        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(3));
+        setProjectionMode(3);
         setIconChange(3);
     }
 
     public static void setProjectionMode(int mode) {
-        writeFile(PATH_CONTROL_MIPI, String.valueOf(mode));
+        //writeFile(PATH_CONTROL_MIPI, String.valueOf(mode));
 
         /*if(Build.HARDWARE.equals("mt6735")){
             writeFile(PATH_DEV_PRO_INFO2, String.valueOf(mode));
         }else{
             writeFile(PATH_DEV_PRO_INFO, String.valueOf(mode));
         }*/
+
+        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(mode));
+        switch(mode){
+            case 0:
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_X,"0");
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_Y,"0");
+                break;
+            case 1:
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_X,"1");
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_Y,"0");
+                break;
+            case 2:
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_X,"1");
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_Y,"1");
+                break;
+            case 3:
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_X,"0");
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_Y,"1");
+                break;
+
+            default:
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_X,"0");
+                SystemPropertiesUtils.setProperty(PATH_CONTROL_Y,"0");
+                break;
+
+        }
+
+        SystemPropertiesUtils.setProperty(PATH_CONTROL_UPDATE,"1");
+
     }
 
     public void setIconChange(int postion){
