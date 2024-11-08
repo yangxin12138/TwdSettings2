@@ -95,4 +95,6 @@
     <dimen name="single_tv_textSize">30sp</dimen>
     <dimen name="single_tv_margin">20dp</dimen>
     <dimen name="main_iv_padding">5dp</dimen>
+
+    <dimen name="universal_content_LL_height">80dp</dimen>
 </resources>

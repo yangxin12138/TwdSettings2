@@ -227,7 +227,7 @@
     <dimen name="main_item_content_margin_t">82.0dip</dimen>
     <dimen name="main_item_left_icon_width">30.0dip</dimen>
     <dimen name="main_item_margin_r">120.0dip</dimen>
-    <dimen name="main_item_margin_t">20.0dip</dimen>
+    <dimen name="main_item_margin_t">10.0dip</dimen>
     <dimen name="main_item_right_icon_height">18.0dip</dimen>
     <dimen name="main_item_text_margin_l">12.0dip</dimen>
     <dimen name="main_right_big_icon_width">210.0dip</dimen>
