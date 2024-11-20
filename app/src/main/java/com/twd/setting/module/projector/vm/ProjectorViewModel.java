@@ -45,6 +45,7 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     private ItemLRTextIconData fourPointData;
     private ItemLRTextIconData sizeData;
     private ItemLRTextIconData projectionData;
+    private MutableLiveData<Boolean> isAutoIncludeVisible;
 
     //private int progress;
 
@@ -105,10 +106,15 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         twoPointData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projector_two_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         fourPointData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projector_four_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         sizeData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projector_size_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
-
+        isAutoIncludeVisible = new MutableLiveData<>(true);
 
     }
-
+    public LiveData<Boolean> getIsAutoIncludeVisible() {
+        return isAutoIncludeVisible;
+    }
+    public void setAutoIncludeVisibility(boolean visible) {
+        isAutoIncludeVisible.setValue(visible);
+    }
     @Override
     public void onResume(@NonNull LifecycleOwner owner) {
         super.onResume(owner);

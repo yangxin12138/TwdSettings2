@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.twd.setting.module.projector.vm.ProjectorViewModel" />
@@ -45,6 +46,7 @@
             android:layout_width="0.0dip"
             android:layout_height="wrap_content"
             bind:itemData="@{viewModel.autoData}"
+            android:visibility="@{viewModel.isAutoIncludeVisible? View.VISIBLE : View.GONE}"
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
             app:layout_constraintRight_toRightOf="@id/guidelineRight"
             app:layout_constraintTop_toBottomOf="@id/topSpace" />
