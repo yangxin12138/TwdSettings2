@@ -254,4 +254,4 @@
 *            SwitchLayoutView.java
 *            ToastTools.java
 
-# mt6582 分支
+# mt6572 分支 Android4.4
