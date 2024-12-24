@@ -80,19 +80,19 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
             negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0);
         } else if (postion == 1) {
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
-            posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0);
-            negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0);
-            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, R.drawable.icon_projection_selected_black);
-        } else if (postion == 2) {
-            posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, R.drawable.icon_projection_selected_black);
             negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0);
-            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0);
-        } else if (postion == 3) {
+            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0,0);
+        } else if (postion == 2) {
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0);
             negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, R.drawable.icon_projection_selected_black);
             negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0);
+        } else if (postion == 3) {
+            posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
+            posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0);
+            negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0);
+            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, R.drawable.icon_projection_selected_black);
         }else {
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0);

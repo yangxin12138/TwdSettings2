@@ -111,11 +111,11 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         if(postion == 0){
             projectionData.setRightTxt(getApplication().getString(R.string.projection_pos_pos));
         } else if (postion == 1) {
-            projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_neg));
-        } else if (postion == 2) {
             projectionData.setRightTxt(getApplication().getString(R.string.projection_pos_neg));
-        } else if (postion == 3) {
+        } else if (postion == 2) {
             projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_pos));
+        } else if (postion == 3) {
+            projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_neg));
         }else {
             projectionData.setRightTxt(null);
         }

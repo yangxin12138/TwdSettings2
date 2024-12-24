@@ -26,9 +26,9 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
     private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
     private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";
     private static final int VALUE_POSITIVE_DRESS = 0;
-    private static final int VALUE_DRESSING_REAR = 2;
-    private static final int VALUE_HOISTING_FRONT = 3;
-    private static final int VALUE_HOISTING_REAR = 1;
+    private static final int VALUE_DRESSING_REAR = 1;
+    private static final int VALUE_HOISTING_FRONT = 2;
+    private static final int VALUE_HOISTING_REAR = 3;
 
     private void clickItem(int item) {
         Log.d(TAG,"clickItem: "+item);
@@ -40,8 +40,6 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
             gotoNegPos();
         }else if(item == R.id.negNegInclude){//4
             gotoNegNeg();
-        }else{
-
         }
     }
 
@@ -69,14 +67,17 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
         writeFile(PATH_CONTROL_MIPI, String.valueOf(mode));
 
         if(Build.HARDWARE.equals("mt6735")){
+            Log.i("yangxin", "setProjectionMode: ----走6735");
             writeFile(PATH_DEV_PRO_INFO2, String.valueOf(mode));
         }else{
+            Log.i("yangxin", "setProjectionMode: ----走其他分辨率");
             writeFile(PATH_DEV_PRO_INFO, String.valueOf(mode));
         }
     }
 
     public void setIconChange(int postion){
-        Log.d(TAG,"setIconChange :"+postion);
+
+        Log.d("yangxin","setIconChange :"+postion);
         binding.posPosInclude.contentTVLeft.setImageResource(0);
         binding.posNegInclude.contentTVLeft.setImageResource(0);
         binding.negPosInclude.contentTVLeft.setImageResource(0);
