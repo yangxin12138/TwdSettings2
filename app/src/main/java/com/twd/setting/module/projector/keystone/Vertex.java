@@ -4,8 +4,8 @@ public class Vertex {
     public int x = 0;
     public int y = 0;
     public int point = 0;
-    public int maxXStep =100;
-    public int maxYStep=100;
+    public int maxXStep =50;
+    public int maxYStep=50;
 
     public void setX(int value){
         x = value;
