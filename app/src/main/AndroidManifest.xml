@@ -123,6 +123,7 @@
         <activity android:name=".module.device.DeviceInfoActivity"/>
         <activity android:name=".module.device.DeviceStorageActivity"/>
         <activity android:name=".module.network.NetworkListActivity"/>
+        <activity android:name=".module.network.wifi.NoPasswordNetActivity" android:exported="false"/>
     </application>
 
 </manifest>

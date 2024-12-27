@@ -169,6 +169,7 @@
     <string name="net_wifiList_isCheckedText_connected">เชื่อมต่อแล้ว</string>
 
     <!--Bluetooth-->
+    <string name="wifi_no_passwd_info">เชื่อมต่อกับเครือข่ายนี้:</string>
     <string name="bluetooth_index_title_text">บลูทู ธ</string>
     <string name="bluetooth_index_bt_tv">สวิตช์บลูทูธ</string>
     <string name="bluetooth_index_search_title_tv">พบอุปกรณ์</string>

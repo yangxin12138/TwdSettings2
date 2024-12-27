@@ -417,6 +417,7 @@ Example: 24"</string>
     <string name="net_wifiList_isCheckedText_connected">已连接</string>
 
     <!--Bluetooth-->
+    <string name="wifi_no_passwd_info">连接到此网络：</string>
     <string name="bluetooth_index_title_text">蓝牙</string>
     <string name="bluetooth_index_bt_tv">蓝牙开关</string>
     <string name="bluetooth_index_search_title_tv">搜索到的设备</string>

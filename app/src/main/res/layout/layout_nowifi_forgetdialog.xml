@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/toast_black"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="是已连接的网络，可以点击忽略网络断开连接"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        style="@style/Common.Text.Content"
+        android:id="@+id/btn_dialog_action"
+        android:layout_width="195.0dip"
+        android:layout_height="48.0dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="?btnBg"
+        android:textColor="?btnTextColor"
+        android:text="@string/wifi_forget_network" />
+</LinearLayout>

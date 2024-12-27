@@ -168,6 +168,7 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="net_wifiList_isCheckedText_connected">bağlı</string>
 
     <!--Bluetooth-->
+    <string name="wifi_no_passwd_info">Bu ağa bağlanın:</string>
     <string name="bluetooth_index_title_text">Bluetooth</string>
     <string name="bluetooth_index_bt_tv">Bluetooth anahtarı</string>
     <string name="bluetooth_index_search_title_tv">Bulunan cihazlar</string>

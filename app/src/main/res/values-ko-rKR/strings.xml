@@ -167,6 +167,7 @@
     <string name="net_wifiList_isCheckedText_saved">저장됨</string>
     <string name="net_wifiList_isCheckedText_connected">연결됨</string>
     <!--Bluetooth-->
+    <string name="wifi_no_passwd_info">다음 네트워크에 연결하세요:</string>
     <string name="bluetooth_index_title_text">블루투스</string>
     <string name="bluetooth_index_bt_tv">블루투스 스위치</string>
     <string name="bluetooth_index_search_title_tv">발견된 장치</string>

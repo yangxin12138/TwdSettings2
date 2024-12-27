@@ -1,13 +1,8 @@
 package com.twd.setting;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -15,55 +10,14 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 
 import com.twd.setting.base.BaseActivity;
-import com.twd.setting.bean.InputItem;
-import com.twd.setting.databinding.FragmentMainBinding;
 import com.twd.setting.module.MainFragment;
 import com.twd.setting.module.bluetooth.BluetoothActivity;
-import com.twd.setting.module.bluetooth.fragment.BluetoothFragment;
-import com.twd.setting.module.device.DeviceInfoActivity;
-import com.twd.setting.module.projector.ProjectorActivity;
-import com.twd.setting.utils.KkUtils;
 import com.twd.setting.utils.UiUtils;
 
 import java.util.List;
 
-/*
-public class MainActivity extends AppCompatActivity {
-
-    private MainFragment curFragment;
-
-    private BluetoothFragment bluetoothFragment;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        setContentView(R.layout.fragment_main);
-        //setContentView(R.layout.fragment_bluetooth);
-
-        //FragmentDataBinding activityMainBinding= DataBindingUtil.setContentView(this,R.layout.fragment_data);
-
- //       FragmentMainBinding activityMainBinding= DataBindingUtil.setContentView(this,R.layout.fragment_main);
-
-        //LayoutItemMainBinding activityMainBinding= DataBindingUtil.setContentView(this,R.layout.layout_item_main);
-        //User user=new User("chenqi","123456");
-        //activityMainBinding.setUserInfo(user);
-        curFragment = new MainFragment();
-//        bluetoothFragment = new BluetoothFragment();
-        //curFragment = MainFragment.newInstance();
-
-        UiUtils.replaceFragment(getSupportFragmentManager(), R.id.content, curFragment);
-//        UiUtils.replaceFragment(getSupportFragmentManager(), R.id.content, bluetoothFragment);
-
-        //UiUtils.replaceFragment(getSupportFragmentManager(), R.id.main_layout, curFragment,"main");
-//        UiUtils.add(getSupportFragmentManager(), "layout/fragment_main_0");
-
-
-
-    }
-}*/
 public class MainActivity
         extends BaseActivity {
     private final static String TAG = "MainActivity";

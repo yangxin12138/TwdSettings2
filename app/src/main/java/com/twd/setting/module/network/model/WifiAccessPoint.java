@@ -19,6 +19,7 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.TtsSpan;
 import android.text.style.TtsSpan.TelephoneBuilder;
+import android.text.style.URLSpan;
 import android.util.Log;
 
 import androidx.annotation.RequiresApi;
@@ -716,9 +717,16 @@ public class WifiAccessPoint
     }
 
     public CharSequence getSsid() {
-        final SpannableString str = new SpannableString(ssid);
-        str.setSpan(new TtsSpan.TelephoneBuilder(ssid).build(), 0, ssid.length(),
-                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        SpannableString str = new SpannableString(ssid);
+        if (VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            str.setSpan(new TelephoneBuilder(ssid).build(), 0, ssid.length(),
+                    Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        }else {
+            // Android 4.4及以下版本的代码
+            SpannableString spannableString = new SpannableString(str);
+            spannableString.setSpan(new URLSpan("tel:" + ssid), 0, ssid.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+            str = spannableString;
+        }
         return str;
     }
 

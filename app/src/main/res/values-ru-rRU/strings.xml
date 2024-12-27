@@ -166,6 +166,7 @@
     <string name="net_wifiList_isCheckedText_connected">Уже подключено</string>
 
     <!--Bluetooth-->
+    <string name="wifi_no_passwd_info">Подключитесь к этой сети:</string>
     <string name="bluetooth_index_title_text">настройки Bluetooth</string>
     <string name="bluetooth_index_bt_tv">Bluetooth-переключатель</string>
     <string name="bluetooth_index_search_title_tv">Устройства найдены</string>

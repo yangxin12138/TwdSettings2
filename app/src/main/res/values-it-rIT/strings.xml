@@ -168,6 +168,7 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="net_wifiList_isCheckedText_connected">Collegato</string>
 
     <!--Bluetooth-->
+    <string name="wifi_no_passwd_info">Connettiti a questa rete:</string>
     <string name="bluetooth_index_title_text">Bluetooth</string>
     <string name="bluetooth_index_bt_tv">Interruttore Bluetooth</string>
     <string name="bluetooth_index_search_title_tv">Dispositivi trovati</string>

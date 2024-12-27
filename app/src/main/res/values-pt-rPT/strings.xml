@@ -167,6 +167,7 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="net_wifiList_isCheckedText_connected">Já conectado</string>
 
     <!--Bluetooth-->
+    <string name="wifi_no_passwd_info">Ligue-se a esta rede:</string>
     <string name="bluetooth_index_title_text">Bluetooth</string>
     <string name="bluetooth_index_bt_tv">Interruptor Bluetooth</string>
     <string name="bluetooth_index_search_title_tv">Dispositivos encontrados</string>

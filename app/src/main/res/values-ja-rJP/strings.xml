@@ -168,6 +168,7 @@
     <string name="net_wifiList_isCheckedText_saved">保存されました</string>
     <string name="net_wifiList_isCheckedText_connected">接続済み</string>
     <!--Bluetooth-->
+    <string name="wifi_no_passwd_info">このネットワークに接続します:</string>
     <string name="bluetooth_index_title_text">ブルートゥース</string>
     <string name="bluetooth_index_bt_tv">Bluetoothスイッチ</string>
     <string name="bluetooth_index_search_title_tv">デバイスが見つかりました</string>
