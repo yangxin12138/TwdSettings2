@@ -727,7 +727,13 @@
     <dimen name="wifi_speed_button_textSize">30sp</dimen>
     <dimen name="wifi_speed_button_marginStart">600dp</dimen>
     <dimen name="wifi_speed_button_marginTop">16dp</dimen>
-
+    <dimen name="wifi_content_marginTop">30.0dip</dimen>
+    <dimen name="wifi_content_marginStart">174.0dip</dimen>
+    <dimen name="wifi_content_marginEnd">174.0dip</dimen>
+    <dimen name="wifi_item_switch_paddingTop">13.0dip</dimen>
+    <dimen name="wifi_item_switch_paddingBottom">13.0dip</dimen>
+    <dimen name="wifi_enterpassword_text_marginTop">73.0dip</dimen>
+    <dimen name="wifi_enterpassword_btn_connect_marginTop">190.0dip</dimen>
     <!--Universal-->
     <dimen name="universal_title_marginTop">35dp</dimen>
     <dimen name="universal_title_iv_width">25dp</dimen>
@@ -810,4 +816,6 @@
     <dimen name="device_info_marginTop">10dp</dimen>
     <dimen name="device_info_textSize">25sp</dimen>
     <dimen name="device_info_marginStart">200dp</dimen>
+    <dimen name="device_marginTop">20dp</dimen>
+
 </resources>

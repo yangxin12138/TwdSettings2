@@ -36,7 +36,7 @@
             android:id="@+id/topSpace"
             android:layout_width="1.0dip"
             android:layout_height="0.0dip"
-            app:layout_constraintHeight_percent="0.114"
+            app:layout_constraintHeight_percent="?attr/projector_spaceHeightPercent"
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
             app:layout_constraintTop_toBottomOf="@id/titleLayout" />
         <include

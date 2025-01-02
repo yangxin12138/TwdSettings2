@@ -46,7 +46,7 @@
     </style>
 
     <style name="Common.Text.Content" parent="@style/Common.Text">
-        <item name="android:textSize">24.0sp</item>
+        <item name="android:textSize">20.0sp</item>
         <item name="android:textColor">?mainPageItemColor</item>
     </style>
 
@@ -197,7 +197,7 @@
         <item name="projection_bg">@drawable/trape_background_iceblue</item>
         <item name="arrow_horizontal">@mipmap/arrow_horizont_white</item>
         <item name="arrow_vertical">@mipmap/arrow_vertical_white</item>
-        <item name="projector_spaceHeightPercent">0.114</item>
+        <item name="projector_spaceHeightPercent">0.014</item>
     </style>
 
     <style name="Theme.TVSettings2.StarrySkyBlue" parent="@style/Theme.TVSettings2.Base">

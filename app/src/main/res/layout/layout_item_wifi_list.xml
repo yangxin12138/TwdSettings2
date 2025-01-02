@@ -13,10 +13,10 @@
         android:background="?itemBg"
         android:clickable="true"
         android:focusable="true"
-        android:paddingStart="30.0dip"
-        android:paddingTop="13.0dip"
-        android:paddingEnd="30.0dip"
-        android:paddingBottom="13.0dip"
+        android:paddingStart="30dp"
+        android:paddingTop="@dimen/wifi_item_switch_paddingTop"
+        android:paddingEnd="30dp"
+        android:paddingBottom="@dimen/wifi_item_switch_paddingTop"
         android:tag="layout/layout_item_wifi_list_0">
 
         <TextView

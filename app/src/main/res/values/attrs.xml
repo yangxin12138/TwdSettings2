@@ -112,4 +112,6 @@
     <attr name="storage_appcolor" format="color"/>
     <attr name="storage_othercolor" format="color"/>
     <attr name="editTextColor" format="color"/>
+
+    <attr name="projector_spaceHeightPercent" format="float"/>
 </resources>
