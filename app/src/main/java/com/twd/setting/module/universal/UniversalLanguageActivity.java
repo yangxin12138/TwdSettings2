@@ -91,8 +91,8 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             }
             LanguageBean languageBean = null;
             Map<String,String> languageMap = new HashMap<>();
-            languageMap.put("zh_CN","简体中文"); //简体中文
-            languageMap.put("zh_TW","繁體中文"); //繁体中文
+            languageMap.put("zh_HANS","简体中文"); //简体中文
+            languageMap.put("zh_HANT","繁體中文"); //繁体中文
             languageMap.put("en_US","English"); //英语
             languageMap.put("ja_JP","日本語"); //日语
             languageMap.put("ko_KR","한국어"); //韩语-韩国
@@ -108,15 +108,26 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             languageMap.put("fa_IR","فارسی (ایران)");//波斯语-伊朗
             languageMap.put("tr_TR","Türkçe (Türkiye)");//土耳其语-土耳其
 
-            List<String> supportedLanguages = Arrays.asList("zh_CN","zh_TW","en_US","ja_JP"
+            List<String> supportedLanguages = Arrays.asList("zh_HANS","zh_HANT","en_US","ja_JP"
                                                     ,"ko_KR","th_TH","hi_IN","fr_FR","de_DE","it_IT"
                                                     ,"ru_RU","es_ES","pt_PT","ar_SA","fa_IR","tr_TR");
             for (String language_sup : supportedLanguages){
-                if (language_sup.equals(languageCode) && !language.equals("English (United States,Computer)_en_US")){
+                if (language_sup.equals(languageCode) && !language.equals("English (United States,Computer)_en_US") &&
+                        !language.equals("中文 (中国,CN)_zh_HANS") && !language.equals("中文 (香港,HK)_zh_HANS") && !language.equals("中文 (澳门,MO)_zh_HANS")
+                        && !language.equals("中文 (新加坡,SG)_zh_HANS") && !language.equals("中文 (香港,HK)_zh_HANT") && !language.equals("中文 (澳門,MO)_zh_HANT")
+                        && !language.equals("中文 (台灣,TW)_zh_HANT")){
                     String languageName = languageMap.get(language_sup);
                     languageBean = new LanguageBean(languageName,languageCode,false);
-                    if (languageCode.equals(currentLanguageCode)){
+                    if (languageCode.equals(currentLanguageCode) ){
                         languageBean.setSelect(true);
+                    } else if (languageCode.equals("zh_HANS")) {
+                        if ("zh_CN".equals(currentLanguageCode)){
+                            languageBean.setSelect(true);
+                        }
+                    }else if ( languageCode.equals("zh_HANT")) {
+                        if ("zh_TW".equals(currentLanguageCode)){
+                            languageBean.setSelect(true);
+                        }
                     }
                     languageBeans.add(languageBean);
                 }
@@ -156,9 +167,9 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                 String indexLanguage = languageBean.getLanguageCode(); // en_US ; zh_CN ; zh_TW
                 //showToast(indexLanguage);
                 /*切换语言方法*/
-                if (indexLanguage.equals("zh_CN") ){
+                if (indexLanguage.equals("zh_HANS") ){
                     changeSystemLanguage(Locale.SIMPLIFIED_CHINESE);
-                } else if (indexLanguage.equals("zh_TW") ) {
+                } else if (indexLanguage.equals("zh_HANT") ) {
                     changeSystemLanguage(Locale.TRADITIONAL_CHINESE);
                 } else if (indexLanguage.equals("en_US")) {
                     changeSystemLanguage(new Locale("en","US"));
