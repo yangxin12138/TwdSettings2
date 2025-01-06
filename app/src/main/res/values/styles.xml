@@ -198,6 +198,7 @@
         <item name="arrow_horizontal">@mipmap/arrow_horizont_white</item>
         <item name="arrow_vertical">@mipmap/arrow_vertical_white</item>
         <item name="projector_spaceHeightPercent">0.114</item>
+        <item name="main_spaceVertical_weight">0.3</item>
     </style>
 
     <style name="Theme.TVSettings2.StarrySkyBlue" parent="@style/Theme.TVSettings2.Base">

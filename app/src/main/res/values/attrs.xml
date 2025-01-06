@@ -114,4 +114,5 @@
     <attr name="editTextColor" format="color"/>
 
     <attr name="projector_spaceHeightPercent" format="float"/>
+    <attr name="main_spaceVertical_weight" format="float"/>
 </resources>
