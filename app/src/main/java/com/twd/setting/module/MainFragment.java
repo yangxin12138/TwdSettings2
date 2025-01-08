@@ -61,18 +61,7 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
             intent = new Intent(mActivity, BluetoothActivity.class);
         } else if (id == R.id.networkItem) {
             intent = new Intent(mActivity, NetworkActivity.class);
-        } else if (id == R.id.signalSourceItem) {
-            localMainItemVisible = viewModel.getMainItemLayoutVisibleData();
-            if (localMainItemVisible != null)
-            {
-                if (localMainItemVisible.getSourceCname() != null)
-                {
-                    intent = new Intent();
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.setComponent(localMainItemVisible.getSourceCname());
-                }
-            }
-        } else if (id == R.id.projectorItem) {
+        }  else if (id == R.id.projectorItem) {
             intent = new Intent(mActivity, ProjectorActivity.class);
         }
 
@@ -102,7 +91,6 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
 
     private void setClickListener() {
         UiUtils.setOnClickListener(binding.projectorItem.itemRL, viewModel.getItemClickListener());
-        UiUtils.setOnClickListener(binding.signalSourceItem.itemRL, viewModel.getItemClickListener());
         UiUtils.setOnClickListener(binding.networkItem.itemRL, viewModel.getItemClickListener());
         UiUtils.setOnClickListener(binding.bluetoothItem.itemRL, viewModel.getItemClickListener());
         UiUtils.setOnClickListener(binding.commonItem.itemRL, viewModel.getItemClickListener());
@@ -112,7 +100,6 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
 
     private void setFocusChangeListener() {
         binding.projectorItem.itemRL.setOnFocusChangeListener(focusChangeListener);
-        binding.signalSourceItem.itemRL.setOnFocusChangeListener(focusChangeListener);
         binding.networkItem.itemRL.setOnFocusChangeListener(focusChangeListener);
         binding.bluetoothItem.itemRL.setOnFocusChangeListener(focusChangeListener);
         binding.commonItem.itemRL.setOnFocusChangeListener(focusChangeListener);
@@ -123,8 +110,6 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
     private void setItemFocusAndHeight(boolean paramBoolean1, boolean paramBoolean2, int paramInt) {
         if (paramBoolean1) {
             binding.projectorItem.itemRL.requestFocus();
-        } else if (paramBoolean2) {
-            binding.signalSourceItem.itemRL.requestFocus();
         } else {
             binding.networkItem.itemRL.requestFocus();
         }
@@ -172,7 +157,7 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
 //            }
 //            else
 //            {
-            binding.signalSourceItem.itemRL.setVisibility(View.GONE);
+            //binding.signalSourceItem.itemRL.setVisibility(View.GONE);
             //binding.signalSourceItem.itemRL.setVisibility(View.VISIBLE);
 //            }
 //            if (paramMainItemVisible.isBluetoothVisible())
@@ -231,9 +216,7 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
             setBigIconText(R.drawable.bluetooth_black, R.string.str_bluetooth, (int) (iconWidth * 0.6F), iconWidth);
         } else if (id == R.id.networkItem) {
             setBigIconText(R.drawable.wifi_black, R.string.str_network, iconWidth, (int) (iconWidth * 0.725F));
-        } else if (id == R.id.signalSourceItem) {
-            setBigIconText(R.drawable.ic_signal_source_v, R.string.str_signal_source, iconWidth, (int) (iconWidth * 0.5476F));
-        } else if (id == R.id.projectorItem) {
+        }  else if (id == R.id.projectorItem) {
             setBigIconText(R.drawable.projection_black, R.string.str_projector_setting, iconWidth, iconWidth);
         }
     }
