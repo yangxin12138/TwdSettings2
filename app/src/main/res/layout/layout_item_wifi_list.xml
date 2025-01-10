@@ -9,13 +9,13 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="39.0dip"
+        android:layout_marginEnd="@dimen/wifi_item_marginEnd"
         android:background="?itemBg"
         android:clickable="true"
         android:focusable="true"
-        android:paddingStart="30dp"
+        android:paddingStart="@dimen/wifi_item_paddingStart"
         android:paddingTop="@dimen/wifi_item_switch_paddingTop"
-        android:paddingEnd="30dp"
+        android:paddingEnd="@dimen/wifi_item_paddingStart"
         android:paddingBottom="@dimen/wifi_item_switch_paddingTop"
         android:tag="layout/layout_item_wifi_list_0">
 

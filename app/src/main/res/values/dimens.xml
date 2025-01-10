@@ -823,5 +823,14 @@
     <dimen name="storage_summary_textSize">30sp</dimen>
     <dimen name="storage_summary_marginStart">10dp</dimen>
     <dimen name="storage_width">500dp</dimen>
-
+    <dimen name="common_text_textsize">20.0sp</dimen>
+    <dimen name="wifi_item_paddingStart">30dp</dimen>
+    <dimen name="wifi_item_marginEnd">39.0dp</dimen>
+    <dimen name="wifi_item_signalPadding">39.0dp</dimen>
+    <dimen name="device_name_layout_marginTop">50dp</dimen>
+    <dimen name="device_name_layout_button_marginTop">30dp</dimen>
+    <dimen name="device_name_layout_textSize">30dp</dimen>
+    <dimen name="device_name_layout_bt_width">250dp</dimen>
+    <dimen name="device_name_layout_bt_height">50dp</dimen>
+    <dimen name="device_name_layout_bt_textSize">30sp</dimen>
 </resources>

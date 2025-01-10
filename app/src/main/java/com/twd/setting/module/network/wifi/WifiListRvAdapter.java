@@ -10,12 +10,14 @@ import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +41,7 @@ public class WifiListRvAdapter
     public static final String LOG_TAG = "WifiListRvAdapter";
     public IWifiItemClickListener itemClickListener;
     private List<WifiAccessPoint> wifiAccessPoints = new ArrayList<WifiAccessPoint>();
+    private Context mContext;
 
 
     public void clearAll() {
@@ -258,7 +261,24 @@ public class WifiListRvAdapter
             }*/
             binding.tvTip.setText(str);
             Drawable drawable = WifiSignalHelper.getIconSignalStrength(context, wifiAccessPoint);
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            DisplayMetrics metric = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            windowManager.getDefaultDisplay().getMetrics(metric);
+            int width = metric.widthPixels;//屏幕宽度（单位：px）
+            int height = metric.heightPixels;//屏幕高度（单位：px）
+            float density = metric.density;//屏幕密度（常见的有：1.5、2.0、3.0）
+            int densityDpi = metric.densityDpi;//屏幕DPI（常见的有：240、320、480）
+            float densitySW = height / density;
+            Log.d(TAG, "width=" + width + ",height=" + height + ",density=" + density + ",densityDpi=" + densityDpi);
+            int newWidth = (int)(drawable.getIntrinsicWidth() * 0.6);  // 将宽度缩小为原来的0.5倍
+            int newHeight = (int)(drawable.getIntrinsicHeight() * 0.6);  // 将高度缩小为原来的0.5倍
+            if (densitySW == 720){
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            } else if (densitySW == 480) {
+                drawable.setBounds(0, 0, newWidth, newHeight);
+            }else {
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            }
             binding.tvTip.setCompoundDrawablePadding(60);
             binding.tvTip.setCompoundDrawables(null, null, drawable, null);
             binding.tvTip.setVisibility(View.VISIBLE);

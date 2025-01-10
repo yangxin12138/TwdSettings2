@@ -101,7 +101,7 @@
 
     <!--network-->
     <dimen name="wifi_content_marginTop">10.0dip</dimen>
-    <dimen name="wifi_item_switch_paddingTop">10.0dip</dimen>
+    <dimen name="wifi_item_switch_paddingTop">7.0dip</dimen>
     <dimen name="wifi_item_switch_paddingBottom">7.0dip</dimen>
     <dimen name="wifi_content_marginStart">114.0dip</dimen>
     <dimen name="wifi_content_marginEnd">114.0dip</dimen>
@@ -159,4 +159,28 @@
     <dimen name="storage_summary_textSize">20sp</dimen>
     <dimen name="storage_summary_marginStart">5dp</dimen>
     <dimen name="storage_width">300dp</dimen>
+    <dimen name="title_textsize">14.0dip</dimen>
+    <dimen name="title_padding_tb">5.0dip</dimen>
+    <dimen name="title_margin_l">45.0dip</dimen>
+    <dimen name="title_margin_t">17.0dip</dimen>
+    <dimen name="title_padding_lr">7.0dip</dimen>
+    <dimen name="title_drawable_padding">4.0dip</dimen>
+    <dimen name="common_text_textsize">16.0sp</dimen>
+    <dimen name="switch_thumb_padding">3.0dip</dimen>
+    <dimen name="switch_height">15.0dip</dimen>
+    <dimen name="switch_width">31.0dip</dimen>
+    <dimen name="item_lr_line_width">1.0dip</dimen>
+    <dimen name="wifi_item_paddingStart">20dp</dimen>
+    <dimen name="wifi_item_marginEnd">19.0dp</dimen>
+    <dimen name="bluetooth_switchlayout_margin_t">21.0dip</dimen>
+    <dimen name="switchlayout_textsize">15.0sp</dimen>
+    <dimen name="switchlayout_msg_textsize">7.0sp</dimen>
+    <dimen name="bluetooth_item_title_textsize">8.0sp</dimen>
+    <dimen name="bluetooth_item_textsize">13.0sp</dimen>
+    <dimen name="device_name_layout_marginTop">30dp</dimen>
+    <dimen name="device_name_layout_button_marginTop">15dp</dimen>
+    <dimen name="device_name_layout_textSize">20dp</dimen>
+    <dimen name="device_name_layout_bt_width">180dp</dimen>
+    <dimen name="device_name_layout_bt_height">40dp</dimen>
+    <dimen name="device_name_layout_bt_textSize">20sp</dimen>
 </resources>

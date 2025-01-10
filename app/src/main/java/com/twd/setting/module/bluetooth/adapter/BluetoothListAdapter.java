@@ -1,6 +1,7 @@
 package com.twd.setting.module.bluetooth.adapter;
 
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,8 +34,9 @@ public class BluetoothListAdapter
     private static final int ITEM_TYPE_HEADER = 0;
     private final View.OnClickListener clickListener;
     private final CachedBluetoothDevice searchBtnItem;
+    private Context mContext;
 
-    public BluetoothListAdapter(View.OnClickListener paramOnClickListener) {
+    public BluetoothListAdapter(View.OnClickListener paramOnClickListener,Context context) {
         super(new DiffUtil.ItemCallback() {
             @Override
             public boolean areContentsTheSame(@NonNull Object oldItem, @NonNull Object newItem) {
@@ -66,6 +68,7 @@ public class BluetoothListAdapter
         clickListener = paramOnClickListener;
         searchBtnItem = new CachedBluetoothDevice(true);
         searchBtnItem.setCurrentStatus(100);
+        mContext = context;
     }
 
     private List<CachedBluetoothDevice> addFirstBtn(List<CachedBluetoothDevice> paramList) {
@@ -92,7 +95,6 @@ public class BluetoothListAdapter
     public boolean isHeaderView(int paramInt) {
         return paramInt == 0;
     }
-
     public void onBindViewHolder(RecyclerView.ViewHolder paramViewHolder, int paramInt) {
         if (isHeaderView(paramInt)) {
             ((BluetoothSearchViewHolder) paramViewHolder).bind((CachedBluetoothDevice) getItem(paramInt), paramInt);
@@ -105,7 +107,7 @@ public class BluetoothListAdapter
         if (paramInt == 0) {
             return new BluetoothSearchViewHolder((LayoutItemBluetoothResearchBinding) DataBindingUtil.inflate(LayoutInflater.from(paramViewGroup.getContext()), R.layout.layout_item_bluetooth_research, paramViewGroup, false), clickListener);
         }
-        return new BluetoothViewHolder((LayoutItemBluetoothBinding) DataBindingUtil.inflate(LayoutInflater.from(paramViewGroup.getContext()), R.layout.layout_item_bluetooth, paramViewGroup, false), clickListener);
+        return new BluetoothViewHolder((LayoutItemBluetoothBinding) DataBindingUtil.inflate(LayoutInflater.from(paramViewGroup.getContext()), R.layout.layout_item_bluetooth, paramViewGroup, false), clickListener,mContext);
     }
 
     public void submitList(List<CachedBluetoothDevice> paramList) {

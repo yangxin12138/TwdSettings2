@@ -46,7 +46,7 @@
     </style>
 
     <style name="Common.Text.Content" parent="@style/Common.Text">
-        <item name="android:textSize">20.0sp</item>
+        <item name="android:textSize">@dimen/common_text_textsize</item>
         <item name="android:textColor">?mainPageItemColor</item>
     </style>
 
