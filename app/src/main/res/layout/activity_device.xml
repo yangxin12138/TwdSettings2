@@ -132,6 +132,7 @@
             android:layout_height="@dimen/devices_content_LL_height"
             android:layout_marginTop="20dp"
             android:focusable="true"
+            android:visibility="gone"
             android:focusableInTouchMode="true"
             android:background="?bBg">
             <TextView

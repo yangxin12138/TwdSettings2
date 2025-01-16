@@ -1,5 +1,10 @@
 package com.twd.setting.utils;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 
 public class SystemPropertiesUtils {
@@ -38,5 +43,23 @@ public class SystemPropertiesUtils {
         }finally {
             return value;
         }
+    }
+
+    public static String readSystemFile(String path){
+        StringBuilder content = new StringBuilder();
+        File file = new File(path);
+        try{
+            FileInputStream fis = new FileInputStream(file);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            String line;
+            while ((line = reader.readLine()) != null){
+                content.append(line).append("\n");
+            }
+            reader.close();
+            fis.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return content.toString();
     }
 }

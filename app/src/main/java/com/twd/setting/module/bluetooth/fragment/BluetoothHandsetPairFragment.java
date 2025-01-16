@@ -25,6 +25,7 @@ import com.twd.setting.commonlibrary.Utils.StringUtils;
 import com.twd.setting.commonlibrary.Utils.ToastUtils;
 import com.twd.setting.databinding.FragmentBluetoothHandsetPairBinding;
 import com.twd.setting.module.bluetooth.vm.BluetoothHandsetPairViewModel;
+import com.twd.setting.utils.SystemPropertiesUtils;
 //import com.twd.setting.utils.HLog;
 //import com.twd.setting.utils.KkUtils;
 import io.reactivex.Observable;
@@ -35,6 +36,7 @@ import io.reactivex.observers.DisposableObserver;
 public class BluetoothHandsetPairFragment
         extends BaseBindingVmFragment<FragmentBluetoothHandsetPairBinding, BluetoothHandsetPairViewModel> {
     private final String TAG = "BluetoothHandsetPairFragment";
+    private static String remote_BT_title_path = "system/etc/remote_BT.txt";
     private final int TIP_ERROR_VALUE = 4;
     private int currentStatus = 1;
     private int errorCount = 0;
@@ -186,7 +188,8 @@ public class BluetoothHandsetPairFragment
     public void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         if (TextUtils.isEmpty(guideTipString)) {
-            guideTipString = getString(R.string.str_bluetooth_handset_pair_guide);
+            guideTipString = SystemPropertiesUtils.readSystemFile(remote_BT_title_path);
+            Log.i("yangxin", "onCreate: guideTipString =BT------- " + guideTipString);
         }
         tipObserver = getTipObserver();
         Observable.create(new ObservableOnSubscribe() {
