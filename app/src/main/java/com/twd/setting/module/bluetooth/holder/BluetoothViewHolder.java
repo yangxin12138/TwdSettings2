@@ -61,13 +61,16 @@ public class BluetoothViewHolder
         int newWidthRT = (int)(rtDrawable.getIntrinsicWidth() * 0.6);  // 将宽度缩小为原来的0.5倍
         int newHeight = (int)(drawable.getIntrinsicHeight() * 0.6);  // 将高度缩小为原来的0.5倍
         int newHeightRT = (int)(rtDrawable.getIntrinsicHeight() * 0.6);  // 将高度缩小为原来的0.5倍
-        if (densitySW == 720){
+        if (densitySW == 720 || densitySW == 600){
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             rtDrawable.setBounds(0, 0, rtDrawable.getIntrinsicWidth(), rtDrawable.getIntrinsicHeight());
-        } else if (densitySW == 480) {
+        } else if (densitySW == 480 ) {
             drawable.setBounds(0, 0, newWidth, newHeight);
             rtDrawable.setBounds(0, 0, newWidthRT, newHeightRT);
-        }else {
+        } else if (densitySW == 400) {
+            drawable.setBounds(0, 0, (int)(drawable.getIntrinsicWidth()*0.8), (int)(drawable.getIntrinsicHeight()*0.8));
+            rtDrawable.setBounds(0, 0, (int)(rtDrawable.getIntrinsicWidth()*0.8),(int)(rtDrawable.getIntrinsicHeight()*0.8));
+        } else {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             rtDrawable.setBounds(0, 0, rtDrawable.getIntrinsicWidth(), rtDrawable.getIntrinsicHeight());
         }

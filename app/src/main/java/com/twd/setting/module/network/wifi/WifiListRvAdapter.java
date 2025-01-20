@@ -272,11 +272,11 @@ public class WifiListRvAdapter
             Log.d(TAG, "width=" + width + ",height=" + height + ",density=" + density + ",densityDpi=" + densityDpi);
             int newWidth = (int)(drawable.getIntrinsicWidth() * 0.6);  // 将宽度缩小为原来的0.5倍
             int newHeight = (int)(drawable.getIntrinsicHeight() * 0.6);  // 将高度缩小为原来的0.5倍
-            if (densitySW == 720){
+            if (densitySW == 720 || densitySW == 600){
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            } else if (densitySW == 480) {
+            } else if (densitySW == 480 || densitySW == 400) {
                 drawable.setBounds(0, 0, newWidth, newHeight);
-            }else {
+            } else {
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
             binding.tvTip.setCompoundDrawablePadding(60);

@@ -99,4 +99,6 @@
     <dimen name="universal_content_LL_height">80dp</dimen>
 
     <dimen name="projector_space_percent">0.114</dimen>
+    <dimen name="singlePoint_dot_width">29dp</dimen>
+    <dimen name="singlePoint_dot_stroke">2dp</dimen>
 </resources>

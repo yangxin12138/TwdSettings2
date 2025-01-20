@@ -95,4 +95,6 @@
     <dimen name="single_tv_textSize">25sp</dimen>
     <dimen name="single_tv_margin">15dp</dimen>
     <dimen name="main_iv_padding">5dp</dimen>
+    <dimen name="singlePoint_dot_width">29dp</dimen>
+    <dimen name="singlePoint_dot_stroke">2dp</dimen>
 </resources>
