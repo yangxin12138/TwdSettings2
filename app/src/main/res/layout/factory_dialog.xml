@@ -10,22 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/factory_title_marginTop"
         android:gravity="center"
         android:textColor="?textColor"
-        android:textSize="30dp" />
+        android:textSize="@dimen/factory_title_textSize" />
     <LinearLayout
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/factory_button_marginTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
         <LinearLayout
             android:id="@+id/factory_cancel_bt"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/factory_button_width"
+            android:layout_height="@dimen/factory_button_height"
             android:background="@drawable/selector_factory_btnbg"
-            android:layout_marginStart="150dp"
+            android:layout_marginStart="@dimen/factory_ok_button_marginStart"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:nextFocusRight="@id/factory_ok_bt"
@@ -36,17 +36,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/dialog_changeLanguage_btCancel"
-                android:textSize="30sp"
+                android:textSize="@dimen/factory_button_textSize"
                 android:gravity="center"
                 android:textColor="?factory_textColor"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/factory_ok_bt"
             android:layout_gravity="center_horizontal"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="70dp"
-            android:layout_marginEnd="150dp"
+            android:layout_width="@dimen/factory_button_width"
+            android:layout_height="@dimen/factory_button_height"
+            android:layout_marginStart="@dimen/factory_ok_button_marginStart"
+            android:layout_marginEnd="@dimen/factory_button_marginStart"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:nextFocusLeft="@id/factory_cancel_bt"
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/dialog_changeLanguage_btConfirm"
-                android:textSize="30sp"
+                android:textSize="@dimen/factory_button_textSize"
                 android:gravity="center"
                 android:textColor="?factory_textColor"/>
         </LinearLayout>

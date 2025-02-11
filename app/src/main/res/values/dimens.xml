@@ -845,4 +845,12 @@
     <dimen name="enterpassword_hide_password_text_size">18sp</dimen>
     <dimen name="enterpassword_connect_button_width">195.0dip</dimen>
     <dimen name="enterpassword_connect_button_height">48.0dip</dimen>
+    <dimen name="factory_title_marginTop">50dp</dimen>
+    <dimen name="factory_title_textSize">30sp</dimen>
+    <dimen name="factory_button_marginTop">30dp</dimen>
+    <dimen name="factory_button_width">250dp</dimen>
+    <dimen name="factory_button_height">50dp</dimen>
+    <dimen name="factory_button_marginStart">150dp</dimen>
+    <dimen name="factory_button_textSize">30sp</dimen>
+    <dimen name="factory_ok_button_marginStart">70dp</dimen>
 </resources>

@@ -290,4 +290,12 @@
     <dimen name="storage_title_textSize">35sp</dimen>
     <dimen name="storage_summary_marginStart">10dp</dimen>
     <dimen name="storage_summary_textSize">30sp</dimen>
+    <dimen name="factory_title_marginTop">50dp</dimen>
+    <dimen name="factory_title_textSize">30sp</dimen>
+    <dimen name="factory_button_marginTop">30dp</dimen>
+    <dimen name="factory_button_width">250dp</dimen>
+    <dimen name="factory_button_height">50dp</dimen>
+    <dimen name="factory_button_marginStart">150dp</dimen>
+    <dimen name="factory_button_textSize">20sp</dimen>
+    <dimen name="factory_ok_button_marginStart">70dp</dimen>
 </resources>

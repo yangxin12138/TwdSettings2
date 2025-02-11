@@ -197,4 +197,12 @@
     <dimen name="enterpassword_connect_button_width">195.0dip</dimen>
     <dimen name="enterpassword_connect_button_height">48.0dip</dimen>
     <dimen name="bluetooth_item_right_textsize">18.0sp</dimen>
+    <dimen name="factory_title_marginTop">30dp</dimen>
+    <dimen name="factory_title_textSize">20sp</dimen>
+    <dimen name="factory_button_marginTop">15dp</dimen>
+    <dimen name="factory_button_width">180dp</dimen>
+    <dimen name="factory_button_height">30dp</dimen>
+    <dimen name="factory_button_marginStart">100dp</dimen>
+    <dimen name="factory_button_textSize">15sp</dimen>
+    <dimen name="factory_ok_button_marginStart">50dp</dimen>
 </resources>
