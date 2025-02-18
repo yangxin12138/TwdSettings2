@@ -57,20 +57,22 @@ public class BluetoothViewHolder
         float density = metric.density;//屏幕密度（常见的有：1.5、2.0、3.0）
         int densityDpi = metric.densityDpi;//屏幕DPI（常见的有：240、320、480）
         float densitySW = height / density;
-        int newWidth = (int)(drawable.getIntrinsicWidth() * 0.6);  // 将宽度缩小为原来的0.5倍
-        int newWidthRT = (int)(rtDrawable.getIntrinsicWidth() * 0.6);  // 将宽度缩小为原来的0.5倍
-        int newHeight = (int)(drawable.getIntrinsicHeight() * 0.6);  // 将高度缩小为原来的0.5倍
-        int newHeightRT = (int)(rtDrawable.getIntrinsicHeight() * 0.6);  // 将高度缩小为原来的0.5倍
+        int newWidth = (int)(drawable.getIntrinsicWidth() * 0.7);  // 将宽度缩小为原来的0.5倍
+        int newWidthRT = (int)(rtDrawable.getIntrinsicWidth() * 0.7);  // 将宽度缩小为原来的0.5倍
+        int newHeight = (int)(drawable.getIntrinsicHeight() * 0.7);  // 将高度缩小为原来的0.5倍
+        int newHeightRT = (int)(rtDrawable.getIntrinsicHeight() * 0.7);  // 将高度缩小为原来的0.5倍
         if (densitySW == 720 || densitySW == 600){
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             rtDrawable.setBounds(0, 0, rtDrawable.getIntrinsicWidth(), rtDrawable.getIntrinsicHeight());
         } else if (densitySW == 480 ) {
+            Log.i("yangxin", "bind: -------------densitySW == 480------------");
             drawable.setBounds(0, 0, newWidth, newHeight);
             rtDrawable.setBounds(0, 0, newWidthRT, newHeightRT);
         } else if (densitySW == 400) {
             drawable.setBounds(0, 0, (int)(drawable.getIntrinsicWidth()*0.8), (int)(drawable.getIntrinsicHeight()*0.8));
             rtDrawable.setBounds(0, 0, (int)(rtDrawable.getIntrinsicWidth()*0.8),(int)(rtDrawable.getIntrinsicHeight()*0.8));
         } else {
+            Log.i("yangxin", "bind: -------------走其他默认------------");
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             rtDrawable.setBounds(0, 0, rtDrawable.getIntrinsicWidth(), rtDrawable.getIntrinsicHeight());
         }
