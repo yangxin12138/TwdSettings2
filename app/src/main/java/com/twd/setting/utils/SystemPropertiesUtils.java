@@ -79,7 +79,7 @@ public class SystemPropertiesUtils {
         LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(ACTION_DEVICE_NAME_UPDATE));
     }
 
-    public static String readSystemProp(){
+    public static String readSystemStorage(){
         String line = "";
         try {
             File file = new File("/system/etc/settings.ini");
@@ -123,5 +123,28 @@ public class SystemPropertiesUtils {
             e.printStackTrace();
         }
         return " ";
+    }
+
+    public static String readSystemProp(String propName){
+        String line = "";
+        try {
+            File file = new File("/system/etc/settings.ini");
+            FileInputStream fis = new FileInputStream(file);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            while ((line = reader.readLine()) != null) {
+                if (line.contains(propName)) {
+                    // 这里可以进一步解析line来获取ANDROID_VERSION的值
+                    String value = line.split("=")[1]; // 获取等号后面的值
+                    reader.close();
+                    fis.close();
+                    return value;
+                }
+            }
+            reader.close();
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

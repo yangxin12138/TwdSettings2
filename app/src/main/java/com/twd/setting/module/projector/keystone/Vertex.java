@@ -2,6 +2,8 @@ package com.twd.setting.module.projector.keystone;
 
 import android.util.Log;
 
+import com.twd.setting.utils.SystemPropertiesUtils;
+
 public class Vertex {
     public int x = 0;
     public int y = 0;
@@ -29,6 +31,9 @@ public class Vertex {
         return y;
     }
     public int getPoint(){return point;}
+    private String ScreenReduction = null;
+    private int ScreenOffset;
+    int offset = 0;
     public Vertex(int x, int y) {
         this.x = x;
         this.y = y;
@@ -58,8 +63,25 @@ public class Vertex {
         }
     }
 
+    private int getOffset(){
+        ScreenReduction = SystemPropertiesUtils.readSystemProp("SCREEN_REDUCTION").trim();
+        try {
+            ScreenOffset = Integer.parseInt(SystemPropertiesUtils.readSystemProp("SCREEN_OFFSET").trim());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        if (ScreenReduction!=null && ScreenReduction.equals("true")){
+            offset = (Math.max(ScreenOffset, 0));
+        }
+        return offset;
+    }
     @Override
     public String toString() {
+        Log.i(TAG, "toString: -------x = "+ x+",getOffset() = "+getOffset()+",y = "+y+",getOffset()");
+        return (x-getOffset()) + "," + (y-getOffset());
+    }
+
+    public String toSaveString(){
         return x + "," + y;
     }
 
@@ -68,16 +90,18 @@ public class Vertex {
             case 0:
                 Log.d(TAG, "doLeft: case0");
                 x = x - 1;
-                if(x<0){
-                    x = 0;
+                if(x<getOffset()){
+                    x = getOffset();
                 }
+                Log.i(TAG, "-------------doLeft: x = "+x);
                 break;
             case 3:
                 Log.d(TAG, "doLeft: case3");
                 x = x - 1;
-                if(x<0){
-                    x = 0;
+                if(x<getOffset()){
+                    x = getOffset();
                 }
+                Log.i(TAG, "-------------doLeft: x = "+x);
                 break;
             case 1:
                 Log.d(TAG, "doLeft: case1");
@@ -85,6 +109,7 @@ public class Vertex {
                 if(x > maxXStep){
                     x = maxXStep;
                 }
+                Log.i(TAG, "-------------doLeft: x = "+x);
                 break;
             case 2:
                 Log.d(TAG, "doLeft: case2");
@@ -92,6 +117,7 @@ public class Vertex {
                 if(x > maxXStep){
                     x = maxXStep;
                 }
+                Log.i(TAG, "-------------doLeft: x = "+x);
                 break;
             default:
                 break;
@@ -106,6 +132,7 @@ public class Vertex {
                 if(x>maxXStep){
                     x = maxXStep;
                 }
+                Log.i(TAG, "-------------doRight: x = "+x);
                 break;
             case 3:
                 Log.d(TAG, "doRight: case3");
@@ -113,20 +140,23 @@ public class Vertex {
                 if(x>maxXStep){
                     x = maxXStep;
                 }
+                Log.i(TAG, "-------------doRight: x = "+x);
                 break;
             case 1:
                 Log.d(TAG, "doRight: case1");
                 x = x - 1;
-                if(x < 0){
-                    x = 0;
+                if(x < getOffset()){
+                    x = getOffset();
                 }
+                Log.i(TAG, "-------------doRight: x = "+x);
                 break;
             case 2:
                 Log.d(TAG, "doRight: case2");
                 x = x - 1;
-                if(x < 0){
-                    x = 0;
+                if(x < getOffset()){
+                    x = getOffset();
                 }
+                Log.i(TAG, "-------------doRight: x = "+x);
                 break;
             default:
                 break;
@@ -137,16 +167,18 @@ public class Vertex {
             case 0:
                 Log.d(TAG, "doTop: case0");
                 y = y - 1;
-                if(y<0){
-                    y = 0;
+                if(y<getOffset()){
+                    y = getOffset();
                 }
+                Log.i(TAG, "-------------doTop: y = "+y);
                 break;
             case 1:
                 Log.d(TAG, "doTop: case1");
                 y = y - 1;
-                if(y<0){
-                    y = 0;
+                if(y<getOffset()){
+                    y = getOffset();
                 }
+                Log.i(TAG, "-------------doTop: y = "+y);
                 break;
             case 2:
                 Log.d(TAG, "doTop: case2");
@@ -154,6 +186,7 @@ public class Vertex {
                 if(y>maxYStep){
                     y = maxYStep;
                 }
+                Log.i(TAG, "-------------doTop: y = "+y);
                 break;
             case 3:
                 Log.d(TAG, "doTop: case3");
@@ -161,6 +194,7 @@ public class Vertex {
                 if(y>maxYStep){
                     y = maxYStep;
                 }
+                Log.i(TAG, "-------------doTop: y = "+y);
                 break;
             default:
                 break;
@@ -174,6 +208,7 @@ public class Vertex {
                 if(y>maxYStep){
                     y = maxYStep;
                 }
+                Log.i(TAG, "-------------doBottom: y = "+y);
                 break;
             case 1:
                 Log.d(TAG, "doBottom: case1");
@@ -181,20 +216,23 @@ public class Vertex {
                 if(y>maxYStep){
                     y = maxYStep;
                 }
+                Log.i(TAG, "-------------doBottom: y = "+y);
                 break;
             case 2:
                 Log.d(TAG, "doBottom: case2");
                 y = y - 1;
-                if(y<0){
-                    y = 0;
+                if(y<getOffset()){
+                    y =getOffset();
                 }
+                Log.i(TAG, "-------------doBottom: y = "+y);
                 break;
             case 3:
                 Log.d(TAG, "doBottom: case3");
                 y = y - 1;
-                if(y<0){
-                    y = 0;
+                if(y<getOffset()){
+                    y = getOffset();
                 }
+                Log.i(TAG, "-------------doBottom: y = "+y);
                 break;
             default:
                 break;

@@ -79,13 +79,25 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     private float mRightTopX = 0;
     private float mRightTopY = 0;
     private String projectorMode;
-
+    private String ScreenReduction = null;
+    private int ScreenOffset;
+    int offset = 0;
     public KeystoneViewModel(Application paramApplication) {
         super(paramApplication);
         lcd = new Lcd(getApplication());
         getKeystoneOrigin();
         getInitKeystone(getApplication());
         projectorMode = SystemPropertiesUtils.getProperty("persist.sys.projection","0");
+        ScreenReduction = SystemPropertiesUtils.readSystemProp("SCREEN_REDUCTION").trim();
+        try {
+            ScreenOffset = Integer.parseInt(SystemPropertiesUtils.readSystemProp("SCREEN_OFFSET").trim());
+        } catch (Exception e) {
+            Log.i(TAG, "KeystoneViewModel: ----------输入的字符串不能转换为整数 ："+e.getMessage());
+        }
+        if (ScreenReduction!=null && ScreenReduction.equals("true")){
+            offset = (Math.max(ScreenOffset, 0));
+        }
+        Log.i(TAG, "KeystoneViewModel: ----------offset = "+offset);
     }
 
     public void getKeystoneOrigin(){
@@ -156,46 +168,48 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         SharedPreferences prefs = context.getSharedPreferences("ty_zoom",Context.MODE_PRIVATE);
     }
     public void setKeystoneMode(int _mode){
+        int MaxData = 50 + offset;
+        Log.i(TAG, "setKeystoneMode: -------MaxData = "+MaxData);
         if(_mode == MODE_ONEPOINT){
-            vTopLeft.setMaxX(50);vTopLeft.setMaxY(50);
-            vTopRight.setMaxX(50);vTopRight.setMaxY(50);
-            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(50);
-            vBottomRight.setMaxX(50);vBottomRight.setMaxY(50);
+            vTopLeft.setMaxX(MaxData);vTopLeft.setMaxY(MaxData);
+            vTopRight.setMaxX(MaxData);vTopRight.setMaxY(MaxData);
+            vBottomLeft.setMaxX(MaxData);vBottomLeft.setMaxY(MaxData);
+            vBottomRight.setMaxX(MaxData);vBottomRight.setMaxY(MaxData);
 
             zoom_x = 0;
             zoom_y = 0;
             saveZoom();
         } else if (_mode == MODE_TWOPOINT) {
-            vTopLeft.setMaxX(50);vTopLeft.setMaxY(50);
-            vTopRight.setMaxX(50);vTopRight.setMaxY(50);
-            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(50);
-            vBottomRight.setMaxX(50);vBottomRight.setMaxY(50);
+            vTopLeft.setMaxX(MaxData);vTopLeft.setMaxY(MaxData);
+            vTopRight.setMaxX(MaxData);vTopRight.setMaxY(MaxData);
+            vBottomLeft.setMaxX(MaxData);vBottomLeft.setMaxY(MaxData);
+            vBottomRight.setMaxX(MaxData);vBottomRight.setMaxY(MaxData);
         }
     }
 
     public void savePoint(int point){
         switch (point){
             case 0:
-                editor.putString("top_left",vTopLeft.toString());
+                editor.putString("top_left",vTopLeft.toSaveString());
                 editor.apply();
                 break;
             case 1:
-                editor.putString("top_right",vTopRight.toString());
+                editor.putString("top_right",vTopRight.toSaveString());
                 editor.apply();
                 break;
             case 3:
-                editor.putString("bottom_left",vBottomLeft.toString());
+                editor.putString("bottom_left",vBottomLeft.toSaveString());
                 editor.apply();
                 break;
             case 2:
-                editor.putString("bottom_right",vBottomRight.toString());
+                editor.putString("bottom_right",vBottomRight.toSaveString());
                 editor.apply();
                 break;
             default:
-                editor.putString("top_left",vTopLeft.toString());
-                editor.putString("top_right",vTopRight.toString());
-                editor.putString("bottom_left",vBottomLeft.toString());
-                editor.putString("bottom_right",vBottomRight.toString());
+                editor.putString("top_left",vTopLeft.toSaveString());
+                editor.putString("top_right",vTopRight.toSaveString());
+                editor.putString("bottom_left",vBottomLeft.toSaveString());
+                editor.putString("bottom_right",vBottomRight.toSaveString());
                 editor.apply();
                 break;
         }
@@ -226,10 +240,10 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     }
 
     public void restoreKeystone(){
-        vTopLeft.setX(0);vTopLeft.setY(0);
-        vTopRight.setX(0);vTopRight.setY(0);
-        vBottomLeft.setX(0);vBottomLeft.setY(0);
-        vBottomRight.setX(0);vBottomRight.setY(0);
+        vTopLeft.setX(offset);vTopLeft.setY(offset);
+        vTopRight.setX(offset);vTopRight.setY(offset);
+        vBottomLeft.setX(offset);vBottomLeft.setY(offset);
+        vBottomRight.setX(offset);vBottomRight.setY(offset);
         savePoint(4);//save all
         updatePoint(4);//update all
         update();
