@@ -11,11 +11,11 @@
     <dimen name="main_title_arrow_marginTop">55dp</dimen>
     <dimen name="projection_title_textSize">25sp</dimen>
     <dimen name="main_tv_textSize_small">25sp</dimen>
-    <dimen name="double_vertical_paddingTop">50dp</dimen>
+    <dimen name="double_vertical_paddingTop">55dp</dimen>
     <dimen name="double_tv_vertical_paddingStart">75dp</dimen>
     <dimen name="double_tv_vertical_paddingTop">33dp</dimen>
     <dimen name="double_horizontal_paddingStart">180dp</dimen>
-    <dimen name="double_horizontal_paddingTop">40dp</dimen>
+    <dimen name="double_horizontal_paddingTop">46dp</dimen>
     <dimen name="double_tv_horizontal_paddingStart">230dp</dimen>
     <dimen name="double_tv_horizontal_paddingTop">33dp</dimen>
     <dimen name="doublePoint_iv_width">700dp</dimen>
