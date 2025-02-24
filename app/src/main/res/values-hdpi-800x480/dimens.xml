@@ -97,7 +97,9 @@
     <dimen name="main_iv_padding">5dp</dimen>
 
     <dimen name="universal_content_LL_height">35dp</dimen>
-    <dimen name="switchlayout_padding_tb">5.0dip</dimen>
+    <dimen name="switchlayout_padding_tb">8.0dip</dimen>
+    <dimen name="switchlayout_padding_tb_bt">3.0dip</dimen>
+    <dimen name="bluetooth_item_drawable_padding_l">0.0dip</dimen>
 
     <!--network-->
     <dimen name="wifi_content_marginTop">8.0dip</dimen>
@@ -167,23 +169,23 @@
     <dimen name="title_drawable_padding">4.0dip</dimen>
     <dimen name="common_text_textsize">12.0sp</dimen>
     <dimen name="switch_thumb_padding">1.0dip</dimen>
-    <dimen name="switch_height">10.0dip</dimen>
+    <dimen name="switch_height">15.0dip</dimen>
     <dimen name="switch_width">20.0dip</dimen>
     <dimen name="item_lr_line_width">1.0dip</dimen>
     <dimen name="wifi_item_paddingStart">10dp</dimen>
     <dimen name="wifi_item_marginEnd">20.0dp</dimen>
-    <dimen name="bluetooth_switchlayout_margin_t">21.0dip</dimen>
-    <dimen name="switchlayout_textsize">15.0sp</dimen>
-    <dimen name="switchlayout_msg_textsize">7.0sp</dimen>
+    <dimen name="bluetooth_switchlayout_margin_t">18.0dip</dimen>
+    <dimen name="switchlayout_textsize">12.0sp</dimen>
+    <dimen name="switchlayout_msg_textsize">6.0sp</dimen>
     <dimen name="bluetooth_item_title_textsize">8.0sp</dimen>
-    <dimen name="bluetooth_item_textsize">13.0sp</dimen>
+    <dimen name="bluetooth_item_textsize">10.0sp</dimen>
     <dimen name="device_name_layout_marginTop">30dp</dimen>
     <dimen name="device_name_layout_button_marginTop">15dp</dimen>
     <dimen name="device_name_layout_textSize">20dp</dimen>
     <dimen name="device_name_layout_bt_width">180dp</dimen>
     <dimen name="device_name_layout_bt_height">40dp</dimen>
     <dimen name="device_name_layout_bt_textSize">20sp</dimen>
-    <dimen name="switchlayout_padding_lr">20.0dip</dimen>
+    <dimen name="switchlayout_padding_lr">13.0dip</dimen>
     <dimen name="common_ime_bar_margin_t">7.0dip</dimen>
     <dimen name="singlePoint_dot_width">18dp</dimen>
     <dimen name="singlePoint_dot_stroke">1dp</dimen>
@@ -196,7 +198,7 @@
     <dimen name="enterpassword_hide_password_text_size">10sp</dimen>
     <dimen name="enterpassword_connect_button_width">95.0dip</dimen>
     <dimen name="enterpassword_connect_button_height">28.0dip</dimen>
-    <dimen name="bluetooth_item_right_textsize">18.0sp</dimen>
+    <dimen name="bluetooth_item_right_textsize">10.0sp</dimen>
     <dimen name="factory_title_marginTop">30dp</dimen>
     <dimen name="factory_title_textSize">20sp</dimen>
     <dimen name="factory_button_marginTop">15dp</dimen>

@@ -236,6 +236,7 @@
     <dimen name="main_item_right_icon_height">18.0dip</dimen>
     <dimen name="title_textsize">21.0dip</dimen>
     <dimen name="switchlayout_padding_tb">16.0dip</dimen>
+    <dimen name="switchlayout_padding_tb_bt">13.0dip</dimen>
     <dimen name="switch_height">21.0dip</dimen>
     <dimen name="switch_thumb_padding">6.0dip</dimen>
     <dimen name="switch_width">41.0dip</dimen>

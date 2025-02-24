@@ -4,6 +4,7 @@ package com.twd.setting.module.bluetooth.holder;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.InsetDrawable;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -71,7 +72,10 @@ public class BluetoothViewHolder
         } else if (densitySW == 400) {
             drawable.setBounds(0, 0, (int)(drawable.getIntrinsicWidth()*0.8), (int)(drawable.getIntrinsicHeight()*0.8));
             rtDrawable.setBounds(0, 0, (int)(rtDrawable.getIntrinsicWidth()*0.8),(int)(rtDrawable.getIntrinsicHeight()*0.8));
-        } else {
+        } else if (densitySW == 320) {
+            drawable.setBounds(0, 0, (int)(drawable.getIntrinsicWidth()*0.6), (int)(drawable.getIntrinsicHeight()*0.6));
+            rtDrawable.setBounds(0, 0, (int)(rtDrawable.getIntrinsicWidth()*0.6),(int)(rtDrawable.getIntrinsicHeight()*0.6));
+        }else {
             Log.i("yangxin", "bind: -------------走其他默认------------");
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             rtDrawable.setBounds(0, 0, rtDrawable.getIntrinsicWidth(), rtDrawable.getIntrinsicHeight());

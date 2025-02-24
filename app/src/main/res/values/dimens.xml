@@ -506,10 +506,11 @@
     <dimen name="switch_height">21.0dip</dimen>
     <dimen name="switch_thumb_padding">6.0dip</dimen>
     <dimen name="switch_width">41.0dip</dimen>
-    <dimen name="switchlayout_msg_margin_t">5.0dip</dimen>
+    <dimen name="switchlayout_msg_margin_t">4.0dip</dimen>
     <dimen name="switchlayout_msg_textsize">14.0sp</dimen>
     <dimen name="switchlayout_padding_lr">30.0dip</dimen>
     <dimen name="switchlayout_padding_tb">16.0dip</dimen>
+    <dimen name="switchlayout_padding_tb_bt">16.0dip</dimen>
     <dimen name="switchlayout_textsize">21.0sp</dimen>
     <dimen name="system_equipment_content_margin_t">62.0dip</dimen>
     <dimen name="system_equipment_right_text_margin_r">30.0dip</dimen>

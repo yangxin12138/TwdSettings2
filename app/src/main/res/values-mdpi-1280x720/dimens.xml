@@ -108,6 +108,7 @@
     <dimen name="wifi_content_marginEnd">174.0dip</dimen>
     <dimen name="wifi_content_marginTop">30.0dip</dimen>
     <dimen name="switchlayout_padding_tb">26.0dip</dimen>
+    <dimen name="switchlayout_padding_tb_bt">23.0dip</dimen>
     <dimen name="universal_tv_textSize">25sp</dimen>
     <dimen name="universal_title_tv_textSize">25sp</dimen>
     <dimen name="universal_input_list_name_height">80dp</dimen>

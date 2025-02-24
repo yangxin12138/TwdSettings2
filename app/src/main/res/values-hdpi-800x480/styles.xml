@@ -93,7 +93,7 @@
         <item name="android:paddingLeft">@dimen/switchlayout_padding_lr</item>
         <item name="android:paddingTop">@dimen/switchlayout_padding_tb</item>
         <item name="android:paddingRight">@dimen/switchlayout_padding_lr</item>
-        <item name="android:paddingBottom">@dimen/switchlayout_padding_tb</item>
+        <item name="android:paddingBottom">@dimen/switchlayout_padding_tb_bt</item>
     </style>
 
     <style name="MainItemStyle">
