@@ -159,7 +159,7 @@
     <dimen name="storage_summary_textSize">20sp</dimen>
     <dimen name="storage_summary_marginStart">5dp</dimen>
     <dimen name="storage_width">300dp</dimen>
-    <dimen name="title_textsize">14.0dip</dimen>
+    <dimen name="title_textsize">18.0dip</dimen>
     <dimen name="title_padding_tb">5.0dip</dimen>
     <dimen name="title_margin_l">35.0dip</dimen>
     <dimen name="title_margin_t">13.0dip</dimen>
@@ -205,4 +205,8 @@
     <dimen name="factory_button_marginStart">100dp</dimen>
     <dimen name="factory_button_textSize">15sp</dimen>
     <dimen name="factory_ok_button_marginStart">50dp</dimen>
+
+    <dimen name="wifi_content_marginBottom">20.0dip</dimen>
+    <dimen name="wifi_available_marginTop">18.0dip</dimen>
+    <dimen name="wifi_switch_paddingStart_End">30.0dip</dimen>
 </resources>

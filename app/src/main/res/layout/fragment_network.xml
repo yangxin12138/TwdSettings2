@@ -29,21 +29,22 @@
             android:layout_marginStart="@dimen/wifi_content_marginStart"
             android:layout_marginTop="@dimen/wifi_content_marginTop"
             android:layout_marginEnd="@dimen/wifi_content_marginEnd"
-            android:layout_marginBottom="20.0dip"
+            android:layout_marginBottom="@dimen/wifi_content_marginBottom"
             android:orientation="vertical">
+
 
             <FrameLayout
                 android:id="@+id/item_wifi_switch"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="18.0dip"
+                android:layout_marginTop="@dimen/wifi_available_marginTop"
                 android:background="?mainPageItemBg"
                 android:clickable="true"
                 android:focusable="true"
-                android:paddingStart="30.0dip"
+                android:paddingStart="@dimen/wifi_switch_paddingStart_End"
                 android:paddingTop="@dimen/wifi_item_switch_paddingTop"
-                android:paddingEnd="30.0dip"
+                android:paddingEnd="@dimen/wifi_switch_paddingStart_End"
                 android:paddingBottom="@dimen/wifi_item_switch_paddingBottom">
 
                 <TextView
@@ -64,19 +65,18 @@
                     app:track="?switch_track" />
             </FrameLayout>
 
-
             <FrameLayout
                 android:id="@+id/item_wifi_available"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="18.0dip"
+                android:layout_marginTop="@dimen/wifi_available_marginTop"
                 android:background="?mainPageItemBg"
                 android:clickable="false"
                 android:focusable="false"
-                android:paddingStart="30.0dip"
+                android:paddingStart="@dimen/wifi_switch_paddingStart_End"
                 android:paddingTop="@dimen/wifi_item_switch_paddingTop"
-                android:paddingEnd="30.0dip"
+                android:paddingEnd="@dimen/wifi_switch_paddingStart_End"
                 android:paddingBottom="@dimen/wifi_item_switch_paddingBottom">
 
                 <TextView
