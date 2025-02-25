@@ -210,4 +210,6 @@
     <dimen name="wifi_content_marginBottom">20.0dip</dimen>
     <dimen name="wifi_available_marginTop">18.0dip</dimen>
     <dimen name="wifi_switch_paddingStart_End">30.0dip</dimen>
+    <dimen name="device_name_marginStart">150dp</dimen>
+    <dimen name="selector_factory_bt_width">4.0dip</dimen>
 </resources>

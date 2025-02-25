@@ -96,7 +96,7 @@
     <dimen name="single_tv_margin">10dp</dimen>
     <dimen name="main_iv_padding">5dp</dimen>
 
-    <dimen name="universal_content_LL_height">35dp</dimen>
+    <dimen name="universal_content_LL_height">45dp</dimen>
     <dimen name="switchlayout_padding_tb">8.0dip</dimen>
     <dimen name="switchlayout_padding_tb_bt">3.0dip</dimen>
     <dimen name="bluetooth_item_drawable_padding_l">0.0dip</dimen>
@@ -111,9 +111,9 @@
     <dimen name="wifi_enterpassword_btn_connect_marginTop">60.0dip</dimen>
 
     <!--Common-->
-    <dimen name="universal_content_LL_paddingTop">30dp</dimen>
-    <dimen name="universal_input_list_name_height">50dp</dimen>
-    <dimen name="universal_input_list_name_textSize">20sp</dimen>
+    <dimen name="universal_content_LL_paddingTop">20dp</dimen>
+    <dimen name="universal_input_list_name_height">40dp</dimen>
+    <dimen name="universal_input_list_name_textSize">15sp</dimen>
 
     <!--device-->
     <dimen name="devices_content_LL_paddingStart">100dp</dimen>
@@ -128,20 +128,20 @@
     <dimen name="item_lr_txt_size">10.0sp</dimen>
     <dimen name="main_item_left_icon_width">20.0dip</dimen>
     <dimen name="main_item_right_icon_height">15.0dip</dimen>
-    <dimen name="universal_content_LL_paddingStart">100dp</dimen>
-    <dimen name="universal_content_LL_paddingEnd">100dp</dimen>
-    <dimen name="universal_title_marginTop">23dp</dimen>
-    <dimen name="universal_title_iv_marginStart">60dp</dimen>
-    <dimen name="universal_title_iv_width">15dp</dimen>
-    <dimen name="universal_title_iv_height">15dp</dimen>
-    <dimen name="universal_title_tv_textSize">15sp</dimen>
+    <dimen name="universal_content_LL_paddingStart">63dp</dimen>
+    <dimen name="universal_content_LL_paddingEnd">63dp</dimen>
+    <dimen name="universal_title_marginTop">13dp</dimen>
+    <dimen name="universal_title_iv_marginStart">40dp</dimen>
+    <dimen name="universal_title_iv_width">10dp</dimen>
+    <dimen name="universal_title_iv_height">10dp</dimen>
+    <dimen name="universal_title_tv_textSize">10sp</dimen>
     <dimen name="universal_title_tv_width">50dp</dimen>
     <dimen name="universal_title_tv_marginStart">5dp</dimen>
-    <dimen name="universal_tv_textSize">15sp</dimen>
+    <dimen name="universal_tv_textSize">10sp</dimen>
     <dimen name="universal_tv_marginStart">20dp</dimen>
     <dimen name="universal_current_arrow_height">15dp</dimen>
-    <dimen name="LL_content_marginTop">3dp</dimen>
-    <dimen name="universal_input_list_name_paddingStart">30dp</dimen>
+    <dimen name="LL_content_marginTop">2dp</dimen>
+    <dimen name="universal_input_list_name_paddingStart">25dp</dimen>
     <dimen name="universal_input_list_ivSelect_height">20dp</dimen>
     <dimen name="devices_title_marginTop">23dp</dimen>
     <dimen name="devices_title_iv_width">15dp</dimen>
@@ -179,12 +179,12 @@
     <dimen name="switchlayout_msg_textsize">6.0sp</dimen>
     <dimen name="bluetooth_item_title_textsize">8.0sp</dimen>
     <dimen name="bluetooth_item_textsize">10.0sp</dimen>
-    <dimen name="device_name_layout_marginTop">30dp</dimen>
-    <dimen name="device_name_layout_button_marginTop">15dp</dimen>
-    <dimen name="device_name_layout_textSize">20dp</dimen>
-    <dimen name="device_name_layout_bt_width">180dp</dimen>
-    <dimen name="device_name_layout_bt_height">40dp</dimen>
-    <dimen name="device_name_layout_bt_textSize">20sp</dimen>
+    <dimen name="device_name_layout_marginTop">20dp</dimen>
+    <dimen name="device_name_layout_button_marginTop">8dp</dimen>
+    <dimen name="device_name_layout_textSize">10dp</dimen>
+    <dimen name="device_name_layout_bt_width">100dp</dimen>
+    <dimen name="device_name_layout_bt_height">25dp</dimen>
+    <dimen name="device_name_layout_bt_textSize">13sp</dimen>
     <dimen name="switchlayout_padding_lr">13.0dip</dimen>
     <dimen name="common_ime_bar_margin_t">7.0dip</dimen>
     <dimen name="singlePoint_dot_width">18dp</dimen>
@@ -213,4 +213,6 @@
     <dimen name="scrollbar_thumb_size">5.0dip</dimen>
     <dimen name="net_rc_item_margin_t">8.0dip</dimen>
     <dimen name="wifi_switch_paddingStart_End">15.0dip</dimen>
+    <dimen name="device_name_marginStart">50dp</dimen>
+    <dimen name="selector_factory_bt_width">2.0dip</dimen>
 </resources>
