@@ -116,14 +116,14 @@
     <dimen name="universal_input_list_name_textSize">15sp</dimen>
 
     <!--device-->
-    <dimen name="devices_content_LL_paddingStart">100dp</dimen>
-    <dimen name="devices_content_LL_paddingEnd">90dp</dimen>
-    <dimen name="devices_content_LL_height">55dp</dimen>
-    <dimen name="devices_content_LL_paddingTop">30dp</dimen>
-    <dimen name="devices_info_tv_textSize">15sp</dimen>
-    <dimen name="devices_storage_tv_textSize">15sp</dimen>
-    <dimen name="device_marginTop">10dp</dimen>
-    <dimen name="device_info_marginStart">130dp</dimen>
+    <dimen name="devices_content_LL_paddingStart">63dp</dimen>
+    <dimen name="devices_content_LL_paddingEnd">63dp</dimen>
+    <dimen name="devices_content_LL_height">47dp</dimen>
+    <dimen name="devices_content_LL_paddingTop">20dp</dimen>
+    <dimen name="devices_info_tv_textSize">13sp</dimen>
+    <dimen name="devices_storage_tv_textSize">13sp</dimen>
+    <dimen name="device_marginTop">3dp</dimen>
+    <dimen name="device_info_marginStart">90dp</dimen>
     <dimen name="main_title_textsize">16.0sp</dimen>
     <dimen name="item_lr_txt_size">10.0sp</dimen>
     <dimen name="main_item_left_icon_width">20.0dip</dimen>
@@ -143,11 +143,11 @@
     <dimen name="LL_content_marginTop">2dp</dimen>
     <dimen name="universal_input_list_name_paddingStart">25dp</dimen>
     <dimen name="universal_input_list_ivSelect_height">20dp</dimen>
-    <dimen name="devices_title_marginTop">23dp</dimen>
-    <dimen name="devices_title_iv_width">15dp</dimen>
-    <dimen name="devices_title_iv_height">15dp</dimen>
-    <dimen name="devices_title_iv_marginStart">60dp</dimen>
-    <dimen name="devices_title_tv_textSize">15sp</dimen>
+    <dimen name="devices_title_marginTop">15dp</dimen>
+    <dimen name="devices_title_iv_width">13dp</dimen>
+    <dimen name="devices_title_iv_height">13dp</dimen>
+    <dimen name="devices_title_iv_marginStart">40dp</dimen>
+    <dimen name="devices_title_tv_textSize">11sp</dimen>
     <dimen name="devices_info_tv_marginStart">20dp</dimen>
     <dimen name="devices_title_tv_marginStart">5dp</dimen>
     <dimen name="devices_info_iv_height">15dp</dimen>
