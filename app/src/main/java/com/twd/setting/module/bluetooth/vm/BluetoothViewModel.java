@@ -46,7 +46,7 @@ public class BluetoothViewModel
         public void onBluetoothStateChanged(int state) {
             Log.d(TAG,"onBluetoothStateChanged"+ state);
             if (state == 12) {
-                updateBluetoothName();
+                //updateBluetoothName();
             }
             _BluetoothSwitchValue.postValue(Integer.valueOf(state));
         }
@@ -125,7 +125,7 @@ public class BluetoothViewModel
                 @Override
                 public void subscribe(ObservableEmitter e) throws Exception {
                     // String str = KkUtils.getType(getApplication());
-                    String str = "TEST";// KkUtils.getType(getApplication());
+                    String str = "Ei9027";// KkUtils.getType(getApplication());
                     boolean bool;
                     if ((!StringUtils.isTrimEmpty(str)) && (!str.equals(localBluetoothAdapter.getName()))) {
                         bool = localBluetoothAdapter.setName(str);
@@ -286,7 +286,7 @@ public class BluetoothViewModel
             return;
         }
         startScan();
-        updateBluetoothName();
+        //updateBluetoothName();
     }
 
     public boolean isDiscovering() {
