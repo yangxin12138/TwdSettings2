@@ -140,29 +140,77 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         } else if (currentLanguage.contains("ko_KR")) {
             tv_languageCurrent.setText("한국어");
         } else if (currentLanguage.contains("th_TH")) {
-            tv_languageCurrent.setText("ไทย (ไทย)");
+            tv_languageCurrent.setText("ไทย");
         } else if (currentLanguage.contains("hi_IN")) {
-            tv_languageCurrent.setText("हिन्दी (भारत)");
+            tv_languageCurrent.setText("हिन्दी");
         } else if (currentLanguage.contains("fr_FR")) {
-            tv_languageCurrent.setText("français (France)");
+            tv_languageCurrent.setText("Français");
         } else if (currentLanguage.contains("de_DE")) {
-            tv_languageCurrent.setText("Deutsch (Deutschland)");
+            tv_languageCurrent.setText("Deutsch");
         } else if (currentLanguage.contains("it_IT")) {
-            tv_languageCurrent.setText("italiano (Italia)");
+            tv_languageCurrent.setText("Italiano");
         } else if (currentLanguage.contains("ru_RU")) {
-            tv_languageCurrent.setText("русский (Россия)");
+            tv_languageCurrent.setText("Pусский");
         } else if (currentLanguage.contains("es_ES")) {
-            tv_languageCurrent.setText("español (España)");
+            tv_languageCurrent.setText("Español");
         } else if (currentLanguage.contains("pt_PT")) {
-            tv_languageCurrent.setText("português (Portugal)");
+            tv_languageCurrent.setText("Português");
         } else if (currentLanguage.contains("ar_SA")) {
-            tv_languageCurrent.setText("العربية (المملكة العربية السعودية)");
+            tv_languageCurrent.setText("العربية");
         } else if (currentLanguage.contains("fa_IR")) {
-            tv_languageCurrent.setText("فارسی (ایران)");
+            tv_languageCurrent.setText("فارسی");
         } else if (currentLanguage.contains("tr_TR")) {
-            tv_languageCurrent.setText("Türkçe (Türkiye)");
+            tv_languageCurrent.setText("Türkçe");
         } else if (currentLanguage.contains("pl_PL")) {
-            tv_languageCurrent.setText("Polski (Polska)");
+            tv_languageCurrent.setText("Polski");
+        }else if (currentLanguage.contains("af_ZA")) {
+            tv_languageCurrent.setText("Afrikaans");
+        }else if (currentLanguage.contains("cs_CZ")) {
+            tv_languageCurrent.setText("Čeština");
+        }else if (currentLanguage.contains("da_DK")) {
+            tv_languageCurrent.setText("Dansk");
+        }else if (currentLanguage.contains("fil_PH")) {
+            tv_languageCurrent.setText("Filipino");
+        }else if (currentLanguage.contains("hr_HR")) {
+            tv_languageCurrent.setText("Hrvatski");
+        }else if (currentLanguage.contains("id_ID")) {
+            tv_languageCurrent.setText("Indonesia");
+        }else if (currentLanguage.contains("zu_ZA")) {
+            tv_languageCurrent.setText("IsiZulu");
+        }else if (currentLanguage.contains("sw_TZ")) {
+            tv_languageCurrent.setText("Kiswahili");
+        }else if (currentLanguage.contains("lv_LV")) {
+            tv_languageCurrent.setText("Latviešu");
+        }else if (currentLanguage.contains("lt_LT")) {
+            tv_languageCurrent.setText("Lietuvių");
+        }else if (currentLanguage.contains("hu_HU")) {
+            tv_languageCurrent.setText("Magyar");
+        }else if (currentLanguage.contains("ms_MY")) {
+            tv_languageCurrent.setText("Melayu");
+        }else if (currentLanguage.contains("nl_NL")) {
+            tv_languageCurrent.setText("Nederlands");
+        }else if (currentLanguage.contains("nb_NO")) {
+            tv_languageCurrent.setText("Bokmål");
+        }else if (currentLanguage.contains("ro_RO")) {
+            tv_languageCurrent.setText("Română");
+        }else if (currentLanguage.contains("sk_SK")) {
+            tv_languageCurrent.setText("Slovenčina");
+        }else if (currentLanguage.contains("sl_SI")) {
+            tv_languageCurrent.setText("Slovenščina");
+        }else if (currentLanguage.contains("fi_FI")) {
+            tv_languageCurrent.setText("Suomi");
+        }else if (currentLanguage.contains("sv_SE")) {
+            tv_languageCurrent.setText("Svenska");
+        }else if (currentLanguage.contains("vi_VN")) {
+            tv_languageCurrent.setText("Tiếng Việt");
+        }else if (currentLanguage.contains("el_GR")) {
+            tv_languageCurrent.setText("Ελληνικά");
+        }else if (currentLanguage.contains("bg_BG")) {
+            tv_languageCurrent.setText("Български");
+        }else if (currentLanguage.contains("uk_UA")) {
+            tv_languageCurrent.setText("Українська");
+        }else if (currentLanguage.contains("he_IL")) {
+            tv_languageCurrent.setText("עברית");
         }
 
         //设备名称
