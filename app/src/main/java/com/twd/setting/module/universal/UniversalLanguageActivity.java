@@ -113,7 +113,7 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             languageMap.put("da_DK","Dansk");//丹麦语
             languageMap.put("fil_PH","Filipino");//菲律宾语
             languageMap.put("hr_HR","Hrvatski");//克罗地亚语
-            languageMap.put("id_ID","Indonesia");//印度尼西亚语
+            languageMap.put("in_ID","Indonesia");//印度尼西亚语
             languageMap.put("zu_ZA","IsiZulu");//祖鲁语
             languageMap.put("sw_TZ","Kiswahili");//斯瓦西里语
             languageMap.put("lv_LV","Latviešu");//拉脱维亚语
@@ -131,13 +131,13 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             languageMap.put("el_GR","Ελληνικά");//希腊语
             languageMap.put("bg_BG","Български");//保加利亚语
             languageMap.put("uk_UA","Українська");//乌克兰语
-            languageMap.put("he_IL","עברית");//希伯来语
+            languageMap.put("iw_IL","עברית");//希伯来语
 
             List<String> supportedLanguages = Arrays.asList("zh_CN","zh_TW","en_US","ja_JP"
                                                     ,"ko_KR","th_TH","hi_IN","fr_FR","de_DE","it_IT"
-                                                    ,"ru_RU","es_ES","pt_PT","ar_SA","fa_IR","tr_TR","pl_PL","af-ZA","cs_CZ",
-                    "da_DK","fil_PH","hr_HR","id_ID","zu_ZA","sw_TZ","lv_LV","hu_HU","ms_MY","nl_NL","nb_NO","ro_RO",
-                    "sk_SK","sl_SI","sv_SE","vi_VN","el_GR","bg_BG","uk_UA","he_IL");
+                                                    ,"ru_RU","es_ES","pt_PT","ar_SA","fa_IR","tr_TR","pl_PL","af_ZA","cs_CZ",
+                    "da_DK","fil_PH","hr_HR","in_ID","zu_ZA","sw_TZ","lv_LV","lt_LT","hu_HU","ms_MY","nl_NL","nb_NO","ro_RO",
+                    "sk_SK","sl_SI","fi_FI","sv_SE","vi_VN","el_GR","bg_BG","uk_UA","iw_IL");
             for (String language_sup : supportedLanguages){
                 if (language_sup.equals(languageCode) && !language.equals("English (United States,Computer)_en_US")){
                     String languageName = languageMap.get(language_sup);
@@ -228,8 +228,8 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                     changeSystemLanguage(new Locale("fil","PH"));
                 } else if (indexLanguage.equals("hr_HR")) {
                     changeSystemLanguage(new Locale("hr","HR"));
-                } else if (indexLanguage.equals("id_ID")) {
-                    changeSystemLanguage(new Locale("id","ID"));
+                } else if (indexLanguage.equals("in_ID")) {
+                    changeSystemLanguage(new Locale("in","ID"));
                 } else if (indexLanguage.equals("zu_ZA")) {
                     changeSystemLanguage(new Locale("zu","ZA"));
                 } else if (indexLanguage.equals("sw_TZ")) {
@@ -264,8 +264,8 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                     changeSystemLanguage(new Locale("bg","BG"));
                 }else if (indexLanguage.equals("uk_UA")) {
                     changeSystemLanguage(new Locale("uk","UA"));
-                }else if (indexLanguage.equals("he_IL")) {
-                    changeSystemLanguage(new Locale("he","IL"));
+                }else if (indexLanguage.equals("iw_IL")) {
+                    changeSystemLanguage(new Locale("iw","IL"));
                 }
 
                 /*// 关闭当前应用程序

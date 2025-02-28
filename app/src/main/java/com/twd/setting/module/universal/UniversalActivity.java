@@ -173,7 +173,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
             tv_languageCurrent.setText("Filipino");
         }else if (currentLanguage.contains("hr_HR")) {
             tv_languageCurrent.setText("Hrvatski");
-        }else if (currentLanguage.contains("id_ID")) {
+        }else if (currentLanguage.contains("in_ID")) {
             tv_languageCurrent.setText("Indonesia");
         }else if (currentLanguage.contains("zu_ZA")) {
             tv_languageCurrent.setText("IsiZulu");
@@ -209,7 +209,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
             tv_languageCurrent.setText("Български");
         }else if (currentLanguage.contains("uk_UA")) {
             tv_languageCurrent.setText("Українська");
-        }else if (currentLanguage.contains("he_IL")) {
+        }else if (currentLanguage.contains("iw_IL")) {
             tv_languageCurrent.setText("עברית");
         }
 
