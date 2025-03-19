@@ -1,11 +1,13 @@
 package com.twd.setting.module.projector.keystone;
 
+import android.util.Log;
+
 public class Vertex {
     public int x = 0;
     public int y = 0;
     public int point = 0;
-    public int maxXStep =100;
-    public int maxYStep=100;
+    public int maxXStep =50;
+    public int maxYStep=50;
 
     public void setX(int value){
         x = value;
@@ -57,13 +59,14 @@ public class Vertex {
 
     @Override
     public String toString() {
-        return x + "," + y;
+        return x + "," + (y/3);
     }
 
     public void doLeft(){
         switch (point){
             case 0:
             case 3:
+                Log.i("yangxin0318", "doLeft: ----doLeft---03");
                 x = x - 1;
                 if(x<0){
                     x = 0;
@@ -71,6 +74,7 @@ public class Vertex {
                 break;
             case 1:
             case 2:
+                Log.i("yangxin0318", "doLeft: ----doLeft---12");
                 x = x + 1;
                 if(x > maxXStep){
                     x = maxXStep;
@@ -84,6 +88,7 @@ public class Vertex {
         switch (point){
             case 0:
             case 3:
+                Log.i("yangxin0318", "doRight: ----doRight---03");
                 x = x + 1;
                 if(x>maxXStep){
                     x = maxXStep;
@@ -91,6 +96,7 @@ public class Vertex {
                 break;
             case 1:
             case 2:
+                Log.i("yangxin0318", "doRight: ----doRight---03");
                 x = x - 1;
                 if(x < 0){
                     x = 0;
@@ -102,18 +108,28 @@ public class Vertex {
     }
     public void doTop(){
         switch (point){
-            case 0:
-            case 1:
-                y = y - 1;
-                if(y<0){
-                    y = 0;
-                }
-                break;
             case 2:
             case 3:
-                y = y + 1;
+                Log.i("yangxin0318", "doTop: ---doTop--23");
+                y = y + 3;
                 if(y>maxYStep){
                     y = maxYStep;
+                }
+/*                y = y - 1;
+                if(y<0){
+                    y = 0;
+                }*/
+                break;
+            case 0:
+            case 1:
+                Log.i("yangxin0318", "doTop: ---doTop--01");
+/*                y = y + 1;
+                if(y>maxYStep){
+                    y = maxYStep;
+                }*/
+                y = y - 3;
+                if(y<0){
+                    y = 0;
                 }
                 break;
             default:
@@ -124,14 +140,16 @@ public class Vertex {
         switch (point){
             case 0:
             case 1:
-                y = y + 1;
+                Log.i("yangxin0318", "doBottom: ---doBottom--10");
+                y = y + 3;
                 if(y>maxYStep){
                     y = maxYStep;
                 }
                 break;
             case 2:
             case 3:
-                y = y - 1;
+                Log.i("yangxin0318", "doBottom: ---doBottom--23");
+                y = y - 3;
                 if(y<0){
                     y = 0;
                 }
