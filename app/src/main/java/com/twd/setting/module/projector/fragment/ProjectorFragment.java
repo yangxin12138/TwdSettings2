@@ -14,13 +14,14 @@ import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentProjectorBinding;
 import com.twd.setting.module.projector.ProjectionActivity;
 import com.twd.setting.module.projector.vm.ProjectorViewModel;
+import com.twd.setting.utils.AutoFocusUtils;
 import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.UiUtils;
 
-public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBinding, ProjectorViewModel> {
+public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBinding, ProjectorViewModel> implements View.OnFocusChangeListener {
     private static final String TAG = "ProjectorFragment";
     private int selectItem = 0;
-
+    private AutoFocusUtils autoFocusUtils;
 
     private void clickItem(int item) {
         Log.d(TAG,"clickItem: "+item);
@@ -32,8 +33,16 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             gotoSize();
         }else if(item == R.id.projectionInclude){//4
             gotoProjection();
-        }else{
-
+        }else if (item == R.id.AutoProjectionInclude){
+            gotoAutoProjection(binding.AutoProjectionInclude.switchAuto.isChecked());
+        } else if (item == R.id.AutoFocusInclude) {
+            gotoAutoFocus(binding.AutoFocusInclude.switchAuto.isChecked());
+        } else if (item == R.id.BootAutoFocusIclude) {
+            gotoBootAutoFocus(binding.BootAutoFocusIclude.switchAuto.isChecked());
+        } else if (item == R.id.AutoOBSIclude) {
+            gotoAutoOBS(binding.AutoOBSIclude.switchAuto.isChecked());
+        } else if (item == R.id.AutoFitScreenIclude) {
+            gotoAutoFitScreen(binding.AutoFitScreenIclude.switchAuto.isChecked());
         }
     }
 
@@ -56,6 +65,64 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         launcher.launch(new Intent(mActivity, ProjectionActivity.class));
     }
 
+    private void gotoAutoProjection(boolean isChecked){
+        selectItem = 4;
+        if (isChecked){
+            if (binding.twoPointInclude.itemRL.isFocused()){
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
+            }else {
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
+            }
+            binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+            if (binding.fourPointInclude.itemRL.isFocused()){
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
+            }else {
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
+            }
+            binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+            binding.twoPointInclude.itemRL.setFocusable(true);
+            binding.fourPointInclude.itemRL.setFocusable(true);
+            binding.AutoProjectionInclude.switchAuto.setChecked(false);
+            autoFocusUtils.setTrapezoidCorrectEnable(false);
+        }else {
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
+            binding.twoPointInclude.itemRL.setFocusable(false);
+            binding.fourPointInclude.itemRL.setFocusable(false);
+            binding.AutoProjectionInclude.switchAuto.setChecked(true);
+            autoFocusUtils.setTrapezoidCorrectEnable(true);
+        }
+    }
+    private void gotoAutoFocus(boolean isChecked){
+        selectItem = 5;
+        boolean newCheckedState = !isChecked;
+        binding.AutoFocusInclude.switchAuto.setChecked(newCheckedState);
+        autoFocusUtils.setAutoFocusEnable(newCheckedState);
+    }
+
+    private void gotoBootAutoFocus(boolean isChecked){
+        selectItem = 6;
+        boolean newCheckedState = !isChecked;
+        binding.BootAutoFocusIclude.switchAuto.setChecked(newCheckedState);
+        autoFocusUtils.setPowerOnAutoFocusEnable(newCheckedState);
+    }
+
+    private void gotoAutoOBS(boolean isChecked){
+        selectItem = 7;
+        boolean newCheckedState = !isChecked;
+        binding.AutoOBSIclude.switchAuto.setChecked(newCheckedState);
+        autoFocusUtils.setAutoObstacleAvoidanceEnable(newCheckedState);
+    }
+
+    private void gotoAutoFitScreen(boolean isChecked){
+        selectItem = 8;
+        boolean newCheckedState = !isChecked;
+        binding.AutoFitScreenIclude.switchAuto.setChecked(newCheckedState);
+        autoFocusUtils.setAutoComeAdmireEnable(newCheckedState);
+    }
+
     public static ProjectorFragment newInstance() {
         return new ProjectorFragment();
     }
@@ -65,6 +132,11 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).fourPointInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).sizeInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).projectionInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
+        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoProjectionInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
+        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoFocusInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
+        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).BootAutoFocusIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
+        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoOBSIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
+        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoFitScreenIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
     }
 
     public int initLayout(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
@@ -91,14 +163,26 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.sizeInclude.itemRL.requestFocus();
         } else if (selectItem ==3) {
             binding.projectionInclude.itemRL.requestFocus();
+        } else if (selectItem == 4) {
+            binding.AutoProjectionInclude.itemRL.requestFocus();
+        } else if (selectItem == 5) {
+            binding.AutoFocusInclude.itemRL.requestFocus();
+        } else if (selectItem == 6) {
+            binding.BootAutoFocusIclude.itemRL.requestFocus();
+        } else if (selectItem == 7) {
+            binding.AutoOBSIclude.itemRL.requestFocus();
+        } else if (selectItem == 8) {
+            binding.AutoFitScreenIclude.itemRL.requestFocus();
         }
+
+        initAutoSwitch();
     }
 
     public void onViewCreated(View paramView, Bundle paramBundle) {
         super.onViewCreated(paramView, paramBundle);
         ((FragmentProjectorBinding) this.binding).setViewModel((ProjectorViewModel) this.viewModel);
         initTitle(paramView, R.string.projector_title);
-
+        autoFocusUtils = new AutoFocusUtils();
         ((FragmentProjectorBinding) this.binding).twoPointInclude.itemRL.requestFocus();
 
         ((ProjectorViewModel) this.viewModel).getClickItem().observe(getViewLifecycleOwner(), new Observer() {
@@ -108,7 +192,73 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             }
         });
         setClickListener();
+        initAutoSwitch();
 
     }
 
+    private void initAutoSwitch(){
+        boolean isAutoProjection = autoFocusUtils.getTrapezoidCorrectStatus();
+        Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
+        boolean isAutoFocus = autoFocusUtils.getAutoFocusStatus();
+        Log.i(TAG, "initAutoSwitch: 自动对焦 ： " + isAutoFocus);
+        boolean isAutoBootFocus = autoFocusUtils.getPowerOnAutoFocusStatus();
+        Log.i(TAG, "initAutoSwitch: 开机自动对焦 ： " + isAutoBootFocus);
+        boolean isAutoOBS = autoFocusUtils.getAutoObstacleAvoidanceStatus();
+        Log.i(TAG, "initAutoSwitch: 自动避障 ： " + isAutoOBS);
+        boolean isAutoFitScreen = autoFocusUtils.getAutoComeAdmireStatus();
+        Log.i(TAG, "initAutoSwitch: 自动入幕 ： " + isAutoFitScreen);
+        initCustomProjection(isAutoProjection);
+
+        binding.AutoProjectionInclude.switchAuto.setChecked(isAutoProjection);
+        binding.AutoFocusInclude.switchAuto.setChecked(isAutoFocus);
+        binding.BootAutoFocusIclude.switchAuto.setChecked(isAutoBootFocus);
+        binding.AutoOBSIclude.switchAuto.setChecked(isAutoOBS);
+        binding.AutoFitScreenIclude.switchAuto.setChecked(isAutoFitScreen);
+    }
+
+    private void initCustomProjection(boolean isAutoProjection){
+        if (isAutoProjection){
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
+            binding.twoPointInclude.itemRL.setFocusable(false);
+            binding.fourPointInclude.itemRL.setFocusable(false);
+        }else {
+            if (binding.twoPointInclude.itemRL.isFocused()){
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
+            }else {
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
+            }
+            binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+            if (binding.fourPointInclude.itemRL.isFocused()){
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
+            }else {
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
+            }
+            binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+            binding.twoPointInclude.itemRL.setFocusable(true);
+            binding.fourPointInclude.itemRL.setFocusable(true);
+        }
+        binding.twoPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
+        binding.fourPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
+    }
+
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus){
+            if (v == binding.twoPointInclude.itemRL){
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
+            } else if (v == binding.fourPointInclude.itemRL) {
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
+            }
+        }else {
+            if (v == binding.twoPointInclude.itemRL){
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
+            } else if (v == binding.fourPointInclude.itemRL) {
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
+            }
+        }
+    }
 }

@@ -14,14 +14,25 @@ public class ItemLRTextIconData extends BaseObservable {
     private String leftTxt;
     private int rightIconRes;
     private String rightTxt;
+    private int isVisible;
+    private int rightIconVisible;
 
-    public ItemLRTextIconData(int m_itemid, String m_leftTxt, String m_rightTxt, int m_leftIconRes, int m_rightIconRes) {
+    public ItemLRTextIconData(int m_itemid, String m_leftTxt, String m_rightTxt, int m_leftIconRes, int m_rightIconRes,int visible,int rightVisible) {
         Log.d(TAG, "ItemLRTextIconData: id:" + m_itemid + ", leftTxt:" + m_leftTxt + ",rightTxt" + m_rightTxt + ",leftIcon:" + m_leftIconRes + ",rightIcon:" + m_rightIconRes);
         itemId = m_itemid;
         leftTxt = m_leftTxt;
         rightTxt = m_rightTxt;
         leftIconRes = m_leftIconRes;
         rightIconRes = m_rightIconRes;
+        isVisible = visible;
+        rightIconVisible = rightVisible;
+    }
+    public int getRightIconVisible() {
+        return rightIconVisible;
+    }
+
+    public void setRightIconVisible(int rightIconVisible) {
+        this.rightIconVisible = rightIconVisible;
     }
 
     public int getItemId() {
@@ -60,6 +71,14 @@ public class ItemLRTextIconData extends BaseObservable {
 
     public void setRightIconRes(int paramInt) {
         rightIconRes = paramInt;
+    }
+
+    public int isVisible() {
+        return isVisible;
+    }
+
+    public void setVisible(int visible) {
+        isVisible = visible;
     }
 
     public void setRightTxt(String paramString) {

@@ -478,6 +478,11 @@ Example: 24"</string>
     <string name="projector_four_point_title">四点梯形校正</string>
     <string name="projector_size_title">尺寸调节</string>
     <string name="projector_projection_title">投影方式</string>
+    <string name="projector_auto_projection_title">自动梯形</string>
+    <string name="projector_auto_focus_title">自动对焦</string>
+    <string name="projector_boot_auto_focus_title">开机自动对焦</string>
+    <string name="projector_auto_obs_title">自动避障</string>
+    <string name="projector_auto_fit_screen_title">自动入幕</string>
     <string name="projection_pos_pos">正装正投</string>
     <string name="projection_pos_neg">正装背投</string>
     <string name="projection_neg_pos">吊装正投</string>

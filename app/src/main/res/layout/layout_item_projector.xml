@@ -68,6 +68,19 @@
             android:textColor="?mainPageItemColor"
             android:textSize="@dimen/item_lr_txt_size" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_auto"
+            android:tag="binding_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:duplicateParentState="true"
+            android:background="@null"
+            android:thumb="?switch_thumb"
+            app:track="?switch_track"
+            android:visibility="@{itemData.visible}"/>
+
         <ImageView
             android:id="@+id/contentTVLeft"
             android:tag="binding_4"
@@ -78,6 +91,7 @@
             android:duplicateParentState="true"
             android:scaleType="fitCenter"
             app:tint="?mainPageItemColor"
-            app:imageResource="@{itemData.rightIconRes}" />
+            app:imageResource="@{itemData.rightIconRes}"
+            android:visibility="@{itemData.rightIconVisible}"/>
     </RelativeLayout>
 </layout>

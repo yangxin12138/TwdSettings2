@@ -477,6 +477,11 @@ Example: 24"</string>
     <string name="projector_four_point_title">Custom Trapezoidal Correction</string>
     <string name="projector_size_title">Size　Adjustment</string>
     <string name="projector_projection_title">Projection Mode</string>
+    <string name="projector_auto_projection_title">Auto Projection</string>
+    <string name="projector_auto_focus_title">Auto Focus</string>
+    <string name="projector_boot_auto_focus_title">Boot Auto Focus</string>
+    <string name="projector_auto_obs_title">Auto Obstacle Avoidance</string>
+    <string name="projector_auto_fit_screen_title">Auto Fit Screen</string>
     <string name="projection_pos_pos">Fixed and Front Projection</string>
     <string name="projection_pos_neg">Fixed and Back Projection</string>
     <string name="projection_neg_pos">Hanging and Front</string>

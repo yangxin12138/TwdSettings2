@@ -100,11 +100,11 @@ public class SysEquipmentViewModel
             ((StringBuilder) localObject).append(str);
             localObject = ((StringBuilder) localObject).toString();
         }
-        onLineUpdateData = new ItemLRTextIconData(1, paramApplication.getString(R.string.str_online_update), (String) localObject, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
-        offLineUpdateData = new ItemLRTextIconData(2, paramApplication.getString(R.string.str_offline_update), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
-        deviceInformationData = new ItemLRTextIconData(3, paramApplication.getString(R.string.str_device_information), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
-        storageDetailData = new ItemLRTextIconData(4, paramApplication.getString(R.string.str_storage_detail), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
-        resetSystemData = new ItemLRTextIconData(5, paramApplication.getString(R.string.str_reset_system), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
+        onLineUpdateData = new ItemLRTextIconData(1, paramApplication.getString(R.string.str_online_update), (String) localObject, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        offLineUpdateData = new ItemLRTextIconData(2, paramApplication.getString(R.string.str_offline_update), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        deviceInformationData = new ItemLRTextIconData(3, paramApplication.getString(R.string.str_device_information), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        storageDetailData = new ItemLRTextIconData(4, paramApplication.getString(R.string.str_storage_detail), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        resetSystemData = new ItemLRTextIconData(5, paramApplication.getString(R.string.str_reset_system), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         if (model != null) {
             ((SysEquipmentRepository) model).getSupportOffLineUpdateStatus(paramApplication).subscribe(new MyObserver(this) {
                 @Override

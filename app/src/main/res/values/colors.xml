@@ -56,6 +56,8 @@
     <color name="color_636fc6">#ff636fc6</color>
     <color name="color_77000000">#77000000</color>
     <color name="color_777777">#ff777777</color>
+
+    <color name="unselectable_color">#CACACA</color>
     <color name="color_77f33e25">#77f33e25</color>
     <color name="color_869cf4">#ff869cf4</color>
     <color name="color_8f9dcb">#ff8f9dcb</color>

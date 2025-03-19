@@ -84,13 +84,13 @@ public class MainViewModel extends BaseViewModel<BaseModel> {
     }
 
     public void initData(Application application) {
-        projectorData = new ItemLRTextIconData(ITEM_PROJECTOR, application.getString(R.string.str_projector_setting), null, R.drawable.ic_projector_v, R.drawable.ic_baseline_arrow_forward_ios_24);
-        signalSourceData = new ItemLRTextIconData(ITEM_SIGNAL_SOURCE, application.getString(R.string.str_signal_source), null, R.drawable.ic_signal_source_v, R.drawable.ic_baseline_arrow_forward_ios_24);
-        networkData = new ItemLRTextIconData(ITEM_NETWORK, application.getString(R.string.str_network), null, R.drawable.ic_network_v, R.drawable.ic_baseline_arrow_forward_ios_24);
-        bluetoothData = new ItemLRTextIconData(ITEM_BLUETOOTH, application.getString(R.string.str_bluetooth), null, R.drawable.ic_bluetooth_v, R.drawable.ic_baseline_arrow_forward_ios_24);
-        commonData = new ItemLRTextIconData(ITEM_COMMON, application.getString(R.string.str_common), null, R.drawable.ic_common_v, R.drawable.ic_baseline_arrow_forward_ios_24);
-        systemEquipmentData = new ItemLRTextIconData(ITEM_SYSTEM_EQUIPMENT, application.getString(R.string.str_system_equipment), null, R.drawable.ic_sys_equipment_v, R.drawable.ic_baseline_arrow_forward_ios_24);
-        debugMenuData = new ItemLRTextIconData(ITEM_DEBUG_MENU, application.getString(R.string.str_debug_menu), null, R.drawable.ic_debug_menu_v, R.drawable.ic_baseline_arrow_forward_ios_24);
+        projectorData = new ItemLRTextIconData(ITEM_PROJECTOR, application.getString(R.string.str_projector_setting), null, R.drawable.ic_projector_v, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        signalSourceData = new ItemLRTextIconData(ITEM_SIGNAL_SOURCE, application.getString(R.string.str_signal_source), null, R.drawable.ic_signal_source_v, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        networkData = new ItemLRTextIconData(ITEM_NETWORK, application.getString(R.string.str_network), null, R.drawable.ic_network_v, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        bluetoothData = new ItemLRTextIconData(ITEM_BLUETOOTH, application.getString(R.string.str_bluetooth), null, R.drawable.ic_bluetooth_v, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        commonData = new ItemLRTextIconData(ITEM_COMMON, application.getString(R.string.str_common), null, R.drawable.ic_common_v, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        systemEquipmentData = new ItemLRTextIconData(ITEM_SYSTEM_EQUIPMENT, application.getString(R.string.str_system_equipment), null, R.drawable.ic_sys_equipment_v, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
+        debugMenuData = new ItemLRTextIconData(ITEM_DEBUG_MENU, application.getString(R.string.str_debug_menu), null, R.drawable.ic_debug_menu_v, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         initItemVisible();
     }
 

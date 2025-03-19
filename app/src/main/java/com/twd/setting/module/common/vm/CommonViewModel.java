@@ -5,6 +5,7 @@ import android.content.Context;
 import android.provider.Settings;
 import android.provider.Settings.Secure;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 
@@ -174,8 +175,8 @@ public class CommonViewModel
     }
 
     public void initData(Context paramContext) {
-        this.imeData = new ItemLRTextIconData(0, paramContext.getString(R.string.str_ime), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
-        this.settingsData = new ItemLRTextIconData(1, paramContext.getString(R.string.str_common_settings), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24);
+        this.imeData = new ItemLRTextIconData(0, paramContext.getString(R.string.str_ime), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24, View.GONE,View.VISIBLE);
+        this.settingsData = new ItemLRTextIconData(1, paramContext.getString(R.string.str_common_settings), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         loadImeData(paramContext);
         initSettingItemVisible();
     }
