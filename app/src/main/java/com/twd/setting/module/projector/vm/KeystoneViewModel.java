@@ -306,13 +306,13 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public String getOnePointInfo(int point){
         switch (point){
             case 0:
-                return vTopLeft.toString();
-            case 1:
-                return vTopRight.toString();
-            case 3:
                 return vBottomLeft.toString();
-            case 2:
+            case 1:
+                return vTopLeft.toString();
+            case 3:
                 return vBottomRight.toString();
+            case 2:
+                return vTopRight.toString();
             default:
                 break;
         }
