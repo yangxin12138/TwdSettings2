@@ -26,7 +26,8 @@
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineLeft"
-            style="@style/GuidelineLeftStyle" />
+            style="@style/GuidelineLeftStyle"
+            app:layout_constraintGuide_percent="0.12" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineRight"

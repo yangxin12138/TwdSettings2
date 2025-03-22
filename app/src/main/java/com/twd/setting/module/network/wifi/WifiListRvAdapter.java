@@ -278,7 +278,9 @@ public class WifiListRvAdapter
                 drawable.setBounds(0, 0, newWidth, newHeight);
             }else if (densitySW == 320) {
                 drawable.setBounds(0, 0, (int)(drawable.getIntrinsicWidth() * 0.3), (int)(drawable.getIntrinsicHeight() * 0.3));
-            }  else {
+            }else if (densitySW == 540) {
+                drawable.setBounds(0, 0, (int)(drawable.getIntrinsicWidth() * 0.7), (int)(drawable.getIntrinsicHeight() * 0.7));
+            }   else {
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
             binding.tvTip.setCompoundDrawablePadding(60);

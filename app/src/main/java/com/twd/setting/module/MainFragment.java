@@ -117,13 +117,13 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
         ConstraintLayout.LayoutParams localLayoutParams1 = (ConstraintLayout.LayoutParams) binding.topSpace.getLayoutParams();
         ConstraintLayout.LayoutParams localLayoutParams2 = (ConstraintLayout.LayoutParams) binding.bottomSpace.getLayoutParams();
         if (paramInt > 2) {
-            localLayoutParams1.verticalWeight = 0.8F;
+            localLayoutParams1.verticalWeight = 0.1F;
             localLayoutParams2.verticalWeight = 1.5F;
         } else if (paramInt == 2) {
-            localLayoutParams1.verticalWeight = 0.7F;
+            localLayoutParams1.verticalWeight = 0.1F;
             localLayoutParams2.verticalWeight = 0.5F;
         } else {
-            localLayoutParams1.verticalWeight = 0.4F;
+            localLayoutParams1.verticalWeight = 0.1F;
             localLayoutParams2.verticalWeight = 0.3F;
         }
         binding.topSpace.setLayoutParams(localLayoutParams1);
