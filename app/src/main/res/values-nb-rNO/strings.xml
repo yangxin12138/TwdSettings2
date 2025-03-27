@@ -232,4 +232,5 @@
     <string name="network_available_title">Tilgjengelige nettverk</string>
     <string name="projector_auto_title">Vertikal nøkkelstein</string>
     <string name="wifi_no_passwd_info">Koble til dette nettverket:</string>
+    <string name="projector_auto_focus_title">Autofokus</string>
 </resources>

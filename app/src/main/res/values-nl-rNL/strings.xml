@@ -232,4 +232,5 @@
     <string name="network_available_title">Beschikbare netwerken</string>
     <string name="projector_auto_title">Verticale keystone</string>
     <string name="wifi_no_passwd_info">Maak verbinding met dit netwerk:</string>
+    <string name="projector_auto_focus_title">Auto focus</string>
 </resources>

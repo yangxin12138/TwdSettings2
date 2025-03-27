@@ -232,4 +232,5 @@
     <string name="network_available_title">Dostupne mreže</string>
     <string name="projector_auto_title">Vertikalni</string>
     <string name="wifi_no_passwd_info">Povežite se na ovu mrežu:</string>
+    <string name="projector_auto_focus_title">Auto fokus</string>
 </resources>

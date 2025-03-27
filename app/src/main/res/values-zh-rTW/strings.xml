@@ -240,4 +240,5 @@
     <string name="network_available_title">可用網路</string>
     <string name="projector_auto_title">垂直梯形</string>
     <string name="wifi_no_passwd_info">連接到此網路：</string>
+    <string name="projector_auto_focus_title">自動對焦</string>
 </resources>

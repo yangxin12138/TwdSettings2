@@ -232,4 +232,5 @@
     <string name="network_available_title">Dostupné sítě</string>
     <string name="projector_auto_title">Vertikální Keystone</string>
     <string name="wifi_no_passwd_info">Připojte se k této síti:</string>
+    <string name="projector_auto_focus_title">Automatické zaostření</string>
 </resources>

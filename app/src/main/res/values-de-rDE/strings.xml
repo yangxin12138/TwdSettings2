@@ -239,4 +239,5 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="network_available_title">Netzwerk verfügbar</string>
     <string name="projector_auto_title">Vertikale Trapezkorrektur</string>
     <string name="wifi_no_passwd_info">Stellen Sie eine Verbindung zu diesem Netzwerk her:</string>
+    <string name="projector_auto_focus_title">Autofokus</string>
 </resources>

@@ -490,4 +490,5 @@ Example: 24"</string>
     <string name="network_available_title">可用网络</string>
     <string name="projector_auto_title">垂直梯形</string>
     <string name="wifi_no_passwd_info">连接到此网络：</string>
+    <string name="projector_auto_focus_title">自动对焦</string>
 </resources>

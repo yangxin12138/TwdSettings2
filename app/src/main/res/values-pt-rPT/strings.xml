@@ -240,4 +240,5 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="network_available_title">Redes disponíveis</string>
     <string name="projector_auto_title">Angulação vertical</string>
     <string name="wifi_no_passwd_info">Ligue-se a esta rede:</string>
+    <string name="projector_auto_focus_title">Foco automático</string>
 </resources>

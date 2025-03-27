@@ -232,4 +232,5 @@
     <string name="network_available_title">Jaringan yang tersedia</string>
     <string name="projector_auto_title">Keystone vertikal</string>
     <string name="wifi_no_passwd_info">Terhubung ke jaringan ini:</string>
+    <string name="projector_auto_focus_title">Fokus otomatis</string>
 </resources>

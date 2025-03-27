@@ -489,6 +489,6 @@ Example: 24"</string>
     <string name="size_adjustment_control_info">Left and right keys to zoom in size</string>
     <string name="network_available_title">Available Networks</string>
     <string name="projector_auto_title">Vertical Keystone</string>
-
+    <string name="projector_auto_focus_title">Auto Focus</string>
 
 </resources>

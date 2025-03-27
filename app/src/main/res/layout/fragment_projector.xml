@@ -53,6 +53,18 @@
             app:layout_constraintTop_toBottomOf="@id/topSpace" />
 
         <include
+            android:id="@+id/autoFuocsInclude"
+            android:tag="0"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            bind:itemData="@{viewModel.autoFocusData}"
+            android:visibility="@{viewModel.isAutoFocusIncludeVisible? View.VISIBLE : View.GONE}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/autoInclude" />
+
+        <include
             android:id="@+id/twoPointInclude"
             android:tag="0"
             layout="@layout/layout_item_projector"
@@ -62,7 +74,7 @@
             bind:itemData="@{viewModel.twoPointData}"
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
             app:layout_constraintRight_toRightOf="@id/guidelineRight"
-            app:layout_constraintTop_toBottomOf="@id/autoInclude" />
+            app:layout_constraintTop_toBottomOf="@id/autoFuocsInclude" />
 
         <include
             android:id="@+id/fourPointInclude"

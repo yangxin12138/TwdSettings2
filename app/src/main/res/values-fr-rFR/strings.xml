@@ -241,4 +241,5 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="network_available_title">Réseaux disponibles</string>
     <string name="projector_auto_title">Trapèze verticale</string>
     <string name="wifi_no_passwd_info">Connectez-vous à ce réseau :</string>
+    <string name="projector_auto_focus_title">Focus automatique</string>
 </resources>

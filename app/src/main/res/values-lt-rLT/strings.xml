@@ -232,4 +232,5 @@
     <string name="network_available_title">Galimi tinklai</string>
     <string name="projector_auto_title">Vertikalus klavišas</string>
     <string name="wifi_no_passwd_info">Prisijunkite prie šio tinklo:</string>
+    <string name="projector_auto_focus_title">Automatinis fokusavimas</string>
 </resources>

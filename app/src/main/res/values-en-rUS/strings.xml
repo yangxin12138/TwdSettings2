@@ -102,4 +102,5 @@
     <string name="network_available_title">Available Networks</string>
     <string name="projector_auto_title">Vertical Keystone</string>
     <string name="wifi_no_passwd_info">Connect to this network:</string>
+    <string name="projector_auto_focus_title">Auto Focus</string>
 </resources>

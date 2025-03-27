@@ -24,7 +24,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private int selectItem = 4;
     SharedPreferences autoPreferences;
     boolean isAuto;
-    public static final String PROP_AUTOFOCUS = "persist.sys.keystone.autofocus";
+    boolean isAutoFocus;
+    public static final String PROP_AUTOPTRAPEZOID = "persist.sys.keystone.autofocus";
+    public static final String PROP_AUTOFOCUS = "persist.sys.keystone.hyautofocus";
     private void clickItem(int item) {
         isAuto = autoPreferences.getBoolean("AutoMode",false);
         Log.i(TAG, "clickItem: isAuto = "+ isAuto);
@@ -39,6 +41,22 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             gotoProjection();
         }else if (item == R.id.autoInclude){//5
             gotoAuto(isAuto);
+        }else if (item == R.id.autoFuocsInclude){//6
+            gotoAutoFocus(isAutoFocus);
+        }
+    }
+
+
+    private void gotoAutoFocus(boolean autoFocus){
+        selectItem = 5;
+        if (autoFocus){
+            binding.autoFuocsInclude.switchAuto.setChecked(false);
+            isAutoFocus = false;
+            SystemPropertiesUtils.setProperty(PROP_AUTOFOCUS,"0");
+        }else {
+            binding.autoFuocsInclude.switchAuto.setChecked(true);
+            isAutoFocus = true;
+            SystemPropertiesUtils.setProperty(PROP_AUTOFOCUS,"1");
         }
     }
 
@@ -60,7 +78,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             isAuto = false;
             editor.putBoolean("AutoMode",false).apply();
             //TODO:手动模式
-            SystemPropertiesUtils.setProperty(PROP_AUTOFOCUS,"0");
+            SystemPropertiesUtils.setProperty(PROP_AUTOPTRAPEZOID,"0");
         }else {//原本是未选中，手动模式，点击后变成自动模式
 
             /*binding.twoPointInclude.itemRL.setVisibility(View.GONE);
@@ -76,7 +94,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             isAuto = true;
             editor.putBoolean("AutoMode",true).apply();
             //TODO:自动模式
-            SystemPropertiesUtils.setProperty(PROP_AUTOFOCUS,"1");
+            SystemPropertiesUtils.setProperty(PROP_AUTOPTRAPEZOID,"1");
         }
 
     }
@@ -110,6 +128,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).fourPointInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).sizeInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).projectionInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
+        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).autoFuocsInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
     }
 
     public int initLayout(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
@@ -138,6 +157,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.projectionInclude.itemRL.requestFocus();
         } else if (selectItem == 4) {
             binding.autoInclude.itemRL.requestFocus();
+        }else if (selectItem == 5) {
+            binding.autoFuocsInclude.itemRL.requestFocus();
         }
         autoPreferences = getContext().getSharedPreferences("SaveAutoMode", Context.MODE_PRIVATE);
         initAutoMode();
@@ -160,15 +181,30 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     }
 
     private void initAutoMode(){
-        String AutoFocus = SystemPropertiesUtils.getProperty(PROP_AUTOFOCUS,"3");
-        if (AutoFocus.equals("1")){isAuto = true; } else if (AutoFocus.equals("0")) {isAuto = false;}else if(AutoFocus.equals("-1")){
+        String AutoTrapezoid = SystemPropertiesUtils.getProperty(PROP_AUTOPTRAPEZOID,"3");
+        String AutoFocus = SystemPropertiesUtils.getProperty(PROP_AUTOFOCUS,"-1");
+        if (AutoTrapezoid.equals("1")){isAuto = true; } else if (AutoTrapezoid.equals("0")) {isAuto = false;}else if(AutoTrapezoid.equals("-1")){
             isAuto = false;
             Log.i(TAG,"initAutoMode: 设备不支持");
         }else {
             isAuto=false;
-            Log.i(TAG, "initAutoMode: 参数不正常 = "+AutoFocus);
+            Log.i(TAG, "initAutoMode: 参数不正常 = "+AutoTrapezoid);
         }
-        Log.i(TAG, "initAutoMode: AutoFocus = "+ AutoFocus);
+
+        if (AutoFocus.equals("1")){
+            isAutoFocus = true;
+            binding.autoFuocsInclude.switchAuto.setChecked(true);
+        } else if (AutoFocus.equals("0")) {
+            isAutoFocus = false;
+            binding.autoFuocsInclude.switchAuto.setChecked(false);
+        } else {isAutoFocus = false;}
+
+        if (AutoFocus.equals("-1")){
+            this.viewModel.setAutoFocusIncludeVisible(false);
+        }else {
+            this.viewModel.setAutoFocusIncludeVisible(true);
+        }
+        Log.i(TAG, "initAutoMode: AutoFocus = "+ AutoTrapezoid);
         SharedPreferences.Editor editor = autoPreferences.edit();
         editor.putBoolean("AutoMode",isAuto);
         editor.apply();
@@ -202,13 +238,14 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
             binding.twoPointInclude.itemRL.setFocusable(true);
             binding.fourPointInclude.itemRL.setFocusable(true);
-            if (AutoFocus.equals("-1")){
+            if (AutoTrapezoid.equals("-1")){
                 this.viewModel.setAutoIncludeVisibility(false);
             }else {
                 this.viewModel.setAutoIncludeVisibility(true);
                 binding.autoInclude.switchAuto.setChecked(false);
             }
         }
+
         binding.twoPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
         binding.fourPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
     }

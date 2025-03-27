@@ -241,4 +241,5 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="network_available_title">Mevcut ağlar</string>
     <string name="projector_auto_title">Dikey kilit taşı</string>
     <string name="wifi_no_passwd_info">Bu ağa bağlanın:</string>
+    <string name="projector_auto_focus_title">Otomatik odaklama</string>
 </resources>

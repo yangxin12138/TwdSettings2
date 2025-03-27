@@ -232,4 +232,5 @@
     <string name="network_available_title">Mitandao inayopatikana</string>
     <string name="projector_auto_title">Jiwe kuu la wima</string>
     <string name="wifi_no_passwd_info">Unganisha kwenye mtandao huu:</string>
+    <string name="projector_auto_focus_title">Autofocus</string>
 </resources>

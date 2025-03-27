@@ -232,4 +232,5 @@
     <string name="network_available_title">Elérhető hálózatok</string>
     <string name="projector_auto_title">Függőleges kulcstartó</string>
     <string name="wifi_no_passwd_info">Csatlakozzon ehhez a hálózathoz:</string>
+    <string name="projector_auto_focus_title">Automatikus fókusz</string>
 </resources>

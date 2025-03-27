@@ -242,4 +242,5 @@
     <string name="network_available_title">เครือข่ายที่มีอยู่</string>
     <string name="projector_auto_title">คีย์สโตนแนวตั้ง</string>
     <string name="wifi_no_passwd_info">เชื่อมต่อกับเครือข่ายนี้:</string>
+    <string name="projector_auto_focus_title">ออโต้โฟกัส</string>
 </resources>

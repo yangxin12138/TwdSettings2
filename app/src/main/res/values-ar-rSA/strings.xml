@@ -239,4 +239,5 @@
     <string name="network_available_title">الشبكات المتاحة</string>
     <string name="projector_auto_title">حجر الزاوية العمودي</string>
     <string name="wifi_no_passwd_info">الاتصال بهذه الشبكة:</string>
+    <string name="projector_auto_focus_title">التركيز التلقائي</string>
 </resources>
