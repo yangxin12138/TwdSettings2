@@ -240,7 +240,11 @@
     <string name="projection_neg_neg">การฉายภาพด้านหลังการติดตั้งฝ้าเพดาน</string>
     <string name="size_adjustment_control_info">ปุ่มซ้ายและขวาเพื่อซูมเข้าและออก</string>
     <string name="network_available_title">เครือข่ายที่มีอยู่</string>
+    <string name="projector_boot_auto_focus_title">บูตอัตโนมัติโฟกัส</string>
+    <string name="projector_auto_obs_title">การหลีกเลี่ยงอุปสรรคอัตโนมัติ</string>
+    <string name="projector_auto_fit_screen_title">หน้าจอพอดีอัตโนมัติ</string>
     <string name="projector_auto_title">คีย์สโตนแนวตั้ง</string>
     <string name="wifi_no_passwd_info">เชื่อมต่อกับเครือข่ายนี้:</string>
+    <string name="projector_auto_projection_title">สี่เหลี่ยมคางหมู</string>
     <string name="projector_auto_focus_title">ออโต้โฟกัส</string>
 </resources>

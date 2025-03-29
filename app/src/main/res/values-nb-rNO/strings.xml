@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Hengende og rygg</string>
     <string name="size_adjustment_control_info">Venstre og høyre nøkler for å zoome i størrelse</string>
     <string name="network_available_title">Tilgjengelige nettverk</string>
+    <string name="projector_boot_auto_focus_title">Automatisk fokus på strøm</string>
+    <string name="projector_auto_obs_title">Automatisk hindring</string>
+    <string name="projector_auto_fit_screen_title">Skriv inn skjermen automatisk</string>
     <string name="projector_auto_title">Vertikal nøkkelstein</string>
     <string name="wifi_no_passwd_info">Koble til dette nettverket:</string>
+    <string name="projector_auto_projection_title">Automatisk trapezoidal korreksjon</string>
     <string name="projector_auto_focus_title">Autofokus</string>
 </resources>

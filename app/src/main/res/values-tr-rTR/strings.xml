@@ -239,7 +239,11 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="projection_neg_neg">Tavan montajı, ters projeksiyon</string>
     <string name="size_adjustment_control_info">Yakınlaştırmak ve uzaklaştırmak için sol ve sağ tuşlar</string>
     <string name="network_available_title">Mevcut ağlar</string>
+    <string name="projector_boot_auto_focus_title">Boot Otomatik odaklama</string>
+    <string name="projector_auto_obs_title">Otomatik engelden kaçınma</string>
+    <string name="projector_auto_fit_screen_title">Otomatik uyum ekranı</string>
     <string name="projector_auto_title">Dikey kilit taşı</string>
     <string name="wifi_no_passwd_info">Bu ağa bağlanın:</string>
+    <string name="projector_auto_projection_title">Otomatik yamuk</string>
     <string name="projector_auto_focus_title">Otomatik odaklama</string>
 </resources>

@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Hangend en terug</string>
     <string name="size_adjustment_control_info">Linker en rechter sleutels om in te zoomen in grootte</string>
     <string name="network_available_title">Beschikbare netwerken</string>
+    <string name="projector_boot_auto_focus_title">Automatische focus op kracht</string>
+    <string name="projector_auto_obs_title">Automatisch obstakelvermijding</string>
+    <string name="projector_auto_fit_screen_title">Auto Fit Screen</string>
     <string name="projector_auto_title">Verticale keystone</string>
     <string name="wifi_no_passwd_info">Maak verbinding met dit netwerk:</string>
-    <string name="projector_auto_focus_title">Auto focus</string>
+    <string name="projector_auto_projection_title">Automatische correctie</string>
+    <string name="projector_auto_focus_title">Autofocus</string>
 </resources>

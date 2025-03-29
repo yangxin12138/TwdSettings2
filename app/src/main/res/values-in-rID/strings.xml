@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Menggantung dan kembali</string>
     <string name="size_adjustment_control_info">Tombol kiri dan kanan untuk memperbesar ukuran</string>
     <string name="network_available_title">Jaringan yang tersedia</string>
+    <string name="projector_boot_auto_focus_title">boot Fokus otomatis</string>
+    <string name="projector_auto_obs_title">Penghindaran rintangan otomatis</string>
+    <string name="projector_auto_fit_screen_title">Layar Fit Otomatis</string>
     <string name="projector_auto_title">Keystone vertikal</string>
     <string name="wifi_no_passwd_info">Terhubung ke jaringan ini:</string>
+    <string name="projector_auto_projection_title">Trapesium otomatis</string>
     <string name="projector_auto_focus_title">Fokus otomatis</string>
 </resources>

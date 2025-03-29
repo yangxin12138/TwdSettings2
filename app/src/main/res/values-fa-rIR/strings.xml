@@ -239,7 +239,11 @@
     <string name="projection_neg_neg">نصب آویز، پخش از پشت</string>
     <string name="size_adjustment_control_info">کلیدهای چپ و راست برای بزرگنمایی و بزرگنمایی</string>
     <string name="network_available_title">شبکه های موجود</string>
+    <string name="projector_boot_auto_focus_title">تمرکز خودکار روی قدرت</string>
+    <string name="projector_auto_obs_title">اجتناب از مانع خودکار</string>
+    <string name="projector_auto_fit_screen_title">به طور خودکار صفحه را وارد کنید</string>
     <string name="projector_auto_title">کیستون عمودی</string>
     <string name="wifi_no_passwd_info">اتصال به این شبکه:</string>
+    <string name="projector_auto_projection_title">تصحیح ذوزنقه ای اتوماتیک</string>
     <string name="projector_auto_focus_title">فوکوس خودکار</string>
 </resources>

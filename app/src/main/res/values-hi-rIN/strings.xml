@@ -239,7 +239,11 @@
     <string name="projection_neg_neg">पीछे का प्रक्षेपण पीछे का प्रक्षेपण</string>
     <string name="size_adjustment_control_info">ज़ूम इन और ज़ूम आउट करने के लिए बाएँ और दाएँ कुंजियों का उपयोग करे</string>
     <string name="network_available_title">उपलब्ध नेटवर्क</string>
+    <string name="projector_boot_auto_focus_title">बूट ऑटो फोकस</string>
+    <string name="projector_auto_obs_title">ऑटो बाधा परिहार</string>
+    <string name="projector_auto_fit_screen_title">ऑटो फिट स्क्रीन</string>
     <string name="projector_auto_title">वर्टिकल कीस्टोन</string>
     <string name="wifi_no_passwd_info">इस नेटवर्क से जुड़ें:</string>
+    <string name="projector_auto_projection_title">ऑटो ट्रेपेज़ॉइड</string>
     <string name="projector_auto_focus_title">ऑटो फोकस</string>
 </resources>

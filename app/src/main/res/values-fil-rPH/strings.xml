@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Nakabitin at Likod</string>
     <string name="size_adjustment_control_info">Kaliwa at kanang key para mag-zoom in size</string>
     <string name="network_available_title">Magagamit na Mga Network</string>
+    <string name="projector_boot_auto_focus_title">Boot Auto Focus</string>
+    <string name="projector_auto_obs_title">Pag -iwas sa auto ng balakid</string>
+    <string name="projector_auto_fit_screen_title">Auto fit screen</string>
     <string name="projector_auto_title">Vertical Keystone</string>
     <string name="wifi_no_passwd_info">Kumonekta sa network na ito:</string>
+    <string name="projector_auto_projection_title">Auto Trapezoid</string>
     <string name="projector_auto_focus_title">Auto Focus</string>
 </resources>

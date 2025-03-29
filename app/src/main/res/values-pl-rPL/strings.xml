@@ -236,7 +236,11 @@
     <string name="projection_neg_neg">Tylna projekcja do montażu odwrotnego</string>
     <string name="size_adjustment_control_info">Lewy i prawy klawisz do powiększania i pomniejszania</string>
     <string name="network_available_title">dostępna sieć</string>
+    <string name="projector_boot_auto_focus_title">Boot Auto Focus</string>
+    <string name="projector_auto_obs_title">Auto unikanie przeszkód</string>
+    <string name="projector_auto_fit_screen_title">Auto wprowadź ekran</string>
     <string name="projector_auto_title">trapez pionowy</string>
     <string name="wifi_no_passwd_info">Połącz się z tą siecią：</string>
+    <string name="projector_auto_projection_title">Auto korekta trapezoidalna</string>
     <string name="projector_auto_focus_title">Autofokus</string>
 </resources>

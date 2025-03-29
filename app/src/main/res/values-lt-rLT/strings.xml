@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Pakabinti ir atgal</string>
     <string name="size_adjustment_control_info">Kairysis ir dešiniarankis, kad padidintumėte dydį</string>
     <string name="network_available_title">Galimi tinklai</string>
+    <string name="projector_boot_auto_focus_title">Boot Automatinis fokusavimas</string>
+    <string name="projector_auto_obs_title">Automatinis kliūčių vengimas</string>
+    <string name="projector_auto_fit_screen_title">Automatiškai įveskite ekraną</string>
     <string name="projector_auto_title">Vertikalus klavišas</string>
     <string name="wifi_no_passwd_info">Prisijunkite prie šio tinklo:</string>
+    <string name="projector_auto_projection_title">Auto trapecijos</string>
     <string name="projector_auto_focus_title">Automatinis fokusavimas</string>
 </resources>

@@ -40,16 +40,15 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
             _ClickItem.postValue(Integer.valueOf(((Integer) view.getId()).intValue()));
         }
     };
-    private ItemLRTextIconData autoData;
+    private ItemLRTextIconData autoProjectionData;
     private ItemLRTextIconData autoFocusData;
+    private ItemLRTextIconData bootAutoFocusData;
+    private ItemLRTextIconData autoOBSData;
+    private ItemLRTextIconData autoFitScreenData;
     private ItemLRTextIconData twoPointData;
     private ItemLRTextIconData fourPointData;
     private ItemLRTextIconData sizeData;
     private ItemLRTextIconData projectionData;
-    private MutableLiveData<Boolean> isAutoIncludeVisible;
-    private MutableLiveData<Boolean> isAutoFocusIncludeVisible;
-
-    //private int progress;
 
     public ProjectorViewModel(Application paramApplication) {
         super(paramApplication);
@@ -63,8 +62,6 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     public ItemLRTextIconData getTwoPointData() {
         return twoPointData;
     }
-
-    public ItemLRTextIconData getAutoData(){return autoData;}
 
     public OnClickListener getItemClickListener() {
         return _itemClickListener;
@@ -82,17 +79,25 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         return projectionData;
     }
 
+    public ItemLRTextIconData getAutoProjectionData() {
+        return autoProjectionData;
+    }
+
     public ItemLRTextIconData getAutoFocusData() {
         return autoFocusData;
     }
-/*
-    public String getProgress(){
-        return "Level: "+progress;
+
+    public ItemLRTextIconData getBootAutoFocusData() {
+        return bootAutoFocusData;
     }
 
-    public void setProgress(int i){
-        progress = i;
-    }*/
+    public ItemLRTextIconData getAutoOBSData() {
+        return autoOBSData;
+    }
+
+    public ItemLRTextIconData getAutoFitScreenData() {
+        return autoFitScreenData;
+    }
 
     public void initData(Application paramApplication) {
         int postion = getProjectionItem();
@@ -107,26 +112,15 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         }else {
             projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         }
-        autoData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
-        autoFocusData = new ItemLRTextIconData(6,paramApplication.getString(R.string.projector_auto_focus_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
         twoPointData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projector_two_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         fourPointData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projector_four_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         sizeData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projector_size_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
-        isAutoIncludeVisible = new MutableLiveData<>(true);
-        isAutoFocusIncludeVisible = new MutableLiveData<>(true);
+        autoProjectionData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_projection_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
+        autoFocusData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_focus_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
+        bootAutoFocusData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_boot_auto_focus_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
+        autoOBSData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_obs_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
+        autoFitScreenData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_fit_screen_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
 
-    }
-    public LiveData<Boolean> getIsAutoIncludeVisible() {
-        return isAutoIncludeVisible;
-    }
-    public LiveData<Boolean> getIsAutoFocusIncludeVisible(){return isAutoFocusIncludeVisible;}
-
-    public void setAutoIncludeVisibility(boolean visible) {
-        isAutoIncludeVisible.setValue(visible);
-    }
-
-    public void setAutoFocusIncludeVisible(boolean visible){
-        isAutoFocusIncludeVisible.setValue(visible);
     }
 
     @Override

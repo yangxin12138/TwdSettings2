@@ -488,7 +488,11 @@ Example: 24"</string>
     <string name="projection_neg_neg">吊装背投</string>
     <string name="size_adjustment_control_info">左右键缩放尺寸</string>
     <string name="network_available_title">可用网络</string>
-    <string name="projector_auto_title">垂直梯形</string>
     <string name="wifi_no_passwd_info">连接到此网络：</string>
+    <string name="projector_auto_projection_title">自动梯形矫正</string>
     <string name="projector_auto_focus_title">自动对焦</string>
+    <string name="projector_boot_auto_focus_title">开机自动对焦</string>
+    <string name="projector_auto_obs_title">自动避障</string>
+    <string name="projector_auto_fit_screen_title">自动入幕</string>
+    <string name="projector_auto_title">垂直梯形</string>
 </resources>

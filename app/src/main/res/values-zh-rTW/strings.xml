@@ -238,7 +238,11 @@
     <string name="projection_neg_neg">吊裝背投</string>
     <string name="size_adjustment_control_info">左右鍵縮放尺寸</string>
     <string name="network_available_title">可用網路</string>
+    <string name="projector_boot_auto_focus_title">開機自動對焦</string>
+    <string name="projector_auto_obs_title">自動避障</string>
+    <string name="projector_auto_fit_screen_title">自動入幕</string>
     <string name="projector_auto_title">垂直梯形</string>
     <string name="wifi_no_passwd_info">連接到此網路：</string>
+    <string name="projector_auto_projection_title">自動梯形矯正</string>
     <string name="projector_auto_focus_title">自動對焦</string>
 </resources>

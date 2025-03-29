@@ -238,7 +238,11 @@
     <string name="projection_neg_neg">천장 설치 후면 투사</string>
     <string name="size_adjustment_control_info">확대 및 축소하는 왼쪽 및 오른쪽 키</string>
     <string name="network_available_title">사용 가능한 네트워크</string>
+    <string name="projector_boot_auto_focus_title">전력에 대한 자동 초점</string>
+    <string name="projector_auto_obs_title">자동 장애가 회피</string>
+    <string name="projector_auto_fit_screen_title">자동 맞춤 화면</string>
     <string name="projector_auto_title">수직 키스톤</string>
     <string name="wifi_no_passwd_info">다음 네트워크에 연결하세요:</string>
+    <string name="projector_auto_projection_title">자동 사다리꼴 교정</string>
     <string name="projector_auto_focus_title">자동 초점</string>
 </resources>

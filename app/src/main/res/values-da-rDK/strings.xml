@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Hængende og tilbage</string>
     <string name="size_adjustment_control_info">Venstre og højre tast for at zoome ind størrelse</string>
     <string name="network_available_title">Tilgængelige netværk</string>
+    <string name="projector_boot_auto_focus_title">Automatisk fokus på magt</string>
+    <string name="projector_auto_obs_title">Auto Hindringsundgåelse</string>
+    <string name="projector_auto_fit_screen_title">Auto Fit -skærm</string>
     <string name="projector_auto_title">Lodret Keystone</string>
     <string name="wifi_no_passwd_info">Opret forbindelse til dette netværk:</string>
-    <string name="projector_auto_focus_title">Auto Focus</string>
+    <string name="projector_auto_projection_title">Automatisk trapezformet</string>
+    <string name="projector_auto_focus_title">Autofokus</string>
 </resources>

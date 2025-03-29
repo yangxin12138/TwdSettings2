@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Viseće i leđa</string>
     <string name="size_adjustment_control_info">Lijevi i desni tipke za zumiranje u veličini</string>
     <string name="network_available_title">Dostupne mreže</string>
+    <string name="projector_boot_auto_focus_title">Auto fokus za pokretanje</string>
+    <string name="projector_auto_obs_title">Automatsko izbjegavanje prepreka</string>
+    <string name="projector_auto_fit_screen_title">Automatski unesite zaslon</string>
     <string name="projector_auto_title">Vertikalni</string>
     <string name="wifi_no_passwd_info">Povežite se na ovu mrežu:</string>
+    <string name="projector_auto_projection_title">Auto -trapez</string>
     <string name="projector_auto_focus_title">Auto fokus</string>
 </resources>

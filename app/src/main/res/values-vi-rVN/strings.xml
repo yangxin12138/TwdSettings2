@@ -235,7 +235,11 @@
     <string name="projection_neg_neg">Treo và Quay lại</string>
     <string name="size_adjustment_control_info">Phím trái và phải để phóng to kích thước</string>
     <string name="network_available_title">Mạng lưới có sẵn</string>
+    <string name="projector_boot_auto_focus_title">Boot Lấy nét tự động</string>
+    <string name="projector_auto_obs_title">Tự động tránh chướng ngại vật</string>
+    <string name="projector_auto_fit_screen_title">Màn hình tự động phù hợp</string>
     <string name="projector_auto_title">Keystone dọc</string>
     <string name="wifi_no_passwd_info">Kết nối với mạng này:</string>
+    <string name="projector_auto_projection_title">Tự động hình thang</string>
     <string name="projector_auto_focus_title">Lấy nét tự động</string>
 </resources>

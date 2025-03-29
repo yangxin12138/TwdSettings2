@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Függő és hátul</string>
     <string name="size_adjustment_control_info">Bal és jobb billentyű a nagyításhoz</string>
     <string name="network_available_title">Elérhető hálózatok</string>
+    <string name="projector_boot_auto_focus_title">boot Automatikus fókusz</string>
+    <string name="projector_auto_obs_title">Automatikus akadályok elkerülése</string>
+    <string name="projector_auto_fit_screen_title">Auto Fit képernyő</string>
     <string name="projector_auto_title">Függőleges kulcstartó</string>
     <string name="wifi_no_passwd_info">Csatlakozzon ehhez a hálózathoz:</string>
+    <string name="projector_auto_projection_title">Auto trapéz</string>
     <string name="projector_auto_focus_title">Automatikus fókusz</string>
 </resources>

@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Zavěšení a zpět</string>
     <string name="size_adjustment_control_info">Levá a pravá klávesa pro zvětšení velikosti</string>
     <string name="network_available_title">Dostupné sítě</string>
+    <string name="projector_boot_auto_focus_title">Automatické zaměření na sílu</string>
+    <string name="projector_auto_obs_title">Vyhýbání se automatické překážky</string>
+    <string name="projector_auto_fit_screen_title">Automatická obrazovka</string>
     <string name="projector_auto_title">Vertikální Keystone</string>
     <string name="wifi_no_passwd_info">Připojte se k této síti:</string>
+    <string name="projector_auto_projection_title">Automatické lichoběžníky</string>
     <string name="projector_auto_focus_title">Automatické zaostření</string>
 </resources>

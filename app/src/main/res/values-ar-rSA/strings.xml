@@ -237,7 +237,11 @@
     <string name="projection_neg_neg">تركيب السقف، الإسقاط الخلفي</string>
     <string name="size_adjustment_control_info">مفاتيح اليسار واليمين للتكبير والتصغير</string>
     <string name="network_available_title">الشبكات المتاحة</string>
+    <string name="projector_boot_auto_focus_title">التركيز التلقائي على التمهيد</string>
+    <string name="projector_auto_obs_title">تجنب عقبة السيارات</string>
+    <string name="projector_auto_fit_screen_title">شاشة الملاءمة التلقائية</string>
     <string name="projector_auto_title">حجر الزاوية العمودي</string>
     <string name="wifi_no_passwd_info">الاتصال بهذه الشبكة:</string>
+    <string name="projector_auto_projection_title">منحرف السيارات</string>
     <string name="projector_auto_focus_title">التركيز التلقائي</string>
 </resources>

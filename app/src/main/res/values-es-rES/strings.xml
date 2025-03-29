@@ -239,7 +239,11 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="projection_neg_neg">Instalación colgante, proyección trasera</string>
     <string name="size_adjustment_control_info">Teclas izquierda y derecha para acercar y alejar</string>
     <string name="network_available_title">Redes disponibles</string>
+    <string name="projector_boot_auto_focus_title">Boot Enfoque automático</string>
+    <string name="projector_auto_obs_title">Auto Evitación de obstáculos</string>
+    <string name="projector_auto_fit_screen_title">"Auto Pantalla de ajuste "</string>
     <string name="projector_auto_title">Piedra angular vertical</string>
     <string name="wifi_no_passwd_info">Conéctese a esta red:</string>
+    <string name="projector_auto_projection_title">Corrección trapezoidal automática</string>
     <string name="projector_auto_focus_title">Enfoque automático</string>
 </resources>

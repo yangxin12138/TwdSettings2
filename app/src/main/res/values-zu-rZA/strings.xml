@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Ukulengiswa nangemuva</string>
     <string name="size_adjustment_control_info">Okhiye besobunxele nakwesokudla ukusondeza ngosayizi</string>
     <string name="network_available_title">Amanethiwekhi atholakalayo</string>
+    <string name="projector_boot_auto_focus_title">Ukugxila kwe-boot auto</string>
+    <string name="projector_auto_obs_title">Ukuvikeleka Kwezithiyo Ezizenzakalelayo</string>
+    <string name="projector_auto_fit_screen_title">Isikrini se-Auto Fit</string>
     <string name="projector_auto_title">I-Vertical Keystone</string>
     <string name="wifi_no_passwd_info">Xhuma kule nethiwekhi:</string>
+    <string name="projector_auto_projection_title">Auto trapezoid</string>
     <string name="projector_auto_focus_title">I-autofocus</string>
 </resources>

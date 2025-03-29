@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Karājas un atpakaļ</string>
     <string name="size_adjustment_control_info">Kreisā un labā taustiņi, lai tuvinātu izmēru</string>
     <string name="network_available_title">Pieejamie tīkli</string>
+    <string name="projector_boot_auto_focus_title">Boot Auto Focus</string>
+    <string name="projector_auto_obs_title">Auto šķēršļu izvairīšanās</string>
+    <string name="projector_auto_fit_screen_title">Automātiska ekrāns</string>
     <string name="projector_auto_title">Vertikālā atslēgas akmens</string>
     <string name="wifi_no_passwd_info">Savienojiet ar šo tīklu:</string>
+    <string name="projector_auto_projection_title">Auto trapecveida</string>
     <string name="projector_auto_focus_title">Autofokuss</string>
 </resources>

@@ -239,7 +239,11 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="projection_neg_neg">Projection inversée montée au plafond</string>
     <string name="size_adjustment_control_info">Touches gauche et droite pour zoomer et dézoomer</string>
     <string name="network_available_title">Réseaux disponibles</string>
+    <string name="projector_boot_auto_focus_title">Focus automatique sur le pouvoir</string>
+    <string name="projector_auto_obs_title">Évitement des obstacles automobiles</string>
+    <string name="projector_auto_fit_screen_title">Entrez automatiquement l\'écran</string>
     <string name="projector_auto_title">Trapèze verticale</string>
     <string name="wifi_no_passwd_info">Connectez-vous à ce réseau :</string>
+    <string name="projector_auto_projection_title">Trapézoïde auto</string>
     <string name="projector_auto_focus_title">Focus automatique</string>
 </resources>

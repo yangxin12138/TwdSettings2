@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Tergantung dan belakang</string>
     <string name="size_adjustment_control_info">Kekunci kiri dan kanan untuk mengezum saiz</string>
     <string name="network_available_title">Rangkaian yang ada</string>
+    <string name="projector_boot_auto_focus_title">Boot Auto Focus</string>
+    <string name="projector_auto_obs_title">Penghindaran halangan automatik</string>
+    <string name="projector_auto_fit_screen_title">Masukkan skrin secara automatik</string>
     <string name="projector_auto_title">Keystone menegak</string>
     <string name="wifi_no_passwd_info">Sambungkan ke rangkaian ini:</string>
+    <string name="projector_auto_projection_title">Pembetulan trapezoid automatik</string>
     <string name="projector_auto_focus_title">Autofocus</string>
 </resources>

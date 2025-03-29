@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Atârnând și înapoi</string>
     <string name="size_adjustment_control_info">Tastele stânga și dreapta pentru a mări dimensiunea</string>
     <string name="network_available_title">Rețele disponibile</string>
+    <string name="projector_boot_auto_focus_title">Boot Auto Focus</string>
+    <string name="projector_auto_obs_title">Evitarea automată a obstacolelor</string>
+    <string name="projector_auto_fit_screen_title">Ecran de potrivire automată</string>
     <string name="projector_auto_title">Piatră de cheie verticală</string>
     <string name="wifi_no_passwd_info">Conectați -vă la această rețea:</string>
+    <string name="projector_auto_projection_title">Corecție automată trapezoidală</string>
     <string name="projector_auto_focus_title">Autofocus</string>
 </resources>

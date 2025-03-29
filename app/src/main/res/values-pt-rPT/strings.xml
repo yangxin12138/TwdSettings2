@@ -238,7 +238,11 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="projection_neg_neg">Instalação no teto, projeção traseira</string>
     <string name="size_adjustment_control_info">Teclas esquerda e direita para aumentar e diminuir o zoom</string>
     <string name="network_available_title">Redes disponíveis</string>
+    <string name="projector_boot_auto_focus_title">Foco automático no poder</string>
+    <string name="projector_auto_obs_title">Evitação automática de obstáculos</string>
+    <string name="projector_auto_fit_screen_title">Digite automaticamente a tela</string>
     <string name="projector_auto_title">Angulação vertical</string>
     <string name="wifi_no_passwd_info">Ligue-se a esta rede:</string>
+    <string name="projector_auto_projection_title">Correção trapezoidal automática</string>
     <string name="projector_auto_focus_title">Foco automático</string>
 </resources>

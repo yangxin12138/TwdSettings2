@@ -239,7 +239,11 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="projection_neg_neg">Retroproiezione per installazione a soffitto</string>
     <string name="size_adjustment_control_info">Tasti sinistra e destra per ingrandire e rimpicciolire</string>
     <string name="network_available_title">Reti disponibili</string>
+    <string name="projector_boot_auto_focus_title">Focus automatico di avvio</string>
+    <string name="projector_auto_obs_title">Evitamento dell\'ostacolo automatico</string>
+    <string name="projector_auto_fit_screen_title">Schermata di adattamento automatico</string>
     <string name="projector_auto_title">Chiave di volta verticale</string>
     <string name="wifi_no_passwd_info">Connettiti a questa rete:</string>
+    <string name="projector_auto_projection_title">Trapezoide automatico</string>
     <string name="projector_auto_focus_title">Focus automatico</string>
 </resources>

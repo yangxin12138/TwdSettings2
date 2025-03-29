@@ -230,7 +230,11 @@
     <string name="projection_neg_neg">Hang en terug</string>
     <string name="size_adjustment_control_info">Links en regs sleutels om in grootte in te zoem</string>
     <string name="network_available_title">Beskikbare netwerke</string>
+    <string name="projector_boot_auto_focus_title">Begin die rekenaar</string>
+    <string name="projector_auto_obs_title">Motorhindernisvermyding</string>
+    <string name="projector_auto_fit_screen_title">Auto Fit -skerm</string>
     <string name="projector_auto_title">Vertikale sluitsteen</string>
     <string name="wifi_no_passwd_info">Koppel aan hierdie netwerk:</string>
+    <string name="projector_auto_projection_title">Outo trapezoid</string>
     <string name="projector_auto_focus_title">Outo -fokus</string>
 </resources>
