@@ -72,7 +72,8 @@
             android:layout_marginTop="20dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:background="?bBg">
+            android:background="?bBg"
+            android:visibility="gone">
             <TextView
                 android:duplicateParentState="true"
                 android:id="@+id/devices_tv_storage"
@@ -133,7 +134,8 @@
             android:layout_marginTop="20dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:background="?bBg">
+            android:background="?bBg"
+            android:visibility="gone">
             <TextView
                 android:duplicateParentState="true"
                 android:id="@+id/devices_tv_update"

@@ -95,4 +95,5 @@
     <string name="device_storage_app">App </string>
     <string name="device_storage_other">Other </string>
     <string name="network_available_title">Available Networks</string>
+    <string name="device_info_softwareDate">System Build Time</string>
 </resources>

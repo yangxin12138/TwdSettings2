@@ -459,7 +459,7 @@ Example: 24"</string>
     <string name="device_index_factory_tv">恢复出厂设置</string>
     <string name="device_index_update_tv">系统更新</string>
     <string name="factory_dialog_title">恢复出厂设置会清空所有数据后重启.</string>
-    <string name="device_info_deviceNo">设备号</string>
+    <string name="device_info_deviceNo">机型</string>
     <string name="device_info_androidVersion">Android版本</string>
     <string name="device_info_softwareVersion">软件号</string>
     <string name="device_info_mac_wifi">MAC地址(无线)</string>
@@ -489,4 +489,5 @@ Example: 24"</string>
     <string name="projection_neg_neg">吊装背投</string>
     <string name="size_adjustment_control_info">左右键缩放尺寸</string>
     <string name="network_available_title">可用网络</string>
+    <string name="device_info_softwareDate">系统编译时间</string>
 </resources>

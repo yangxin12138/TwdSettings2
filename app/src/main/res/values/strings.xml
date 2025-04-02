@@ -461,6 +461,7 @@ Example: 24"</string>
     <string name="device_info_deviceNo">Device NO</string>
     <string name="device_info_androidVersion">Android Version</string>
     <string name="device_info_softwareVersion">Software Version</string>
+    <string name="device_info_softwareDate">System Build Time</string>
     <string name="device_info_mac_wifi">MAC Address(Wifi)</string>
     <string name="device_info_mac_bluetooth">MAC Address(Bluetooth)</string>
     <string name="device_storage_title">Storage</string>

@@ -232,4 +232,5 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="projection_neg_neg">Deckeneinbau-Rückprojektion</string>
     <string name="size_adjustment_control_info">Linke und rechte Taste zum Vergrößern und Verkleinern</string>
     <string name="network_available_title">Netzwerk verfügbar</string>
+    <string name="device_info_softwareDate">Kompilierungszeit</string>
 </resources>
