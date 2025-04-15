@@ -69,8 +69,10 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
         writeFile(PATH_CONTROL_MIPI, String.valueOf(mode));
 
         if(Build.HARDWARE.equals("mt6735")){
+            Log.i(TAG, "setProjectionMode: ----INFO2 --------");
             writeFile(PATH_DEV_PRO_INFO2, String.valueOf(mode));
         }else{
+            Log.i(TAG, "setProjectionMode: ----INFO --------");
             writeFile(PATH_DEV_PRO_INFO, String.valueOf(mode));
         }
     }

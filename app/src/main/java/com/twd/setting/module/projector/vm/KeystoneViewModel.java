@@ -115,8 +115,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         Log.d(TAG, "getInitKeystone: lt("+strTopLeft+"),rt("+strTopRight+"),lb("+strBottomLeft+"),rb("+vBottomRight+")");
         Log.d(TAG, "getInitKeystone: zoom:"+vZoom);
 
-        //String vertical = SystemPropertiesUtils.getProperty("ro.keystone.vertical","0");
-        String vertical = "1";
+        String vertical = SystemPropertiesUtils.getProperty("ro.keystone.vertical","0");
         if(vertical.equals("1")){
             is_Vertical = true;
             lcdWidth = lcd.getLcdHeight();//   dm.widthPixels;
@@ -136,19 +135,19 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     }
     public void setKeystoneMode(int _mode){
         if(_mode == MODE_ONEPOINT){
-            vTopLeft.setMaxX(50);vTopLeft.setMaxY(150);
-            vTopRight.setMaxX(50);vTopRight.setMaxY(150);
-            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(150);
-            vBottomRight.setMaxX(50);vBottomRight.setMaxY(150);
+            vTopLeft.setMaxX(50);vTopLeft.setMaxY(50);
+            vTopRight.setMaxX(50);vTopRight.setMaxY(50);
+            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(50);
+            vBottomRight.setMaxX(50);vBottomRight.setMaxY(50);
 
             zoom_x = 0;
             zoom_y = 0;
             saveZoom();
         } else if (_mode == MODE_TWOPOINT) {
-            vTopLeft.setMaxX(50);vTopLeft.setMaxY(150);
-            vTopRight.setMaxX(50);vTopRight.setMaxY(150);
-            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(150);
-            vBottomRight.setMaxX(50);vBottomRight.setMaxY(150);
+            vTopLeft.setMaxX(50);vTopLeft.setMaxY(50);
+            vTopRight.setMaxX(50);vTopRight.setMaxY(50);
+            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(50);
+            vBottomRight.setMaxX(50);vBottomRight.setMaxY(50);
         }
     }
 
@@ -306,13 +305,13 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public String getOnePointInfo(int point){
         switch (point){
             case 0:
-                return vBottomLeft.toString();
-            case 1:
                 return vTopLeft.toString();
-            case 3:
-                return vBottomRight.toString();
-            case 2:
+            case 1:
                 return vTopRight.toString();
+            case 3:
+                return vBottomLeft.toString();
+            case 2:
+                return vBottomRight.toString();
             default:
                 break;
         }
@@ -410,10 +409,8 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
     public void twoLeft(){
         if(zoom_x<=0) {
-            Log.i("yangxin0318", "twoLeft: - ---leftZoomOut--- x = " + zoom_x);
             leftZoomOut();
         }else{
-            Log.i("yangxin0318", "twoLeft:  ---rightZoomIn--- x="+zoom_x);
             rightZoomIn();
         }
         zoom_x--;
@@ -424,10 +421,8 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     }
     public void twoRight(){
         if(zoom_x>=0){
-            Log.i("yangxin0318", "twoRight: - ---rightZoomOut--- x = " + zoom_x);
             rightZoomOut();
         }else{
-            Log.i("yangxin0318", "twoRight:  ---leftZoomIn--- x="+zoom_x);
             leftZoomIn();
         }
         zoom_x++;
