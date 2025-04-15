@@ -22,9 +22,6 @@ public class DeviceInfoActivity extends AppCompatActivity {
     private TextView tv_macAddressWifi_value;
     private TextView tv_macAddressBluetooth_value;
     private static final String TAG = DeviceInfoActivity.class.getName();
-    private String PROP_FX_DEVICE = "ro.build.aoc.fx.device";
-    private String PROP_FX_DATE = "ro.build.aoc.fx.date";
-    private String PROP_FX_VERSION = "ro.build.aoc.fx.version";
     private Context context = this;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
     String theme_code = "1";
@@ -68,7 +65,7 @@ public class DeviceInfoActivity extends AppCompatActivity {
     /*
     * 获取设备号*/
     private void setMachineNo(){
-        String machineNo = SystemPropertiesUtils.getProperty(PROP_FX_DEVICE,"projector");
+        String machineNo = Build.MODEL;
         tv_MachineNO_value.setText(machineNo);
         Log.i(TAG, "getMachineNO: --------machineNo = " + machineNo);
     }
@@ -76,7 +73,7 @@ public class DeviceInfoActivity extends AppCompatActivity {
     /*
     * 获取安卓版本号*/
     private void setAndroidVersion(){
-        String version = SystemPropertiesUtils.getProperty(PROP_FX_VERSION,"9.0");
+        String version = Build.VERSION.RELEASE;
         tv_androidVersion_value.setText(version);
         Log.i(TAG, "setAndroidVersion: ----------version = " + version);
     }
@@ -84,7 +81,7 @@ public class DeviceInfoActivity extends AppCompatActivity {
     /*
     * 获取软件号*/
     private void setSoftwareNo(){
-        String softwareNo = SystemPropertiesUtils.getProperty(PROP_FX_DATE,"1998.11.12");
+        String softwareNo = Build.VERSION.INCREMENTAL;
         tv_softwareNO_value.setText(softwareNo);
         Log.i(TAG, "setSoftwareNO: -----software = " + softwareNo);
     }
