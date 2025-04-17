@@ -267,7 +267,7 @@ public class BluetoothFragment
         binding.setViewModel(viewModel);
         initTitle(paramView, R.string.str_bluetooth);
         if (adapter == null) {
-            adapter = new BluetoothListAdapter(getItemClick());
+            adapter = new BluetoothListAdapter(getItemClick(),getContext());
         }
         binding.bluetoothRV.setAdapter(adapter);
         setClickListener();

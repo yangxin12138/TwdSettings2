@@ -111,4 +111,6 @@
     <attr name="storage_systemcolor" format="color"/>
     <attr name="storage_appcolor" format="color"/>
     <attr name="storage_othercolor" format="color"/>
+    <attr name="projector_spaceHeightPercent" format="float"/>
+    <attr name="main_spaceVertical_weight" format="float"/>
 </resources>

@@ -11,7 +11,7 @@
         <layer-list>
             <item>
                 <shape>
-                    <stroke android:width="4.0dip" android:color="@color/black" />
+                    <stroke android:width="@dimen/selector_factory_bt_width" android:color="@color/black" />
                     <corners android:radius="20.0dip" />
                 </shape>
             </item>
@@ -32,7 +32,7 @@
         <layer-list>
             <item>
                 <shape>
-                    <stroke android:width="2.0dip" android:color="@color/black" />
+                    <stroke android:width="@dimen/selector_factory_bt_width" android:color="@color/black" />
                     <corners android:radius="20.0dip" />
                 </shape>
             </item>
