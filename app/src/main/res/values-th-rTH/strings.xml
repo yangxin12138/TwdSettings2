@@ -237,4 +237,5 @@
     <string name="size_adjustment_control_info">ปุ่มซ้ายและขวาเพื่อซูมเข้าและออก</string>
     <string name="network_available_title">เครือข่ายที่มีอยู่</string>
     <string name="device_info_softwareDate">เวลาในการรวบรวม</string>
+    <string name="projector_auto_tip">คุณต้องเปิดโฟกัสอัตโนมัติก่อน</string>
 </resources>

@@ -489,4 +489,5 @@ Example: 24"</string>
     <string name="projection_neg_neg">Hanging and Back</string>
     <string name="size_adjustment_control_info">Left and right keys to zoom in size</string>
     <string name="network_available_title">Available Networks</string>
+    <string name="projector_auto_tip">You need to turn on auto focus first</string>
 </resources>

@@ -1,11 +1,16 @@
 package com.twd.setting.module.projector.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.lifecycle.Observer;
 
@@ -16,12 +21,16 @@ import com.twd.setting.module.projector.ProjectionActivity;
 import com.twd.setting.module.projector.vm.ProjectorViewModel;
 import com.twd.setting.utils.AutoFocusUtils;
 import com.twd.setting.utils.SystemPropertiesUtils;
+import com.twd.setting.utils.ToastUtils;
 import com.twd.setting.utils.UiUtils;
 
 public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBinding, ProjectorViewModel> implements View.OnFocusChangeListener {
     private static final String TAG = "ProjectorFragment";
     private int selectItem = 0;
     private AutoFocusUtils autoFocusUtils;
+    private Context context;
+    private static final String PREF_NAME = "MyAppPreferences";
+    private static final String KEY_FIRST_OPEN = "isFirstOpen";
 
     private void clickItem(int item) {
         Log.d(TAG,"clickItem: "+item);
@@ -33,19 +42,40 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             gotoSize();
         }else if(item == R.id.projectionInclude){//4
             gotoProjection();
-        }else if (item == R.id.AutoProjectionInclude){
-            gotoAutoProjection(binding.AutoProjectionInclude.switchAuto.isChecked());
-        } else if (item == R.id.AutoFocusInclude) {
+        }else if (item == R.id.AutoProjectionInclude){//自动梯形
+            //TODO:先判断自动对焦开没开
+            if (isAutoFocusOpen()){
+                gotoAutoProjection(binding.AutoProjectionInclude.switchAuto.isChecked());
+            }else {
+                ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
+            }
+        } else if (item == R.id.AutoFocusInclude) {//自动对焦
             gotoAutoFocus(binding.AutoFocusInclude.switchAuto.isChecked());
-        } else if (item == R.id.BootAutoFocusIclude) {
-            gotoBootAutoFocus(binding.BootAutoFocusIclude.switchAuto.isChecked());
-        } else if (item == R.id.AutoOBSIclude) {
-            gotoAutoOBS(binding.AutoOBSIclude.switchAuto.isChecked());
-        } else if (item == R.id.AutoFitScreenIclude) {
-            gotoAutoFitScreen(binding.AutoFitScreenIclude.switchAuto.isChecked());
+        } else if (item == R.id.BootAutoFocusIclude) {//开机自动对焦
+            if (isAutoFocusOpen()){
+                gotoBootAutoFocus(binding.BootAutoFocusIclude.switchAuto.isChecked());
+            }else {
+                ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
+            }
+        } else if (item == R.id.AutoOBSIclude) {//自动避障
+            if (isAutoFocusOpen()){
+                gotoAutoOBS(binding.AutoOBSIclude.switchAuto.isChecked());
+            }else {
+                ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
+            }
+        } else if (item == R.id.AutoFitScreenIclude) {//自动入幕
+            if (isAutoFocusOpen()){
+                gotoAutoFitScreen(binding.AutoFitScreenIclude.switchAuto.isChecked());
+            }else {
+                ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
+            }
+
         }
     }
 
+    private boolean isAutoFocusOpen(){
+        return binding.AutoFocusInclude.switchAuto.isChecked();
+    }
     private void gotoTwoPoint() {
         selectItem = 0;
         UiUtils.replaceFragmentHadBackStack(getParentFragmentManager(), 16908290, TwoPointFragment.newInstance(), "ProjectorFragment");
@@ -100,6 +130,12 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         boolean newCheckedState = !isChecked;
         binding.AutoFocusInclude.switchAuto.setChecked(newCheckedState);
         autoFocusUtils.setAutoFocusEnable(newCheckedState);
+        if (!newCheckedState){
+            gotoAutoProjection(true);
+            gotoBootAutoFocus(true);
+            gotoAutoOBS(true);
+            gotoAutoFitScreen(true);
+        }
     }
 
     private void gotoBootAutoFocus(boolean isChecked){
@@ -182,6 +218,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         super.onViewCreated(paramView, paramBundle);
         ((FragmentProjectorBinding) this.binding).setViewModel((ProjectorViewModel) this.viewModel);
         initTitle(paramView, R.string.projector_title);
+        context = requireContext();
         autoFocusUtils = new AutoFocusUtils();
         ((FragmentProjectorBinding) this.binding).twoPointInclude.itemRL.requestFocus();
 
@@ -193,7 +230,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         });
         setClickListener();
         initAutoSwitch();
-
+        if (isFirstOpen(context)){
+            ProjectionFragment.setProjectionMode(0);
+        }
     }
 
     private void initAutoSwitch(){
@@ -260,5 +299,17 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
                 binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
             }
         }
+    }
+
+    public static boolean isFirstOpen(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        boolean isFirst = sharedPreferences.getBoolean(KEY_FIRST_OPEN, true);
+        if (isFirst) {
+            // 如果是第一次打开，将其标记为已打开
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(KEY_FIRST_OPEN, false);
+            editor.apply();
+        }
+        return isFirst;
     }
 }
