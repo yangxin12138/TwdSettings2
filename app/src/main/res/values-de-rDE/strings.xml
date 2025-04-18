@@ -233,4 +233,5 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="size_adjustment_control_info">Linke und rechte Taste zum Vergrößern und Verkleinern</string>
     <string name="network_available_title">Netzwerk verfügbar</string>
     <string name="device_info_softwareDate">Kompilierungszeit</string>
+    <string name="projector_auto_tip">Sie müssen zuerst den Autofokus einschalten</string>
 </resources>
