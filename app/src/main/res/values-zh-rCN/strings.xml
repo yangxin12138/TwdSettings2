@@ -490,5 +490,4 @@ Example: 24"</string>
     <string name="size_adjustment_control_info">左右键缩放尺寸</string>
     <string name="network_available_title">可用网络</string>
     <string name="device_info_softwareDate">系统编译时间</string>
-    <string name="projector_auto_tip">需要先打开自动对焦</string>
 </resources>

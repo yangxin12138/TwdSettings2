@@ -60,14 +60,12 @@
             android:focusable="false"
             android:paddingLeft="0.0dip"
             android:text="@string/str_common_equipment"
-            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/bluetoothSwitchRL" />
 
         <TextView
             android:id="@+id/bluetoothRemoteControlTV"
             style="@style/BluetoothPageItemBtnStyle"
             android:text="@string/str_bluetooth_remote_control"
-            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/bluetoothRemoteControlTitleTV" />
 
         <TextView

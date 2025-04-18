@@ -236,5 +236,4 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="size_adjustment_control_info">Teclas izquierda y derecha para acercar y alejar</string>
     <string name="network_available_title">Redes disponibles</string>
     <string name="device_info_softwareDate">Tiempo de compilación</string>
-    <string name="projector_auto_tip">Primero debes activar el enfoque automático</string>
 </resources>
