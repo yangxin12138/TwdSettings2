@@ -236,4 +236,6 @@
     <string name="network_available_title">可用網路</string>
     <string name="device_info_softwareDate">編譯時間</string>
     <string name="projector_auto_tip">需要先開啟自動對焦</string>
+    <string name="projector_auto_projector_tip">您需要先開啟自動投影</string>
+    <string name="projector_auto_projector_off_tip">您需要先關閉自動投影</string>
 </resources>

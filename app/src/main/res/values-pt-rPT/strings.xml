@@ -236,4 +236,6 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="network_available_title">Redes disponíveis</string>
     <string name="device_info_softwareDate">Tempo de compilação</string>
     <string name="projector_auto_tip">Precisa de ativar o foco automático primeiro</string>
+    <string name="projector_auto_projector_tip">Precisa de ativar a projeção automática primeiro</string>
+    <string name="projector_auto_projector_off_tip">Precisa de desligar a projeção automática primeiro</string>
 </resources>

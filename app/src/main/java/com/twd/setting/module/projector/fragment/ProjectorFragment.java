@@ -58,10 +58,10 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
                 ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
             }
         } else if (item == R.id.AutoOBSIclude) {//自动避障
-            if (isAutoFocusOpen()){
+            if (binding.AutoProjectionInclude.switchAuto.isChecked()){
                 gotoAutoOBS(binding.AutoOBSIclude.switchAuto.isChecked());
             }else {
-                ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
+                ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_projector_tip),Toast.LENGTH_SHORT);
             }
         } else if (item == R.id.AutoFitScreenIclude) {//自动入幕
             if (isAutoFocusOpen()){
@@ -113,6 +113,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.twoPointInclude.itemRL.setFocusable(true);
             binding.fourPointInclude.itemRL.setFocusable(true);
             binding.AutoProjectionInclude.switchAuto.setChecked(false);
+            gotoAutoOBS(true);
             autoFocusUtils.setTrapezoidCorrectEnable(false);
         }else {
             binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
@@ -128,13 +129,19 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private void gotoAutoFocus(boolean isChecked){
         selectItem = 5;
         boolean newCheckedState = !isChecked;
-        binding.AutoFocusInclude.switchAuto.setChecked(newCheckedState);
-        autoFocusUtils.setAutoFocusEnable(newCheckedState);
         if (!newCheckedState){
-            gotoAutoProjection(true);
-            gotoBootAutoFocus(true);
-            gotoAutoOBS(true);
-            gotoAutoFitScreen(true);
+            if (!binding.AutoProjectionInclude.switchAuto.isChecked()){
+                binding.AutoFocusInclude.switchAuto.setChecked(false);
+                autoFocusUtils.setAutoFocusEnable(false);
+                gotoAutoProjection(true);
+                gotoBootAutoFocus(true);
+                gotoAutoFitScreen(true);
+            }else {
+                ToastUtils.showCustomToast(context,getString(R.string.projector_auto_projector_off_tip),Toast.LENGTH_SHORT);
+            }
+        }else {
+            binding.AutoFocusInclude.switchAuto.setChecked(true);
+            autoFocusUtils.setAutoFocusEnable(true);
         }
     }
 

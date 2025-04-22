@@ -97,4 +97,6 @@
     <string name="network_available_title">Available Networks</string>
     <string name="device_info_softwareDate">System Build Time</string>
     <string name="projector_auto_tip">You need to turn on auto focus first</string>
+    <string name="projector_auto_projector_tip">You need to turn on auto projection first</string>
+    <string name="projector_auto_projector_off_tip">You need to turn off auto projection first</string>
 </resources>

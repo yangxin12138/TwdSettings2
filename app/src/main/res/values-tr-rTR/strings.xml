@@ -237,4 +237,6 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="network_available_title">Mevcut ağlar</string>
     <string name="device_info_softwareDate">Derleme zamanı</string>
     <string name="projector_auto_tip">Önce otomatik odaklamayı açmanız gerekiyor</string>
+    <string name="projector_auto_projector_tip">Öncelikle otomatik projeksiyonu açmanız gerekiyor</string>
+    <string name="projector_auto_projector_off_tip">Öncelikle otomatik projeksiyonu kapatmanız gerekiyor</string>
 </resources>

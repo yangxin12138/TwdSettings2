@@ -238,4 +238,6 @@
     <string name="network_available_title">เครือข่ายที่มีอยู่</string>
     <string name="device_info_softwareDate">เวลาในการรวบรวม</string>
     <string name="projector_auto_tip">คุณต้องเปิดโฟกัสอัตโนมัติก่อน</string>
+    <string name="projector_auto_projector_tip">คุณต้องเปิดการฉายภาพอัตโนมัติก่อน</string>
+    <string name="projector_auto_projector_off_tip">คุณต้องปิดการฉายภาพอัตโนมัติก่อน</string>
 </resources>

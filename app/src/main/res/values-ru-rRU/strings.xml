@@ -235,4 +235,6 @@
     <string name="network_available_title">Доступные сети</string>
     <string name="device_info_softwareDate">Время компиляции</string>
     <string name="projector_auto_tip">Сначала вам нужно включить автофокус.</string>
+    <string name="projector_auto_projector_tip">Сначала вам нужно включить автоматическую проекцию.</string>
+    <string name="projector_auto_projector_off_tip">Сначала вам нужно отключить автоматическую проекцию.</string>
 </resources>

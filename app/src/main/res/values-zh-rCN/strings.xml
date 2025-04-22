@@ -491,4 +491,6 @@ Example: 24"</string>
     <string name="network_available_title">可用网络</string>
     <string name="device_info_softwareDate">系统编译时间</string>
     <string name="projector_auto_tip">需要先打开自动对焦</string>
+    <string name="projector_auto_projector_tip">需要先打开自动梯形</string>
+    <string name="projector_auto_projector_off_tip">需要先关闭自动梯形</string>
 </resources>
