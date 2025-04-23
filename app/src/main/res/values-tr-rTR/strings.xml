@@ -236,6 +236,7 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="size_adjustment_control_info">Yakınlaştırmak ve uzaklaştırmak için sol ve sağ tuşlar</string>
     <string name="network_available_title">Mevcut ağlar</string>
     <string name="device_info_softwareDate">Derleme zamanı</string>
+    <string name="wifi_no_passwd_info">Bu ağa bağlanın:</string>
     <string name="projector_auto_tip">Önce otomatik odaklamayı açmanız gerekiyor</string>
     <string name="projector_auto_projector_tip">Öncelikle otomatik projeksiyonu açmanız gerekiyor</string>
     <string name="projector_auto_projector_off_tip">Öncelikle otomatik projeksiyonu kapatmanız gerekiyor</string>

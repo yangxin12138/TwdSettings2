@@ -236,6 +236,7 @@
     <string name="size_adjustment_control_info">ज़ूम इन और ज़ूम आउट करने के लिए बाएँ और दाएँ कुंजियों का उपयोग करे</string>
     <string name="network_available_title">उपलब्ध नेटवर्क</string>
     <string name="device_info_softwareDate">संकलन समय</string>
+    <string name="wifi_no_passwd_info">इस नेटवर्क से जुड़ें:</string>
     <string name="projector_auto_tip">आपको सबसे पहले ऑटो फोकस चालू करना होगा</string>
     <string name="projector_auto_projector_tip">आपको पहले स्वचालित प्रक्षेपण चालू करना होगा</string>
     <string name="projector_auto_projector_off_tip">आपको पहले ऑटो प्रोजेक्शन बंद करना होगा</string>

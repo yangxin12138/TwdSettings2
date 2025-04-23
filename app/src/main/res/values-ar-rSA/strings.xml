@@ -234,6 +234,7 @@
     <string name="size_adjustment_control_info">مفاتيح اليسار واليمين للتكبير والتصغير</string>
     <string name="network_available_title">الشبكات المتاحة</string>
     <string name="device_info_softwareDate">وقت التجميع</string>
+    <string name="wifi_no_passwd_info">الاتصال بهذه الشبكة:</string>
     <string name="projector_auto_tip">يجب عليك تشغيل التركيز التلقائي أولاً</string>
     <string name="projector_auto_projector_tip">يجب عليك تشغيل العرض التلقائي أولاً</string>
     <string name="projector_auto_projector_off_tip">يجب عليك إيقاف تشغيل العرض التلقائي أولاً</string>

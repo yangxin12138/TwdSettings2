@@ -234,6 +234,7 @@
     <string name="size_adjustment_control_info">左右のキーでズームインおよびズームアウトします</string>
     <string name="network_available_title">利用可能なネットワーク</string>
     <string name="device_info_softwareDate">コンパイル時間</string>
+    <string name="wifi_no_passwd_info">このネットワークに接続します:</string>
     <string name="projector_auto_tip">まずオートフォーカスをオンにする必要があります</string>
     <string name="projector_auto_projector_tip">まず自動投影をオンにする必要があります</string>
     <string name="projector_auto_projector_off_tip">まず自動投影をオフにする必要があります</string>

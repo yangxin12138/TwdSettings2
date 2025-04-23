@@ -30,40 +30,6 @@ import com.twd.setting.utils.UiUtils;
 
 import java.util.List;
 
-/*
-public class MainActivity extends AppCompatActivity {
-
-    private MainFragment curFragment;
-
-    private BluetoothFragment bluetoothFragment;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        setContentView(R.layout.fragment_main);
-        //setContentView(R.layout.fragment_bluetooth);
-
-        //FragmentDataBinding activityMainBinding= DataBindingUtil.setContentView(this,R.layout.fragment_data);
-
- //       FragmentMainBinding activityMainBinding= DataBindingUtil.setContentView(this,R.layout.fragment_main);
-
-        //LayoutItemMainBinding activityMainBinding= DataBindingUtil.setContentView(this,R.layout.layout_item_main);
-        //User user=new User("chenqi","123456");
-        //activityMainBinding.setUserInfo(user);
-        curFragment = new MainFragment();
-//        bluetoothFragment = new BluetoothFragment();
-        //curFragment = MainFragment.newInstance();
-
-        UiUtils.replaceFragment(getSupportFragmentManager(), R.id.content, curFragment);
-//        UiUtils.replaceFragment(getSupportFragmentManager(), R.id.content, bluetoothFragment);
-
-        //UiUtils.replaceFragment(getSupportFragmentManager(), R.id.main_layout, curFragment,"main");
-//        UiUtils.add(getSupportFragmentManager(), "layout/fragment_main_0");
-
-
-
-    }
-}*/
 public class MainActivity
         extends BaseActivity {
     private final static String TAG = "MainActivity";

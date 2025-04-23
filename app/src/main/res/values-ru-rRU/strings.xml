@@ -234,6 +234,7 @@
     <string name="size_adjustment_control_info">Клавиши влево и вправо для увеличения и уменьшения масштаба</string>
     <string name="network_available_title">Доступные сети</string>
     <string name="device_info_softwareDate">Время компиляции</string>
+    <string name="wifi_no_passwd_info">Подключитесь к этой сети:</string>
     <string name="projector_auto_tip">Сначала вам нужно включить автофокус.</string>
     <string name="projector_auto_projector_tip">Сначала вам нужно включить автоматическую проекцию.</string>
     <string name="projector_auto_projector_off_tip">Сначала вам нужно отключить автоматическую проекцию.</string>

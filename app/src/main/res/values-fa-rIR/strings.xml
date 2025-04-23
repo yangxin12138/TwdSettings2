@@ -236,6 +236,7 @@
     <string name="size_adjustment_control_info">کلیدهای چپ و راست برای بزرگنمایی و بزرگنمایی</string>
     <string name="network_available_title">شبکه های موجود</string>
     <string name="device_info_softwareDate">زمان کامپایل</string>
+    <string name="wifi_no_passwd_info">اتصال به این شبکه:</string>
     <string name="projector_auto_tip">ابتدا باید فوکوس خودکار را روشن کنید</string>
     <string name="projector_auto_projector_tip">ابتدا باید نمایش خودکار را روشن کنید</string>
     <string name="projector_auto_projector_off_tip">ابتدا باید پروژکتور خودکار را خاموش کنید</string>
