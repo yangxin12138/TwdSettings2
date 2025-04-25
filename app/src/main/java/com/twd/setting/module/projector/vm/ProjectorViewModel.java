@@ -48,12 +48,21 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     private ItemLRTextIconData bootAutoFocusData;
     private ItemLRTextIconData autoOBSData;
     private ItemLRTextIconData autoFitScreenData;
+    private ItemLRTextIconData verticalProjectionData;
 
     //private int progress;
 
     public ProjectorViewModel(Application paramApplication) {
         super(paramApplication);
         initData(paramApplication);
+    }
+
+    public ItemLRTextIconData getVerticalProjectionData() {
+        return verticalProjectionData;
+    }
+
+    public void setVerticalProjectionData(ItemLRTextIconData verticalProjectionData) {
+        this.verticalProjectionData = verticalProjectionData;
     }
 
     public LiveData<Integer> getClickItem() {
@@ -129,7 +138,7 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         bootAutoFocusData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_boot_auto_focus_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
         autoOBSData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_obs_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
         autoFitScreenData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_fit_screen_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
-
+        verticalProjectionData = new ItemLRTextIconData(9,paramApplication.getString(R.string.projection_vertical_projection_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
     }
 
     @Override

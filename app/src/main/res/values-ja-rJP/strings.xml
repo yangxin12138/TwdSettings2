@@ -234,4 +234,5 @@
     <string name="size_adjustment_control_info">左右のキーでズームインおよびズームアウトします</string>
     <string name="network_available_title">利用可能なネットワーク</string>
     <string name="device_info_softwareDate">コンパイル時間</string>
+    <string name="projection_vertical_projection_title">垂直台形</string>
 </resources>

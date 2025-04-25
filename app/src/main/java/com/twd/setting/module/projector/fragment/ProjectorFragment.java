@@ -43,6 +43,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             gotoAutoOBS(binding.AutoOBSIclude.switchAuto.isChecked());
         } else if (item == R.id.AutoFitScreenIclude) {
             gotoAutoFitScreen(binding.AutoFitScreenIclude.switchAuto.isChecked());
+        }else if (item == R.id.VerticalProjectionInclude) {
+            gotoVerticalProjection(binding.VerticalProjectionInclude.switchAuto.isChecked());
         }
     }
 
@@ -123,6 +125,37 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         autoFocusUtils.setAutoComeAdmireEnable(newCheckedState);
     }
 
+    private void gotoVerticalProjection(boolean isChecked){
+        selectItem = 9;
+        if (isChecked){
+            if (binding.twoPointInclude.itemRL.isFocused()){
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
+            }else {
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
+            }
+            binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+            if (binding.fourPointInclude.itemRL.isFocused()){
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
+            }else {
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
+            }
+            binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+            binding.twoPointInclude.itemRL.setFocusable(true);
+            binding.fourPointInclude.itemRL.setFocusable(true);
+            binding.VerticalProjectionInclude.switchAuto.setChecked(false);
+            autoFocusUtils.setVerticalCorrectEnable(false);
+        }else {
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
+            binding.twoPointInclude.itemRL.setFocusable(false);
+            binding.fourPointInclude.itemRL.setFocusable(false);
+            binding.VerticalProjectionInclude.switchAuto.setChecked(true);
+            autoFocusUtils.setVerticalCorrectEnable(true);
+        }
+    }
+
     public static ProjectorFragment newInstance() {
         return new ProjectorFragment();
     }
@@ -137,6 +170,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).BootAutoFocusIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoOBSIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoFitScreenIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
+        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).VerticalProjectionInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
     }
 
     public int initLayout(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
@@ -173,9 +207,24 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.AutoOBSIclude.itemRL.requestFocus();
         } else if (selectItem == 8) {
             binding.AutoFitScreenIclude.itemRL.requestFocus();
+        }else if (selectItem == 9) {
+            binding.VerticalProjectionInclude.itemRL.requestFocus();
         }
 
         initAutoSwitch();
+        initVerticalProjection();
+        initSwitch();
+    }
+
+    private void initSwitch(){
+        String VERTICALORAUTO = SystemPropertiesUtils.readSystemProp("VERTICALORAUTO");
+        boolean verticalOrAuto = VERTICALORAUTO.equals("true");
+        binding.AutoProjectionInclude.itemRL.setVisibility(verticalOrAuto ? View.GONE : View.VISIBLE);
+        binding.AutoFocusInclude.itemRL.setVisibility(verticalOrAuto ? View.GONE : View.VISIBLE);
+        binding.BootAutoFocusIclude.itemRL.setVisibility(verticalOrAuto ? View.GONE : View.VISIBLE);
+        binding.AutoOBSIclude.itemRL.setVisibility(verticalOrAuto ? View.GONE : View.VISIBLE);
+        binding.AutoFitScreenIclude.itemRL.setVisibility(verticalOrAuto ? View.GONE : View.VISIBLE);
+        binding.VerticalProjectionInclude.itemRL.setVisibility(verticalOrAuto ? View.VISIBLE : View.GONE);
     }
 
     public void onViewCreated(View paramView, Bundle paramBundle) {
@@ -193,9 +242,15 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         });
         setClickListener();
         initAutoSwitch();
-
+        initVerticalProjection();
+        initSwitch();
     }
 
+    private void initVerticalProjection() {
+        boolean enableVertical = autoFocusUtils.getVerticalCorrectStatus();
+        binding.VerticalProjectionInclude.switchAuto.setChecked(enableVertical);
+        initCustomProjection(enableVertical);
+    }
     private void initAutoSwitch(){
         boolean isAutoProjection = autoFocusUtils.getTrapezoidCorrectStatus();
         Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);

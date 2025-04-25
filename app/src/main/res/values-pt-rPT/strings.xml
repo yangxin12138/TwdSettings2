@@ -235,4 +235,5 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="size_adjustment_control_info">Teclas esquerda e direita para aumentar e diminuir o zoom</string>
     <string name="network_available_title">Redes disponíveis</string>
     <string name="device_info_softwareDate">Tempo de compilação</string>
+    <string name="projection_vertical_projection_title">Trapézio Vertical</string>
 </resources>

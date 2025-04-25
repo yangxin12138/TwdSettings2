@@ -236,4 +236,5 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="size_adjustment_control_info">Touches gauche et droite pour zoomer et dézoomer</string>
     <string name="network_available_title">Réseaux disponibles</string>
     <string name="device_info_softwareDate">Temps de compilation</string>
+    <string name="projection_vertical_projection_title">Trapèze vertical</string>
 </resources>

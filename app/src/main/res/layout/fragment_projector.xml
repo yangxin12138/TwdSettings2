@@ -149,6 +149,18 @@
                     app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
                     app:layout_constraintRight_toRightOf="@id/guidelineRight"
                     app:layout_constraintTop_toBottomOf="@id/AutoOBSIclude" />
+
+                <include
+                    android:id="@+id/VerticalProjectionInclude"
+                    android:tag="9"
+                    layout="@layout/layout_item_projector"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+                    bind:itemData="@{viewModel.verticalProjectionData}"
+                    app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+                    app:layout_constraintRight_toRightOf="@id/guidelineRight"
+                    app:layout_constraintTop_toBottomOf="@id/AutoFitScreenIclude" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

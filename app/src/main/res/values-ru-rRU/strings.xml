@@ -234,4 +234,5 @@
     <string name="size_adjustment_control_info">Клавиши влево и вправо для увеличения и уменьшения масштаба</string>
     <string name="network_available_title">Доступные сети</string>
     <string name="device_info_softwareDate">Время компиляции</string>
+    <string name="projection_vertical_projection_title">Вертикальная трапеция</string>
 </resources>

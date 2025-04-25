@@ -1,5 +1,10 @@
 package com.twd.setting.utils;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 
 public class SystemPropertiesUtils {
@@ -48,5 +53,28 @@ public class SystemPropertiesUtils {
         }finally {
             return value;
         }
+    }
+
+    public static String readSystemProp(String search_line) {
+        String line = "";
+        try {
+            File file = new File("/system/etc/settings.ini");
+            FileInputStream fis = new FileInputStream(file);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            while ((line = reader.readLine()) != null) {
+                if (line.contains(search_line)) {
+                    // 这里可以进一步解析line来获取STORAGE_SIMPLE_SYSDATA的值
+                    String value = line.split("=")[1].trim(); // 获取等号后面的值
+                    reader.close();
+                    fis.close();
+                    return value;
+                }
+            }
+            reader.close();
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "false";
     }
 }

@@ -236,4 +236,5 @@
     <string name="size_adjustment_control_info">ज़ूम इन और ज़ूम आउट करने के लिए बाएँ और दाएँ कुंजियों का उपयोग करे</string>
     <string name="network_available_title">उपलब्ध नेटवर्क</string>
     <string name="device_info_softwareDate">संकलन समय</string>
+    <string name="projection_vertical_projection_title">ऊर्ध्वाधर समलम्ब चतुर्भुज</string>
 </resources>

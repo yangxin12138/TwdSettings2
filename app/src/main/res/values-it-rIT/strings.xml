@@ -236,4 +236,5 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="size_adjustment_control_info">Tasti sinistra e destra per ingrandire e rimpicciolire</string>
     <string name="network_available_title">Reti disponibili</string>
     <string name="device_info_softwareDate">Tempo di compilazione</string>
+    <string name="projection_vertical_projection_title">Trapezio verticale</string>
 </resources>
