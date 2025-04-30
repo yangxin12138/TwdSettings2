@@ -29,6 +29,7 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -148,13 +149,25 @@ public class BluetoothViewModel
             });
         }
     }
-
+    public List<CachedBluetoothDevice> filterList(List<CachedBluetoothDevice> originalList) {
+        List<CachedBluetoothDevice> filteredList = new ArrayList<>();
+        if (originalList != null) {
+            for (CachedBluetoothDevice device : originalList) {
+                if (device.getName() != null &&!device.getName().contains(":")) {
+                    Log.i("Doubao", "filterList: " + device.getName() + "," + device.getAddress());
+                    filteredList.add(device);
+                }
+            }
+        }
+        return filteredList;
+    }
     private void updateListView(final List<CachedBluetoothDevice> paramList) {
+		List<CachedBluetoothDevice> deviceList = filterList(paramList);
         if ((paramList != null) && (paramList.size() > 1)) {
             Observable.create(new ObservableOnSubscribe() {
                 @Override
                 public void subscribe(ObservableEmitter e) throws Exception {
-                    Iterator iterator = paramList.iterator();
+                    Iterator iterator = deviceList.iterator();
                     while (iterator.hasNext()) {
                         CachedBluetoothDevice device = (CachedBluetoothDevice) iterator.next();
                         if (device != null) {
@@ -162,7 +175,7 @@ public class BluetoothViewModel
                         }
                     }
                     try {
-                        Collections.sort(paramList, new Comparator() {
+                        Collections.sort(deviceList, new Comparator() {
                             @Override
                             public int compare(Object o, Object t1) {
                                 return Integer.compare(((CachedBluetoothDevice) t1).getSortValue(), ((CachedBluetoothDevice) o).getSortValue());
@@ -172,7 +185,7 @@ public class BluetoothViewModel
                         exception.printStackTrace();
                         Log.e("BluetoothViewModel", "排序出错", exception);
                     }
-                    _BluetoothItemListValue.postValue(paramList);
+                    _BluetoothItemListValue.postValue(deviceList);
                     e.onNext(Boolean.valueOf(true));
                     e.onComplete();
                 }
@@ -184,7 +197,7 @@ public class BluetoothViewModel
             });
             return;
         }
-        _BluetoothItemListValue.postValue(paramList);
+        _BluetoothItemListValue.postValue(deviceList);
     }
 
     public void connect(CachedBluetoothDevice device) {

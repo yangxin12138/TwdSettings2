@@ -111,10 +111,12 @@ public class BluetoothListAdapter
     }
 
     public void submitList(List<CachedBluetoothDevice> paramList) {
+        printDeviceInfo(paramList);
         super.submitList(addFirstBtn(paramList));
     }
 
     public void submitList(List<CachedBluetoothDevice> paramList, Runnable paramRunnable) {
+        printDeviceInfo(paramList);
         super.submitList(addFirstBtn(paramList), paramRunnable);
     }
 
@@ -127,5 +129,17 @@ public class BluetoothListAdapter
         }
         searchBtnItem.setNewStatus(i);
         notifyItemChanged(0);
+    }
+
+    private void printDeviceInfo(List<CachedBluetoothDevice> devices) {
+        if (devices != null) {
+            for (CachedBluetoothDevice device : devices) {
+                if (device.getDevice() != null) {
+                    String name = device.getName();
+                    String address = device.getDevice().getAddress();
+                    Log.d("Doubao", "Device Name: " + name + ", MAC Address: " + address);
+                }
+            }
+        }
     }
 }

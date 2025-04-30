@@ -207,7 +207,7 @@ public class BluetoothCallbackHelper {
                     sendData(nextDevice);
                     //if (SettingConfig.IS_DEBUG)
                     {
-                        Log.d(_TAG, "setBtScanResult DeviceFoundHandler 发现设备：name=" + nextDevice.getName() + " addr=" + nextDevice.getAddress() + " thread=" + Thread.currentThread());
+                        Log.d("Doubao", "setBtScanResult DeviceFoundHandler 发现设备：name=" + nextDevice.getName() + " addr=" + nextDevice.getAddress() + " thread=" + Thread.currentThread());
                     }
                     return;
                 }
