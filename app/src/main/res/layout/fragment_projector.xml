@@ -96,6 +96,16 @@
                     app:layout_constraintRight_toRightOf="@id/guidelineRight"
                     app:layout_constraintTop_toBottomOf="@id/sizeInclude" />
                 <include
+                    android:id="@+id/VerticalProjectionInclude"
+                    android:tag="9"
+                    layout="@layout/layout_item_projector"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    bind:itemData="@{viewModel.verticalProjectionData}"
+                    app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+                    app:layout_constraintRight_toRightOf="@id/guidelineRight"
+                    app:layout_constraintTop_toBottomOf="@id/projectionInclude" />
+                <include
                     android:id="@+id/AutoProjectionInclude"
                     android:tag="4"
                     layout="@layout/layout_item_projector"
@@ -104,7 +114,7 @@
                     bind:itemData="@{viewModel.autoProjectionData}"
                     app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
                     app:layout_constraintRight_toRightOf="@id/guidelineRight"
-                    app:layout_constraintTop_toBottomOf="@id/projectionInclude" />
+                    app:layout_constraintTop_toBottomOf="@id/VerticalProjectionInclude" />
                 <include
                     android:id="@+id/AutoFocusInclude"
                     android:tag="5"

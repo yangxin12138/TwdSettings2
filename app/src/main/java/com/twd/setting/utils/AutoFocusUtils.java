@@ -10,6 +10,28 @@ public class AutoFocusUtils {
     }
 
     /**
+     * 设置 垂直梯形 开启或者关闭
+     * 如使用康佳梯形矫正算法，此处无需填写
+     * @param enable：true代表需要开启自动梯形矫正   false代表需要关闭自动梯形矫正
+     */
+    public void setVerticalCorrectEnable(boolean enable){
+        if (enable) {
+            SystemPropertiesUtils.setProperty("persist.sys.keystone.autofocus", "1");
+        }else {
+            SystemPropertiesUtils.setProperty("persist.sys.keystone.autofocus", "0");
+        }
+    }
+
+    /**
+     * 获取 自动梯形矫正 开启或者关闭 的状态
+     * 如使用康佳梯形矫正算法，此处无需填写
+     * @return status: true代表当前开启了自动梯形矫正   false代表当前关闭了自动梯形矫正
+     */
+    public String getVerticalCorrectStatus(){
+        return SystemPropertiesUtils.getProperty("persist.sys.keystone.autofocus","-1");
+    }
+
+    /**
      * 设置 自动梯形矫正 开启或者关闭
      * 如使用康佳梯形矫正算法，此处无需填写
      * @param enable：true代表需要开启自动梯形矫正   false代表需要关闭自动梯形矫正
@@ -28,7 +50,7 @@ public class AutoFocusUtils {
      * @return status: true代表当前开启了自动梯形矫正   false代表当前关闭了自动梯形矫正
      */
     public String getTrapezoidCorrectStatus(){
-        return SystemPropertiesUtils.getProperty("persist.sys.trapezoid","0");
+        return SystemPropertiesUtils.getProperty("persist.sys.trapezoid","-1");
     }
 
     /**
@@ -49,7 +71,7 @@ public class AutoFocusUtils {
      * @return status: true代表当前开启了自动对焦   false代表当前关闭了自动对焦
      */
     public String getAutoFocusStatus(){
-        return SystemPropertiesUtils.getProperty("persist.sys.autofocus","0");
+        return SystemPropertiesUtils.getProperty("persist.sys.autofocus","-1");
     }
 
     /**
@@ -72,7 +94,7 @@ public class AutoFocusUtils {
      */
     public String getPowerOnAutoFocusStatus(){
         //return true;
-        return SystemPropertiesUtils.getProperty("persist.sys.poweronFocus", "0");
+        return SystemPropertiesUtils.getProperty("persist.sys.poweronFocus", "-1");
     }
 
     /**
@@ -94,7 +116,7 @@ public class AutoFocusUtils {
      * @return status: true代表当前开启了自动避障   false代表当前关闭了自动避障
      */
     public String getAutoObstacleAvoidanceStatus(){
-        return SystemPropertiesUtils.getProperty("persist.sys.AutoObstacle", "0");
+        return SystemPropertiesUtils.getProperty("persist.sys.AutoObstacle", "-1");
     }
 
     /**
@@ -116,6 +138,6 @@ public class AutoFocusUtils {
      * @return status: true代表当前开启了自动入慕   false代表当前关闭了自动入慕
      */
     public String getAutoComeAdmireStatus(){
-        return SystemPropertiesUtils.getProperty("persist.sys.AutoComeAdmire", "0");
+        return SystemPropertiesUtils.getProperty("persist.sys.AutoComeAdmire", "-1");
     }
 }

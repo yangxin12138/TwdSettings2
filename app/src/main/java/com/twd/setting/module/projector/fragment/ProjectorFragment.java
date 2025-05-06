@@ -22,7 +22,7 @@ import com.twd.setting.utils.UiUtils;
 
 public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBinding, ProjectorViewModel> implements View.OnFocusChangeListener {
     private static final String TAG = "ProjectorFragment";
-    private int selectItem = 4;
+    private int selectItem = 0;
     private AutoFocusUtils autoFocusUtils;
     private void clickItem(int item) {
         if(item == R.id.twoPointInclude){//1
@@ -43,6 +43,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             gotoAutoOBS(binding.AutoOBSIclude.switchAuto.isChecked());
         } else if (item == R.id.AutoFitScreenIclude) {
             gotoAutoFitScreen(binding.AutoFitScreenIclude.switchAuto.isChecked());
+        } else if (item == R.id.VerticalProjectionInclude) {
+            gotoVerticalProjection(binding.VerticalProjectionInclude.switchAuto.isChecked());
         }
     }
 
@@ -99,6 +101,32 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
 
     }
 
+    private void gotoVerticalProjection(boolean isChecked){
+        selectItem = 9;
+        if (isChecked){//原本是选中，自动模式，点击后变成手动模式
+            Log.i(TAG, "gotoVertical: 关闭switch,走手动模式");
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+            binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+            binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+            binding.twoPointInclude.itemRL.setFocusable(true);
+            binding.fourPointInclude.itemRL.setFocusable(true);
+            binding.VerticalProjectionInclude.switchAuto.setChecked(false);
+            autoFocusUtils.setVerticalCorrectEnable(false);
+        }else {//原本是未选中，手动模式，点击后变成自动模式
+            Log.i(TAG, "gotoVertical: 开启switch,走自动模式");
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
+            binding.twoPointInclude.itemRL.setFocusable(false);
+            binding.fourPointInclude.itemRL.setFocusable(false);
+            binding.VerticalProjectionInclude.switchAuto.setChecked(true);
+            autoFocusUtils.setVerticalCorrectEnable(true);
+        }
+
+    }
+
     private void gotoBootAutoFocus(boolean isChecked){
         selectItem = 6;
         boolean newCheckedState = !isChecked;
@@ -129,6 +157,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).fourPointInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).sizeInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).projectionInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
+        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).VerticalProjectionInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoProjectionInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoFocusInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).BootAutoFocusIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
@@ -152,8 +181,13 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     @Override
     public void onResume() {
         super.onResume();
+        initAutoMode();
         if(selectItem == 0){
-            binding.twoPointInclude.itemRL.requestFocus();
+            if(binding.twoPointInclude.contentTVLeft.getVisibility() == View.VISIBLE){
+                binding.twoPointInclude.itemRL.requestFocus();
+            }else {
+                binding.sizeInclude.itemRL.requestFocus();
+            }
         } else if (selectItem ==1) {
             binding.fourPointInclude.itemRL.requestFocus();
         } else if (selectItem ==2) {
@@ -170,8 +204,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.AutoOBSIclude.itemRL.requestFocus();
         } else if (selectItem == 8) {
             binding.AutoFitScreenIclude.itemRL.requestFocus();
+        } else if (selectItem == 9) {
+            binding.VerticalProjectionInclude.itemRL.requestFocus();
         }
-        initAutoMode();
     }
 
     public void onViewCreated(View paramView, Bundle paramBundle) {
@@ -192,19 +227,22 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     }
 
     private void initAutoMode(){
+        String isVerticalProjection = autoFocusUtils.getVerticalCorrectStatus();
         String isAutoProjection = autoFocusUtils.getTrapezoidCorrectStatus();
         String isAutoFocus = autoFocusUtils.getAutoFocusStatus();
         String isAutoBootFocus = autoFocusUtils.getPowerOnAutoFocusStatus();
         String isAutoOBS = autoFocusUtils.getAutoObstacleAvoidanceStatus();
         String isAutoFitScreen = autoFocusUtils.getAutoComeAdmireStatus();
-        iniCustomProjection(isAutoProjection.equals("1"));
+        iniCustomProjection(isAutoProjection.equals("1"),isVerticalProjection.equals("1"));
 
+        binding.VerticalProjectionInclude.switchAuto.setChecked(isVerticalProjection.equals("1"));
         binding.AutoProjectionInclude.switchAuto.setChecked(isAutoProjection.equals("1"));
         binding.AutoFocusInclude.switchAuto.setChecked(isAutoFocus.equals("1"));
         binding.BootAutoFocusIclude.switchAuto.setChecked(isAutoBootFocus.equals("1"));
         binding.AutoOBSIclude.switchAuto.setChecked(isAutoOBS.equals("1"));
         binding.AutoFitScreenIclude.switchAuto.setChecked(isAutoFitScreen.equals("1"));
 
+        binding.VerticalProjectionInclude.itemRL.setVisibility(isVerticalProjection.equals("-1") ? View.GONE : View.VISIBLE);
         binding.AutoProjectionInclude.itemRL.setVisibility(isAutoProjection.equals("-1") ? View.GONE : View.VISIBLE);
         binding.AutoFocusInclude.itemRL.setVisibility(isAutoFocus.equals("-1") ? View.GONE : View.VISIBLE);
         binding.BootAutoFocusIclude.itemRL.setVisibility(isAutoBootFocus.equals("-1") ? View.GONE : View.VISIBLE);
@@ -212,8 +250,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         binding.AutoFitScreenIclude.itemRL.setVisibility(isAutoFitScreen.equals("-1") ? View.GONE : View.VISIBLE);
     }
 
-    private void iniCustomProjection(boolean isAutoProjection){
-        if (isAutoProjection){
+    private void iniCustomProjection(boolean isAutoProjection,boolean isVerticalProjection){
+        if (isAutoProjection || isVerticalProjection){
             binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
             binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
             binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
