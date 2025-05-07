@@ -246,4 +246,5 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="wifi_no_passwd_info">Connectez-vous à ce réseau :</string>
     <string name="projector_auto_projection_title">Trapézoïde auto</string>
     <string name="projector_auto_focus_title">Focus automatique</string>
+    <string name="index_usb_listener">Périphérique de stockage externe détecté, souhaitez-vous ouvrir la gestion des fichiers ?</string>
 </resources>

@@ -245,4 +245,5 @@
     <string name="wifi_no_passwd_info">다음 네트워크에 연결하세요:</string>
     <string name="projector_auto_projection_title">자동 사다리꼴 교정</string>
     <string name="projector_auto_focus_title">자동 초점</string>
+    <string name="index_usb_listener">외부 저장 장치가 감지되었습니다. 파일 관리를 열겠습니까?</string>
 </resources>

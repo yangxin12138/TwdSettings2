@@ -244,4 +244,5 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="wifi_no_passwd_info">Stellen Sie eine Verbindung zu diesem Netzwerk her:</string>
     <string name="projector_auto_projection_title">Auto Trapez</string>
     <string name="projector_auto_focus_title">Autofokus</string>
+    <string name="index_usb_listener">Externes Speichergerät erkannt, möchten Sie die Dateiverwaltung öffnen?</string>
 </resources>

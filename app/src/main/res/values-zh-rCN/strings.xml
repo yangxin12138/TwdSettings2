@@ -495,4 +495,5 @@ Example: 24"</string>
     <string name="projector_auto_obs_title">自动避障</string>
     <string name="projector_auto_fit_screen_title">自动入幕</string>
     <string name="projector_auto_title">垂直梯形</string>
+    <string name="index_usb_listener">检测到外部存储设备，是否要打开文件管理？</string>
 </resources>

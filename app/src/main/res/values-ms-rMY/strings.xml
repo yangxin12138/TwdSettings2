@@ -237,4 +237,5 @@
     <string name="wifi_no_passwd_info">Sambungkan ke rangkaian ini:</string>
     <string name="projector_auto_projection_title">Pembetulan trapezoid automatik</string>
     <string name="projector_auto_focus_title">Autofocus</string>
+    <string name="index_usb_listener">Peranti storan luaran dikesan, adakah anda mahu membuka pengurusan fail?</string>
 </resources>

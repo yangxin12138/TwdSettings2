@@ -243,4 +243,5 @@
     <string name="wifi_no_passwd_info">Połącz się z tą siecią：</string>
     <string name="projector_auto_projection_title">Auto korekta trapezoidalna</string>
     <string name="projector_auto_focus_title">Autofokus</string>
+    <string name="index_usb_listener">Wykryto zewnętrzne urządzenie pamięci masowej. Czy chcesz otworzyć zarządzanie plikami?</string>
 </resources>

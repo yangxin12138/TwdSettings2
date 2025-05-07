@@ -237,4 +237,5 @@
     <string name="wifi_no_passwd_info">Povežite se na ovu mrežu:</string>
     <string name="projector_auto_projection_title">Auto -trapez</string>
     <string name="projector_auto_focus_title">Auto fokus</string>
+    <string name="index_usb_listener">Otkriven je vanjski uređaj za pohranu, želite li otvoriti upravljanje datotekama?</string>
 </resources>

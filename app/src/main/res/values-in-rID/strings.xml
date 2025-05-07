@@ -237,4 +237,5 @@
     <string name="wifi_no_passwd_info">Terhubung ke jaringan ini:</string>
     <string name="projector_auto_projection_title">Trapesium otomatis</string>
     <string name="projector_auto_focus_title">Fokus otomatis</string>
+    <string name="index_usb_listener">Perangkat penyimpanan eksternal terdeteksi, apakah Anda ingin membuka manajemen file?</string>
 </resources>

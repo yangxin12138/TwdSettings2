@@ -246,4 +246,5 @@
     <string name="wifi_no_passwd_info">इस नेटवर्क से जुड़ें:</string>
     <string name="projector_auto_projection_title">ऑटो ट्रेपेज़ॉइड</string>
     <string name="projector_auto_focus_title">ऑटो फोकस</string>
+    <string name="index_usb_listener">बाह्य संग्रहण डिवाइस का पता चला, क्या आप फ़ाइल प्रबंधन खोलना चाहते हैं?</string>
 </resources>

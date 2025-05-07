@@ -246,4 +246,5 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="wifi_no_passwd_info">Conéctese a esta red:</string>
     <string name="projector_auto_projection_title">Corrección trapezoidal automática</string>
     <string name="projector_auto_focus_title">Enfoque automático</string>
+    <string name="index_usb_listener">Dispositivo de almacenamiento externo detectado, ¿desea abrir la administración de archivos?</string>
 </resources>

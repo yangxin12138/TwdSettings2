@@ -237,4 +237,5 @@
     <string name="wifi_no_passwd_info">Koble til dette nettverket:</string>
     <string name="projector_auto_projection_title">Automatisk trapezoidal korreksjon</string>
     <string name="projector_auto_focus_title">Autofokus</string>
+    <string name="index_usb_listener">Ekstern lagringsenhet oppdaget. Vil du åpne filbehandlingen?</string>
 </resources>

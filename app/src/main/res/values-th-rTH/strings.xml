@@ -247,4 +247,5 @@
     <string name="wifi_no_passwd_info">เชื่อมต่อกับเครือข่ายนี้:</string>
     <string name="projector_auto_projection_title">สี่เหลี่ยมคางหมู</string>
     <string name="projector_auto_focus_title">ออโต้โฟกัส</string>
+    <string name="index_usb_listener">ตรวจพบอุปกรณ์จัดเก็บข้อมูลภายนอก คุณต้องการเปิดการจัดการไฟล์หรือไม่</string>
 </resources>

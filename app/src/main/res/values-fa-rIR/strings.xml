@@ -246,4 +246,5 @@
     <string name="wifi_no_passwd_info">اتصال به این شبکه:</string>
     <string name="projector_auto_projection_title">تصحیح ذوزنقه ای اتوماتیک</string>
     <string name="projector_auto_focus_title">فوکوس خودکار</string>
+    <string name="index_usb_listener">دستگاه ذخیره‌سازی خارجی شناسایی شد، آیا می‌خواهید مدیریت فایل را باز کنید؟</string>
 </resources>

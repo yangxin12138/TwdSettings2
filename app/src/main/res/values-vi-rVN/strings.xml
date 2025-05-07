@@ -242,4 +242,5 @@
     <string name="wifi_no_passwd_info">Kết nối với mạng này:</string>
     <string name="projector_auto_projection_title">Tự động hình thang</string>
     <string name="projector_auto_focus_title">Lấy nét tự động</string>
+    <string name="index_usb_listener">Đã phát hiện thiết bị lưu trữ ngoài, bạn có muốn mở quản lý tệp không?</string>
 </resources>

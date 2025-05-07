@@ -107,4 +107,5 @@
     <string name="wifi_no_passwd_info">Connect to this network:</string>
     <string name="projector_auto_projection_title">Auto Trapezoid</string>
     <string name="projector_auto_focus_title">Auto Focus</string>
+    <string name="index_usb_listener">Detected external storage device, do you want to open file management?</string>
 </resources>

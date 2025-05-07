@@ -244,4 +244,5 @@
     <string name="wifi_no_passwd_info">Подключитесь к этой сети:</string>
     <string name="projector_auto_projection_title">Автозоид</string>
     <string name="projector_auto_focus_title">Автофокус</string>
+    <string name="index_usb_listener">Обнаружено внешнее запоминающее устройство. Хотите открыть управление файлами?</string>
 </resources>

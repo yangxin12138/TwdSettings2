@@ -245,4 +245,5 @@
     <string name="wifi_no_passwd_info">連接到此網路：</string>
     <string name="projector_auto_projection_title">自動梯形矯正</string>
     <string name="projector_auto_focus_title">自動對焦</string>
+    <string name="index_usb_listener">檢測到外部儲存設備，是否要打開文件管理？</string>
 </resources>

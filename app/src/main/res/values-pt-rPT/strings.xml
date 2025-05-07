@@ -245,4 +245,5 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="wifi_no_passwd_info">Ligue-se a esta rede:</string>
     <string name="projector_auto_projection_title">Correção trapezoidal automática</string>
     <string name="projector_auto_focus_title">Foco automático</string>
+    <string name="index_usb_listener">Dispositivo de armazenamento externo detetado. Deseja abrir a gestão de ficheiros?</string>
 </resources>

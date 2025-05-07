@@ -237,4 +237,5 @@
     <string name="wifi_no_passwd_info">Kumonekta sa network na ito:</string>
     <string name="projector_auto_projection_title">Auto Trapezoid</string>
     <string name="projector_auto_focus_title">Auto Focus</string>
+    <string name="index_usb_listener">Natukoy ang panlabas na storage device, gusto mo bang buksan ang pamamahala ng file?</string>
 </resources>

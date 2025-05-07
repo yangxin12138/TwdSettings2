@@ -237,4 +237,5 @@
     <string name="wifi_no_passwd_info">Maak verbinding met dit netwerk:</string>
     <string name="projector_auto_projection_title">Automatische correctie</string>
     <string name="projector_auto_focus_title">Autofocus</string>
+    <string name="index_usb_listener">Er is een extern opslagapparaat gedetecteerd. Wilt u het bestandsbeheer openen?</string>
 </resources>

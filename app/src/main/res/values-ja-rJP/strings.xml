@@ -244,4 +244,5 @@
     <string name="wifi_no_passwd_info">このネットワークに接続します:</string>
     <string name="projector_auto_projection_title">自動台形補正</string>
     <string name="projector_auto_focus_title">オートフォーカス</string>
+    <string name="index_usb_listener">外部ストレージデバイスが検出されました。ファイル管理を開きますか?</string>
 </resources>

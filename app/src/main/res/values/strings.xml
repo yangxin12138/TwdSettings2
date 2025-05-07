@@ -495,4 +495,6 @@ Example: 24"</string>
     <string name="projector_auto_fit_screen_title">Auto Fit Screen</string>
     <string name="projector_auto_title">Vertical Keystone</string>
 
+    <string name="index_usb_listener">Detected external storage device, do you want to open file management?</string>
+
 </resources>

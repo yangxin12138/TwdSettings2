@@ -237,4 +237,5 @@
     <string name="wifi_no_passwd_info">Opret forbindelse til dette netværk:</string>
     <string name="projector_auto_projection_title">Automatisk trapezformet</string>
     <string name="projector_auto_focus_title">Autofokus</string>
+    <string name="index_usb_listener">Der er fundet en ekstern lagerenhed. Vil du åbne filhåndteringen?</string>
 </resources>

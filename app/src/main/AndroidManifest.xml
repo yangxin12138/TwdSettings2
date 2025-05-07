@@ -133,6 +133,13 @@
                 <action android:name="android.bluetooth.device.action.CONNECTION_STATE_CHANGED"/>
             </intent-filter>
         </receiver>
+        <receiver android:name=".UsbReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
