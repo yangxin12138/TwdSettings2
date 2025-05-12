@@ -51,6 +51,7 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.MASTER_CLEAR"
         tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.USB_PERMISSION" />
 
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -137,6 +138,9 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED"/>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+                <action android:name="android.hardware.usb.action.USB_DEVICE_DETACHED" />
                 <data android:scheme="file"/>
             </intent-filter>
         </receiver>
