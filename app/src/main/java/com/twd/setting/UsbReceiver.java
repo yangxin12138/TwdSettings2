@@ -8,6 +8,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.usb.UsbManager;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.WindowManager;
 
@@ -22,11 +24,21 @@ public class UsbReceiver extends BroadcastReceiver {
 
     private Context mContext;
     AlertDialog alertDialog = null;
+    private static Handler handler = new Handler(Looper.getMainLooper());
+    private static boolean isHandling = false;
+    private static final long DEBOUNCE_DELAY = 1000; // 防抖延迟时间（毫秒）
+
+
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         mContext = context;
         Log.i("settings-yangxin", "onReceive:action =  " + action);
+
+        if (isHandling) {
+            Log.i("settings-yangxin", "正在处理中，忽略新的广播");
+            return;
+        }
 
         if (action!= null && action.equals(Intent.ACTION_MEDIA_MOUNTED)){
             Log.i("settings-yangxin", "onReceive:usb u盘插入 ");
@@ -39,8 +51,24 @@ public class UsbReceiver extends BroadcastReceiver {
             assert mountPath != null;
             if (!mountPath.contains("/storage/emulated")) {
                 Log.i("settings-yangxin", "onReceive:usb 真实U盘插入 ");
-                // 显示对话框
-                showUsbDialog();
+                // 设置防抖标记
+                isHandling = true;
+
+                // 发送延迟消息
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            // 延迟结束后显示对话框
+                            Log.i("settings-yangxin", "防抖延迟结束，准备显示对话框");
+                            showUsbDialog();
+                        } finally {
+                            // 无论成功或失败，都重置处理状态
+                            isHandling = false;
+                            Log.i("settings-yangxin", "重置防抖状态");
+                        }
+                    }
+                }, DEBOUNCE_DELAY);
             } else {
                 Log.i("settings-yangxin", "onReceive: 非U盘挂载，可能是系统存储或SD卡");
             }
