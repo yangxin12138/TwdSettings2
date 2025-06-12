@@ -38,7 +38,7 @@
     <string name="str_bluetooth_toast_bond_failed">Urządzenie Bluetooth：%s Parowanie nie powiodło się</string>
     <string name="str_bluetooth_toast_connect_failed">Urządzenie Bluetooth：%s Awaria online</string>
     <string name="str_cancel">anuluj</string>
-    <string name="str_common">często</string>
+    <string name="str_common">Wspólny</string>
     <string name="str_timeanddate">Czas i data</string>
     <string name="str_common_equipment">Wspólne wyposażenie</string>
     <string name="str_common_settings">Ustawienia ogólne</string>
