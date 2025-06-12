@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ustawić</string>
+    <string name="app_name">Ustawienia</string>
     <string name="fragment_add_network">inne</string>
     <string name="fragment_title_ethernet_configs">Sieć przewodowa</string>
     <string name="fragment_title_net_speed_test">Pomiar prędkości sieci</string>
