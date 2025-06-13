@@ -60,7 +60,7 @@
     <string name="str_error_tip">操作に失敗しました！</string>
     <string name="str_ime">入力</string>
     <string name="str_net_dial_unit"> MB/s</string>
-    <string name="str_network">通信網</string>
+    <string name="str_network">インターネット</string>
     <string name="str_offline_update">オフラインアップグレード</string>
     <string name="str_offline_update_tip">USB フラッシュ ドライブにシステム アップグレード パッケージがあることが検出されました。アップグレードしますか?</string>
     <string name="str_online_update">オンラインアップグレード</string>
@@ -89,7 +89,7 @@
     <string name="str_storage_sys_used_prefix">システム：%s</string>
     <string name="str_storage_system">内蔵ストレージ</string>
     <string name="str_storage_vedio_prefix">ビデオ：%s</string>
-    <string name="str_system_equipment">システムと設備</string>
+    <string name="str_system_equipment">システムとデバイス</string>
     <string name="str_tip_get_log_path_error">ログパスの取得に失敗しました</string>
     <string name="str_tip_get_usb_error">Uディスクが読み込まれませんでした</string>
     <string name="str_unsupport_bluetooth_tip">現在のデバイスは Bluetooth 機能をサポートしていません！</string>
@@ -209,15 +209,15 @@
     <string name="inputMethod_value_Aosp">Androidキーボード</string>
     <!--Device-->
     <string name="device_index_title_tv">デバイスについて</string>
-    <string name="device_index_info_tv">地元の情報</string>
+    <string name="device_index_info_tv">デバイス情報</string>
     <string name="device_index_storage_tv">デバイスストレージ</string>
-    <string name="device_index_factory_tv">工場を復元する</string>
+    <string name="device_index_factory_tv">リセット</string>
     <string name="device_index_update_tv">システムアップデート</string>
     <string name="factory_dialog_title">工場出荷時の設定に復元すると、すべてのデータが消去され、再起動されます。</string>
-    <string name="device_info_deviceNo">デバイス番号</string>
-    <string name="device_info_androidVersion">Android版</string>
-    <string name="device_info_softwareVersion">ソフトウェア番号</string>
-    <string name="device_info_mac_wifi">MACアドレス（無線）</string>
+    <string name="device_info_deviceNo">デバイス型番</string>
+    <string name="device_info_androidVersion">Androidバージョン</string>
+    <string name="device_info_softwareVersion">ソフトウェアバージョン</string>
+    <string name="device_info_mac_wifi">MACアドレス（WIFI）</string>
     <string name="device_info_mac_bluetooth">MACアドレス（Bluetooth）</string>
     <string name="device_storage_title">ストレージの詳細</string>
     <string name="device_storage_internal">内蔵ストレージ</string>
@@ -227,10 +227,10 @@
     <string name="device_storage_app">アプリケーションデータ</string>
     <string name="device_storage_other">その他のデータ</string>
     <string name="projector_title">投影</string>
-    <string name="projector_two_point_title">2点台形補正</string>
+    <string name="projector_two_point_title">4辺台形補正</string>
     <string name="projector_four_point_title">4点台形補正</string>
     <string name="projector_size_title">サイズ調整</string>
-    <string name="projector_projection_title">投影法</string>
+    <string name="projector_projection_title">投影モード</string>
     <string name="projection_pos_pos">固定とフロント</string>
     <string name="projection_pos_neg">固定されて後ろに</string>
     <string name="projection_neg_pos">吊り下げと正面</string>
