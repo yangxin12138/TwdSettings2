@@ -248,6 +248,13 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         binding.BootAutoFocusIclude.itemRL.setVisibility(isAutoBootFocus.equals("-1") ? View.GONE : View.VISIBLE);
         binding.AutoOBSIclude.itemRL.setVisibility(isAutoOBS.equals("-1") ? View.GONE : View.VISIBLE);
         binding.AutoFitScreenIclude.itemRL.setVisibility(isAutoFitScreen.equals("-1") ? View.GONE : View.VISIBLE);
+
+        binding.projectionInclude.itemRL.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                binding.projectionInclude.rightTV.setSelected(hasFocus);
+            }
+        });
     }
 
     private void iniCustomProjection(boolean isAutoProjection,boolean isVerticalProjection){
