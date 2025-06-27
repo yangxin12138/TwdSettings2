@@ -29,6 +29,7 @@ import com.twd.setting.module.network.NetworkActivity;
 import com.twd.setting.module.projector.ProjectorActivity;
 import com.twd.setting.module.systemequipment.SysEquipmentActivity;
 import com.twd.setting.module.universal.UniversalActivity;
+import com.twd.setting.utils.TwdUtils;
 import com.twd.setting.utils.UiUtils;
 import com.twd.setting.utils.binding.ItemLRTextIconData;
 
@@ -37,6 +38,7 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
     private static String TAG = "MainFragment";
     private int iconWidth;
     private boolean initItemVisibleFinish;
+    TwdUtils twdUtils;
 
     private final View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener() {
         @Override
@@ -227,6 +229,8 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(getActivity());
         DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
         iconWidth = ((int) (dm.widthPixels * 0.219F));
     }
@@ -242,6 +246,7 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
     @Override
     public void onResume() {
         super.onResume();
+        twdUtils.hideSystemUI(getActivity());
         if (!initItemVisibleFinish) {
             setMainItemVisible(viewModel.getMainItemLayoutVisibleData());
         }

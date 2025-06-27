@@ -13,10 +13,12 @@ import com.twd.setting.R;
 import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentSizeBinding;
 import com.twd.setting.module.projector.vm.KeystoneViewModel;
+import com.twd.setting.utils.TwdUtils;
 
 public class SizeFragment extends BaseBindingVmFragment<FragmentSizeBinding, KeystoneViewModel> {
 
     private static final String TAG = "SizeFragment";
+    TwdUtils twdUtils;
     public static SizeFragment newInstance() {
         return new SizeFragment();
     }
@@ -34,6 +36,8 @@ public class SizeFragment extends BaseBindingVmFragment<FragmentSizeBinding, Key
 
     public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
         Log.d(TAG,"onCreateView");
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(getActivity());
         binding =  DataBindingUtil.inflate(paramLayoutInflater, R.layout.fragment_size, paramViewGroup, false);
         return binding.getRoot();
     }

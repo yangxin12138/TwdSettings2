@@ -14,6 +14,7 @@ import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentSinglePointBinding;
 import com.twd.setting.module.projector.vm.KeystoneViewModel;
 import com.twd.setting.utils.SystemPropertiesUtils;
+import com.twd.setting.utils.TwdUtils;
 
 public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePointBinding, KeystoneViewModel> {
     private static final String TAG = "SinglePointFragment";
@@ -24,7 +25,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
     public final int MODE_TWOPOINT = 0;
     public final int MODE_UNKOWN = -1;
     private String projectorMode;
-
+    TwdUtils twdUtils;
     public static SinglePointFragment newInstance() {
         return new SinglePointFragment();
     }
@@ -42,7 +43,8 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
     public void onViewCreated(View paramView, Bundle paramBundle) {
         super.onViewCreated(paramView, paramBundle);
         binding.setViewModel(viewModel);
-
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(getActivity());
         prefs = getActivity().getSharedPreferences("ty_keystone", Context.MODE_PRIVATE);
         int mode = prefs.getInt("mode",MODE_UNKOWN);
         Log.d("SinglePoint", "TrapezoidalSinglePointActivity mode: "+mode);

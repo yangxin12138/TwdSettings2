@@ -14,6 +14,7 @@ import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentProjectionBinding;
 import com.twd.setting.module.projector.vm.ProjectionViewModel;
 import com.twd.setting.utils.SystemPropertiesUtils;
+import com.twd.setting.utils.TwdUtils;
 import com.twd.setting.utils.UiUtils;
 
 import java.io.File;
@@ -30,7 +31,7 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
     private static final int VALUE_DRESSING_REAR = 2;
     private static final int VALUE_HOISTING_FRONT = 3;
     private static final int VALUE_HOISTING_REAR = 1;
-
+    TwdUtils twdUtils;
     private void clickItem(int item) {
         Log.d(TAG,"clickItem: "+item);
         if(item == R.id.posPosInclude){//1
@@ -157,7 +158,8 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
         super.onViewCreated(paramView, paramBundle);
         ((FragmentProjectionBinding) this.binding).setViewModel((ProjectionViewModel) this.viewModel);
         initTitle(paramView, R.string.projector_projection_title);
-
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(getActivity());
         ((FragmentProjectionBinding) this.binding).posPosInclude.itemRL.requestFocus();
 
         ((ProjectionViewModel) this.viewModel).getClickItem().observe(getViewLifecycleOwner(), new Observer() {

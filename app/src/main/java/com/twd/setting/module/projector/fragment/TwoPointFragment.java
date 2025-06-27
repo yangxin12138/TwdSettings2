@@ -14,6 +14,7 @@ import com.twd.setting.R;
 import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentTwoPointBinding;
 import com.twd.setting.module.projector.vm.KeystoneViewModel;
+import com.twd.setting.utils.TwdUtils;
 
 public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBinding, KeystoneViewModel> {
     private static final String TAG = "TwoPointFragment";
@@ -22,6 +23,7 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
     public final int MODE_ONEPOINT = 1;
     public final int MODE_TWOPOINT = 0;
     public final int MODE_UNKOWN = -1;
+    TwdUtils twdUtils;
 
     public static TwoPointFragment newInstance() {
         return new TwoPointFragment();
@@ -50,7 +52,8 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
     public void onViewCreated(View paramView, Bundle paramBundle) {
         super.onViewCreated(paramView, paramBundle);
         binding.setViewModel(viewModel);
-
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(getActivity());
         prefs = getActivity().getSharedPreferences("ty_keystone", Context.MODE_PRIVATE);
         int mode = prefs.getInt("mode",MODE_UNKOWN);
         Log.d("TwoPoint", "TrapezoidalActivity mode: "+mode);

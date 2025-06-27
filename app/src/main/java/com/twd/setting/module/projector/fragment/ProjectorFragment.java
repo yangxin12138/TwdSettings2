@@ -18,12 +18,14 @@ import com.twd.setting.module.projector.ProjectionActivity;
 import com.twd.setting.module.projector.vm.ProjectorViewModel;
 import com.twd.setting.utils.AutoFocusUtils;
 import com.twd.setting.utils.SystemPropertiesUtils;
+import com.twd.setting.utils.TwdUtils;
 import com.twd.setting.utils.UiUtils;
 
 public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBinding, ProjectorViewModel> implements View.OnFocusChangeListener {
     private static final String TAG = "ProjectorFragment";
     private int selectItem = 0;
     private AutoFocusUtils autoFocusUtils;
+    TwdUtils twdUtils;
     private void clickItem(int item) {
         if(item == R.id.twoPointInclude){//1
             gotoTwoPoint();
@@ -182,6 +184,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     public void onResume() {
         super.onResume();
         initAutoMode();
+        twdUtils.hideSystemUI(getActivity());
         if(selectItem == 0){
             if(binding.twoPointInclude.contentTVLeft.getVisibility() == View.VISIBLE){
                 binding.twoPointInclude.itemRL.requestFocus();
@@ -214,6 +217,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         ((FragmentProjectorBinding) this.binding).setViewModel((ProjectorViewModel) this.viewModel);
         initTitle(paramView, R.string.projector_title);
         autoFocusUtils = new AutoFocusUtils();
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(getActivity());
         ((FragmentProjectorBinding) this.binding).twoPointInclude.itemRL.requestFocus();
 
         ((ProjectorViewModel) this.viewModel).getClickItem().observe(getViewLifecycleOwner(), new Observer() {
