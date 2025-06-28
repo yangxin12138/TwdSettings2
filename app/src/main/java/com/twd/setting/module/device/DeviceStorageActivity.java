@@ -18,6 +18,7 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.twd.setting.R;
 import com.twd.setting.utils.SystemPropertiesUtils;
+import com.twd.setting.utils.TwdUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -43,6 +44,7 @@ public class DeviceStorageActivity extends AppCompatActivity {
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
     String theme_code = "0";
     TypedArray typedArray;
+    TwdUtils twdUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,8 @@ public class DeviceStorageActivity extends AppCompatActivity {
                 R.attr.textColor
         });
         super.onCreate(savedInstanceState);
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(this);
         setContentView(R.layout.activity_device_storage);
         initView();
     }

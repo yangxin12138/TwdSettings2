@@ -3,6 +3,7 @@ package com.twd.setting.module.universal;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -26,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.twd.setting.R;
 import com.twd.setting.utils.SystemPropertiesUtils;
+import com.twd.setting.utils.TwdUtils;
 
 import java.util.Locale;
 
@@ -50,6 +52,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
     String theme_code = "0";
     private int selectItem ;
     int connectMode = 1;
+    TwdUtils twdUtils;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         switch (theme_code){
@@ -65,11 +68,15 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_universal);
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        Log.i(TAG, "onResume: 重新见面了");
+        twdUtils.hideSystemUI(this);
         initView();
         if(selectItem == 0){
             LL_input.requestFocus();
@@ -336,11 +343,29 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
 
             }
         });
-
+        // 设置返回键监听
+        NameDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                // 拦截返回键事件
+                if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+                    // 执行与取消按钮相同的逻辑
+                    dialog.dismiss();
+                    Intent restartIntent = new Intent(getApplicationContext(), UniversalActivity.class);
+                    restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(restartIntent);
+                    return true; // 消费事件，不再传递
+                }
+                return false; // 继续传递其他按键事件
+            }
+        });
         cancelBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NameDialog.dismiss();
+                Intent restartIntent = new Intent(getApplicationContext(), UniversalActivity.class);
+                restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(restartIntent);
             }
         });
     }

@@ -26,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.twd.setting.R;
+import com.twd.setting.utils.TwdUtils;
 
 import java.lang.reflect.Method;
 import java.util.Iterator;
@@ -37,12 +38,13 @@ public class NoPasswordNetActivity extends AppCompatActivity implements View.OnC
     private TextView bt_connect;
     String ssid;
     private ProgressDialog progressDialog; // 进度条Dialog
-
+    TwdUtils twdUtils;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_password_net);
-
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(this);
         network_ssid = findViewById(R.id.tv_network_ssid);
         bt_connect = findViewById(R.id.btn_connect);
         ssid = getIntent().getStringExtra("net_ssid");
@@ -53,6 +55,12 @@ public class NoPasswordNetActivity extends AppCompatActivity implements View.OnC
         if (Objects.equals(ssid, getCurrentWifiSsid(wifiManager))) {
             showForgetDialog();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        twdUtils.hideSystemUI(this);
     }
 
     private void showForgetDialog() {

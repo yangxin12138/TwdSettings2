@@ -29,6 +29,7 @@ import androidx.core.content.ContextCompat;
 import com.twd.setting.R;
 import com.twd.setting.bean.InputItem;
 import com.twd.setting.utils.SystemPropertiesUtils;
+import com.twd.setting.utils.TwdUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ public class UniversalInputActivity extends AppCompatActivity implements Adapter
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
     String theme_code = "0";
     SharedPreferences inputPreferences;
+    TwdUtils twdUtils;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +61,8 @@ public class UniversalInputActivity extends AppCompatActivity implements Adapter
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_universal_input);
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(this);
         initView();
     }
 

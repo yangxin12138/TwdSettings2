@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.twd.setting.R;
 import com.twd.setting.bean.LanguageBean;
 import com.twd.setting.utils.SystemPropertiesUtils;
+import com.twd.setting.utils.TwdUtils;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -46,6 +47,7 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
     private final Context context = this;
 
     LanguageItemAdapter languageItemAdapter ;
+    TwdUtils twdUtils;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
     String theme_code = "0";
     @Override
@@ -63,6 +65,8 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_universal_language);
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(this);
         initView();
         Locale currentLocale = getResources().getConfiguration().locale;
         String currentLanguageCode = currentLocale.getLanguage()+"_"+currentLocale.getCountry();
@@ -283,6 +287,9 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
+                Intent restartIntent = new Intent(getApplicationContext(), UniversalLanguageActivity.class);
+                restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(restartIntent);
             }
         });
 
@@ -415,6 +422,12 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             }
             return itemView;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        twdUtils.hideSystemUI(this);
     }
 
     private void showToast(String text) {

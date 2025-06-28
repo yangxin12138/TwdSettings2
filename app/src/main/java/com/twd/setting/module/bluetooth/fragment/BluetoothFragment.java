@@ -27,6 +27,7 @@ import com.twd.setting.module.bluetooth.vm.BluetoothViewModel;
 import com.twd.setting.utils.BluetoothUtils;
 //import com.twd.setting.utils.HLog;
 //import com.twd.setting.utils.KkDataUtils;
+import com.twd.setting.utils.TwdUtils;
 import com.twd.setting.utils.UiUtils;
 import com.twd.setting.widgets.CustomDialog;
 import com.twd.setting.widgets.DialogTools;
@@ -40,6 +41,7 @@ public class BluetoothFragment
     private static final String TAG = "BluetoothFragment";
     private BluetoothListAdapter adapter;
     private boolean isShowRemoteControlFragment = false;
+    TwdUtils twdUtils;
 
     private void bondedDeviceDialog(final CachedBluetoothDevice device) {
         DialogTools.Instance().getDialogForCustomView(mActivity, device.getName(), getString(R.string.str_bluetooth_dialog_bonded_msg),
@@ -266,6 +268,8 @@ public class BluetoothFragment
 
     public void onViewCreated(View paramView, Bundle paramBundle) {
         super.onViewCreated(paramView, paramBundle);
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(getActivity());
         binding.setViewModel(viewModel);
         initTitle(paramView, R.string.str_bluetooth);
         if (adapter == null) {
@@ -312,5 +316,9 @@ public class BluetoothFragment
         }
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        twdUtils.hideSystemUI(getActivity());
+    }
 }

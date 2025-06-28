@@ -44,7 +44,8 @@
                 android:imeOptions="actionDone"
                 android:inputType="textImeMultiLine"
                 android:paddingStart="@dimen/enterpassword_edit_text_padding"
-                android:paddingEnd="@dimen/enterpassword_edit_text_padding" />
+                android:paddingEnd="@dimen/enterpassword_edit_text_padding"
+                android:focusableInTouchMode="false"/>
 
             <TextView
                 android:id="@+id/tv_tip_pwd_num"

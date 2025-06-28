@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.twd.setting.R;
 import com.twd.setting.utils.SystemPropertiesUtils;
+import com.twd.setting.utils.TwdUtils;
 
 public class DeviceActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,6 +39,7 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
     private Context context;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
     String theme_code = "0";
+    TwdUtils twdUtils;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         switch (theme_code){
@@ -54,12 +56,15 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device);
         context = this;
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         initView();
+        twdUtils.hideSystemUI(this);
     }
 
     private void initView(){

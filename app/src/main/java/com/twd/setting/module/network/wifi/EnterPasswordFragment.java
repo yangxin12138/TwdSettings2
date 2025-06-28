@@ -52,6 +52,7 @@ import com.twd.setting.module.network.NetworkConstant;
 import com.twd.setting.module.network.setup.UserChoiceInfo;
 import com.twd.setting.module.network.util.StateMachine;
 import com.twd.setting.utils.HLog;
+import com.twd.setting.utils.TwdUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -70,6 +71,7 @@ public class EnterPasswordFragment
     private Context mContext;
     private SharedPreferences wifiInfoPreferences;
     private int connectMode = 1;
+    TwdUtils twdUtils;
 
     public static EnterPasswordFragment newInstance() {
         return new EnterPasswordFragment();
@@ -158,6 +160,8 @@ public class EnterPasswordFragment
     public void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         Log.d(TAG,"onCreate");
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(requireActivity());
         mUserChoiceInfo = ((UserChoiceInfo) new ViewModelProvider(requireActivity()).get(UserChoiceInfo.class));
         mStateMachine = ((StateMachine) new ViewModelProvider(requireActivity()).get(StateMachine.class));
         wifiInfoPreferences = requireContext().getSharedPreferences("wifi_info",Context.MODE_PRIVATE);
@@ -172,6 +176,12 @@ public class EnterPasswordFragment
     public void onAttach(Context context) {
         super.onAttach(context);
         mContext = context;
+    }
+
+    @Override
+    public void onResume() {
+        twdUtils.hideSystemUI(requireActivity());
+        super.onResume();
     }
 
     public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {

@@ -48,6 +48,7 @@ import com.twd.setting.module.network.wifi.WifiConnectionActivity;
 import com.twd.setting.module.network.wifi.WifiListFragment;
 import com.twd.setting.module.network.wifi.WifiListRvAdapter;
 import com.twd.setting.utils.KkUtils;
+import com.twd.setting.utils.TwdUtils;
 import com.twd.setting.utils.UiUtils;
 import com.twd.setting.widgets.DialogTools;
 import com.twd.setting.widgets.MarginTopItemDecoration;
@@ -65,7 +66,7 @@ public class NetworkFragment
     private final String TAG = "NetworkFragment";
     private FragmentNetworkBinding binding;
     private ConnectivityListener mConnectivityListener;
-
+    TwdUtils twdUtils;
     public static String selectedBSSID;
     public static String selectedSSID;
     private WifiManager wifiManager;
@@ -176,6 +177,8 @@ public class NetworkFragment
     public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
         binding = (FragmentNetworkBinding) DataBindingUtil.inflate(paramLayoutInflater, R.layout.fragment_network, paramViewGroup, false);
         initWifiList();
+        twdUtils = new TwdUtils();
+        twdUtils.hideSystemUI(getActivity());
         return binding.getRoot();
     }
 
@@ -203,6 +206,7 @@ public class NetworkFragment
     }
     public void onResume() {
         super.onResume();
+        twdUtils.hideSystemUI(getActivity());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
         requireContext().registerReceiver(wifiReceiver, intentFilter);
