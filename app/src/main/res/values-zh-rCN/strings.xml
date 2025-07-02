@@ -475,6 +475,7 @@ Example: 24"</string>
     <!--new-->
     <string name="projector_title">投影设置</string>
     <string name="projector_two_point_title">两点梯形校正</string>
+    <string name="projector_brightness_title">亮度设置</string>
     <string name="projector_four_point_title">四点梯形校正</string>
     <string name="projector_size_title">尺寸调节</string>
     <string name="projector_projection_title">投影方式</string>
@@ -487,6 +488,9 @@ Example: 24"</string>
     <string name="projection_pos_neg">正装背投</string>
     <string name="projection_neg_pos">吊装正投</string>
     <string name="projection_neg_neg">吊装背投</string>
+    <string name="brightness_standard_title">标准模式</string>
+    <string name="brightness_Highlight_title">高亮模式</string>
+    <string name="brightness_energy_title">节能模式</string>
     <string name="size_adjustment_control_info">左右键缩放尺寸</string>
     <string name="network_available_title">可用网络</string>
     <string name="device_info_softwareDate">系统编译时间</string>

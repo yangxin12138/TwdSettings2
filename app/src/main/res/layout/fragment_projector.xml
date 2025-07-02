@@ -53,15 +53,27 @@
                     android:id="@+id/guidelineRight"
                     style="@style/GuidelineRightStyle" />
                 <include
+                    android:id="@+id/brightnessInclude"
+                    android:tag="9"
+                    layout="@layout/layout_item_projector"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    bind:itemData="@{viewModel.brightnessData}"
+                    app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+                    app:layout_constraintRight_toRightOf="@id/guidelineRight"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
                     android:id="@+id/twoPointInclude"
                     android:tag="0"
                     layout="@layout/layout_item_projector"
                     android:layout_width="0.0dip"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_ime_bar_margin_t"
                     bind:itemData="@{viewModel.twoPointData}"
                     app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
                     app:layout_constraintRight_toRightOf="@id/guidelineRight"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/brightnessInclude" />
 
                 <include
                     android:id="@+id/fourPointInclude"

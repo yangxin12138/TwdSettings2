@@ -224,6 +224,7 @@
     <string name="device_storage_other">その他のデータ</string>
     <string name="projector_title">投影</string>
     <string name="projector_two_point_title">2点台形補正</string>
+    <string name="projector_brightness_title">輝度</string>
     <string name="projector_four_point_title">4点台形補正</string>
     <string name="projector_size_title">サイズ調整</string>
     <string name="projector_projection_title">投影法</string>
@@ -231,6 +232,9 @@
     <string name="projection_pos_neg">固定されて後ろに</string>
     <string name="projection_neg_pos">吊り下げと正面</string>
     <string name="projection_neg_neg">ぶら下がって後ろに</string>
+    <string name="brightness_standard_title">標準モード</string>
+    <string name="brightness_Highlight_title">ハイライトモード</string>
+    <string name="brightness_energy_title">省エネモード</string>
     <string name="size_adjustment_control_info">左右のキーでズームインおよびズームアウトします</string>
     <string name="network_available_title">利用可能なネットワーク</string>
     <string name="device_info_softwareDate">コンパイル時間</string>

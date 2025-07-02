@@ -226,6 +226,7 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <!--new-->
     <string name="projector_title">Impostazioni di proiezione</string>
     <string name="projector_two_point_title">Correzione trapezoidale a due punti</string>
+    <string name="projector_brightness_title">Luminosità</string>
     <string name="projector_four_point_title">Correzione trapezoidale a quattro punti</string>
     <string name="projector_size_title">Regolazione della taglia</string>
     <string name="projector_projection_title">Metodo di proiezione</string>
@@ -233,6 +234,9 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="projection_pos_neg">Proiezione posteriore montata frontalmente</string>
     <string name="projection_neg_pos">Installazione a soffitto con proiezione frontale</string>
     <string name="projection_neg_neg">Retroproiezione per installazione a soffitto</string>
+    <string name="brightness_standard_title">Modalità standard</string>
+    <string name="brightness_Highlight_title">Modalità di evidenziazione</string>
+    <string name="brightness_energy_title">Modalità di risparmio energetico</string>
     <string name="size_adjustment_control_info">Tasti sinistra e destra per ingrandire e rimpicciolire</string>
     <string name="network_available_title">Reti disponibili</string>
     <string name="device_info_softwareDate">Tempo di compilazione</string>

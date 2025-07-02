@@ -224,6 +224,7 @@
     <!--new-->
     <string name="projector_title">Настройки проекции</string>
     <string name="projector_two_point_title">двойные точки коррекция трапецеидального</string>
+    <string name="projector_brightness_title">Яркость</string>
     <string name="projector_four_point_title">одна точка коррекция трапецеидального</string>
     <string name="projector_size_title">Регулировка размера</string>
     <string name="projector_projection_title">Метод проекции</string>
@@ -231,6 +232,9 @@
     <string name="projection_pos_neg">Фронтальная установка, задняя проекция</string>
     <string name="projection_neg_pos">Подвесной монтаж, фронтальная проекция</string>
     <string name="projection_neg_neg">Потолочный монтаж, обратная проекция</string>
+    <string name="brightness_standard_title">Стандартный режим</string>
+    <string name="brightness_Highlight_title">Режим выделения</string>
+    <string name="brightness_energy_title">Режим энергосбережения</string>
     <string name="size_adjustment_control_info">Клавиши влево и вправо для увеличения и уменьшения масштаба</string>
     <string name="network_available_title">Доступные сети</string>
     <string name="device_info_softwareDate">Время компиляции</string>

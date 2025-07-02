@@ -225,6 +225,7 @@
     <!--new-->
     <string name="projector_title">投影設置</string>
     <string name="projector_two_point_title">兩點梯形校正</string>
+    <string name="projector_brightness_title">亮度設定</string>
     <string name="projector_four_point_title">四點梯形校正</string>
     <string name="projector_size_title">尺寸調節</string>
     <string name="projector_projection_title">投影方式</string>
@@ -232,6 +233,9 @@
     <string name="projection_pos_neg">正裝背投</string>
     <string name="projection_neg_pos">吊裝正投</string>
     <string name="projection_neg_neg">吊裝背投</string>
+    <string name="brightness_standard_title">標準模式</string>
+    <string name="brightness_Highlight_title">高亮模式</string>
+    <string name="brightness_energy_title">節能模式</string>
     <string name="size_adjustment_control_info">左右鍵縮放尺寸</string>
     <string name="network_available_title">可用網路</string>
     <string name="device_info_softwareDate">編譯時間</string>

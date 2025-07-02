@@ -226,6 +226,7 @@
     <!--new-->
     <string name="projector_title">प्रोजेक्शन विन्यास</string>
     <string name="projector_two_point_title">दो-बिंदु कीस्टोन सुधार</string>
+    <string name="projector_brightness_title">चमक</string>
     <string name="projector_four_point_title">चार-बिंदु कीस्टोन सुधार</string>
     <string name="projector_size_title">आकार समायोजन</string>
     <string name="projector_projection_title">्रोजेक्शन विधि</string>
@@ -233,6 +234,9 @@
     <string name="projection_pos_neg">सामने की स्थापना पीछे का प्रक्षेपण</string>
     <string name="projection_neg_pos">पीछे का प्रक्षेपण सामने का प्रक्षेपण</string>
     <string name="projection_neg_neg">पीछे का प्रक्षेपण पीछे का प्रक्षेपण</string>
+    <string name="brightness_standard_title">मानक मोड</string>
+    <string name="brightness_Highlight_title">हाइलाइट मोड</string>
+    <string name="brightness_energy_title">ऊर्जा बचत मोड</string>
     <string name="size_adjustment_control_info">ज़ूम इन और ज़ूम आउट करने के लिए बाएँ और दाएँ कुंजियों का उपयोग करे</string>
     <string name="network_available_title">उपलब्ध नेटवर्क</string>
     <string name="device_info_softwareDate">संकलन समय</string>

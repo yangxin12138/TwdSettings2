@@ -226,6 +226,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <!--new-->
     <string name="projector_title">Configuración de proyección</string>
     <string name="projector_two_point_title">Corrección trapezoidal de dos puntos</string>
+    <string name="projector_brightness_title">Brillo</string>
     <string name="projector_four_point_title">Corrección trapezoidal de cuatro puntos</string>
     <string name="projector_size_title">Ajuste de tamaño</string>
     <string name="projector_projection_title">Método de proyección</string>
@@ -233,6 +234,9 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="projection_pos_neg">Instalación frontal proyección trasera</string>
     <string name="projection_neg_pos">Instalación colgante, proyección frontal</string>
     <string name="projection_neg_neg">Instalación colgante, proyección trasera</string>
+    <string name="brightness_standard_title">Modo estándar</string>
+    <string name="brightness_Highlight_title">Modo resaltado</string>
+    <string name="brightness_energy_title">Modo de ahorro de energía</string>
     <string name="size_adjustment_control_info">Teclas izquierda y derecha para acercar y alejar</string>
     <string name="network_available_title">Redes disponibles</string>
     <string name="device_info_softwareDate">Tiempo de compilación</string>

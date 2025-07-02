@@ -226,6 +226,7 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <!--new-->
     <string name="projector_title">Projeksiyon ayarları</string>
     <string name="projector_two_point_title">İki noktalı trapezoid düzeltme</string>
+    <string name="projector_brightness_title">Parlaklık</string>
     <string name="projector_four_point_title">Dört noktalı kilit taşı düzeltmesi</string>
     <string name="projector_size_title">Boyut ayarı</string>
     <string name="projector_projection_title">Projeksiyon yöntemi</string>
@@ -233,6 +234,9 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="projection_pos_neg">İleri kurulum, ters projeksiyon</string>
     <string name="projection_neg_pos">Tavan montajı, ileri projeksiyon</string>
     <string name="projection_neg_neg">Tavan montajı, ters projeksiyon</string>
+    <string name="brightness_standard_title">Standart Mod</string>
+    <string name="brightness_Highlight_title">Vurgu Modu</string>
+    <string name="brightness_energy_title">Enerji Tasarrufu Modu</string>
     <string name="size_adjustment_control_info">Yakınlaştırmak ve uzaklaştırmak için sol ve sağ tuşlar</string>
     <string name="network_available_title">Mevcut ağlar</string>
     <string name="device_info_softwareDate">Derleme zamanı</string>

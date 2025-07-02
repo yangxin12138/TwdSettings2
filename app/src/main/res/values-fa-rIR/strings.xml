@@ -226,6 +226,7 @@
     <!--new-->
     <string name="projector_title">تنظیمات صفحه نمایش</string>
     <string name="projector_two_point_title">تصحیح کیستون دو نقطه ای</string>
+    <string name="projector_brightness_title">روشنایی</string>
     <string name="projector_four_point_title">تصحیح کیستون چهار نقطه ای</string>
     <string name="projector_size_title">اندازه صفحه نمایش</string>
     <string name="projector_projection_title">روش فرافکنی</string>
@@ -233,6 +234,9 @@
     <string name="projection_pos_neg">نصب در جلو، پخش عقب</string>
     <string name="projection_neg_pos">نصب آویز، پخش از جلو</string>
     <string name="projection_neg_neg">نصب آویز، پخش از پشت</string>
+    <string name="brightness_standard_title">حالت استاندارد</string>
+    <string name="brightness_Highlight_title">حالت برجسته‌سازی</string>
+    <string name="brightness_energy_title">حالت ذخیره انرژی</string>
     <string name="size_adjustment_control_info">کلیدهای چپ و راست برای بزرگنمایی و بزرگنمایی</string>
     <string name="network_available_title">شبکه های موجود</string>
     <string name="device_info_softwareDate">زمان کامپایل</string>

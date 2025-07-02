@@ -26,7 +26,7 @@ import com.twd.setting.utils.UiUtils;
 
 public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBinding, ProjectorViewModel> implements View.OnFocusChangeListener {
     private static final String TAG = "ProjectorFragment";
-    private int selectItem = 0;
+    private int selectItem = 9;
     private AutoFocusUtils autoFocusUtils;
     private Context context;
     private static final String PREF_NAME = "MyAppPreferences";
@@ -70,9 +70,15 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
                 ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
             }
 
+        } else if (item == R.id.brightnessInclude) {
+            gotoBrightness();
         }
     }
 
+    private void gotoBrightness(){
+        selectItem = 9;
+        UiUtils.replaceFragmentHadBackStack(getParentFragmentManager(), 16908290, BrightnessFragment.newInstance(), "ProjectorFragment");
+    }
     private boolean isAutoFocusOpen(){
         return binding.AutoFocusInclude.switchAuto.isChecked();
     }
@@ -171,6 +177,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     }
 
     private void setClickListener() {
+        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).brightnessInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).twoPointInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).fourPointInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).sizeInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
@@ -216,6 +223,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.AutoOBSIclude.itemRL.requestFocus();
         } else if (selectItem == 8) {
             binding.AutoFitScreenIclude.itemRL.requestFocus();
+        } else if (selectItem == 9) {
+            binding.brightnessInclude.itemRL.requestFocus();
         }
 
         initAutoSwitch();
@@ -227,7 +236,6 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         initTitle(paramView, R.string.projector_title);
         context = requireContext();
         autoFocusUtils = new AutoFocusUtils();
-        ((FragmentProjectorBinding) this.binding).twoPointInclude.itemRL.requestFocus();
 
         ((ProjectorViewModel) this.viewModel).getClickItem().observe(getViewLifecycleOwner(), new Observer() {
             @Override

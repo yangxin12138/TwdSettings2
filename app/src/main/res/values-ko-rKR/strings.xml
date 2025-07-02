@@ -225,6 +225,7 @@
     <!--new-->
     <string name="projector_title">투사</string>
     <string name="projector_two_point_title">2점 키스톤 보정</string>
+    <string name="projector_brightness_title">명도</string>
     <string name="projector_four_point_title">4포인트 키스톤 보정</string>
     <string name="projector_size_title">크기</string>
     <string name="projector_projection_title">프로젝션 방식</string>
@@ -232,6 +233,9 @@
     <string name="projection_pos_neg">전면 장착 후면 투사</string>
     <string name="projection_neg_pos">천장 설치 전면 투사</string>
     <string name="projection_neg_neg">천장 설치 후면 투사</string>
+    <string name="brightness_standard_title">표준 모드</string>
+    <string name="brightness_Highlight_title">하이라이트 모드</string>
+    <string name="brightness_energy_title">에너지 절약 모드</string>
     <string name="size_adjustment_control_info">확대 및 축소하는 왼쪽 및 오른쪽 키</string>
     <string name="network_available_title">사용 가능한 네트워크</string>
     <string name="device_info_softwareDate">컴파일 시간</string>

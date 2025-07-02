@@ -223,6 +223,7 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="device_storage_other">Andere Daten</string>
     <string name="projector_title">Projektionseinstellungen</string>
     <string name="projector_two_point_title">Zwei-Punkt-Trapezkorrektur</string>
+    <string name="projector_brightness_title">Helligkeit</string>
     <string name="projector_four_point_title">Vier-Punkt-Trapezkorrektur</string>
     <string name="projector_size_title">Größenanpassung</string>
     <string name="projector_projection_title">Projektionsmethode</string>
@@ -230,6 +231,9 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="projection_pos_neg">Fronteinbau-Rückprojektion</string>
     <string name="projection_neg_pos">Deckeneinbau-Frontprojektion</string>
     <string name="projection_neg_neg">Deckeneinbau-Rückprojektion</string>
+    <string name="brightness_standard_title">Standardmodus</string>
+    <string name="brightness_Highlight_title">Highlight-Modus</string>
+    <string name="brightness_energy_title">Energiesparmodus</string>
     <string name="size_adjustment_control_info">Linke und rechte Taste zum Vergrößern und Verkleinern</string>
     <string name="network_available_title">Netzwerk verfügbar</string>
     <string name="device_info_softwareDate">Kompilierungszeit</string>

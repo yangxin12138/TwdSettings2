@@ -475,6 +475,7 @@ Example: 24"</string>
     <!--new-->
     <string name="projector_title">Projection Settings</string>
     <string name="projector_two_point_title">U/D-L/R Trapezoidal Correction</string>
+    <string name="projector_brightness_title">Brightness</string>
     <string name="projector_four_point_title">Custom Trapezoidal Correction</string>
     <string name="projector_size_title">Size　Adjustment</string>
     <string name="projector_projection_title">Projection Mode</string>
@@ -487,6 +488,9 @@ Example: 24"</string>
     <string name="projection_pos_neg">Fixed and Back Projection</string>
     <string name="projection_neg_pos">Hanging and Front</string>
     <string name="projection_neg_neg">Hanging and Back</string>
+    <string name="brightness_standard_title">Standard Mode</string>
+    <string name="brightness_Highlight_title">Highlight Mode</string>
+    <string name="brightness_energy_title">EnergySave Mode</string>
     <string name="size_adjustment_control_info">Left and right keys to zoom in size</string>
     <string name="network_available_title">Available Networks</string>
     <string name="wifi_no_passwd_info">Connect to this network:</string>

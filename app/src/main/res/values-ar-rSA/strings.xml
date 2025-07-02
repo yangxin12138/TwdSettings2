@@ -224,6 +224,7 @@
     <!--new-->
     <string name="projector_title">إعدادات الإسقاط</string>
     <string name="projector_two_point_title">تصحيح الانحراف من نقطتين</string>
+    <string name="projector_brightness_title">سطوع</string>
     <string name="projector_four_point_title">تصحيح الانحراف من أربع نقاط</string>
     <string name="projector_size_title">تعديل الحجم</string>
     <string name="projector_projection_title">طريقة الإسقاط</string>
@@ -231,6 +232,9 @@
     <string name="projection_pos_neg">التثبيت الأمامي، الإسقاط الخلفي</string>
     <string name="projection_neg_pos">تركيب معلق، إسقاط أمامي</string>
     <string name="projection_neg_neg">تركيب السقف، الإسقاط الخلفي</string>
+    <string name="brightness_standard_title">الوضع القياسي</string>
+    <string name="brightness_Highlight_title">وضع التمييز</string>
+    <string name="brightness_energy_title">وضع توفير الطاقة</string>
     <string name="size_adjustment_control_info">مفاتيح اليسار واليمين للتكبير والتصغير</string>
     <string name="network_available_title">الشبكات المتاحة</string>
     <string name="device_info_softwareDate">وقت التجميع</string>

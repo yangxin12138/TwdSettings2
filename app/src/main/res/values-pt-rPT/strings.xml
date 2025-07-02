@@ -225,6 +225,7 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <!--new-->
     <string name="projector_title">Configurações de projeção</string>
     <string name="projector_two_point_title">Correção keystone de dois pontos</string>
+    <string name="projector_brightness_title">Brilho</string>
     <string name="projector_four_point_title">Correção keystone de quatro pontos</string>
     <string name="projector_size_title">Ajuste de tamanho</string>
     <string name="projector_projection_title">Método de projeção</string>
@@ -232,6 +233,9 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="projection_pos_neg">Instalação frontal, projeção traseira</string>
     <string name="projection_neg_pos">Instalação no teto, projeção frontal</string>
     <string name="projection_neg_neg">Instalação no teto, projeção traseira</string>
+    <string name="brightness_standard_title">Modo Padrão</string>
+    <string name="brightness_Highlight_title">Modo de destaque</string>
+    <string name="brightness_energy_title">Modo de energia</string>
     <string name="size_adjustment_control_info">Teclas esquerda e direita para aumentar e diminuir o zoom</string>
     <string name="network_available_title">Redes disponíveis</string>
     <string name="device_info_softwareDate">Tempo de compilação</string>

@@ -227,6 +227,7 @@
     <!--new-->
     <string name="projector_title">การตั้งค่าการฉายภาพ</string>
     <string name="projector_two_point_title">การแก้ไขคีย์สโตนสองจุด</string>
+    <string name="projector_brightness_title">ความสว่าง</string>
     <string name="projector_four_point_title">การแก้ไขคีย์สโตนสี่จุด</string>
     <string name="projector_size_title">การปรับขนาด</string>
     <string name="projector_projection_title">วิธีการฉายภาพ</string>
@@ -234,6 +235,9 @@
     <string name="projection_pos_neg">การฉายภาพด้านหลังแบบติดตั้งด้านหน้า</string>
     <string name="projection_neg_pos">การฉายภาพด้านหน้าการติดตั้งฝ้าเพดาน</string>
     <string name="projection_neg_neg">การฉายภาพด้านหลังการติดตั้งฝ้าเพดาน</string>
+    <string name="brightness_standard_title">โหมดมาตรฐาน</string>
+    <string name="brightness_Highlight_title">โหมดไฮไลท์</string>
+    <string name="brightness_energy_title">โหมดประหยัดพลังงาน</string>
     <string name="size_adjustment_control_info">ปุ่มซ้ายและขวาเพื่อซูมเข้าและออก</string>
     <string name="network_available_title">เครือข่ายที่มีอยู่</string>
     <string name="device_info_softwareDate">เวลาในการรวบรวม</string>

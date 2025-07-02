@@ -226,6 +226,7 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <!--new-->
     <string name="projector_title">Paramètres de projection</string>
     <string name="projector_two_point_title">Correction-DoublePoint</string>
+    <string name="projector_brightness_title">Luminosité</string>
     <string name="projector_four_point_title">Correction-SinglePoint</string>
     <string name="projector_size_title">Ajustement de la taille</string>
     <string name="projector_projection_title">Méthode de projection</string>
@@ -233,6 +234,9 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="projection_pos_neg">Projection inversée montée vers l\'avant</string>
     <string name="projection_neg_pos">Projection frontale montée au plafond</string>
     <string name="projection_neg_neg">Projection inversée montée au plafond</string>
+    <string name="brightness_standard_title">Mode standard</string>
+    <string name="brightness_Highlight_title">Mode surbrillance</string>
+    <string name="brightness_energy_title">Mode énergétique</string>
     <string name="size_adjustment_control_info">Touches gauche et droite pour zoomer et dézoomer</string>
     <string name="network_available_title">Réseaux disponibles</string>
     <string name="device_info_softwareDate">Temps de compilation</string>

@@ -48,6 +48,7 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     private ItemLRTextIconData bootAutoFocusData;
     private ItemLRTextIconData autoOBSData;
     private ItemLRTextIconData autoFitScreenData;
+    private ItemLRTextIconData brightnessData;
 
     //private int progress;
 
@@ -62,6 +63,14 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
 
     public ItemLRTextIconData getTwoPointData() {
         return twoPointData;
+    }
+
+    public ItemLRTextIconData getBrightnessData() {
+        return brightnessData;
+    }
+
+    public void setBrightnessData(ItemLRTextIconData brightnessData) {
+        this.brightnessData = brightnessData;
     }
 
     public OnClickListener getItemClickListener() {
@@ -121,6 +130,7 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         }else {
             projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         }
+        brightnessData = new ItemLRTextIconData(5, paramApplication.getString(R.string.projector_brightness_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         twoPointData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projector_two_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         fourPointData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projector_four_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         sizeData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projector_size_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
