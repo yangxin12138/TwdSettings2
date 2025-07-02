@@ -45,15 +45,15 @@ public class BrightnessFragment extends BaseBindingVmFragment<FragmentBrightness
 
     private void gotoStandard(){
         //setBrightnessMode
-        setBrightnessMode(context,65);
+        setBrightnessMode(context,204);
         setIconChange(0);
     }
     private void gotoHighlight(){
-        setBrightnessMode(context,200);
+        setBrightnessMode(context,255);
         setIconChange(1);
     }
     private void gotoEnergy(){
-        setBrightnessMode(context,20);
+        setBrightnessMode(context,153);
         setIconChange(2);
     }
 

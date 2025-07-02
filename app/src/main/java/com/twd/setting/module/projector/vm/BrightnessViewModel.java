@@ -88,10 +88,10 @@ public class BrightnessViewModel extends BaseViewModel<SysEquipmentRepository> {
         //获取亮度当前设置
         int current_brightness = getScreenBrightness(application.getApplicationContext());
         Log.i("brightness", "getInitIcon: 当前的亮度是 "+current_brightness);
-        if (current_brightness < 50){
+        if (current_brightness <= 153){
             //节能模式
             return 2;
-        } else if (current_brightness <= 100) {
+        } else if (current_brightness <= 204) {
             //标准模式
             return 0;
         } else {
