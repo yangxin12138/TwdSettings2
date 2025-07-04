@@ -120,4 +120,35 @@ public class AutoFocusUtils {
     public boolean getAutoComeAdmireStatus(){
         return SystemPropertiesUtils.getProperty("persist.sys.AutoComeAdmire", false);
     }
+
+
+    /**
+     * 设置 自动垂直矫正 开启或者关闭
+     * 如使用康佳梯形矫正算法，此处无需填写
+     * @param enable：true代表需要开启自动垂直矫正   false代表需要关闭自动垂直矫正
+     */
+    public void setVerticalCorrectEnable(boolean enable){
+        if(enable == true){
+            SystemPropertiesUtils.setProperty("persist.ty.autofocus", "1");
+        }else if(enable == false){
+            SystemPropertiesUtils.setProperty("persist.ty.autofocus", "0");
+        }else{
+            SystemPropertiesUtils.setProperty("persist.ty.autofocus", "0");
+        }
+    }
+
+    /**
+     * 获取 自动垂直矫正 开启或者关闭 的状态
+     * 如使用康佳梯形矫正算法，此处无需填写
+     * @return status: true代表当前开启了自动垂直矫正   false代表当前关闭了自动垂直矫正
+     */
+    public boolean getVerticalCorrectStatus(){
+        String autofocus = SystemPropertiesUtils.getProperty("persist.ty.autofocus", "1");
+        if(autofocus.equals("1")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

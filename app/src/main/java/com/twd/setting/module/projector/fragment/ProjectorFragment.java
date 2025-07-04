@@ -44,11 +44,13 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             gotoProjection();
         }else if (item == R.id.AutoProjectionInclude){//自动梯形
             //TODO:先判断自动对焦开没开
-            if (isAutoFocusOpen()){
+/*            if (isAutoFocusOpen()){
                 gotoAutoProjection(binding.AutoProjectionInclude.switchAuto.isChecked());
             }else {
                 ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
-            }
+            }*/
+
+            gotoAutoProjection(binding.AutoProjectionInclude.switchAuto.isChecked());
         } else if (item == R.id.AutoFocusInclude) {//自动对焦
             gotoAutoFocus(binding.AutoFocusInclude.switchAuto.isChecked());
         } else if (item == R.id.BootAutoFocusIclude) {//开机自动对焦
@@ -120,7 +122,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.fourPointInclude.itemRL.setFocusable(true);
             binding.AutoProjectionInclude.switchAuto.setChecked(false);
             gotoAutoOBS(true);
-            autoFocusUtils.setTrapezoidCorrectEnable(false);
+            autoFocusUtils.setVerticalCorrectEnable(false);
         }else {
             binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
             binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
@@ -129,7 +131,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.twoPointInclude.itemRL.setFocusable(false);
             binding.fourPointInclude.itemRL.setFocusable(false);
             binding.AutoProjectionInclude.switchAuto.setChecked(true);
-            autoFocusUtils.setTrapezoidCorrectEnable(true);
+            autoFocusUtils.setVerticalCorrectEnable(true);
         }
     }
     private void gotoAutoFocus(boolean isChecked){
@@ -251,7 +253,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     }
 
     private void initAutoSwitch(){
-        boolean isAutoProjection = autoFocusUtils.getTrapezoidCorrectStatus();
+        boolean isAutoProjection = autoFocusUtils.getVerticalCorrectStatus();
         Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
         boolean isAutoFocus = autoFocusUtils.getAutoFocusStatus();
         Log.i(TAG, "initAutoSwitch: 自动对焦 ： " + isAutoFocus);

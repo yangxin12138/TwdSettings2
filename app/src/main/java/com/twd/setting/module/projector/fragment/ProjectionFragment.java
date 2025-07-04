@@ -25,10 +25,10 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
     private static final String PATH_CONTROL_MIPI = "/sys/ir/control_mipi";
     private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
     private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";
-    private static final int VALUE_POSITIVE_DRESS = 0;
-    private static final int VALUE_DRESSING_REAR = 2;
-    private static final int VALUE_HOISTING_FRONT = 3;
-    private static final int VALUE_HOISTING_REAR = 1;
+    private static final int VALUE_POSITIVE_DRESS = 0;  //正装正投
+    private static final int VALUE_DRESSING_REAR = 2;   //吊装正投
+    private static final int VALUE_HOISTING_FRONT = 3;  //吊装背投
+    private static final int VALUE_HOISTING_REAR = 1;   //正装背投
 
     private void clickItem(int item) {
         Log.d(TAG,"clickItem: "+item);
@@ -45,22 +45,22 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
         }
     }
 
-    private void gotoPosPos() {
+    private void gotoPosPos() {//正装正投
         setProjectionMode(VALUE_POSITIVE_DRESS);
         setIconChange(0);
     }
 
-    private void gotoPosNeg() {
-        setProjectionMode(VALUE_DRESSING_REAR);
+    private void gotoPosNeg() {//正装背投
+        setProjectionMode(VALUE_HOISTING_REAR);
         setIconChange(1);
     }
-    private void gotoNegPos() {
-        setProjectionMode(VALUE_HOISTING_FRONT);
+    private void gotoNegPos() {//吊装正投
+        setProjectionMode(VALUE_DRESSING_REAR);
         setIconChange(2);
     }
 
-    private void gotoNegNeg() {
-        setProjectionMode(VALUE_HOISTING_REAR);
+    private void gotoNegNeg() {//吊装背投
+        setProjectionMode(VALUE_HOISTING_FRONT);
         setIconChange(3);
     }
 
