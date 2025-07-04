@@ -17,4 +17,19 @@ public class ProjectorActivity extends BaseActivity {
         super.onCreate(paramBundle);
         UiUtils.replaceFragment(getSupportFragmentManager(),16908290, ProjectorFragment.newInstance());
     }
+
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    Fragment Fragment = fragmentManager.findFragmentById(R.id.id_content);
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (Fragment instanceof  ProjectorFragment){
+                // 调用系统的退出函数
+                finish();
+                return true;
+            }
+            return super.onKeyDown(keyCode, event);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
