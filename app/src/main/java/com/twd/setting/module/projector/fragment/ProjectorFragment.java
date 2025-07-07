@@ -253,6 +253,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     }
 
     private void initAutoSwitch(){
+        //使用摄像头的自动对焦换成基于重力感应的上下梯形
         boolean isAutoProjection = autoFocusUtils.getVerticalCorrectStatus();
         Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
         boolean isAutoFocus = autoFocusUtils.getAutoFocusStatus();
