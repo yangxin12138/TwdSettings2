@@ -72,13 +72,7 @@
         <!-- <activity android:exported="false" android:name="com.twd.setting.module.debugmenu.DebugMenuActivity"/>-->
         <activity
             android:name="com.twd.setting.module.projector.ProjectorActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.settings.SETTINGS" />
-                                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name="com.twd.setting.module.projector.ProjectionActivity"
             android:exported="true" />
@@ -109,9 +103,7 @@
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
-<!--                <action android:name="android.intent.action.MAIN" />-->
                 <action android:name="android.settings.SETTINGS" />
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
             </intent-filter>
         </activity>
 
@@ -124,6 +116,16 @@
         <activity android:name=".module.device.DeviceStorageActivity"/>
         <activity android:name=".module.network.NetworkListActivity"/>
         <activity android:name=".module.network.wifi.NoPasswordNetActivity" android:exported="false"/>
+
+        <activity
+            android:name=".LauncherActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

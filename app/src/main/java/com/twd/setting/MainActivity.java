@@ -95,11 +95,11 @@ public class MainActivity
         Log.d(TAG, "onCreate  savedInstanceState=" + paramBundle + "   intent=" + getIntent());
         curFragment = MainFragment.newInstance();
         //UiUtils.replaceFragment(getSupportFragmentManager(), R.id.content, curFragment);
-        /*UiUtils.replaceFragment(getSupportFragmentManager(), 16908290, curFragment);
-        showMenu(getIntent());*/
+        UiUtils.replaceFragment(getSupportFragmentManager(), 16908290, curFragment);
+        showMenu(getIntent());
 
-        Intent intent = new Intent(this, ProjectorActivity.class);
-        startActivity(intent);
+/*        Intent intent = new Intent(this, ProjectorActivity.class);
+        startActivity(intent);*/
     }
 
 
@@ -112,7 +112,6 @@ public class MainActivity
     @Override
     protected void onResume() {
         super.onResume();
-        finish();
     }
 
     @Override
