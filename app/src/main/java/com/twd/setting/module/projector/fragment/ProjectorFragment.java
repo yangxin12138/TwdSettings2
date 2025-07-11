@@ -31,6 +31,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private Context context;
     private static final String PREF_NAME = "MyAppPreferences";
     private static final String KEY_FIRST_OPEN = "isFirstOpen";
+    private boolean vertical_focus;
+    private String KYE_VERTICAL_FOCUS = "VERTICAL_FOCUS";
 
     private void clickItem(int item) {
         Log.d(TAG,"clickItem: "+item);
@@ -44,13 +46,11 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             gotoProjection();
         }else if (item == R.id.AutoProjectionInclude){//自动梯形
             //TODO:先判断自动对焦开没开
-/*            if (isAutoFocusOpen()){
+            if (vertical_focus || isAutoFocusOpen()) {
                 gotoAutoProjection(binding.AutoProjectionInclude.switchAuto.isChecked());
-            }else {
-                ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
-            }*/
-
-            gotoAutoProjection(binding.AutoProjectionInclude.switchAuto.isChecked());
+            } else {
+                ToastUtils.showCustomToast(context, context.getString(R.string.projector_auto_tip), Toast.LENGTH_SHORT);
+            }
         } else if (item == R.id.AutoFocusInclude) {//自动对焦
             gotoAutoFocus(binding.AutoFocusInclude.switchAuto.isChecked());
         } else if (item == R.id.BootAutoFocusIclude) {//开机自动对焦
@@ -122,7 +122,11 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.fourPointInclude.itemRL.setFocusable(true);
             binding.AutoProjectionInclude.switchAuto.setChecked(false);
             gotoAutoOBS(true);
-            autoFocusUtils.setVerticalCorrectEnable(false);
+            if (vertical_focus) {
+                autoFocusUtils.setVerticalCorrectEnable(false);
+            } else {
+                autoFocusUtils.setTrapezoidCorrectEnable(false);
+            }
         }else {
             binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
             binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
@@ -131,7 +135,11 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.twoPointInclude.itemRL.setFocusable(false);
             binding.fourPointInclude.itemRL.setFocusable(false);
             binding.AutoProjectionInclude.switchAuto.setChecked(true);
-            autoFocusUtils.setVerticalCorrectEnable(true);
+            if (vertical_focus) {
+                autoFocusUtils.setVerticalCorrectEnable(true);
+            } else {
+                autoFocusUtils.setTrapezoidCorrectEnable(true);
+            }
         }
     }
     private void gotoAutoFocus(boolean isChecked){
@@ -238,7 +246,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         initTitle(paramView, R.string.projector_title);
         context = requireContext();
         autoFocusUtils = new AutoFocusUtils();
-
+        vertical_focus = Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp(KYE_VERTICAL_FOCUS));
         ((ProjectorViewModel) this.viewModel).getClickItem().observe(getViewLifecycleOwner(), new Observer() {
             @Override
             public void onChanged(Object o) {
@@ -253,8 +261,12 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     }
 
     private void initAutoSwitch(){
-        //使用摄像头的自动对焦换成基于重力感应的上下梯形
-        boolean isAutoProjection = autoFocusUtils.getVerticalCorrectStatus();
+        binding.AutoFocusInclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
+        binding.AutoOBSIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
+        binding.AutoFitScreenIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
+        binding.BootAutoFocusIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
+
+        boolean isAutoProjection = vertical_focus ? autoFocusUtils.getVerticalCorrectStatus() : autoFocusUtils.getTrapezoidCorrectStatus();
         Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
         boolean isAutoFocus = autoFocusUtils.getAutoFocusStatus();
         Log.i(TAG, "initAutoSwitch: 自动对焦 ： " + isAutoFocus);
@@ -267,10 +279,12 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         initCustomProjection(isAutoProjection);
 
         binding.AutoProjectionInclude.switchAuto.setChecked(isAutoProjection);
-        binding.AutoFocusInclude.switchAuto.setChecked(isAutoFocus);
-        binding.BootAutoFocusIclude.switchAuto.setChecked(isAutoBootFocus);
-        binding.AutoOBSIclude.switchAuto.setChecked(isAutoOBS);
-        binding.AutoFitScreenIclude.switchAuto.setChecked(isAutoFitScreen);
+        if (!vertical_focus){
+            binding.AutoFocusInclude.switchAuto.setChecked(isAutoFocus);
+            binding.BootAutoFocusIclude.switchAuto.setChecked(isAutoBootFocus);
+            binding.AutoOBSIclude.switchAuto.setChecked(isAutoOBS);
+            binding.AutoFitScreenIclude.switchAuto.setChecked(isAutoFitScreen);
+        }
     }
 
     private void initCustomProjection(boolean isAutoProjection){
