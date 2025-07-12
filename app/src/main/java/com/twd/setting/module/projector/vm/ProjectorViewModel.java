@@ -9,6 +9,7 @@ import com.twd.setting.R;
 import com.twd.setting.base.BaseViewModel;
 import com.twd.setting.commonlibrary.Utils.event.SingleLiveEvent;
 import com.twd.setting.module.systemequipment.repository.SysEquipmentRepository;
+import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.binding.ItemLRTextIconData;
 
 import android.app.Application;
@@ -119,6 +120,7 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
 
     public void initData(Application paramApplication) {
         int postion = getProjectionItem();
+        Log.i(TAG, "initData: postion = " + postion);
         if(postion == 0){
             projectionData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projector_projection_title), paramApplication.getString(R.string.projection_pos_pos), 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         } else if (postion == 1) {
@@ -149,11 +151,11 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         if(postion == 0){
             projectionData.setRightTxt(getApplication().getString(R.string.projection_pos_pos));
         } else if (postion == 1) {
-            projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_neg));
-        } else if (postion == 2) {
             projectionData.setRightTxt(getApplication().getString(R.string.projection_pos_neg));
-        } else if (postion == 3) {
+        } else if (postion == 2) {
             projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_pos));
+        } else if (postion == 3) {
+            projectionData.setRightTxt(getApplication().getString(R.string.projection_neg_neg));
         }else {
             projectionData.setRightTxt(null);
         }
@@ -161,7 +163,7 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
 
     public int getProjectionItem(){
         int ret = 0;
-        ret = readProjectionValue(PATH_CONTROL_MIPI);//readProjectionValue(PATH_DEV_PRO_INFO2);
+        ret = readCONTROL_MIPI(PATH_CONTROL_MIPI);//readProjectionValue(PATH_DEV_PRO_INFO2);
         if(ret == 0){
             if(Build.HARDWARE.equals("mt6735")){
                 ret = readProjectionValue(PATH_DEV_PRO_INFO2);
@@ -173,18 +175,31 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
     }
 
     private static int readProjectionValue(String path) {
+        String str_info = SystemPropertiesUtils.readFile(path);
+
+        char charAt44 = '0'; // 默认值
+        if (str_info.length() >= 44) { // 确保字符串长度足够
+            charAt44 = str_info.charAt(43);
+        } else {
+            Log.w(TAG, "String length is less than 44, using default value '0'");
+        }
+        // 转换为数值（如果需要）
+        int valueAt44 = charAt44 - '0'; // '0' -> 0, '1' -> 1, ...
+
+        return valueAt44;
+    }
+
+    private static int readCONTROL_MIPI(String path) {
         File file = new File(path);
         if (file.exists()) {
             BufferedReader reader = null;
             try {
                 reader = new BufferedReader(new FileReader(file));
                 int read = reader.read();
-                Log.d(TAG, "read " + path + ": " + read);
                 if (read != -1) {
                     return read - '0';
                 }
             } catch (Exception e) {
-                Log.e(TAG, "Read " + path + ": error", e);
                 e.printStackTrace();
             } finally {
                 if (reader != null) {
@@ -198,7 +213,6 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         } else {
             Log.w(TAG, path + " is not exist");
         }
-        Log.i(TAG, "read " + path + ": defalut 0");
         return 0;
     }
 }

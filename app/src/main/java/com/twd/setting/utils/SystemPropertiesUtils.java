@@ -5,6 +5,7 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
@@ -90,5 +91,31 @@ public class SystemPropertiesUtils {
             e.printStackTrace();
         }
         return "false";
+    }
+
+    public static String readFile(String path){
+        File file = new File(path);
+        if (!file.exists()) {
+            Log.w("systemUtils", path + " not exist");
+            return "";
+        }
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String line = reader.readLine();
+
+            return line;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+        return "";
     }
 }

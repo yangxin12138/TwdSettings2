@@ -13,11 +13,14 @@ import com.twd.setting.R;
 import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentProjectionBinding;
 import com.twd.setting.module.projector.vm.ProjectionViewModel;
+import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.UiUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.io.RandomAccessFile;
 
 public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjectionBinding, ProjectionViewModel> {
 
@@ -71,7 +74,7 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
         if(Build.HARDWARE.equals("mt6735")){
             writeFile(PATH_DEV_PRO_INFO2, String.valueOf(mode));
         }else{
-            writeFile(PATH_DEV_PRO_INFO, String.valueOf(mode));
+            writeFileAtPosition(PATH_DEV_PRO_INFO, String.valueOf(mode),43);
         }
     }
 
@@ -130,6 +133,21 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
         return flag;
     }
 
+    /*
+    * 在文件指定位置写入内容*/
+    private static void writeFileAtPosition(String path, String content, int position){
+        String str_info = SystemPropertiesUtils.readFile(path);
+        StringBuilder newString = new StringBuilder("");
+        if(str_info.length() == 0){
+            newString.append("0123456789ABCDEFGHIJKL0123456789ABCDEFGHIJK").append(content);
+        }else{
+            newString = new StringBuilder(str_info);
+            newString.setCharAt(position, content.charAt(0));
+            //newString.append(str_info.substring(0, position)).append(content);
+        }
+        writeFile(path,newString.toString());
+        String str_info1 = SystemPropertiesUtils.readFile(path);
+    }
     public static ProjectionFragment newInstance() {
         return new ProjectionFragment();
     }

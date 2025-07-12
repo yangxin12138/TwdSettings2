@@ -12,6 +12,7 @@ import com.twd.setting.R;
 import com.twd.setting.base.BaseViewModel;
 import com.twd.setting.commonlibrary.Utils.event.SingleLiveEvent;
 import com.twd.setting.module.systemequipment.repository.SysEquipmentRepository;
+import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.binding.ItemLRTextIconData;
 
 import java.io.BufferedReader;
@@ -73,6 +74,7 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
 
     public void initData(Application paramApplication) {
         int postion = getInitIcon();
+        Log.i(TAG, "initData: initData,postion = "+postion);
         if(postion == 0){
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, R.drawable.icon_projection_selected_black,View.GONE,View.VISIBLE);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0,View.GONE,View.VISIBLE);
@@ -80,19 +82,19 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
             negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0,View.GONE,View.VISIBLE);
         } else if (postion == 1) {
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0,View.GONE,View.VISIBLE);
-            posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0,View.GONE,View.VISIBLE);
-            negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0,View.GONE,View.VISIBLE);
-            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, R.drawable.icon_projection_selected_black,View.GONE,View.VISIBLE);
-        } else if (postion == 2) {
-            posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0,View.GONE,View.VISIBLE);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, R.drawable.icon_projection_selected_black,View.GONE,View.VISIBLE);
             negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0,View.GONE,View.VISIBLE);
+            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0,View.GONE,View.VISIBLE);
+        } else if (postion == 2) {
+            posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0,View.GONE,View.VISIBLE);
+            posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0,0,View.GONE,View.VISIBLE);
+            negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, R.drawable.icon_projection_selected_black,View.GONE,View.VISIBLE);
             negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0,View.GONE,View.VISIBLE);
         } else if (postion == 3) {
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0,View.GONE,View.VISIBLE);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0,View.GONE,View.VISIBLE);
-            negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, R.drawable.icon_projection_selected_black,View.GONE,View.VISIBLE);
-            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, 0,View.GONE,View.VISIBLE);
+            negPosData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projection_neg_pos), null, 0, 0,View.GONE,View.VISIBLE);
+            negNegData = new ItemLRTextIconData(4, paramApplication.getString(R.string.projection_neg_neg), null, 0, R.drawable.icon_projection_selected_black,View.GONE,View.VISIBLE);
         }else {
             posPosData = new ItemLRTextIconData(1, paramApplication.getString(R.string.projection_pos_pos), null, 0, 0,View.GONE,View.VISIBLE);
             posNegData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projection_pos_neg), null, 0, 0,View.GONE,View.VISIBLE);
@@ -112,25 +114,38 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
 
     public int getInitIcon(){
         int ret = 0;
-        ret = readProjectionValue(PATH_CONTROL_MIPI);//readProjectionValue(PATH_DEV_PRO_INFO2);
+        ret = readCONTROL_MIPI(PATH_CONTROL_MIPI);//readProjectionValue(PATH_DEV_PRO_INFO2);
         if(ret == 0){
             ret = readProjectionValue(PATH_DEV_PRO_INFO);
         }
         return ret;
     }
     private static int readProjectionValue(String path) {
+        String str_info = SystemPropertiesUtils.readFile(path);
+
+        char charAt44 = '0'; // 默认值
+        if (str_info.length() >= 44) { // 确保字符串长度足够
+            charAt44 = str_info.charAt(43);
+        } else {
+            Log.w(TAG, "String length is less than 44, using default value '0'");
+        }
+        // 转换为数值（如果需要）
+        int valueAt44 = charAt44 - '0'; // '0' -> 0, '1' -> 1, ...
+
+        return valueAt44;
+    }
+
+    private static int readCONTROL_MIPI(String path) {
         File file = new File(path);
         if (file.exists()) {
             BufferedReader reader = null;
             try {
                 reader = new BufferedReader(new FileReader(file));
                 int read = reader.read();
-                Log.d(TAG, "read " + path + ": " + read);
                 if (read != -1) {
                     return read - '0';
                 }
             } catch (Exception e) {
-                Log.e(TAG, "Read " + path + ": error", e);
                 e.printStackTrace();
             } finally {
                 if (reader != null) {
@@ -144,7 +159,6 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
         } else {
             Log.w(TAG, path + " is not exist");
         }
-        Log.i(TAG, "read " + path + ": defalut 0");
         return 0;
     }
 }
