@@ -33,6 +33,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private static final String KEY_FIRST_OPEN = "isFirstOpen";
     private boolean vertical_focus;
     private String KYE_VERTICAL_FOCUS = "VERTICAL_FOCUS";
+    private String KEY_BRIGHTNESS_ENABLE = "BRIGHTNESS_ENABLE";
 
     private void clickItem(int item) {
         Log.d(TAG,"clickItem: "+item);
@@ -261,6 +262,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     }
 
     private void initAutoSwitch(){
+        binding.brightnessInclude.itemRL.setVisibility(
+                Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp(KEY_BRIGHTNESS_ENABLE)) ? View.VISIBLE : View.GONE);
         binding.AutoFocusInclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
         binding.AutoOBSIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
         binding.AutoFitScreenIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
