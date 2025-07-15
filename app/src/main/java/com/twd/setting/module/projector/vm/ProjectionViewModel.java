@@ -113,14 +113,50 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
     }
 
     public int getInitIcon(){
+        boolean xiaopai_pro = Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp("XIAOPAI_PROJECTOR_DIRECTOR"));
         int ret = 0;
         ret = readCONTROL_MIPI(PATH_CONTROL_MIPI);//readProjectionValue(PATH_DEV_PRO_INFO2);
         if(ret == 0){
-            ret = readProjectionValue(PATH_DEV_PRO_INFO);
+            if (xiaopai_pro){
+                ret = readxiaopaiProjectionValue(PATH_DEV_PRO_INFO);
+            }else {
+                ret = readProjectionValue(PATH_DEV_PRO_INFO);
+            }
+
         }
         return ret;
     }
+
     private static int readProjectionValue(String path) {
+        File file = new File(path);
+        if (file.exists()) {
+            BufferedReader reader = null;
+            try {
+                reader = new BufferedReader(new FileReader(file));
+                int read = reader.read();
+                Log.d(TAG, "read " + path + ": " + read);
+                if (read != -1) {
+                    return read - '0';
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Read " + path + ": error", e);
+                e.printStackTrace();
+            } finally {
+                if (reader != null) {
+                    try {
+                        reader.close();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            Log.w(TAG, path + " is not exist");
+        }
+        Log.i(TAG, "read " + path + ": defalut 0");
+        return 0;
+    }
+    private static int readxiaopaiProjectionValue(String path) {
         String str_info = SystemPropertiesUtils.readFile(path);
 
         char charAt44 = '0'; // 默认值

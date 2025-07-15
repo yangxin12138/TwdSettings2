@@ -70,11 +70,17 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
     public static void setProjectionMode(int mode) {
 
         writeFile(PATH_CONTROL_MIPI, String.valueOf(mode));
-
+        boolean xiaopai_pro = Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp("XIAOPAI_PROJECTOR_DIRECTOR"));
         if(Build.HARDWARE.equals("mt6735")){
             writeFile(PATH_DEV_PRO_INFO2, String.valueOf(mode));
         }else{
-            writeFileAtPosition(PATH_DEV_PRO_INFO, String.valueOf(mode),43);
+            if (xiaopai_pro){
+                writeFileAtPosition(PATH_DEV_PRO_INFO, String.valueOf(mode),43);
+            }else {
+                writeFile(PATH_DEV_PRO_INFO, String.valueOf(mode));
+            }
+            //writeFile(PATH_DEV_PRO_INFO, String.valueOf(mode));  original
+
         }
     }
 
