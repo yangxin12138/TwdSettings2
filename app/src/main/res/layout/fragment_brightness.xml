@@ -39,6 +39,18 @@
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
             app:layout_constraintTop_toBottomOf="@id/titleLayout" />
 
+        <!--高亮-->
+        <include
+            android:id="@+id/highlightInclude"
+            android:tag="1"
+            layout="@layout/layout_item_projector"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            bind:itemData="@{viewModel.highlightData}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/topSpace" />
+
         <!--标准-->
         <include
             android:id="@+id/standardInclude"
@@ -47,21 +59,10 @@
             android:layout_width="0.0dip"
             android:layout_height="wrap_content"
             bind:itemData="@{viewModel.standardData}"
-            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
-            app:layout_constraintRight_toRightOf="@id/guidelineRight"
-            app:layout_constraintTop_toBottomOf="@id/topSpace" />
-        <!--高亮-->
-        <include
-            android:id="@+id/highlightInclude"
-            android:tag="1"
-            layout="@layout/layout_item_projector"
-            android:layout_width="0.0dip"
-            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_ime_bar_margin_t"
-            bind:itemData="@{viewModel.highlightData}"
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
             app:layout_constraintRight_toRightOf="@id/guidelineRight"
-            app:layout_constraintTop_toBottomOf="@id/standardInclude" />
+            app:layout_constraintTop_toBottomOf="@id/highlightInclude" />
         <!--节能-->
         <include
             android:id="@+id/energySaveInclude"
@@ -73,7 +74,7 @@
             bind:itemData="@{viewModel.energyData}"
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
             app:layout_constraintRight_toRightOf="@id/guidelineRight"
-            app:layout_constraintTop_toBottomOf="@id/highlightInclude" />
+            app:layout_constraintTop_toBottomOf="@id/standardInclude" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

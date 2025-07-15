@@ -1,6 +1,7 @@
 package com.twd.setting.module.projector.fragment;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -29,6 +30,8 @@ public class BrightnessFragment extends BaseBindingVmFragment<FragmentBrightness
     private static final String TAG = "BrightnessFragment";
     private int selectItem = 0;
     private Context context;
+    private static final String PREFS_NAME = "IconSelectionPrefs";
+    private static final String KEY_SELECTED_POSITION = "selectedPosition";
 
     private void clickItem(int item){
         Log.i(TAG, "clickItem: "+item);
@@ -76,6 +79,14 @@ public class BrightnessFragment extends BaseBindingVmFragment<FragmentBrightness
         } else if (position == 2) {
             binding.energySaveInclude.contentTVLeft.setImageResource(R.drawable.icon_projection_selected_black);
         }
+
+        SharedPreferences preferences = getContext().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
+        preferences.edit().putInt(KEY_SELECTED_POSITION,position).apply();
+    }
+
+    private int getSelectItem(){
+        SharedPreferences preferences = getActivity().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
+        return preferences.getInt(KEY_SELECTED_POSITION,1);
     }
 
     private static boolean writeFile(String path,String content){
@@ -111,7 +122,14 @@ public class BrightnessFragment extends BaseBindingVmFragment<FragmentBrightness
         ((FragmentBrightnessBinding)this.binding).setViewModel((BrightnessViewModel) this.viewModel);
         initTitle(paramView,R.string.projector_brightness_title);
         context = getContext();
-        ((FragmentBrightnessBinding) this.binding).standardInclude.itemRL.requestFocus();
+        if (getSelectItem()==1){
+            ((FragmentBrightnessBinding) this.binding).highlightInclude.itemRL.requestFocus();
+        } else if (getSelectItem()==0) {
+            ((FragmentBrightnessBinding) this.binding).standardInclude.itemRL.requestFocus();
+        } else if (getSelectItem()==2) {
+            ((FragmentBrightnessBinding) this.binding).energySaveInclude.itemRL.requestFocus();
+        }
+
 
         ((BrightnessViewModel) this.viewModel).getClickItem().observe(getViewLifecycleOwner(), new Observer() {
             @Override
