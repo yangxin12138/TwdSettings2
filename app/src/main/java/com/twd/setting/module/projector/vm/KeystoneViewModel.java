@@ -58,6 +58,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public final int MODE_ONEPOINT = 1;
     public final int MODE_TWOPOINT = 0;
     public final int MODE_UNKOWN = -1;
+    boolean horizontal_projector;
 
     public KeystoneViewModel(Application paramApplication) {
         super(paramApplication);
@@ -115,7 +116,10 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         Log.d(TAG, "getInitKeystone: lt("+strTopLeft+"),rt("+strTopRight+"),lb("+strBottomLeft+"),rb("+vBottomRight+")");
         Log.d(TAG, "getInitKeystone: zoom:"+vZoom);
 
-        String vertical = SystemPropertiesUtils.getProperty("ro.keystone.vertical","0");
+
+        horizontal_projector = Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp("HORIZONTAL_PROJECTOR").trim());
+
+        String vertical = horizontal_projector ? SystemPropertiesUtils.getProperty("ro.keystone.vertical","0"):"1";
         //String vertical = "1";
         if(vertical.equals("1")){
             is_Vertical = true;
@@ -136,19 +140,19 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     }
     public void setKeystoneMode(int _mode){
         if(_mode == MODE_ONEPOINT){
-            vTopLeft.setMaxX(50);vTopLeft.setMaxY(50);
-            vTopRight.setMaxX(50);vTopRight.setMaxY(50);
-            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(50);
-            vBottomRight.setMaxX(50);vBottomRight.setMaxY(50);
+            vTopLeft.setMaxX(50);vTopLeft.setMaxY(horizontal_projector? 50 : 150);
+            vTopRight.setMaxX(50);vTopRight.setMaxY(horizontal_projector? 50 : 150);
+            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(horizontal_projector? 50 : 150);
+            vBottomRight.setMaxX(50);vBottomRight.setMaxY(horizontal_projector? 50 : 150);
 
             zoom_x = 0;
             zoom_y = 0;
             saveZoom();
         } else if (_mode == MODE_TWOPOINT) {
-            vTopLeft.setMaxX(50);vTopLeft.setMaxY(50);
-            vTopRight.setMaxX(50);vTopRight.setMaxY(50);
-            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(50);
-            vBottomRight.setMaxX(50);vBottomRight.setMaxY(50);
+            vTopLeft.setMaxX(50);vTopLeft.setMaxY(horizontal_projector? 50 : 150);
+            vTopRight.setMaxX(50);vTopRight.setMaxY(horizontal_projector? 50 : 150);
+            vBottomLeft.setMaxX(50);vBottomLeft.setMaxY(horizontal_projector? 50 : 150);
+            vBottomRight.setMaxX(50);vBottomRight.setMaxY(horizontal_projector? 50 : 150);
         }
     }
 
@@ -210,6 +214,9 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         vBottomRight.setX(0);vBottomRight.setY(0);
         savePoint(4);//save all
         updatePoint(4);//update all
+        zoom_x = 0;
+        zoom_y = 0;
+        saveZoom();
         update();
     }
     public void updateTopLeft(){
@@ -306,13 +313,13 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public String getOnePointInfo(int point){
         switch (point){
             case 0:
-                return vTopLeft.toString();
+                return horizontal_projector ? vTopLeft.toString() : vBottomLeft.toString();
             case 1:
-                return vTopRight.toString();
+                return horizontal_projector ? vTopRight.toString() : vTopLeft.toString();
             case 3:
-                return vBottomLeft.toString();
+                return horizontal_projector ? vBottomLeft.toString() : vBottomRight.toString();
             case 2:
-                return vBottomRight.toString();
+                return horizontal_projector ? vBottomRight.toString() : vTopRight.toString();
             default:
                 break;
         }
@@ -559,6 +566,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         }
     }
     public int getTwoPointYInfo(){
+        Log.i(TAG, "getTwoPointYInfo: zoomx = " + zoom_x+",zoomy = "+zoom_y);
         if(is_Vertical){
             return zoom_x;
         }else {

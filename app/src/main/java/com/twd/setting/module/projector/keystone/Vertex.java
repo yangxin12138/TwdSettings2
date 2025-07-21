@@ -2,12 +2,15 @@ package com.twd.setting.module.projector.keystone;
 
 import android.util.Log;
 
+import com.twd.setting.utils.SystemPropertiesUtils;
+
 public class Vertex {
     public int x = 0;
     public int y = 0;
     public int point = 0;
     public int maxXStep =50;
     public int maxYStep=50;
+    boolean horizontal_pro;
 
     public void setX(int value){
         x = value;
@@ -31,6 +34,7 @@ public class Vertex {
     public Vertex(int x, int y) {
         this.x = x;
         this.y = y;
+        horizontal_pro = Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp("HORIZONTAL_PROJECTOR").trim());
     }
     public Vertex(int point,int x, int y) {
         this.point = point;
@@ -59,7 +63,7 @@ public class Vertex {
 
     @Override
     public String toString() {
-        return x + "," + y;
+        return horizontal_pro ? x + "," + y : x + "," + (y/3) ;
     }
 
     public void doLeft(){
@@ -103,37 +107,33 @@ public class Vertex {
         }
     }
     public void doTop(){
+        boolean isHorizontal = horizontal_pro;
         switch (point){
             case 0:
             case 1:
-                y = y - 1;
-                if(y<0){
-                    y = 0;
-                }
-                break;
+                y = isHorizontal ? y - 1 : y -3;
+                if (y < 0) y = 0;
             case 2:
             case 3:
-                y = y + 1;
-                if(y>maxYStep){
-                    y = maxYStep;
-                }
-                break;
+                y = isHorizontal ? y + 1 : y + 3;
+                if (y > maxYStep) y = maxYStep;
             default:
                 break;
         }
     }
     public void doBottom(){
+        boolean isHorizontal = horizontal_pro;
         switch (point){
             case 0:
             case 1:
-                y = y + 1;
+                y = isHorizontal ? y + 1 : y + 3;
                 if(y>maxYStep){
                     y = maxYStep;
                 }
                 break;
             case 2:
             case 3:
-                y = y - 1;
+                y = isHorizontal ? y - 1 : y - 3;
                 if(y<0){
                     y = 0;
                 }
