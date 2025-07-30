@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import com.twd.setting.utils.SystemPropertiesUtils;
+
 public class Lcd {
     private static final String TAG = "lcd_info";
     protected static Context mContext;
@@ -28,7 +30,7 @@ public class Lcd {
         lcdWidth = dm.widthPixels;
         lcdHeight = dm.heightPixels;
 
-        if(lcdWidth==1024 && lcdHeight == 600){
+        /*if(lcdWidth==1024 && lcdHeight == 600){
             mStepX_onepoint = 2.56f;
             mStepY_onepoint = 1.5f;
             mStepX_twopoint = 5.12f;
@@ -53,11 +55,28 @@ public class Lcd {
             mStepY_onepoint = 1.5f;
             mStepX_twopoint = 5.12f;
             mStepY_twopoint = 3.0f;
-        }
+        }*/
+
+
+        mStepX_twopoint = getFloatProperty("STEPX_TWOPOINT", 5.12f);
+        mStepY_twopoint = getFloatProperty("STEPY_TWOPOINT", 3.0f);
+        mStepX_onepoint = getFloatProperty("STEPX_ONEPOINT", 2.56f);
+        mStepY_onepoint = getFloatProperty("STEPY_ONEPOINT", 1.5f);
+
 //        prefs = context.getSharedPreferences("keystone_mode", Context.MODE_PRIVATE);
 //        mode = prefs.getInt("mode",MODE_ONEPOINT);
         Log.d(TAG, "SizeActivity mode: "+mode+", lcdWidth:"+lcdWidth+",lcdHeight:"+lcdHeight);
 
+    }
+
+    private float getFloatProperty(String key, float defaultValue) {
+        try {
+            String value = SystemPropertiesUtils.readSystemProp(key).trim();
+            return Float.parseFloat(value);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return defaultValue;
+        }
     }
     public float getStepX(){
         if(mode ==MODE_TWOPOINT){
