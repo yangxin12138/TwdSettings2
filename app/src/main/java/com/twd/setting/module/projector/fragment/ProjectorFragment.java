@@ -54,12 +54,6 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             }
         } else if (item == R.id.AutoFocusInclude) {//自动对焦
             gotoAutoFocus(binding.AutoFocusInclude.switchAuto.isChecked());
-        } else if (item == R.id.BootAutoFocusIclude) {//开机自动对焦
-            if (isAutoFocusOpen()){
-                gotoBootAutoFocus(binding.BootAutoFocusIclude.switchAuto.isChecked());
-            }else {
-                ToastUtils.showCustomToast(context,context.getString(R.string.projector_auto_tip),Toast.LENGTH_SHORT);
-            }
         } else if (item == R.id.AutoOBSIclude) {//自动避障
             if (binding.AutoProjectionInclude.switchAuto.isChecked()){
                 gotoAutoOBS(binding.AutoOBSIclude.switchAuto.isChecked());
@@ -143,7 +137,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             }
         }
     }
-    private void gotoAutoFocus(boolean isChecked){
+    private void gotoAutoFocus(boolean isChecked){//true
         selectItem = 5;
         boolean newCheckedState = !isChecked;
         if (!newCheckedState){
@@ -159,13 +153,13 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         }else {
             binding.AutoFocusInclude.switchAuto.setChecked(true);
             autoFocusUtils.setAutoFocusEnable(true);
+            gotoBootAutoFocus(false);
         }
     }
 
     private void gotoBootAutoFocus(boolean isChecked){
         selectItem = 6;
         boolean newCheckedState = !isChecked;
-        binding.BootAutoFocusIclude.switchAuto.setChecked(newCheckedState);
         autoFocusUtils.setPowerOnAutoFocusEnable(newCheckedState);
     }
 
@@ -195,7 +189,6 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).projectionInclude.itemRL, ((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoProjectionInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoFocusInclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
-        UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).BootAutoFocusIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoOBSIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
         UiUtils.setOnClickListener(((FragmentProjectorBinding) this.binding).AutoFitScreenIclude.itemRL,((ProjectorViewModel) this.viewModel).getItemClickListener());
     }
@@ -228,9 +221,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.AutoProjectionInclude.itemRL.requestFocus();
         } else if (selectItem == 5) {
             binding.AutoFocusInclude.itemRL.requestFocus();
-        } else if (selectItem == 6) {
-            binding.BootAutoFocusIclude.itemRL.requestFocus();
-        } else if (selectItem == 7) {
+        }  else if (selectItem == 7) {
             binding.AutoOBSIclude.itemRL.requestFocus();
         } else if (selectItem == 8) {
             binding.AutoFitScreenIclude.itemRL.requestFocus();
@@ -267,7 +258,6 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         binding.AutoFocusInclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
         binding.AutoOBSIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
         binding.AutoFitScreenIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
-        binding.BootAutoFocusIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
 
         boolean isAutoProjection = vertical_focus ? autoFocusUtils.getVerticalCorrectStatus() : autoFocusUtils.getTrapezoidCorrectStatus();
         Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
@@ -284,7 +274,6 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         binding.AutoProjectionInclude.switchAuto.setChecked(isAutoProjection);
         if (!vertical_focus){
             binding.AutoFocusInclude.switchAuto.setChecked(isAutoFocus);
-            binding.BootAutoFocusIclude.switchAuto.setChecked(isAutoBootFocus);
             binding.AutoOBSIclude.switchAuto.setChecked(isAutoOBS);
             binding.AutoFitScreenIclude.switchAuto.setChecked(isAutoFitScreen);
         }

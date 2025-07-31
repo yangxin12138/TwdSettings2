@@ -135,17 +135,6 @@
                     app:layout_constraintRight_toRightOf="@id/guidelineRight"
                     app:layout_constraintTop_toBottomOf="@id/AutoProjectionInclude" />
                 <include
-                    android:id="@+id/BootAutoFocusIclude"
-                    android:tag="6"
-                    layout="@layout/layout_item_projector"
-                    android:layout_width="0.0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/common_ime_bar_margin_t"
-                    bind:itemData="@{viewModel.bootAutoFocusData}"
-                    app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
-                    app:layout_constraintRight_toRightOf="@id/guidelineRight"
-                    app:layout_constraintTop_toBottomOf="@id/AutoFocusInclude" />
-                <include
                     android:id="@+id/AutoOBSIclude"
                     android:tag="7"
                     layout="@layout/layout_item_projector"
@@ -155,7 +144,7 @@
                     bind:itemData="@{viewModel.autoOBSData}"
                     app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
                     app:layout_constraintRight_toRightOf="@id/guidelineRight"
-                    app:layout_constraintTop_toBottomOf="@id/BootAutoFocusIclude" />
+                    app:layout_constraintTop_toBottomOf="@id/AutoFocusInclude" />
                 <include
                     android:id="@+id/AutoFitScreenIclude"
                     android:tag="8"
