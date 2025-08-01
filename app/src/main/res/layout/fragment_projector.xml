@@ -144,7 +144,7 @@
                     bind:itemData="@{viewModel.autoOBSData}"
                     app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
                     app:layout_constraintRight_toRightOf="@id/guidelineRight"
-                    app:layout_constraintTop_toBottomOf="@id/AutoFocusInclude" />
+                    app:layout_constraintTop_toBottomOf="@id/AutoProjectionInclude" />
                 <include
                     android:id="@+id/AutoFitScreenIclude"
                     android:tag="8"

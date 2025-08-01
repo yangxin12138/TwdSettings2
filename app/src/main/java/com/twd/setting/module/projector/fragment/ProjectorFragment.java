@@ -143,10 +143,19 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         if (!newCheckedState){
             if (!binding.AutoProjectionInclude.switchAuto.isChecked()){
                 binding.AutoFocusInclude.switchAuto.setChecked(false);
-                autoFocusUtils.setAutoFocusEnable(false);
-                gotoAutoProjection(true);
+                binding.AutoProjectionInclude.switchAuto.setChecked(false);
+                binding.AutoOBSIclude.switchAuto.setChecked(false);
+                binding.AutoFitScreenIclude.switchAuto.setChecked(false);
+
+                autoFocusUtils.setAutoFocusEnable(false);//关闭自动对焦
                 gotoBootAutoFocus(true);
+                gotoAutoProjection(true);
+                gotoAutoOBS(true);
                 gotoAutoFitScreen(true);
+
+                binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
+                binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
+                binding.AutoFitScreenIclude.itemRL.setVisibility(View.GONE);
             }else {
                 ToastUtils.showCustomToast(context,getString(R.string.projector_auto_projector_off_tip),Toast.LENGTH_SHORT);
             }
@@ -154,6 +163,10 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.AutoFocusInclude.switchAuto.setChecked(true);
             autoFocusUtils.setAutoFocusEnable(true);
             gotoBootAutoFocus(false);
+
+            binding.AutoProjectionInclude.itemRL.setVisibility(View.VISIBLE);
+            binding.AutoOBSIclude.itemRL.setVisibility(View.VISIBLE);
+            binding.AutoFitScreenIclude.itemRL.setVisibility(View.VISIBLE);
         }
     }
 
@@ -270,6 +283,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             gotoAutoProjection(true);
             gotoAutoFitScreen(true);
             gotoAutoOBS(true);
+
         }
         boolean isAutoProjection = vertical_focus ? autoFocusUtils.getVerticalCorrectStatus() : autoFocusUtils.getTrapezoidCorrectStatus();
         Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
