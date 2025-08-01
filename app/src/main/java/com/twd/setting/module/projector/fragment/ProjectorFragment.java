@@ -255,14 +255,24 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private void initAutoSwitch(){
         binding.brightnessInclude.itemRL.setVisibility(
                 Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp(KEY_BRIGHTNESS_ENABLE)) ? View.VISIBLE : View.GONE);
+
         binding.AutoFocusInclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
         binding.AutoOBSIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
         binding.AutoFitScreenIclude.itemRL.setVisibility(vertical_focus ? View.GONE : View.VISIBLE);
 
-        boolean isAutoProjection = vertical_focus ? autoFocusUtils.getVerticalCorrectStatus() : autoFocusUtils.getTrapezoidCorrectStatus();
-        Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
         boolean isAutoFocus = autoFocusUtils.getAutoFocusStatus();
         Log.i(TAG, "initAutoSwitch: 自动对焦 ： " + isAutoFocus);
+        if (!isAutoFocus){//如果自动对焦是关闭状态，那就关闭自动梯形，入幕，避障
+            binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
+            binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
+            binding.AutoFitScreenIclude.itemRL.setVisibility(View.GONE);
+
+            gotoAutoProjection(true);
+            gotoAutoFitScreen(true);
+            gotoAutoOBS(true);
+        }
+        boolean isAutoProjection = vertical_focus ? autoFocusUtils.getVerticalCorrectStatus() : autoFocusUtils.getTrapezoidCorrectStatus();
+        Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
         boolean isAutoBootFocus = autoFocusUtils.getPowerOnAutoFocusStatus();
         Log.i(TAG, "initAutoSwitch: 开机自动对焦 ： " + isAutoBootFocus);
         boolean isAutoOBS = autoFocusUtils.getAutoObstacleAvoidanceStatus();

@@ -112,18 +112,6 @@
                     app:layout_constraintTop_toBottomOf="@id/sizeInclude" />
 
                 <include
-                    android:id="@+id/AutoProjectionInclude"
-                    android:tag="4"
-                    layout="@layout/layout_item_projector"
-                    android:layout_width="0.0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/common_ime_bar_margin_t"
-                    bind:itemData="@{viewModel.autoProjectionData}"
-                    app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
-                    app:layout_constraintRight_toRightOf="@id/guidelineRight"
-                    app:layout_constraintTop_toBottomOf="@id/projectionInclude" />
-
-                <include
                     android:id="@+id/AutoFocusInclude"
                     android:tag="5"
                     layout="@layout/layout_item_projector"
@@ -133,7 +121,19 @@
                     bind:itemData="@{viewModel.autoFocusData}"
                     app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
                     app:layout_constraintRight_toRightOf="@id/guidelineRight"
-                    app:layout_constraintTop_toBottomOf="@id/AutoProjectionInclude" />
+                    app:layout_constraintTop_toBottomOf="@id/projectionInclude" />
+
+                <include
+                    android:id="@+id/AutoProjectionInclude"
+                    android:tag="4"
+                    layout="@layout/layout_item_projector"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_ime_bar_margin_t"
+                    bind:itemData="@{viewModel.autoProjectionData}"
+                    app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+                    app:layout_constraintRight_toRightOf="@id/guidelineRight"
+                    app:layout_constraintTop_toBottomOf="@id/AutoFocusInclude" />
                 <include
                     android:id="@+id/AutoOBSIclude"
                     android:tag="7"
