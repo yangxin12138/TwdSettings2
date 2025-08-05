@@ -4,13 +4,13 @@ plugins {
 
 android {
     namespace 'com.twd.setting'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.twd.setting"
         minSdk 21
         //noinspection ExpiredTargetSdkVersion
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.4.2"
         multiDexEnabled true

@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/dialog_changeLanguage_btConfirm"
-                android:textSize="@dimen/device_name_layout_textSize"
+                android:textSize="@dimen/device_name_layout_bt_textSize"
                 android:gravity="center"
                 android:textColor="?factory_textColor"/>
         </LinearLayout>
