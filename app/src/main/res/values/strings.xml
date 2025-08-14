@@ -475,6 +475,9 @@ Example: 24"</string>
     <string name="device_storage_system">System</string>
     <string name="device_storage_app">App data</string>
     <string name="device_storage_other">Other data</string>
+    <string name="device_signal_title">Signal Source</string>
+    <string name="device_signal_home">Home Page</string>
+    <string name="device_signal_hdmi">HDMI</string>
 
     <!--new-->
     <string name="projector_title">Projection Settings</string>

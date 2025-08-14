@@ -1,5 +1,6 @@
 package com.twd.setting.module.device;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -10,6 +11,8 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,17 +30,17 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
     private LinearLayout LL_storage;
     private LinearLayout LL_factory;
     private LinearLayout LL_update;
+    private LinearLayout LL_signal;
     private TextView tv_info;
     private TextView tv_storage;
     private TextView tv_factory;
     private TextView tv_update;
-    private ImageView arrow_info;
-    private ImageView arrow_storage;
-    private ImageView arrow_factory;
-    private ImageView arrow_update;
+    private TextView tv_signal;
+    private TextView tv_signal_source;
     private Context context;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
     String theme_code = "0";
+    public static final String SYS_BOOT_APP ="persist.sys.boot.app";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         switch (theme_code){
@@ -67,21 +70,29 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         LL_storage = findViewById(R.id.devices_LL_storage);
         LL_factory = findViewById(R.id.devices_LL_factory);
         LL_update = findViewById(R.id.devices_LL_update);
+        LL_signal = findViewById(R.id.devices_LL_signal);
         tv_info = findViewById(R.id.devices_tv_Info);
         tv_storage = findViewById(R.id.devices_tv_storage);
         tv_factory = findViewById(R.id.devices_tv_factory);
         tv_update = findViewById(R.id.devices_tv_update);
-        arrow_info = findViewById(R.id.arrow_info);
-        arrow_storage = findViewById(R.id.arrow_storage);
-        arrow_factory = findViewById(R.id.arrow_factory);
-        arrow_update = findViewById(R.id.arrow_update);
+        tv_signal_source = findViewById(R.id.devices_tv_signal_source);
 
         LL_info.setOnClickListener(this::onClick);
         LL_storage.setOnClickListener(this::onClick);
         LL_factory.setOnClickListener(this::onClick);
         LL_update.setOnClickListener(this::onClick);
+        LL_signal.setOnClickListener(this::onClick);
 
         LL_info.requestFocus();
+        String sys_boot_app = SystemPropertiesUtils.getProperty(SYS_BOOT_APP,"0");
+        switch (sys_boot_app){
+            case "0":
+                tv_signal_source.setText(R.string.device_signal_home);
+                break;
+            case "1":
+                tv_signal_source.setText(R.string.device_signal_hdmi);
+                break;
+        }
     }
 
     @Override
@@ -97,11 +108,90 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
             intent = new Intent();
             intent.setComponent(new ComponentName("com.vsoontech.mos.ota","com.linkin.ota.activity.DownloadActivity"));
             startActivity(intent);
-        } else {
+        } else if (view.getId() == R.id.devices_LL_signal) {
+            showSignalSourceDialog();
+        }else {
             showDialog();
         }
     }
 
+    private void showSignalSourceDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_signal, null);
+        builder.setView(dialogView);
+
+        AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false); // 点击外部不关闭对话框
+
+        // 获取选项控件
+        LinearLayout option_launcher = dialogView.findViewById(R.id.LL_option1);
+        LinearLayout option_hdmi = dialogView.findViewById(R.id.LL_option2);
+        TextView launcher_tv = dialogView.findViewById(R.id.option1);
+        TextView hdmi_tv = dialogView.findViewById(R.id.option2);
+        ImageView launcher_iv = dialogView.findViewById(R.id.icon_option1);
+        ImageView hdmi_iv = dialogView.findViewById(R.id.icon_option2);
+
+        // 设置选项文本（根据实际需求修改）
+        launcher_tv.setText(R.string.device_signal_home);
+        hdmi_tv.setText(R.string.device_signal_hdmi);
+        String sys_boot_app = SystemPropertiesUtils.getProperty(SYS_BOOT_APP,"0");
+        switch (sys_boot_app){
+            case "0":
+                launcher_iv.setVisibility(View.VISIBLE);
+                break;
+            case "1":
+                hdmi_iv.setVisibility(View.VISIBLE);
+                break;
+        }
+        // 默认选中第一个选项
+        option_launcher.setSelected(true);
+        final LinearLayout[] selectedOption = {option_launcher};
+
+        // 为选项设置焦点变化监听，处理遥控器导航
+        View.OnFocusChangeListener focusChangeListener = (view, hasFocus) -> {
+            if (hasFocus) {
+                // 取消之前选中项的选中状态
+                selectedOption[0].setSelected(false);
+                // 设置当前焦点项为选中状态
+                view.setSelected(true);
+                selectedOption[0] = (LinearLayout) view;
+            }
+        };
+
+        option_launcher.setOnFocusChangeListener(focusChangeListener);
+        option_hdmi.setOnFocusChangeListener(focusChangeListener);
+
+        // 设置选项点击事件
+        View.OnClickListener optionClickListener = view -> {
+            // 将选中的文本设置到目标TextView
+            if (view.getId() == R.id.LL_option1){
+                //TODO:设置系统属性
+                tv_signal_source.setText(launcher_tv.getText());
+                SystemPropertiesUtils.setProperty(SYS_BOOT_APP,"0");
+                launcher_iv.setVisibility(View.VISIBLE);
+                hdmi_iv.setVisibility(View.INVISIBLE);
+            } else if (view.getId() == R.id.LL_option2) {
+                tv_signal_source.setText(hdmi_tv.getText());
+                SystemPropertiesUtils.setProperty(SYS_BOOT_APP,"1");
+                launcher_iv.setVisibility(View.INVISIBLE);
+                hdmi_iv.setVisibility(View.VISIBLE);
+            }
+            dialog.dismiss(); // 关闭对话框
+        };
+
+        option_launcher.setOnClickListener(optionClickListener);
+        option_hdmi.setOnClickListener(optionClickListener);
+
+        dialog.show();
+
+        // 设置对话框宽度
+        Window window = dialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.width = (int) (getResources().getDisplayMetrics().widthPixels * 0.6);
+            window.setAttributes(params);
+        }
+    }
     private void showDialog(){
         Dialog FactoryDialog = new Dialog(this,R.style.DialogStyle);
 

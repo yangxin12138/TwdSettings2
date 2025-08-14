@@ -475,7 +475,9 @@ Example: 24"</string>
     <string name="device_storage_system">系统占用</string>
     <string name="device_storage_app">应用数据</string>
     <string name="device_storage_other">其他数据</string>
-
+    <string name="device_signal_title">信号源</string>
+    <string name="device_signal_home">主页</string>
+    <string name="device_signal_hdmi">HDMI</string>
     <!--new-->
     <string name="projector_title">投影设置</string>
     <string name="projector_two_point_title">两点梯形校正</string>

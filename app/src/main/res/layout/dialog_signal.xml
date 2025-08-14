@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/sel_blue">
+
+    <!-- 选项1：图标 + 文本 -->
+    <LinearLayout
+        android:id="@+id/LL_option1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/option_selector">
+
+        <!-- 选中状态图标 -->
+        <ImageView
+            android:duplicateParentState="true"
+            android:id="@+id/icon_option1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_selected_selector"
+            android:visibility="invisible"/>  <!-- 默认隐藏 -->
+
+        <TextView
+            android:duplicateParentState="true"
+            android:id="@+id/option1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/device_signal_home"
+            android:textSize="18sp"
+            android:textColor="@color/selector_factory_textcolor"
+            android:layout_marginStart="16dp"/>  <!-- 与图标保持距离 -->
+    </LinearLayout>
+
+    <!-- 选项2：图标 + 文本 -->
+    <LinearLayout
+        android:id="@+id/LL_option2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/option_selector">
+
+        <!-- 选中状态图标 -->
+        <ImageView
+            android:duplicateParentState="true"
+            android:id="@+id/icon_option2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_selected_selector"
+            android:visibility="invisible"/>  <!-- 默认隐藏 -->
+
+        <TextView
+            android:duplicateParentState="true"
+            android:id="@+id/option2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/device_signal_hdmi"
+            android:textSize="18sp"
+            android:textColor="@color/selector_factory_textcolor"
+            android:layout_marginStart="16dp"/>  <!-- 与图标保持距离 -->
+    </LinearLayout>
+
+</LinearLayout>

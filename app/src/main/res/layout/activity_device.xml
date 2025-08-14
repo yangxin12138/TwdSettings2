@@ -155,5 +155,49 @@
                 android:layout_height="@dimen/devices_storage_iv_height"
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/devices_LL_signal"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/devices_content_LL_height"
+            android:layout_marginTop="@dimen/device_marginTop"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="?bBg">
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/devices_tv_signal"
+                android:text="@string/device_signal_title"
+                android:textSize="@dimen/devices_storage_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/devices_storage_tv_marginStart"
+                android:textDirection="ltr"/>
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/devices_tv_signal_source"
+                android:text=""
+                android:textSize="@dimen/universal_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:layout_gravity="center_vertical" />
+            <ImageView
+                android:duplicateParentState="true"
+                android:id="@+id/arrow_signal"
+                android:src="?arrowSrc"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/devices_storage_iv_height"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

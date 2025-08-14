@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 选中状态显示的图标 -->
+    <item android:drawable="@drawable/input_selected_iceblue_sel" android:state_selected="true"/>
+    <!-- 未选中状态显示的图标（透明或其他样式） -->
+    <item android:drawable="@drawable/input_selected_iceblue_unsel" android:state_selected="false"/>
+</selector>
