@@ -141,7 +141,6 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         selectItem = 5;
         boolean newCheckedState = !isChecked;
         if (!newCheckedState){
-            if (!binding.AutoProjectionInclude.switchAuto.isChecked()){
                 binding.AutoFocusInclude.switchAuto.setChecked(false);
                 binding.AutoProjectionInclude.switchAuto.setChecked(false);
                 binding.AutoOBSIclude.switchAuto.setChecked(false);
@@ -156,9 +155,6 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
                 binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
                 binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
                 binding.AutoFitScreenIclude.itemRL.setVisibility(View.GONE);
-            }else {
-                ToastUtils.showCustomToast(context,getString(R.string.projector_auto_projector_off_tip),Toast.LENGTH_SHORT);
-            }
         }else {
             binding.AutoFocusInclude.switchAuto.setChecked(true);
             autoFocusUtils.setAutoFocusEnable(true);
