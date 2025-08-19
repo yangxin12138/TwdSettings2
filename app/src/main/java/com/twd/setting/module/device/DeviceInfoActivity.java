@@ -6,7 +6,9 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.format.Formatter;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -21,10 +23,15 @@ public class DeviceInfoActivity extends AppCompatActivity {
     private TextView tv_softwareNO_value;
     private TextView tv_macAddressWifi_value;
     private TextView tv_macAddressBluetooth_value;
+    private TextView tv_sn_value;
+    private TextView tv_deviceid_value;
+    private TextView tv_ip_value;
     private static final String TAG = DeviceInfoActivity.class.getName();
-    private String PROP_FX_DEVICE = "ro.build.aoc.fx.device";
-    private String PROP_FX_DATE = "ro.build.aoc.fx.date";
-    private String PROP_FX_VERSION = "ro.build.aoc.fx.version";
+    private String PROP_FX_DEVICE = "ro.build.aoc.fx.device";//设备型号
+    private String PROP_FX_DATE = "ro.build.aoc.fx.date";//编译时间
+    private String PROP_FX_VERSION = "ro.build.aoc.fx.version";//获取安卓版本号
+    private String PROP_SEQ_ID = "persist.sys.hwconfig.seq_id";//序列号
+    private String PROP_STB_ID = "persist.sys.hwconfig.stb_id";//deviceid
     private Context context = this;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
     String theme_code = "1";
@@ -55,6 +62,9 @@ public class DeviceInfoActivity extends AppCompatActivity {
         setSoftwareNo();
         setMACAddressWifi();
         setMACAddressBluetooth();
+        setSN();
+        setDeviceID();
+        setCurrentIp(this);
     }
 
     private void initView(){
@@ -63,8 +73,36 @@ public class DeviceInfoActivity extends AppCompatActivity {
         tv_softwareNO_value = findViewById(R.id.devices_tv_softwareNO_value);
         tv_macAddressWifi_value = findViewById(R.id.devices_tv_macAddressWifi_value);
         tv_macAddressBluetooth_value = findViewById(R.id.devices_tv_macAddressBluetooth_value);
+        tv_sn_value = findViewById(R.id.devices_tv_sn_value);
+        tv_deviceid_value = findViewById(R.id.devices_tv_deviceid_value);
+        tv_ip_value = findViewById(R.id.devices_tv_ip_value);
     }
 
+    /*
+    * 获取序列号*/
+    private void setSN(){
+        String SN_number = SystemPropertiesUtils.getProperty(PROP_SEQ_ID,"0");
+        tv_sn_value.setText(SN_number);
+        Log.i(TAG, "setSN: --------setSN = " + SN_number);
+    }
+
+    /*
+    * 获取deviceID*/
+    private void setDeviceID(){
+        String deviceId_number = SystemPropertiesUtils.getProperty(PROP_STB_ID,"0");
+        tv_deviceid_value.setText(deviceId_number);
+        Log.i(TAG, "setDeviceID: --------setDeviceID = " + deviceId_number);
+    }
+
+    private void setCurrentIp(Context context){
+        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        if (wifiManager != null && wifiManager.getConnectionInfo() != null) {
+            int ipAddress = wifiManager.getConnectionInfo().getIpAddress();
+            tv_ip_value.setText(Formatter.formatIpAddress(ipAddress));
+            return;
+        }
+        tv_ip_value.setText("");
+    }
     /*
     * 获取设备号*/
     private void setMachineNo(){
@@ -84,7 +122,7 @@ public class DeviceInfoActivity extends AppCompatActivity {
     /*
     * 获取软件号*/
     private void setSoftwareNo(){
-        String softwareNo = SystemPropertiesUtils.getProperty(PROP_FX_DATE,"1998.11.12");
+        String softwareNo = SystemPropertiesUtils.getProperty(PROP_FX_DATE,"2024.01.01");
         tv_softwareNO_value.setText(softwareNo);
         Log.i(TAG, "setSoftwareNO: -----software = " + softwareNo);
     }

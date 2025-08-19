@@ -498,4 +498,6 @@ Example: 24"</string>
     <string name="projector_auto_tip">需要先打开自动对焦</string>
     <string name="projector_auto_projector_tip">需要先打开自动梯形</string>
     <string name="projector_auto_projector_off_tip">需要先关闭自动梯形</string>
+    <string name="device_info_sn">序列号</string>
+    <string name="device_info_ipaddress">IPAddress</string>
 </resources>

@@ -141,4 +141,70 @@
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/device_info_marginTop">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/device_info_sn"
+            android:textSize="@dimen/device_info_textSize"
+            android:textColor="?textColor"
+            android:layout_marginStart="@dimen/device_info_marginStart"/>
+        <TextView
+            android:id="@+id/devices_tv_sn_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textSize="@dimen/device_info_textSize"
+            android:textColor="?textColor" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/device_info_marginTop">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/device_info_deviceid"
+            android:textSize="@dimen/device_info_textSize"
+            android:textColor="?textColor"
+            android:layout_marginStart="@dimen/device_info_marginStart"/>
+        <TextView
+            android:id="@+id/devices_tv_deviceid_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textSize="@dimen/device_info_textSize"
+            android:textColor="?textColor" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/device_info_marginTop">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/device_info_ipaddress"
+            android:textSize="@dimen/device_info_textSize"
+            android:textColor="?textColor"
+            android:layout_marginStart="@dimen/device_info_marginStart"/>
+        <TextView
+            android:id="@+id/devices_tv_ip_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textSize="@dimen/device_info_textSize"
+            android:textColor="?textColor" />
+    </LinearLayout>
 </LinearLayout>

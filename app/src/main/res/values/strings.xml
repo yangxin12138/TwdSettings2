@@ -464,6 +464,8 @@ Example: 24"</string>
     <string name="device_info_softwareDate">System Build Time</string>
     <string name="device_info_mac_wifi">MAC Address(Wifi)</string>
     <string name="device_info_mac_bluetooth">MAC Address(Bluetooth)</string>
+    <string name="device_info_sn"> SN </string>
+    <string name="device_info_deviceid"> DeviceId </string>
     <string name="device_storage_title">Storage</string>
     <string name="device_storage_internal">Internal Storage</string>
     <string name="device_storage_total">Total</string>
@@ -497,4 +499,5 @@ Example: 24"</string>
     <string name="projector_auto_tip">You need to turn on auto focus first</string>
     <string name="projector_auto_projector_tip">You need to turn on auto projection first</string>
     <string name="projector_auto_projector_off_tip">You need to turn off auto projection first</string>
+    <string name="device_info_ipaddress">IPAddress</string>
 </resources>
