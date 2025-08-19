@@ -93,16 +93,6 @@ public class WifiListRvAdapter
         }
         if (position == getWifiAccessPoints().size()) {
 
-            ((ViewHolder) holder).binding.tvSSID.setText(R.string.selected_ssid_add_new_network);
-            ((ViewHolder) holder).binding.tvTip.setVisibility(View.INVISIBLE);
-
-            if (TextUtils.equals(WifiListFragment.selectedSSID, holder.itemView.getContext().getString(R.string.selected_ssid_add_new_network))) {
-
-                if (TextUtils.equals(WifiListFragment.selectedBSSID, holder.itemView.getContext().getString(R.string.selected_bssid_add_new_network))) {
-                    itemClickListener.onFocusRequest(holder.itemView, getItemCount() - 1);
-
-                }
-            }
         } else {
             WifiAccessPoint wifiAccessPoint =  getWifiAccessPoints().get(position);
             ((ViewHolder) holder).bind(wifiAccessPoint);
