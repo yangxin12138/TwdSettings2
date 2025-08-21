@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.twd.setting.R;
+import com.twd.setting.utils.DeviceInfoUtil;
 import com.twd.setting.utils.SystemPropertiesUtils;
 
 public class DeviceInfoActivity extends AppCompatActivity {
@@ -68,9 +69,9 @@ public class DeviceInfoActivity extends AppCompatActivity {
     }
 
     private void initView(){
-        tv_MachineNO_value = findViewById(R.id.devices_tv_machineNO_value);
-        tv_androidVersion_value = findViewById(R.id.devices_tv_androidVersion_value);
-        tv_softwareNO_value = findViewById(R.id.devices_tv_softwareNO_value);
+        tv_MachineNO_value = findViewById(R.id.devices_tv_machineNO_value);//型号
+        tv_androidVersion_value = findViewById(R.id.devices_tv_androidVersion_value);//Android版本
+        tv_softwareNO_value = findViewById(R.id.devices_tv_softwareNO_value);//系统编译时间
         tv_macAddressWifi_value = findViewById(R.id.devices_tv_macAddressWifi_value);
         tv_macAddressBluetooth_value = findViewById(R.id.devices_tv_macAddressBluetooth_value);
         tv_sn_value = findViewById(R.id.devices_tv_sn_value);
@@ -106,7 +107,7 @@ public class DeviceInfoActivity extends AppCompatActivity {
     /*
     * 获取设备号*/
     private void setMachineNo(){
-        String machineNo = SystemPropertiesUtils.getProperty(PROP_FX_DEVICE,"projector");
+        String machineNo = DeviceInfoUtil.getDeviceName(this);
         tv_MachineNO_value.setText(machineNo);
         Log.i(TAG, "getMachineNO: --------machineNo = " + machineNo);
     }
@@ -120,7 +121,7 @@ public class DeviceInfoActivity extends AppCompatActivity {
     }
 
     /*
-    * 获取软件号*/
+    * 获取编译时间*/
     private void setSoftwareNo(){
         String softwareNo = SystemPropertiesUtils.getProperty(PROP_FX_DATE,"2024.01.01");
         tv_softwareNO_value.setText(softwareNo);
