@@ -183,6 +183,15 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         selectItem = 8;
         boolean newCheckedState = !isChecked;
         binding.AutoFitScreenIclude.switchAuto.setChecked(newCheckedState);
+        if (newCheckedState){
+            gotoAutoProjection(true);
+            gotoAutoOBS(true);
+            binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
+            binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
+        }else {
+            binding.AutoProjectionInclude.itemRL.setVisibility(View.VISIBLE);
+            binding.AutoOBSIclude.itemRL.setVisibility(View.VISIBLE);
+        }
         autoFocusUtils.setAutoComeAdmireEnable(newCheckedState);
     }
 
