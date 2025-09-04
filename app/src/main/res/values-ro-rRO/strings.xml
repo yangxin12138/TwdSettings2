@@ -219,6 +219,8 @@
     <string name="device_storage_other">Alte date</string>
 
     <!--new-->
+    <string name="device_signal_title">Sursa semnalului</string>
+    <string name="device_signal_home">Pagina principală</string>
     <string name="projector_title">Setări de proiecție</string>
     <string name="projector_two_point_title">Corecție trapezoidală U/D-L/R.</string>
     <string name="projector_four_point_title">Corecție trapezoidală personalizată</string>

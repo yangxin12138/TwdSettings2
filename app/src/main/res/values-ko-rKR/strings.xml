@@ -227,6 +227,8 @@
     <string name="device_storage_other">다른 </string>
 
     <!--new-->
+    <string name="device_signal_title">신호 소스</string>
+    <string name="device_signal_home">홈페이지</string>
     <string name="projector_title">투사</string>
     <string name="projector_two_point_title">2점 키스톤 보정</string>
     <string name="projector_four_point_title">4포인트 키스톤 보정</string>

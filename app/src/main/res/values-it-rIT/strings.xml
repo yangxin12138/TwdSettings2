@@ -228,6 +228,8 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="device_storage_other">Altri dati</string>
 
     <!--new-->
+    <string name="device_signal_title">Fonte del segnale</string>
+    <string name="device_signal_home">Pagina iniziale</string>
     <string name="projector_title">Impostazioni di proiezione</string>
     <string name="projector_two_point_title">Correzione trapezoidale a due punti</string>
     <string name="projector_four_point_title">Correzione trapezoidale a quattro punti</string>

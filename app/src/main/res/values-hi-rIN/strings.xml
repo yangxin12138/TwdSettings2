@@ -228,6 +228,8 @@
     <string name="device_storage_other">अन्य आंकड़ा</string>
 
     <!--new-->
+    <string name="device_signal_title">सिग्नल स्रोत</string>
+    <string name="device_signal_home">मुख्य पृष्ठ</string>
     <string name="projector_title">प्रोजेक्शन विन्यास</string>
     <string name="projector_two_point_title">दो-बिंदु कीस्टोन सुधार</string>
     <string name="projector_four_point_title">चार-बिंदु कीस्टोन सुधार</string>

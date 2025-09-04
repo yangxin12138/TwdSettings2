@@ -219,6 +219,8 @@
     <string name="device_storage_other">Enye imininingwane</string>
 
     <!--new-->
+    <string name="device_signal_title">Umthombo wesiginali</string>
+    <string name="device_signal_home">Ikhasi lasekhaya</string>
     <string name="projector_title">Izilungiselelo zokuqagela</string>
     <string name="projector_two_point_title">U/D-L/R Trapezoidal Ukulungiswa</string>
     <string name="projector_four_point_title">Ukulungiswa kwe-trapezoidal ngokwezifiso</string>

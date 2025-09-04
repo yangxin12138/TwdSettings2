@@ -228,6 +228,8 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="device_storage_other">Diğer veri</string>
 
     <!--new-->
+    <string name="device_signal_title">Sinyal Kaynağı</string>
+    <string name="device_signal_home">Ana Sayfa</string>
     <string name="projector_title">Projeksiyon ayarları</string>
     <string name="projector_two_point_title">İki noktalı trapezoid düzeltme</string>
     <string name="projector_four_point_title">Dört noktalı kilit taşı düzeltmesi</string>

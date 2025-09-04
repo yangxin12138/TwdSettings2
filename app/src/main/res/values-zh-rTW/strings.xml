@@ -227,6 +227,8 @@
     <string name="device_storage_other">其他數據</string>
 
     <!--new-->
+    <string name="device_signal_title">信号源</string>
+    <string name="device_signal_home">主页</string>
     <string name="projector_title">投影設置</string>
     <string name="projector_two_point_title">兩點梯形校正</string>
     <string name="projector_four_point_title">四點梯形校正</string>

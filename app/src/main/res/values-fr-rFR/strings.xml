@@ -228,6 +228,8 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="device_storage_other">Autre informations</string>
 
     <!--new-->
+    <string name="device_signal_title">Source du signal</string>
+    <string name="device_signal_home">Page d\'accueil</string>
     <string name="projector_title">Paramètres de projection</string>
     <string name="projector_two_point_title">Correction-DoublePoint</string>
     <string name="projector_four_point_title">Correction-SinglePoint</string>

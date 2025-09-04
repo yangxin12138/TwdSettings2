@@ -219,6 +219,8 @@
     <string name="device_storage_other">Drugi podatki</string>
 
     <!--new-->
+    <string name="device_signal_title">Vir signala</string>
+    <string name="device_signal_home">Domača stran</string>
     <string name="projector_title">Nastavitve projekcije</string>
     <string name="projector_two_point_title">Trapezoidna korekcija U/D-L/R</string>
     <string name="projector_four_point_title">Trapezoidna korekcija po meri</string>

@@ -20,6 +20,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="?mainBg"
+        android:layoutDirection="ltr"
+        android:supportsRtl="false"
         android:tag="layout/fragment_bluetooth_0">
 
         <include

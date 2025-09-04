@@ -219,6 +219,8 @@
     <string name="device_storage_other">Muut tiedot</string>
 
     <!--new-->
+    <string name="device_signal_title">Signaalin lähde</string>
+    <string name="device_signal_home">Etusivu</string>
     <string name="projector_title">Projektioasetukset</string>
     <string name="projector_two_point_title">Ylä- ja alasuuntais-vasen-oikea puolisuunnikkaan korjaus</string>
     <string name="projector_four_point_title">Mukautettu puolisuunnikkaan korjaus</string>

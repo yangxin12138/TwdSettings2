@@ -219,6 +219,8 @@
     <string name="device_storage_other">Data lainnya</string>
 
     <!--new-->
+    <string name="device_signal_title">Sumber Sinyal</string>
+    <string name="device_signal_home">Laman Utama</string>
     <string name="projector_title">Pengaturan proyeksi</string>
     <string name="projector_two_point_title">Koreksi trapesium u/d-l/r</string>
     <string name="projector_four_point_title">Koreksi trapesium khusus</string>

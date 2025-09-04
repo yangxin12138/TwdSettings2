@@ -227,6 +227,8 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="device_storage_other">Outros dados</string>
 
     <!--new-->
+    <string name="device_signal_title">Fonte do sinal</string>
+    <string name="device_signal_home">Página inicial</string>
     <string name="projector_title">Configurações de projeção</string>
     <string name="projector_two_point_title">Correção keystone de dois pontos</string>
     <string name="projector_four_point_title">Correção keystone de quatro pontos</string>

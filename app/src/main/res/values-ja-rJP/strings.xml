@@ -226,6 +226,8 @@
     <string name="device_storage_system">システム占有率</string>
     <string name="device_storage_app">アプリケーションデータ</string>
     <string name="device_storage_other">その他のデータ</string>
+    <string name="device_signal_title">信号源</string>
+    <string name="device_signal_home">ホームページ</string>
     <string name="projector_title">投影</string>
     <string name="projector_two_point_title">4辺台形補正</string>
     <string name="projector_four_point_title">4点台形補正</string>

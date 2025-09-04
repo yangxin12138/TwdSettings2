@@ -219,6 +219,8 @@
     <string name="device_storage_other">Данни за приложениятаДруги данни</string>
 
     <!--new-->
+    <string name="device_signal_title">Източник на сигнал</string>
+    <string name="device_signal_home">Начална страница</string>
     <string name="projector_title">Настройки на проекцията</string>
     <string name="projector_two_point_title">Трапецовидна корекция U/D-L/R</string>
     <string name="projector_four_point_title">Персонализирана трапецовидна корекция</string>

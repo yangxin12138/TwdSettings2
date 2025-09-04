@@ -219,6 +219,8 @@
     <string name="device_storage_other">Takwimu zingine</string>
 
     <!--new-->
+    <string name="device_signal_title">Chanzo cha Ishara</string>
+    <string name="device_signal_home">Ukurasa wa nyumbani</string>
     <string name="projector_title">Mipangilio ya makadirio</string>
     <string name="projector_two_point_title">U/D-L/R marekebisho ya trapezoidal</string>
     <string name="projector_four_point_title">Marekebisho ya trapezoidal ya kawaida</string>

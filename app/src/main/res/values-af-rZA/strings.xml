@@ -219,6 +219,8 @@
     <string name="device_storage_other">Ander data</string>
 
     <!--new-->
+    <string name="device_signal_title">Signaal Bron</string>
+    <string name="device_signal_home">Home Page</string>
     <string name="projector_title">Projeksie-instellings</string>
     <string name="projector_two_point_title">U/D-L/R Trapesiumkorreksie</string>
     <string name="projector_four_point_title">Pasgemaakte trapeziumkorreksie</string>

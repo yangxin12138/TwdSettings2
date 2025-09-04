@@ -219,6 +219,8 @@
     <string name="device_storage_other">Iba pang data</string>
 
     <!--new-->
+    <string name="device_signal_title">Source ng Signal</string>
+    <string name="device_signal_home">Home Page</string>
     <string name="projector_title">Mga Setting ng Projection</string>
     <string name="projector_two_point_title">U/D-L/R Trapezoidal Correction</string>
     <string name="projector_four_point_title">Custom na Trapezoidal Correction</string>

@@ -219,6 +219,8 @@
     <string name="device_storage_other">Другие данные</string>
 
     <!--new-->
+    <string name="device_signal_title">Джерело сигналу</string>
+    <string name="device_signal_home">Головна сторінка</string>
     <string name="projector_title">Налаштування проекції</string>
     <string name="projector_two_point_title">Трапецієподібна корекція U/D-L/R</string>
     <string name="projector_four_point_title">Корекція трапеції на замовлення</string>

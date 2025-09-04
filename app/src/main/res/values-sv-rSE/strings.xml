@@ -219,6 +219,8 @@
     <string name="device_storage_other">Andra uppgifter</string>
 
     <!--new-->
+    <string name="device_signal_title">Signalkälla</string>
+    <string name="device_signal_home">Hemsidan</string>
     <string name="projector_title">Projektionsinställningar</string>
     <string name="projector_two_point_title">U/D-V/H trapetskorrigering</string>
     <string name="projector_four_point_title">Anpassad trapetskorrigering</string>

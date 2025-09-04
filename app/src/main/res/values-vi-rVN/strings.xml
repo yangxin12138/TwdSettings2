@@ -224,6 +224,8 @@
     <string name="device_storage_other">Dữ liệu khác</string>
 
     <!--new-->
+    <string name="device_signal_title">Nguồn tín hiệu</string>
+    <string name="device_signal_home">Trang chủ</string>
     <string name="projector_title">Cài đặt chiếu</string>
     <string name="projector_two_point_title">Hiệu chỉnh hình thang U/D-L/R</string>
     <string name="projector_four_point_title">Chỉnh sửa hình thang tùy chỉnh</string>

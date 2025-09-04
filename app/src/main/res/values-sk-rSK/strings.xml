@@ -225,6 +225,8 @@
     <string name="device_storage_other">Ďalšie údaje</string>
 
     <!--new-->
+    <string name="device_signal_title">Zdroj signálu</string>
+    <string name="device_signal_home">Úvodná stránka</string>
     <string name="projector_title">Nastavenia projekcie</string>
     <string name="projector_two_point_title">Trapézová korekcia U/D-L/R</string>
     <string name="projector_four_point_title">Vlastná trapézová korekcia</string>

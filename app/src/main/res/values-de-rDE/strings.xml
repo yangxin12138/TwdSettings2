@@ -225,6 +225,8 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="device_storage_system">Systembelegung</string>
     <string name="device_storage_app">Anwendungsdaten</string>
     <string name="device_storage_other">Andere Daten</string>
+    <string name="device_signal_title">Signalquelle</string>
+    <string name="device_signal_home">Startseite</string>
     <string name="projector_title">Projektionseinstellungen</string>
     <string name="projector_two_point_title">Zwei-Punkt-Trapezkorrektur</string>
     <string name="projector_four_point_title">Vier-Punkt-Trapezkorrektur</string>

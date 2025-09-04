@@ -219,6 +219,8 @@
     <string name="device_storage_other">נתונים אחרים</string>
 
     <!--new-->
+    <string name="device_signal_title">מקור האות</string>
+    <string name="device_signal_home">דף הבית</string>
     <string name="projector_title">הגדרות הקרנה</string>
     <string name="projector_two_point_title">תיקון טרפז U/D-L/R</string>
     <string name="projector_four_point_title">תיקון טרפז מותאם אישית</string>

@@ -219,6 +219,8 @@
     <string name="device_storage_other">Kiti duomenys</string>
 
     <!--new-->
+    <string name="device_signal_title">Signalo šaltinis</string>
+    <string name="device_signal_home">Pagrindinis puslapis</string>
     <string name="projector_title">Projekcijos nustatymai</string>
     <string name="projector_two_point_title">U/D-L/R trapecijos korekcija</string>
     <string name="projector_four_point_title">Pasirinktinė trapecijos korekcija</string>

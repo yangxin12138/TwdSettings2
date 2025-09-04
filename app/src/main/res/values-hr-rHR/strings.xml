@@ -219,6 +219,8 @@
     <string name="device_storage_other">Informacije o aplikaciji</string>
 
     <!--new-->
+    <string name="device_signal_title">Izvor signala</string>
+    <string name="device_signal_home">Početna stranica</string>
     <string name="projector_title">Postavke projekcije</string>
     <string name="projector_two_point_title">U/d-l/r trapezoidna korekcija</string>
     <string name="projector_four_point_title">Prilagođena korekcija trapeza</string>

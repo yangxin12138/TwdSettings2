@@ -228,6 +228,8 @@
     <string name="device_storage_other">داده های دیگر</string>
 
     <!--new-->
+    <string name="device_signal_title">منبع سیگنال</string>
+    <string name="device_signal_home">صفحه اصلی</string>
     <string name="projector_title">تنظیمات صفحه نمایش</string>
     <string name="projector_two_point_title">تصحیح کیستون دو نقطه ای</string>
     <string name="projector_four_point_title">تصحیح کیستون چهار نقطه ای</string>

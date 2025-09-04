@@ -226,6 +226,8 @@
     <string name="device_storage_other">بيانات أخرى</string>
 
     <!--new-->
+    <string name="device_signal_title">مصدر الإشارة</string>
+    <string name="device_signal_home">الصفحة الرئيسية</string>
     <string name="projector_title">إعدادات الإسقاط</string>
     <string name="projector_two_point_title">تصحيح الانحراف من نقطتين</string>
     <string name="projector_four_point_title">تصحيح الانحراف من أربع نقاط</string>

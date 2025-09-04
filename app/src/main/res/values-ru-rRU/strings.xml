@@ -226,6 +226,8 @@
     <string name="device_storage_other">Другие данные</string>
 
     <!--new-->
+    <string name="device_signal_title">Источник сигнала</string>
+    <string name="device_signal_home">Главная страница</string>
     <string name="projector_title">Настройки проекции</string>
     <string name="projector_two_point_title">двойные точки коррекция трапецеидального</string>
     <string name="projector_four_point_title">одна точка коррекция трапецеидального</string>

@@ -228,6 +228,8 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="device_storage_other">Otros datos</string>
 
     <!--new-->
+    <string name="device_signal_title">Fuente de señal</string>
+    <string name="device_signal_home">Página principal</string>
     <string name="projector_title">Configuración de proyección</string>
     <string name="projector_two_point_title">Corrección trapezoidal de dos puntos</string>
     <string name="projector_four_point_title">Corrección trapezoidal de cuatro puntos</string>

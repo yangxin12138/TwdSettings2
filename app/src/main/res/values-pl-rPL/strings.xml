@@ -225,6 +225,8 @@
     <string name="device_storage_other">Inne dane</string>
 
     <!--new-->
+    <string name="device_signal_title">Źródło sygnału</string>
+    <string name="device_signal_home">Strona główna</string>
     <string name="projector_title">Ustawienia projekcji</string>
     <string name="projector_two_point_title">Dwupunktowa korekcja trapezowa</string>
     <string name="projector_four_point_title">Czteropunktowa korekcja trapezowa</string>

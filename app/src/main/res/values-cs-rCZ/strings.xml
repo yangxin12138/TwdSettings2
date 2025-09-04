@@ -219,6 +219,8 @@
     <string name="device_storage_other">Jiné údaje</string>
 
     <!--new-->
+    <string name="device_signal_title">Zdroj signálu</string>
+    <string name="device_signal_home">Hlavní stránka</string>
     <string name="projector_title">Nastavení promítání</string>
     <string name="projector_two_point_title">Lichoběžníková korekce U/D-L/R</string>
     <string name="projector_four_point_title">Vlastní lichoběžníková korekce</string>

@@ -219,6 +219,8 @@
     <string name="device_storage_other">Data lain</string>
 
     <!--new-->
+    <string name="device_signal_title">Sumber Isyarat</string>
+    <string name="device_signal_home">Laman Utama</string>
     <string name="projector_title">Tetapan unjuran</string>
     <string name="projector_two_point_title">Pembetulan trapezoid U/D-L/R.</string>
     <string name="projector_four_point_title">Pembetulan trapezoid adat</string>

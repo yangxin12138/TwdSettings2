@@ -229,6 +229,8 @@
     <string name="device_storage_other">ข้อมูลอื่นๆ</string>
 
     <!--new-->
+    <string name="device_signal_title">แหล่งสัญญาณ</string>
+    <string name="device_signal_home">หน้าหลัก</string>
     <string name="projector_title">การตั้งค่าการฉายภาพ</string>
     <string name="projector_two_point_title">การแก้ไขคีย์สโตนสองจุด</string>
     <string name="projector_four_point_title">การแก้ไขคีย์สโตนสี่จุด</string>

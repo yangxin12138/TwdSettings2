@@ -219,6 +219,8 @@
     <string name="device_storage_other">Andre data</string>
 
     <!--new-->
+    <string name="device_signal_title">Signalkilde</string>
+    <string name="device_signal_home">Hjemmeside</string>
     <string name="projector_title">Projektionsindstillinger</string>
     <string name="projector_two_point_title">U/D-L/R Trapezkorrektion</string>
     <string name="projector_four_point_title">Brugerdefineret trapezkorrektion</string>

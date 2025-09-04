@@ -12,6 +12,8 @@
         android:layout_height="match_parent"
         android:background="?mainBg"
         android:gravity="center_horizontal"
+        android:layoutDirection="ltr"
+        android:supportsRtl="false"
         android:orientation="vertical">
 
         <ImageView

@@ -219,6 +219,8 @@
     <string name="device_storage_other">Andere gegevens</string>
 
     <!--new-->
+    <string name="device_signal_title">Signaalbron</string>
+    <string name="device_signal_home">Startpagina</string>
     <string name="projector_title">Projectie -instellingen</string>
     <string name="projector_two_point_title">U/d-l/r trapeziumvormige correctie</string>
     <string name="projector_four_point_title">Aangepaste trapeziumvormige correctie</string>

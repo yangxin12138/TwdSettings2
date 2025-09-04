@@ -219,6 +219,8 @@
     <string name="device_storage_other">Άλλα δεδομένα</string>
 
     <!--new-->
+    <string name="device_signal_title">Πηγή σήματος</string>
+    <string name="device_signal_home">Αρχική Σελίδα</string>
     <string name="projector_title">Ρυθμίσεις προβολής</string>
     <string name="projector_two_point_title">Τραπεζοειδής διόρθωση U/D-L/R</string>
     <string name="projector_four_point_title">Προσαρμοσμένη τραπεζοειδής διόρθωση</string>

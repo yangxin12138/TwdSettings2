@@ -219,6 +219,8 @@
     <string name="device_storage_other">Citi dati</string>
 
     <!--new-->
+    <string name="device_signal_title">Signala avots</string>
+    <string name="device_signal_home">Sākumlapa</string>
     <string name="projector_title">Projekcijas iestatījumi</string>
     <string name="projector_two_point_title">U/d-l/r trapecveida korekcija</string>
     <string name="projector_four_point_title">Pielāgota trapecveida korekcija</string>

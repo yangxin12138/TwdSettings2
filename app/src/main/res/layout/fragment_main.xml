@@ -25,6 +25,8 @@
         android:layout_height="fill_parent"
         android:background="?mainBg"
         android:descendantFocusability="afterDescendants"
+        android:layoutDirection="ltr"
+        android:supportsRtl="false"
         android:tag="layout/fragment_main_0">
 
 

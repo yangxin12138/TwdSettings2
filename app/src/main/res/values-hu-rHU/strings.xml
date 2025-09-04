@@ -219,6 +219,8 @@
     <string name="device_storage_other">Egyéb adatok</string>
 
     <!--new-->
+    <string name="device_signal_title">Jelforrás</string>
+    <string name="device_signal_home">Főoldal</string>
     <string name="projector_title">Vetítési beállítások</string>
     <string name="projector_two_point_title">U/d-l/r trapéz korrekció</string>
     <string name="projector_four_point_title">Egyedi trapéz korrekció</string>
