@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Avtomatski trapez</string>
     <string name="projector_auto_focus_title">Samodejno ostrenje</string>
     <string name="index_usb_listener">Zaznana zunanja naprava za shranjevanje, ali želite odpreti upravljanje datotek?</string>
+    <string name="projector_auto_tip">Najprej morate vklopiti samodejno ostrenje.</string>
+    <string name="projector_auto_projector_tip">Najprej moraš vklopiti samodejno projekcijo.</string>
+    <string name="projector_auto_projector_off_tip">Najprej moraš izklopiti samodejno projekcijo.</string>
 </resources>

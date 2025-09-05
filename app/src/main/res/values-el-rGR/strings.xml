@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Auto Trapezoid</string>
     <string name="projector_auto_focus_title">Αυτόματη εστίαση</string>
     <string name="index_usb_listener">Εντοπίστηκε εξωτερική συσκευή αποθήκευσης, θέλετε να ανοίξετε τη διαχείριση αρχείων;</string>
+    <string name="projector_auto_tip">Πρέπει πρώτα να ενεργοποιήσετε την αυτόματη εστίαση</string>
+    <string name="projector_auto_projector_tip">Πρέπει πρώτα να ενεργοποιήσετε την αυτόματη προβολή</string>
+    <string name="projector_auto_projector_off_tip">Πρέπει πρώτα να απενεργοποιήσετε την αυτόματη προβολή</string>
 </resources>

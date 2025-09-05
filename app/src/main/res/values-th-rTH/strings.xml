@@ -250,4 +250,7 @@
     <string name="projector_auto_projection_title">สี่เหลี่ยมคางหมู</string>
     <string name="projector_auto_focus_title">ออโต้โฟกัส</string>
     <string name="index_usb_listener">ตรวจพบอุปกรณ์จัดเก็บข้อมูลภายนอก คุณต้องการเปิดการจัดการไฟล์หรือไม่</string>
+    <string name="projector_auto_tip">คุณต้องเปิดโฟกัสอัตโนมัติก่อน</string>
+    <string name="projector_auto_projector_tip">คุณต้องเปิดการฉายภาพอัตโนมัติก่อน</string>
+    <string name="projector_auto_projector_off_tip">คุณต้องปิดการฉายภาพอัตโนมัติก่อน</string>
 </resources>

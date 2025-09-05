@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Auto Trapezoid</string>
     <string name="projector_auto_focus_title">Auto Focus</string>
     <string name="index_usb_listener">Natukoy ang panlabas na storage device, gusto mo bang buksan ang pamamahala ng file?</string>
+    <string name="projector_auto_tip">Kailangan muna mong i-activate ang auto focus</string>
+    <string name="projector_auto_projector_tip">Kailangan muna mong i-activate ang auto projection</string>
+    <string name="projector_auto_projector_off_tip">Kailangan muna mong i-off ang auto projection</string>
 </resources>

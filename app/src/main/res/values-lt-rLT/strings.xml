@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Auto trapecijos</string>
     <string name="projector_auto_focus_title">Automatinis fokusavimas</string>
     <string name="index_usb_listener">Aptiktas išorinis atminties įrenginys, ar norite atidaryti failų tvarkyklę?</string>
+    <string name="projector_auto_tip">Pirmiausia reikia įjungti automatinį fokusavimą</string>
+    <string name="projector_auto_projector_tip">Pirmiausia reikia įjungti automatinę projekciją</string>
+    <string name="projector_auto_projector_off_tip">Pirmiausia reikia išjungti automatinę projekciją</string>
 </resources>

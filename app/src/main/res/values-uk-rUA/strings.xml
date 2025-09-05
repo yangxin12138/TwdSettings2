@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Автотрапеція</string>
     <string name="projector_auto_focus_title">Автофокус</string>
     <string name="index_usb_listener">Виявлено зовнішній пристрій зберігання даних, відкрити керування файлами?</string>
+    <string name="projector_auto_tip">Спочатку потрібно включити автофокус</string>
+    <string name="projector_auto_projector_tip">Спочатку потрібно включити автоматичну проекцію</string>
+    <string name="projector_auto_projector_off_tip">Спочатку необхідно вимкнути автоматичну проекцію</string>
 </resources>

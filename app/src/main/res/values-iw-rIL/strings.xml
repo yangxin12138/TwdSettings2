@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">טרפז אוטומטי</string>
     <string name="projector_auto_focus_title">פוקוס אוטומטי</string>
     <string name="index_usb_listener">זוהה התקן אחסון חיצוני, האם ברצונך לפתוח את ניהול הקבצים?</string>
+    <string name="projector_auto_tip">אתה צריך להפעיל את המיקוד האוטומטי קודם</string>
+    <string name="projector_auto_projector_tip">אתה צריך להפעיל את ההקרנה האוטומטית קודם</string>
+    <string name="projector_auto_projector_off_tip">אתה צריך לכבות את ההקרנה האוטומטית קודם</string>
 </resources>

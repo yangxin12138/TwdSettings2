@@ -249,4 +249,7 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="projector_auto_projection_title">Otomatik yamuk</string>
     <string name="projector_auto_focus_title">Otomatik odaklama</string>
     <string name="index_usb_listener">Harici depolama aygıtı algılandı, dosya yönetimini açmak ister misiniz?</string>
+    <string name="projector_auto_tip">Önce otomatik odaklamayı açmanız gerekiyor</string>
+    <string name="projector_auto_projector_tip">Öncelikle otomatik projeksiyonu açmanız gerekiyor</string>
+    <string name="projector_auto_projector_off_tip">Öncelikle otomatik projeksiyonu kapatmanız gerekiyor</string>
 </resources>

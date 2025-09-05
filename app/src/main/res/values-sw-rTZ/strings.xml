@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Auto trapezoid</string>
     <string name="projector_auto_focus_title">Autofocus</string>
     <string name="index_usb_listener">Kifaa cha hifadhi ya nje kimetambuliwa, ungependa kufungua usimamizi wa faili?</string>
+    <string name="projector_auto_tip">Unahitaji kugeuka auto kuzingatia kwanza</string>
+    <string name="projector_auto_projector_tip">Unahitaji kugeuka juu ya auto projection kwanza</string>
+    <string name="projector_auto_projector_off_tip">Unahitaji kuzima auto projection kwanza</string>
 </resources>

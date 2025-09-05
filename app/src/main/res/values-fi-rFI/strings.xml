@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Automaattinen puolisuunnikas</string>
     <string name="projector_auto_focus_title">Automaattitarkennus</string>
     <string name="index_usb_listener">Ulkoinen tallennuslaite havaittu. Haluatko avata tiedostonhallinnan?</string>
+    <string name="projector_auto_tip">Ensin on otettava autokeskittyminen käyttöön</string>
+    <string name="projector_auto_projector_tip">Ensin on otettava automaattinen projektio käyttöön.</string>
+    <string name="projector_auto_projector_off_tip">Sinun täytyy sammuttaa automaattinen projektio ensin</string>
 </resources>

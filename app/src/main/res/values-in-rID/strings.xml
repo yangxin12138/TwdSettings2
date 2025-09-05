@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Trapesium otomatis</string>
     <string name="projector_auto_focus_title">Fokus otomatis</string>
     <string name="index_usb_listener">Perangkat penyimpanan eksternal terdeteksi, apakah Anda ingin membuka manajemen file?</string>
+    <string name="projector_auto_tip">Anda harus mengaktifkan fokus otomatis terlebih dahulu</string>
+    <string name="projector_auto_projector_tip">Anda harus mengaktifkan proyeksi otomatis terlebih dahulu</string>
+    <string name="projector_auto_projector_off_tip">Anda harus mematikan proyeksi otomatis terlebih dahulu</string>
 </resources>

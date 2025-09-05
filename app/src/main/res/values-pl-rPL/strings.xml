@@ -246,4 +246,7 @@
     <string name="projector_auto_projection_title">Auto korekta trapezoidalna</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="index_usb_listener">Wykryto zewnętrzne urządzenie pamięci masowej. Czy chcesz otworzyć zarządzanie plikami?</string>
+    <string name="projector_auto_tip">Najpierw należy włączyć auto focus</string>
+    <string name="projector_auto_projector_tip">Najpierw należy włączyć projekcję automatyczną.</string>
+    <string name="projector_auto_projector_off_tip">Najpierw należy wyłączyć projekcję automatyczną.</string>
 </resources>

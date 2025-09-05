@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Automatisk trapezoidal korreksjon</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="index_usb_listener">Ekstern lagringsenhet oppdaget. Vil du åpne filbehandlingen?</string>
+    <string name="projector_auto_tip">Du må skru på bilfokus først.</string>
+    <string name="projector_auto_projector_tip">Du må skru på autoprosjektet først.</string>
+    <string name="projector_auto_projector_off_tip">Du må skru av autoprosjektet først.</string>
 </resources>

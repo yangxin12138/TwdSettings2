@@ -41,7 +41,6 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         }
     };
     private ItemLRTextIconData autoProjectionData;
-    private ItemLRTextIconData verticalProjectionData;
     private ItemLRTextIconData autoFocusData;
     private ItemLRTextIconData bootAutoFocusData;
     private ItemLRTextIconData autoOBSData;
@@ -100,13 +99,6 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         return autoFitScreenData;
     }
 
-    public ItemLRTextIconData getVerticalProjectionData() {
-        return verticalProjectionData;
-    }
-
-    public void setVerticalProjectionData(ItemLRTextIconData verticalProjectionData) {
-        this.verticalProjectionData = verticalProjectionData;
-    }
 
     public void initData(Application paramApplication) {
         int postion = getProjectionItem();
@@ -125,7 +117,6 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
         fourPointData = new ItemLRTextIconData(2, paramApplication.getString(R.string.projector_four_point_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         sizeData = new ItemLRTextIconData(3, paramApplication.getString(R.string.projector_size_title), null, 0, R.drawable.ic_baseline_arrow_forward_ios_24,View.GONE,View.VISIBLE);
         autoProjectionData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_projection_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
-        verticalProjectionData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
         autoFocusData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_focus_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
         bootAutoFocusData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_boot_auto_focus_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);
         autoOBSData = new ItemLRTextIconData(5,paramApplication.getString(R.string.projector_auto_obs_title),null,0,R.drawable.ic_baseline_arrow_forward_ios_24,View.VISIBLE,View.GONE);

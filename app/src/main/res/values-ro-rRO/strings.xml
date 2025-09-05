@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Corecție automată trapezoidală</string>
     <string name="projector_auto_focus_title">Autofocus</string>
     <string name="index_usb_listener">Dispozitiv de stocare extern detectat, doriți să deschideți gestionarea fișierelor?</string>
+    <string name="projector_auto_tip">Trebuie să activați mai întâi focalizarea automată</string>
+    <string name="projector_auto_projector_tip">Trebuie să activați mai întâi proiecția automată</string>
+    <string name="projector_auto_projector_off_tip">Trebuie să dezactivați mai întâi proiecția automată</string>
 </resources>

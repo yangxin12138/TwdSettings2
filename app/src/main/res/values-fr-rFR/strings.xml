@@ -249,4 +249,7 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="projector_auto_projection_title">Trapézoïde auto</string>
     <string name="projector_auto_focus_title">Focus automatique</string>
     <string name="index_usb_listener">Périphérique de stockage externe détecté, souhaitez-vous ouvrir la gestion des fichiers ?</string>
+    <string name="projector_auto_tip">Vous devez d\'abord activer la mise au point automatique</string>
+    <string name="projector_auto_projector_tip">Vous devez d’abord activer la projection automatique</string>
+    <string name="projector_auto_projector_off_tip">Vous devez d’abord désactiver la projection automatique</string>
 </resources>

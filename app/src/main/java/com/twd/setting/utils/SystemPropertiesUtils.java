@@ -25,12 +25,22 @@ public class SystemPropertiesUtils {
     public static final String ACTION_DEVICE_NAME_UPDATE =
             "com.twd.setting.utils.SystemPropertiesUtils.DEVICE_NAME_UPDATE";
 
-    public static String getProperty(String key, String defaultValue) {
-        String value = defaultValue;
+    public static <T> T getProperty(String key, T defaultValue){
+
+        T value = defaultValue;
         try{
+            // 将 defaultValue 转换为 String 类型
+            String defaultStringValue = defaultValue != null ? defaultValue.toString() : null;
             Class<?> c = Class.forName(CLASS_NAME);
             Method get = c.getMethod("get",String.class, String.class);
-            value = (String)(get.invoke(c,key,defaultValue));
+            String result = (String) get.invoke(null, key, defaultStringValue);
+
+            if (defaultValue instanceof Boolean) {
+                // 如果 defaultValue 是 Boolean 类型，将结果转换为 Boolean
+                value = (T) Boolean.valueOf(result);
+            } else {
+                value = (T) result;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }finally {
@@ -79,16 +89,16 @@ public class SystemPropertiesUtils {
         LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(ACTION_DEVICE_NAME_UPDATE));
     }
 
-    public static String readSystemProp(){
+    public static String readSystemProp(String search_line){
         String line = "";
         try {
             File file = new File("/system/etc/settings.ini");
             FileInputStream fis = new FileInputStream(file);
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
             while ((line = reader.readLine()) != null) {
-                if (line.contains("STORAGE_SIMPLE_SYSDATA")) {
+                if (line.contains(search_line)) {
                     // 这里可以进一步解析line来获取STORAGE_SIMPLE_SYSDATA的值
-                    String value = line.split("=")[1]; // 获取等号后面的值
+                    String value = line.split("=")[1].trim(); // 获取等号后面的值
                     reader.close();
                     fis.close();
                     return value;
@@ -99,7 +109,7 @@ public class SystemPropertiesUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "1GB+8GB";
+        return "false";
     }
 
     public static String readSystemVersion(){

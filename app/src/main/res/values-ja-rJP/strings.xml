@@ -247,4 +247,7 @@
     <string name="projector_auto_projection_title">自動台形補正</string>
     <string name="projector_auto_focus_title">オートフォーカス</string>
     <string name="index_usb_listener">外部ストレージデバイスが検出されました。ファイル管理を開きますか?</string>
+    <string name="projector_auto_tip">まずオートフォーカスをオンにする必要があります</string>
+    <string name="projector_auto_projector_tip">まず自動投影をオンにする必要があります</string>
+    <string name="projector_auto_projector_off_tip">まず自動投影をオフにする必要があります</string>
 </resources>

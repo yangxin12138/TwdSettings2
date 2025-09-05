@@ -247,4 +247,7 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="projector_auto_projection_title">Auto Trapez</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="index_usb_listener">Externes Speichergerät erkannt, möchten Sie die Dateiverwaltung öffnen?</string>
+    <string name="projector_auto_tip">Sie müssen zuerst den Autofokus einschalten</string>
+    <string name="projector_auto_projector_tip">Sie müssen zuerst die automatische Projektion aktivieren</string>
+    <string name="projector_auto_projector_off_tip">Sie müssen zuerst die automatische Projektion ausschalten</string>
 </resources>

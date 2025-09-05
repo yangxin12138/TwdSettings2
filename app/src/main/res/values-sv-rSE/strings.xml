@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Automatisk trapets</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="net_wifiList_connectbypreference_title_tv">Det här nätverket har sparats. Vill du ansluta?</string>
+    <string name="projector_auto_tip">Du måste slå på autofokus först</string>
+    <string name="projector_auto_projector_tip">Du måste aktivera automatisk projektion först</string>
+    <string name="projector_auto_projector_off_tip">Du måste stänga av automatisk projektion först</string>
 </resources>

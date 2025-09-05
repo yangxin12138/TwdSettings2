@@ -249,4 +249,8 @@
     <string name="projector_auto_projection_title">تصحیح ذوزنقه ای اتوماتیک</string>
     <string name="projector_auto_focus_title">فوکوس خودکار</string>
     <string name="index_usb_listener">دستگاه ذخیره‌سازی خارجی شناسایی شد، آیا می‌خواهید مدیریت فایل را باز کنید؟</string>
+    <string name="projector_auto_tip">ابتدا باید فوکوس خودکار را روشن کنید</string>
+    <string name="projector_auto_projector_tip">ابتدا باید نمایش خودکار را روشن کنید</string>
+    <string name="projector_auto_projector_off_tip">ابتدا باید پروژکتور خودکار را خاموش کنید</string>
+
 </resources>

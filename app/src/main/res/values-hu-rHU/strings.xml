@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Auto trapéz</string>
     <string name="projector_auto_focus_title">Automatikus fókusz</string>
     <string name="index_usb_listener">Külső tárolóeszköz észlelve, megnyitja a fájlkezelőt?</string>
+    <string name="projector_auto_tip">Először be kell kapcsolni az autofókuszt</string>
+    <string name="projector_auto_projector_tip">Először be kell kapcsolnia az automatikus vetítést</string>
+    <string name="projector_auto_projector_off_tip">Először ki kell kapcsolnia az automatikus vetítést</string>
 </resources>

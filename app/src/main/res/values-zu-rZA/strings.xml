@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Auto trapezoid</string>
     <string name="projector_auto_focus_title">I-autofocus</string>
     <string name="index_usb_listener">Kutholwe idivayisi yesitoreji sangaphandle, uyafuna ukuvula ukuphathwa kwefayela?</string>
+    <string name="projector_auto_tip">Kudingeka uvule ukugxila okuzenzakalelayo kuqala</string>
+    <string name="projector_auto_projector_tip">Kudingeka uvule ukubonisa okuzenzakalelayo kuqala</string>
+    <string name="projector_auto_projector_off_tip">Kudingeka uvale ukubonisa okuzenzakalelayo kuqala</string>
 </resources>

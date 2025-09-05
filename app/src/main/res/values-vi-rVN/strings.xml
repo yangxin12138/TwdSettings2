@@ -245,4 +245,7 @@
     <string name="projector_auto_projection_title">Tự động hình thang</string>
     <string name="projector_auto_focus_title">Lấy nét tự động</string>
     <string name="index_usb_listener">Đã phát hiện thiết bị lưu trữ ngoài, bạn có muốn mở quản lý tệp không?</string>
+    <string name="projector_auto_tip">Bạn cần bật Auto Focus trước</string>
+    <string name="projector_auto_projector_tip">Bạn cần bật tự động chiếu trước</string>
+    <string name="projector_auto_projector_off_tip">Bạn cần tắt tự động chiếu trước</string>
 </resources>

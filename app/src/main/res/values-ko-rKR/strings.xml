@@ -248,4 +248,7 @@
     <string name="projector_auto_projection_title">자동 사다리꼴 교정</string>
     <string name="projector_auto_focus_title">자동 초점</string>
     <string name="index_usb_listener">외부 저장 장치가 감지되었습니다. 파일 관리를 열겠습니까?</string>
+    <string name="projector_auto_tip">먼저 자동 초점을 켜야 합니다.</string>
+    <string name="projector_auto_projector_tip">먼저 자동 투사를 켜야 합니다.</string>
+    <string name="projector_auto_projector_off_tip">먼저 자동 투사 기능을 꺼야 합니다.</string>
 </resources>

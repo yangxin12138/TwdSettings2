@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Automatisk trapezformet</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="index_usb_listener">Der er fundet en ekstern lagerenhed. Vil du åbne filhåndteringen?</string>
+    <string name="projector_auto_tip">Du skal tænde for autofokus først</string>
+    <string name="projector_auto_projector_tip">Du skal tænde for automatisk projektion først</string>
+    <string name="projector_auto_projector_off_tip">Du skal slukke for automatisk projektion først</string>
 </resources>

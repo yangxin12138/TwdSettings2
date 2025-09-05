@@ -498,4 +498,7 @@ Example: 24"</string>
     <string name="projector_auto_fit_screen_title">自动入幕</string>
     <string name="projector_auto_title">垂直梯形</string>
     <string name="index_usb_listener">检测到外部存储设备，是否要打开文件管理？</string>
+    <string name="projector_auto_tip">需要先打开自动对焦</string>
+    <string name="projector_auto_projector_tip">需要先打开自动梯形</string>
+    <string name="projector_auto_projector_off_tip">需要先关闭自动梯形</string>
 </resources>

@@ -247,4 +247,7 @@
     <string name="projector_auto_projection_title">Автозоид</string>
     <string name="projector_auto_focus_title">Автофокус</string>
     <string name="index_usb_listener">Обнаружено внешнее запоминающее устройство. Хотите открыть управление файлами?</string>
+    <string name="projector_auto_tip">Сначала вам нужно включить автофокус.</string>
+    <string name="projector_auto_projector_tip">Сначала вам нужно включить автоматическую проекцию.</string>
+    <string name="projector_auto_projector_off_tip">Сначала вам нужно отключить автоматическую проекцию.</string>
 </resources>

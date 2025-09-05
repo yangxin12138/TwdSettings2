@@ -195,5 +195,5 @@
     <color name="storage_charts_starblue_other">#ffb8b8</color>
     <color name="background_color">#103AE9</color>
     
-    <color name="unselectable_color">#CACACA</color>
+    <color name="unselectable_color">#434343</color>
 </resources>

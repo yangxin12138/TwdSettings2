@@ -247,4 +247,7 @@
     <string name="projector_auto_projection_title">منحرف السيارات</string>
     <string name="projector_auto_focus_title">التركيز التلقائي</string>
     <string name="index_usb_listener">تم الكشف عن جهاز التخزين الخارجي ، هل تريد فتح ملف إدارة ؟</string>
+    <string name="projector_auto_tip">يجب عليك تشغيل التركيز التلقائي أولاً</string>
+    <string name="projector_auto_projector_tip">يجب عليك تشغيل العرض التلقائي أولاً</string>
+    <string name="projector_auto_projector_off_tip">يجب عليك إيقاف تشغيل العرض التلقائي أولاً</string>
 </resources>

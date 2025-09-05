@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Automatické lichoběžníky</string>
     <string name="projector_auto_focus_title">Automatické zaostření</string>
     <string name="index_usb_listener">Detekováno externí úložné zařízení, chcete otevřít správu souborů?</string>
+    <string name="projector_auto_tip">Nejdřív je třeba zapnout automatické zaostřování.</string>
+    <string name="projector_auto_projector_tip">Nejdřív je třeba zapnout automatickou projekci.</string>
+    <string name="projector_auto_projector_off_tip">Nejdřív musíte vypnout automatickou projekci.</string>
 </resources>

@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Auto trapecveida</string>
     <string name="projector_auto_focus_title">Autofokuss</string>
     <string name="index_usb_listener">Atrasta ārējā atmiņas ierīce. Vai vēlaties atvērt failu pārvaldību?</string>
+    <string name="projector_auto_tip">Vispirms jāieslēdz autofokuss</string>
+    <string name="projector_auto_projector_tip">Jums vispirms jāieslēdz automātiskā projekcija</string>
+    <string name="projector_auto_projector_off_tip">Jums vispirms jāizslēdz automātiskā projekcija</string>
 </resources>

@@ -249,4 +249,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="projector_auto_projection_title">Corrección trapezoidal automática</string>
     <string name="projector_auto_focus_title">Enfoque automático</string>
     <string name="index_usb_listener">Dispositivo de almacenamiento externo detectado, ¿desea abrir la administración de archivos?</string>
+    <string name="projector_auto_tip">Primero debes activar el enfoque automático</string>
+    <string name="projector_auto_projector_tip">Primero debes activar la proyección automática</string>
+    <string name="projector_auto_projector_off_tip">Primero debes desactivar la proyección automática</string>
 </resources>

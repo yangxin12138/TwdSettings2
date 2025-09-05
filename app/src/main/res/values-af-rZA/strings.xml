@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Outo trapezoid</string>
     <string name="projector_auto_focus_title">Outo -fokus</string>
     <string name="index_usb_listener">Eksterne stoortoestel opgespoor, wil jy lêerbestuur oopmaak?</string>
+    <string name="projector_auto_tip">Jy moet eerste skakel op outomaties fokus</string>
+    <string name="projector_auto_projector_tip">Jy moet eerste skakel op outomatiese projeksie</string>
+    <string name="projector_auto_projector_off_tip">Jy moet eerste outomatiese projeksie afskakel</string>
 </resources>

@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Automatische correctie</string>
     <string name="projector_auto_focus_title">Autofocus</string>
     <string name="index_usb_listener">Er is een extern opslagapparaat gedetecteerd. Wilt u het bestandsbeheer openen?</string>
+    <string name="projector_auto_tip">U moet eerst de autofocus inschakelen</string>
+    <string name="projector_auto_projector_tip">U moet eerst automatische projectie inschakelen</string>
+    <string name="projector_auto_projector_off_tip">U moet eerst de automatische projectie uitschakelen</string>
 </resources>

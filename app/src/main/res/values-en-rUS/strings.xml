@@ -110,4 +110,7 @@
     <string name="projector_auto_projection_title">Auto Trapezoid</string>
     <string name="projector_auto_focus_title">Auto Focus</string>
     <string name="index_usb_listener">Detected external storage device, do you want to open file management?</string>
+    <string name="projector_auto_tip">You need to turn on auto focus first</string>
+    <string name="projector_auto_projector_tip">You need to turn on auto projection first</string>
+    <string name="projector_auto_projector_off_tip">You need to turn off auto projection first</string>
 </resources>

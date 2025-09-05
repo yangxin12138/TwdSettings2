@@ -248,4 +248,7 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="projector_auto_projection_title">Correção trapezoidal automática</string>
     <string name="projector_auto_focus_title">Foco automático</string>
     <string name="index_usb_listener">Dispositivo de armazenamento externo detetado. Deseja abrir a gestão de ficheiros?</string>
+    <string name="projector_auto_tip">Precisa de ativar o foco automático primeiro</string>
+    <string name="projector_auto_projector_tip">Precisa de ativar a projeção automática primeiro</string>
+    <string name="projector_auto_projector_off_tip">Precisa de desligar a projeção automática primeiro</string>
 </resources>

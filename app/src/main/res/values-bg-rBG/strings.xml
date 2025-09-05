@@ -240,4 +240,7 @@
     <string name="projector_auto_projection_title">Авто трапец</string>
     <string name="projector_auto_focus_title">Автоматично фокусиране</string>
     <string name="index_usb_listener">Открито е външно устройство за съхранение, искате ли да отворите управлението на файлове?</string>
+    <string name="projector_auto_tip">Първо трябва да включите автофокуса</string>
+    <string name="projector_auto_projector_tip">Първо трябва да включите автоматичната проекция.</string>
+    <string name="projector_auto_projector_off_tip">Първо трябва да изключите автоматичната проекция.</string>
 </resources>
