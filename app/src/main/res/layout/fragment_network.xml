@@ -15,6 +15,8 @@
         android:background="?mainBg"
         android:gravity="center_horizontal"
         android:orientation="vertical"
+        android:layoutDirection="ltr"
+        android:supportsRtl="false"
         android:tag="layout/fragment_network_0">
 
         <include

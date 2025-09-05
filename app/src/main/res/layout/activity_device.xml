@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?background_color"
+    android:layoutDirection="ltr"
+    android:supportsRtl="false"
     tools:context=".module.device.DeviceActivity">
 
     <LinearLayout
