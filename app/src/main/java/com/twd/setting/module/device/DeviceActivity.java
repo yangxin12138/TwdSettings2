@@ -92,6 +92,8 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
             case "1":
                 tv_signal_source.setText(R.string.device_signal_hdmi);
                 break;
+            case "-1":
+                LL_signal.setVisibility(View.GONE);
         }
     }
 
