@@ -185,7 +185,7 @@
     <dimen name="device_name_layout_bt_height">40dp</dimen>
     <dimen name="device_name_layout_bt_textSize">20sp</dimen>
     <dimen name="switchlayout_padding_lr">20.0dip</dimen>
-    <dimen name="common_ime_bar_margin_t">18.0dip</dimen>
+    <dimen name="common_ime_bar_margin_t">5.0dip</dimen>
     <dimen name="singlePoint_dot_width">29dp</dimen>
     <dimen name="singlePoint_dot_stroke">2dp</dimen>
     <dimen name="wifiList_arrow_height">24.0dip</dimen>

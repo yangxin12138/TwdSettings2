@@ -120,12 +120,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private void gotoAutoProjection(boolean isChecked){//false
         selectItem = 4;
         if (isChecked){//原本是选中，自动模式，点击后变成手动模式
-            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
-            binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
-            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
-            binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
-            binding.twoPointInclude.itemRL.setFocusable(true);
-            binding.fourPointInclude.itemRL.setFocusable(true);
+            binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
+            binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
             binding.AutoProjectionInclude.switchAuto.setChecked(false);
             Log.d(TAG, "gotoAutoProjection: 关闭自动梯形 ，走手动模式");
             gotoAutoOBS(true);
@@ -138,12 +134,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             }
         }else {//原本是未选中，手动模式，点击后变成自动模式
             Log.i(TAG, "gotoAuto: 开启switch,走自动模式");
-            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
-            binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
-            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
-            binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
-            binding.twoPointInclude.itemRL.setFocusable(false);
-            binding.fourPointInclude.itemRL.setFocusable(false);
+            binding.twoPointInclude.itemRL.setVisibility(View.GONE);
+            binding.fourPointInclude.itemRL.setVisibility(View.GONE);
             binding.AutoProjectionInclude.switchAuto.setChecked(true);
             if (vertical_focus) {
                 autoFocusUtils.setVerticalCorrectEnable(true);
@@ -268,6 +260,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
 
         boolean isAutoFocus = autoFocusUtils.getAutoFocusStatus();
         Log.i(TAG, "initAutoSwitch: 自动对焦 ： " + isAutoFocus);
+        boolean isAutoFitScreen = autoFocusUtils.getAutoComeAdmireStatus();
+        Log.i(TAG, "initAutoSwitch: 自动入幕 ： " + isAutoFitScreen);
         if (!isAutoFocus){//如果自动对焦是关闭状态，那就关闭自动梯形，入幕，避障
             binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
             binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
@@ -277,6 +271,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             gotoAutoProjection(true);
             autoFocusUtils.setAutoComeAdmireEnable(false);
 
+        } else if (isAutoFitScreen) {
+            binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
+            binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
         }
         boolean isAutoProjection = vertical_focus ? autoFocusUtils.getVerticalCorrectStatus() : autoFocusUtils.getTrapezoidCorrectStatus();
         Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
@@ -284,8 +281,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         Log.i(TAG, "initAutoSwitch: 开机自动对焦 ： " + isAutoBootFocus);
         boolean isAutoOBS = autoFocusUtils.getAutoObstacleAvoidanceStatus();
         Log.i(TAG, "initAutoSwitch: 自动避障 ： " + isAutoOBS);
-        boolean isAutoFitScreen = autoFocusUtils.getAutoComeAdmireStatus();
-        Log.i(TAG, "initAutoSwitch: 自动入幕 ： " + isAutoFitScreen);
+
         initCustomProjection(isAutoProjection);
         binding.AutoProjectionInclude.switchAuto.setChecked(isAutoProjection);
         if (!vertical_focus){
@@ -303,27 +299,11 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
 
     private void initCustomProjection(boolean isAutoProjection){
         if (isAutoProjection){
-            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
-            binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
-            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
-            binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
-            binding.twoPointInclude.itemRL.setFocusable(false);
-            binding.fourPointInclude.itemRL.setFocusable(false);
+                binding.twoPointInclude.itemRL.setVisibility(View.GONE);
+                binding.fourPointInclude.itemRL.setVisibility(View.GONE);
         }else {
-            if (binding.twoPointInclude.itemRL.isFocused()){
-                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.color_0f39e9));
-            }else {
-                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
-            }
-            binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
-            if (binding.fourPointInclude.itemRL.isFocused()){
-                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.color_0f39e9));
-            }else {
-                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
-            }
-            binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
-            binding.twoPointInclude.itemRL.setFocusable(true);
-            binding.fourPointInclude.itemRL.setFocusable(true);
+                binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
+                binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
         }
         binding.twoPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
         binding.fourPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
