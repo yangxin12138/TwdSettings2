@@ -120,8 +120,10 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private void gotoAutoProjection(boolean isChecked){//false
         selectItem = 4;
         if (isChecked){//原本是选中，自动模式，点击后变成手动模式
-            binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
-            binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
+            if (!vertical_focus){
+                binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
+                binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
+            }
             binding.AutoProjectionInclude.switchAuto.setChecked(false);
             Log.d(TAG, "gotoAutoProjection: 关闭自动梯形 ，走手动模式");
             gotoAutoOBS(true);
@@ -134,8 +136,10 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             }
         }else {//原本是未选中，手动模式，点击后变成自动模式
             Log.i(TAG, "gotoAuto: 开启switch,走自动模式");
-            binding.twoPointInclude.itemRL.setVisibility(View.GONE);
-            binding.fourPointInclude.itemRL.setVisibility(View.GONE);
+            if (!vertical_focus){
+                binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
+                binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
+            }
             binding.AutoProjectionInclude.switchAuto.setChecked(true);
             if (vertical_focus) {
                 autoFocusUtils.setVerticalCorrectEnable(true);
@@ -262,7 +266,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         Log.i(TAG, "initAutoSwitch: 自动对焦 ： " + isAutoFocus);
         boolean isAutoFitScreen = autoFocusUtils.getAutoComeAdmireStatus();
         Log.i(TAG, "initAutoSwitch: 自动入幕 ： " + isAutoFitScreen);
-        if (!isAutoFocus && !vertical_focus){//如果自动对焦是关闭状态，那就关闭自动梯形，入幕，避障
+        if (!isAutoFocus && !vertical_focus){
             binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
             binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
             binding.AutoFitScreenIclude.itemRL.setVisibility(View.GONE);
@@ -274,6 +278,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         } else if (vertical_focus) {
             Log.d(TAG, "initAutoSwitch: vertical = true");
             binding.AutoProjectionInclude.itemRL.setVisibility(View.VISIBLE);
+            binding.AutoProjectionInclude.contentTV.setText(R.string.projector_auto_title);
         } else if (isAutoFitScreen) {
             binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
             binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
@@ -301,7 +306,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     }
 
     private void initCustomProjection(boolean isAutoProjection){
-        if (isAutoProjection){
+        if (isAutoProjection && !vertical_focus){
                 binding.twoPointInclude.itemRL.setVisibility(View.GONE);
                 binding.fourPointInclude.itemRL.setVisibility(View.GONE);
         }else {

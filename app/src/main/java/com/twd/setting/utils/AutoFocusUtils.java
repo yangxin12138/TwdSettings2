@@ -129,11 +129,11 @@ public class AutoFocusUtils {
      */
     public void setVerticalCorrectEnable(boolean enable){
         if(enable == true){
-            SystemPropertiesUtils.setProperty("persist.ty.autofocus", "1");
+            SystemPropertiesUtils.setProperty("persist.sys.keystone.autofocus", "1");
         }else if(enable == false){
-            SystemPropertiesUtils.setProperty("persist.ty.autofocus", "0");
+            SystemPropertiesUtils.setProperty("persist.sys.keystone.autofocus", "-1");
         }else{
-            SystemPropertiesUtils.setProperty("persist.ty.autofocus", "0");
+            SystemPropertiesUtils.setProperty("persist.sys.keystone.autofocus", "-1");
         }
     }
 
@@ -143,7 +143,7 @@ public class AutoFocusUtils {
      * @return status: true代表当前开启了自动垂直矫正   false代表当前关闭了自动垂直矫正
      */
     public boolean getVerticalCorrectStatus(){
-        String autofocus = SystemPropertiesUtils.getProperty("persist.ty.autofocus", "1");
+        String autofocus = SystemPropertiesUtils.getProperty("persist.sys.keystone.autofocus", "-1");
         if(autofocus.equals("1")){
             return true;
         }else{
