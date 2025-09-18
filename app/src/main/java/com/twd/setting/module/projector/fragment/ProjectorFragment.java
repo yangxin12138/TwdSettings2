@@ -120,9 +120,13 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private void gotoAutoProjection(boolean isChecked){//false
         selectItem = 4;
         if (isChecked){//原本是选中，自动模式，点击后变成手动模式
-            if (!vertical_focus){
-                binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
-                binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
+            if (vertical_focus){
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+                binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+                binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
+                binding.twoPointInclude.itemRL.setFocusable(true);
+                binding.fourPointInclude.itemRL.setFocusable(true);
             }
             binding.AutoProjectionInclude.switchAuto.setChecked(false);
             Log.d(TAG, "gotoAutoProjection: 关闭自动梯形 ，走手动模式");
@@ -136,9 +140,13 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             }
         }else {//原本是未选中，手动模式，点击后变成自动模式
             Log.i(TAG, "gotoAuto: 开启switch,走自动模式");
-            if (!vertical_focus){
-                binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
-                binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
+            if (vertical_focus){
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+                binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+                binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
+                binding.twoPointInclude.itemRL.setFocusable(false);
+                binding.fourPointInclude.itemRL.setFocusable(false);
             }
             binding.AutoProjectionInclude.switchAuto.setChecked(true);
             if (vertical_focus) {
