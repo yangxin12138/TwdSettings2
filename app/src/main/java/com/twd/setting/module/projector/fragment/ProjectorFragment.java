@@ -290,6 +290,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         } else if (isAutoFitScreen) {
             binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
             binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
+            gotoAutoProjection(true);
+
         }
         boolean isAutoProjection = vertical_focus ? autoFocusUtils.getVerticalCorrectStatus() : autoFocusUtils.getTrapezoidCorrectStatus();
         Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
@@ -298,7 +300,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         boolean isAutoOBS = autoFocusUtils.getAutoObstacleAvoidanceStatus();
         Log.i(TAG, "initAutoSwitch: 自动避障 ： " + isAutoOBS);
 
-        initCustomProjection(isAutoProjection);
+        binding.twoPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
+        binding.fourPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
         binding.AutoProjectionInclude.switchAuto.setChecked(isAutoProjection);
         if (!vertical_focus){
             binding.AutoFocusInclude.switchAuto.setChecked(isAutoFocus);
@@ -311,18 +314,6 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
                 binding.projectionInclude.rightTV.setSelected(hasFocus);
             }
         });
-    }
-
-    private void initCustomProjection(boolean isAutoProjection){
-        if (isAutoProjection && !vertical_focus){
-                binding.twoPointInclude.itemRL.setVisibility(View.GONE);
-                binding.fourPointInclude.itemRL.setVisibility(View.GONE);
-        }else {
-                binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
-                binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
-        }
-        binding.twoPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
-        binding.fourPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
     }
 
     @Override
