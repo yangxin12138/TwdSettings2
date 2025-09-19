@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="@dimen/device_info_textSize"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:textColor="?textColor"
             android:layout_gravity="end"/>
     </LinearLayout>
@@ -69,7 +69,7 @@
             android:id="@+id/devices_tv_androidVersion_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text=""
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor" />
@@ -92,7 +92,7 @@
             android:id="@+id/devices_tv_softwareNO_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text=""
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor" />
@@ -114,7 +114,7 @@
             android:id="@+id/devices_tv_macAddressWifi_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text=""
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor" />
@@ -136,7 +136,7 @@
             android:id="@+id/devices_tv_macAddressBluetooth_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text=""
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor" />
@@ -158,7 +158,7 @@
             android:id="@+id/devices_tv_sn_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text=""
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor" />
@@ -180,7 +180,7 @@
             android:id="@+id/devices_tv_deviceid_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text=""
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor" />
@@ -202,7 +202,7 @@
             android:id="@+id/devices_tv_ip_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text=""
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor" />

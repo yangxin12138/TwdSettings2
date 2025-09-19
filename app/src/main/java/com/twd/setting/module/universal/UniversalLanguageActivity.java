@@ -15,9 +15,12 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -211,7 +214,29 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
         // 创建并显示对话框
         AlertDialog dialog = builder.create();
         dialog.show();
-
+        Window window = dialog.getWindow();
+        if (window != null) {
+            // 单位是 px，先把 dp 转 px（这里 300 dp 示例）
+            int widthPx = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, 1000,
+                    context.getResources().getDisplayMetrics());
+            WindowManager.LayoutParams lp = window.getAttributes();
+            lp.width = widthPx;          // 宽度
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT; // 高度保持默认
+            window.setAttributes(lp);
+        }
+        TextView titleView = dialog.findViewById(getResources().getIdentifier("alertTitle", "id", "android"));
+        if (titleView != null) {
+            titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 28);}
+        TextView messageView = dialog.findViewById(android.R.id.message);
+        if (messageView != null) {
+            messageView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 34);}
+        TextView positive = dialog.findViewById(android.R.id.button1);
+        if (positive != null) {
+            positive.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);}
+        TextView negative = dialog.findViewById(android.R.id.button2);
+        if (negative != null) {
+            negative.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);}
     }
     /*
      * 修改系统语言的方法

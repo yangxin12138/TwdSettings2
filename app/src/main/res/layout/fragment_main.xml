@@ -60,7 +60,7 @@
             android:drawablePadding="@dimen/main_big_icon_drawable_padding"
             android:gravity="center_horizontal"
             android:textColor="?primaryTextColor"
-            android:textSize="@dimen/main_title_textsize"
+            android:textSize="@dimen/main_bigicon_textsize"
             app:drawableTint="?primaryTextColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="@id/guidelineRight"

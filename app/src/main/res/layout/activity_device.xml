@@ -61,7 +61,7 @@
                 android:src="?arrowSrc"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="@dimen/devices_info_iv_height"
+                android:layout_height="@dimen/universal_current_arrow_height"
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
         <LinearLayout

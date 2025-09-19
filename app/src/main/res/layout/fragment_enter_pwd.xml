@@ -25,7 +25,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="73.0dip"
             android:text="@string/wifi_enter_passwd_info"
-            android:textSize="26.0sp" />
+            android:textSize="@dimen/wifi_enter_net_title_textsize" />
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -59,8 +59,10 @@
 
         <FrameLayout
             android:id="@+id/item_switch_pwd_visibility"
-            android:layout_width="150.0dip"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
             android:layout_marginTop="24.0dip"
             android:background="?itemBg"
             android:clickable="true"
@@ -76,21 +78,27 @@
                 android:layout_gravity="center"
                 android:duplicateParentState="true"
                 android:text="Hide Password"
-                android:textSize="18.0sp"
+                android:singleLine="true"
+                android:textSize="@dimen/wifi_enter_net_hide_textsize"
                 app:drawableTint="?mainPageItemColor" />
         </FrameLayout>
 
         <TextView
             android:id="@+id/btn_connect"
             style="@style/Common.Text.Content"
-            android:layout_width="195.0dip"
-            android:layout_height="48.0dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:layout_marginTop="190.0dip"
             android:background="?btnBg"
             android:enabled="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
             android:text="@string/wifi_enter_passwd_connect"
+            android:textSize="@dimen/wifi_enter_net_hide_textsize"
             android:textColor="?btnTextColor" />
     </LinearLayout>
 </layout>

@@ -56,34 +56,6 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
                 binding.projectorItem.leftIv.setImageResource(hasFocus ? R.drawable.ic_projector_v : R.drawable.ic_projector_black);
             }
             updateBigIconText(view.getId());
-            /*if (hasFocus){
-                if (view.getId() == R.id.networkItem){
-                    binding.networkItem.leftIv.setImageResource(R.drawable.ic_network_red);
-                } else if (view.getId() == R.id.bluetoothItem) {
-                    binding.bluetoothItem.leftIv.setImageResource(R.drawable.ic_bluetooth_red);
-                } else if (view.getId() == R.id.commonItem) {
-                    binding.commonItem.leftIv.setImageResource(R.drawable.ic_common_red);
-                } else if (view.getId() == R.id.systemEquipmentItem) {
-                    binding.systemEquipmentItem.leftIv.setImageResource(R.drawable.ic_sys_equipment_red);
-                } else if (view.getId() == R.id.projectorItem) {
-                    binding.projectorItem.leftIv.setImageResource(R.drawable.ic_projector_v);
-                }
-                updateBigIconText(view.getId());
-            }else {
-                if (view.getId() == R.id.networkItem){
-                    binding.networkItem.leftIv.setImageResource(R.drawable.ic_network_v);
-                } else if (view.getId() == R.id.bluetoothItem) {
-                    binding.bluetoothItem.leftIv.setImageResource(R.drawable.ic_bluetooth_v);
-                } else if (view.getId() == R.id.commonItem) {
-                    binding.commonItem.leftIv.setImageResource(R.drawable.ic_common_v);
-                } else if (view.getId() == R.id.systemEquipmentItem) {
-                    binding.systemEquipmentItem.leftIv.setImageResource(R.drawable.ic_sys_equipment_v);
-                } else if (view.getId() == R.id.projectorItem) {
-                    binding.projectorItem.leftIv.setImageResource(R.drawable.ic_projector_black);
-                }
-            }*/
-
-            //}
         }
     };
 
@@ -136,7 +108,6 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
             binding.rightBigIconTv.setCompoundDrawables(null, localDrawable, null, null);
         }
         binding.rightBigIconTv.setText(paramInt2);
-        binding.rightBigIconTv.setTextSize(TypedValue.COMPLEX_UNIT_SP,40);
     }
 
     private void setClickListener() {
