@@ -1,5 +1,6 @@
 package com.twd.setting.module.projector.fragment;
 
+import android.app.TwdManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,15 +45,25 @@ public class SizeFragment extends BaseBindingVmFragment<FragmentSizeBinding, Key
     public void onViewCreated(View paramView, Bundle paramBundle) {
         super.onViewCreated(paramView, paramBundle);
         binding.setViewModel(viewModel);
+        int ZoomMin = TwdManager.getInstance().getZoomMinValue();
+        TwdManager.getInstance().setZoomValue(55);
+        int CurrentZoom = TwdManager.getInstance().getZoomValue();
+        Log.d(TAG, "onViewCreated: 缩放最小值是 = " + ZoomMin+",当前缩放是 = "+CurrentZoom);
         binding.seekbarLevel.setFocusable(true);
         binding.seekbarLevel.requestFocus();
         binding.seekbarLevel.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                Log.d(TAG,"onProgressChanged:"+i+",flag:"+b);
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                Log.d(TAG,"onProgressChanged:"+progress+",flag:"+b);
                 if(b) {
-                    viewModel.setZoom(i);
-                    binding.textLevel.setText("Level: " + i);
+                    binding.seekbarLevel.setProgress(progress);
+                    binding.textLevel.setText("Level: " + progress);
+                    // 公式：缩放值 = 100 - (进度值 × 5)
+                    int zoomValue = 100 - (progress * 5);
+                    if (zoomValue >= 50 && zoomValue <= 100) {
+                        TwdManager.getInstance().setZoomValue(zoomValue);
+                        Log.d(TAG, "设置缩放值: " + zoomValue);
+                    }
                 }
             }
 

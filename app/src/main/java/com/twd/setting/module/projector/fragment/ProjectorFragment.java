@@ -1,5 +1,6 @@
 package com.twd.setting.module.projector.fragment;
 
+import android.app.TwdManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,6 +27,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private int selectItem = 0;
     private AutoFocusUtils autoFocusUtils;
     TwdUtils twdUtils;
+    TwdManager twdManager;
     private void clickItem(int item) {
         if(item == R.id.twoPointInclude){//1
             gotoTwoPoint();
@@ -184,6 +186,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     public void onResume() {
         super.onResume();
         initAutoMode();
+        twdManager = TwdManager.getInstance();
         twdUtils.hideSystemUI(getActivity());
         if(selectItem == 0){
             if(binding.twoPointInclude.contentTVLeft.getVisibility() == View.VISIBLE){
@@ -220,7 +223,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         twdUtils = new TwdUtils();
         twdUtils.hideSystemUI(getActivity());
         ((FragmentProjectorBinding) this.binding).twoPointInclude.itemRL.requestFocus();
-
+        twdManager = TwdManager.getInstance();
         ((ProjectorViewModel) this.viewModel).getClickItem().observe(getViewLifecycleOwner(), new Observer() {
             @Override
             public void onChanged(Object o) {
@@ -232,27 +235,27 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     }
 
     private void initAutoMode(){
-        String isVerticalProjection = autoFocusUtils.getVerticalCorrectStatus();
-        String isAutoProjection = autoFocusUtils.getTrapezoidCorrectStatus();
-        String isAutoFocus = autoFocusUtils.getAutoFocusStatus();
-        String isAutoBootFocus = autoFocusUtils.getPowerOnAutoFocusStatus();
-        String isAutoOBS = autoFocusUtils.getAutoObstacleAvoidanceStatus();
-        String isAutoFitScreen = autoFocusUtils.getAutoComeAdmireStatus();
-        iniCustomProjection(isAutoProjection.equals("1"),isVerticalProjection.equals("1"));
+        boolean isVerticalProjection = twdManager.getVerticalCorrectStatus();
+        boolean isAutoProjection = twdManager.getTrapezoidCorrectStatus();
+        boolean isAutoFocus = twdManager.getAutoFocusStatus();
+        boolean isAutoBootFocus = twdManager.getPowerOnAutoFocusStatus();
+        boolean isAutoOBS = twdManager.getAutoObstacleAvoidanceStatus();
+        boolean isAutoFitScreen = twdManager.getAutoComeAdmireStatus();
+        iniCustomProjection(isAutoProjection,isVerticalProjection);
 
-        binding.VerticalProjectionInclude.switchAuto.setChecked(isVerticalProjection.equals("1"));
-        binding.AutoProjectionInclude.switchAuto.setChecked(isAutoProjection.equals("1"));
-        binding.AutoFocusInclude.switchAuto.setChecked(isAutoFocus.equals("1"));
-        binding.BootAutoFocusIclude.switchAuto.setChecked(isAutoBootFocus.equals("1"));
-        binding.AutoOBSIclude.switchAuto.setChecked(isAutoOBS.equals("1"));
-        binding.AutoFitScreenIclude.switchAuto.setChecked(isAutoFitScreen.equals("1"));
+        binding.VerticalProjectionInclude.switchAuto.setChecked(isVerticalProjection);
+        binding.AutoProjectionInclude.switchAuto.setChecked(isAutoProjection);
+        binding.AutoFocusInclude.switchAuto.setChecked(isAutoFocus);
+        binding.BootAutoFocusIclude.switchAuto.setChecked(isAutoBootFocus);
+        binding.AutoOBSIclude.switchAuto.setChecked(isAutoOBS);
+        binding.AutoFitScreenIclude.switchAuto.setChecked(isAutoFitScreen);
 
-        binding.VerticalProjectionInclude.itemRL.setVisibility(isVerticalProjection.equals("-1") ? View.GONE : View.VISIBLE);
-        binding.AutoProjectionInclude.itemRL.setVisibility(isAutoProjection.equals("-1") ? View.GONE : View.VISIBLE);
-        binding.AutoFocusInclude.itemRL.setVisibility(isAutoFocus.equals("-1") ? View.GONE : View.VISIBLE);
-        binding.BootAutoFocusIclude.itemRL.setVisibility(isAutoBootFocus.equals("-1") ? View.GONE : View.VISIBLE);
-        binding.AutoOBSIclude.itemRL.setVisibility(isAutoOBS.equals("-1") ? View.GONE : View.VISIBLE);
-        binding.AutoFitScreenIclude.itemRL.setVisibility(isAutoFitScreen.equals("-1") ? View.GONE : View.VISIBLE);
+        binding.VerticalProjectionInclude.itemRL.setVisibility(twdManager.isShowVerticalAutoCorrect() ? View.VISIBLE : View.GONE);
+        binding.AutoProjectionInclude.itemRL.setVisibility(twdManager.isShowAutoTrapezoidCorrect() ? View.VISIBLE : View.GONE);
+        binding.AutoFocusInclude.itemRL.setVisibility(twdManager.isShowAutoFocus() ? View.VISIBLE : View.GONE);
+        binding.BootAutoFocusIclude.itemRL.setVisibility(twdManager.isShowPowerOnAutoFocus() ? View.VISIBLE : View.GONE);
+        binding.AutoOBSIclude.itemRL.setVisibility(twdManager.isShowAutoObstacleAvoidance() ? View.VISIBLE : View.GONE);
+        binding.AutoFitScreenIclude.itemRL.setVisibility(twdManager.isShowAutoComeAdmire() ? View.VISIBLE : View.GONE);
 
         binding.projectionInclude.itemRL.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

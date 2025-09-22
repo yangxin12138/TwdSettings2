@@ -249,6 +249,7 @@
             android:layout_marginTop="@dimen/LL_content_marginTop"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:visibility="gone"
             android:background="?bBg">
             <TextView
                 android:duplicateParentState="true"

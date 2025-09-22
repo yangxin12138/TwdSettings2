@@ -13,6 +13,7 @@ import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.binding.ItemLRTextIconData;
 
 import android.app.Application;
+import android.app.TwdManager;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
@@ -152,44 +153,7 @@ public class ProjectorViewModel extends BaseViewModel<SysEquipmentRepository> {
 
     public int getProjectionItem(){
         int ret = 0;
-        ret = Integer.parseInt(SystemPropertiesUtils.getProperty(PATH_CONTROL_MIPI,"5"));//readProjectionValue(PATH_DEV_PRO_INFO2);
-        /*if(ret == 0){
-            if(Build.HARDWARE.equals("mt6735")){
-                ret = readProjectionValue(PATH_DEV_PRO_INFO2);
-            }else {
-                ret = readProjectionValue(PATH_DEV_PRO_INFO);
-            }
-        }*/
+        ret = TwdManager.getInstance().getScreenMirror();
         return ret;
-    }
-
-    private static int readProjectionValue(String path) {
-        File file = new File(path);
-        if (file.exists()) {
-            BufferedReader reader = null;
-            try {
-                reader = new BufferedReader(new FileReader(file));
-                int read = reader.read();
-                Log.d(TAG, "read " + path + ": " + read);
-                if (read != -1) {
-                    return read - '0';
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Read " + path + ": error", e);
-                e.printStackTrace();
-            } finally {
-                if (reader != null) {
-                    try {
-                        reader.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        } else {
-            Log.w(TAG, path + " is not exist");
-        }
-        Log.i(TAG, "read " + path + ": defalut 0");
-        return 0;
     }
 }

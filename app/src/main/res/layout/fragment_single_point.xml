@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.twd.setting.module.projector.vm.KeystoneViewModel" />
-    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,7 +23,7 @@
             android:id="@+id/tv_single_left_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.getOnePointInfo(0)}"
+            android:text="0,0"
             android:textSize="@dimen/single_tv_textSize"
             android:textColor="?primaryTextColor"
             android:layout_marginTop="@dimen/single_tv_margin"
@@ -53,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            android:text="@{viewModel.getOnePointInfo(1)}"
+            android:text="0,0"
             android:textSize="@dimen/single_tv_textSize"
             android:textColor="?primaryTextColor"
             android:layout_marginTop="@dimen/single_tv_margin"
@@ -78,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            android:text="@{viewModel.getOnePointInfo(3)}"
+            android:text="0,0"
             android:textSize="@dimen/single_tv_textSize"
             android:textColor="?primaryTextColor"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            android:text="@{viewModel.getOnePointInfo(2)}"
+            android:text="0,0"
             android:textSize="@dimen/single_tv_textSize"
             android:textColor="?primaryTextColor"
             app:layout_constraintEnd_toEndOf="parent"

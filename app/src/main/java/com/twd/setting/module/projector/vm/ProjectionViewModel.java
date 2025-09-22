@@ -1,6 +1,7 @@
 package com.twd.setting.module.projector.vm;
 
 import android.app.Application;
+import android.app.TwdManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,8 +26,6 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
     public static final int ITEM_NEG_POS = 3;
     public static final int ITEM_NEG_NEG = 4;
     private static final String PATH_CONTROL_MIPI = "persist.sys.projection";
- /*   private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
-    private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";*/
 
     private static final String TAG = "ProjectionViewModel";
     private final MutableLiveData<Integer> _ClickItem = new SingleLiveEvent();
@@ -112,41 +111,6 @@ public class ProjectionViewModel extends BaseViewModel<SysEquipmentRepository> {
     }
 
     public int getInitIcon(){
-        int ret = 0;
-        ret = Integer.parseInt(SystemPropertiesUtils.getProperty(PATH_CONTROL_MIPI,"5"));//readProjectionValue(PATH_DEV_PRO_INFO2);
-        /*if(ret == 0){
-            ret = readProjectionValue(PATH_DEV_PRO_INFO);
-        }*/
-        Log.d(TAG, "getInitIcon: ret = "+ret);
-        return ret;
-    }
-    private static int readProjectionValue(String path) {
-        File file = new File(path);
-        if (file.exists()) {
-            BufferedReader reader = null;
-            try {
-                reader = new BufferedReader(new FileReader(file));
-                int read = reader.read();
-                Log.d(TAG, "read " + path + ": " + read);
-                if (read != -1) {
-                    return read - '0';
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Read " + path + ": error", e);
-                e.printStackTrace();
-            } finally {
-                if (reader != null) {
-                    try {
-                        reader.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        } else {
-            Log.w(TAG, path + " is not exist");
-        }
-        Log.i(TAG, "read " + path + ": defalut 0");
-        return 0;
+        return TwdManager.getInstance().getScreenMirror();
     }
 }

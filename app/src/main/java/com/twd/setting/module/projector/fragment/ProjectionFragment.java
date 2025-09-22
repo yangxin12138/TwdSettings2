@@ -1,5 +1,6 @@
 package com.twd.setting.module.projector.fragment;
 
+import android.app.TwdManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,12 +26,6 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
 
     private static final String TAG = "ProjectorFragment";
     private static final String PATH_CONTROL_MIPI = "persist.sys.projection";
- /*   private static final String PATH_DEV_PRO_INFO = "/dev/pro_info";
-    private static final String PATH_DEV_PRO_INFO2 = "/dev/block/mmcblk0p1";*/
-    private static final int VALUE_POSITIVE_DRESS = 0;
-    private static final int VALUE_DRESSING_REAR = 2;
-    private static final int VALUE_HOISTING_FRONT = 3;
-    private static final int VALUE_HOISTING_REAR = 1;
     TwdUtils twdUtils;
     private void clickItem(int item) {
         Log.d(TAG,"clickItem: "+item);
@@ -48,33 +43,24 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
     }
 
     private void gotoPosPos() {
-        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(0));
+        TwdManager.getInstance().setScreenMirror(0);
         setIconChange(0);
     }
 
     private void gotoPosNeg() {
-        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(1));
+        TwdManager.getInstance().setScreenMirror(1);
         setIconChange(1);
     }
     private void gotoNegPos() {
-        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(2));
+        TwdManager.getInstance().setScreenMirror(2);
         setIconChange(2);
     }
 
     private void gotoNegNeg() {
-        SystemPropertiesUtils.setProperty(PATH_CONTROL_MIPI,String.valueOf(3));
+        TwdManager.getInstance().setScreenMirror(3);
         setIconChange(3);
     }
 
-    public static void setProjectionMode(int mode) {
-        writeFile(PATH_CONTROL_MIPI, String.valueOf(mode));
-
-        /*if(Build.HARDWARE.equals("mt6735")){
-            writeFile(PATH_DEV_PRO_INFO2, String.valueOf(mode));
-        }else{
-            writeFile(PATH_DEV_PRO_INFO, String.valueOf(mode));
-        }*/
-    }
 
     public void setIconChange(int postion){
         Log.d(TAG,"setIconChange :"+postion);
@@ -92,43 +78,6 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
             binding.negNegInclude.contentTVLeft.setImageResource(R.drawable.icon_projection_selected_black);
         }
         //binding.posPosInclude.getItemData().setRightIconRes(R.drawable.ic_baseline_arrow_forward_ios_24);icon_projection_selected_black
-    }
-
-    private static boolean writeFile(String path, String content) {
-        boolean flag = true;
-        FileOutputStream out = null;
-        PrintStream p = null;
-        File file = new File(path);
-        if (file.exists()) {
-            try {
-                out = new FileOutputStream(path);
-                p = new PrintStream(out);
-                p.print(content);
-                Log.i(TAG, "Write " + path + ": " + content);
-            } catch (Exception e) {
-                flag = false;
-                Log.e(TAG, "Write " + path + ": error", e);
-                e.printStackTrace();
-            } finally {
-                if (out != null) {
-                    try {
-                        out.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                if (p != null) {
-                    try {
-                        p.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        } else {
-            Log.w(TAG, path + " is not exist");
-        }
-        return flag;
     }
 
     public static ProjectionFragment newInstance() {
@@ -161,7 +110,8 @@ public class ProjectionFragment extends BaseBindingVmFragment<FragmentProjection
         twdUtils = new TwdUtils();
         twdUtils.hideSystemUI(getActivity());
         ((FragmentProjectionBinding) this.binding).posPosInclude.itemRL.requestFocus();
-
+        int currentProjection = TwdManager.getInstance().getScreenMirror();
+        Log.d(TAG, "onViewCreated: currentPro = " + currentProjection);
         ((ProjectionViewModel) this.viewModel).getClickItem().observe(getViewLifecycleOwner(), new Observer() {
             @Override
             public void onChanged(Object o) {
