@@ -1,6 +1,7 @@
 package com.twd.setting.module.projector.fragment;
 
 
+import android.app.TwdManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,12 +20,12 @@ import com.twd.setting.utils.TwdUtils;
 public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBinding, KeystoneViewModel> {
     private static final String TAG = "TwoPointFragment";
     public final String ORIGIN_POINT = "(0)";
-    private static SharedPreferences prefs;
-    public final int MODE_ONEPOINT = 1;
-    public final int MODE_TWOPOINT = 0;
-    public final int MODE_UNKOWN = -1;
     TwdUtils twdUtils;
-
+    int horizontalValue;
+    int verticalValue;
+    int MAX_VALUE = 50;
+    int MIN_VALUE = -50;
+    private TwdManager twdManager;
     public static TwoPointFragment newInstance() {
         return new TwoPointFragment();
     }
@@ -45,70 +46,59 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
         binding.tvHorizontal.setText(ORIGIN_POINT);
     }
     private void updateText(){
-        binding.tvVertical.setText(viewModel.getTwoPointYString());
-        binding.tvHorizontal.setText(viewModel.getTwoPointXString());
+        horizontalValue =(int) twdManager.getHorizontalDegree();
+        verticalValue = (int) twdManager.getVertivalDegree();
+        binding.tvHorizontal.setText("("+horizontalValue+")");
+        binding.tvVertical.setText("("+verticalValue+")");
     }
 
     public void onViewCreated(View paramView, Bundle paramBundle) {
         super.onViewCreated(paramView, paramBundle);
-        binding.setViewModel(viewModel);
         twdUtils = new TwdUtils();
         twdUtils.hideSystemUI(getActivity());
-        prefs = getActivity().getSharedPreferences("ty_keystone", Context.MODE_PRIVATE);
-        int mode = prefs.getInt("mode",MODE_UNKOWN);
-        Log.d("TwoPoint", "TrapezoidalActivity mode: "+mode);
-        if(mode == MODE_ONEPOINT || mode == MODE_UNKOWN){
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("mode",MODE_TWOPOINT);
-            editor.apply();
-
-            viewModel.resetKeystone();
-            resetView();
-        }
-        viewModel.setKeystoneMode(MODE_TWOPOINT);
-
+        twdManager = TwdManager.getInstance();
+        horizontalValue =(int) twdManager.getHorizontalDegree();
+        verticalValue = (int) twdManager.getVertivalDegree();
+        binding.tvHorizontal.setText("("+horizontalValue+")");
+        binding.tvVertical.setText("("+verticalValue+")");
         binding.ivTrapezoidal01.setFocusable(true);
         binding.ivTrapezoidal01.requestFocus();
         binding.ivTrapezoidal01.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int keyCode, KeyEvent event) {
+                int Horizontal = horizontalValue;
+                int Vertical = verticalValue;
+                int newH = Horizontal;
+                int newV = Vertical;
                 if (event.getAction() == KeyEvent.ACTION_DOWN){
                     switch (keyCode){
                         case KeyEvent.KEYCODE_DPAD_UP:
-                            if(viewModel.isVertical()){
-                                viewModel.twoBottom();
-                            }else {
-                                viewModel.twoTop();
-                            }
+                            newV = newV+1;
+                            newV = Math.min(MAX_VALUE,newV);
+                            twdManager.setVerticalDegree(newV);
                             break;
                         case KeyEvent.KEYCODE_DPAD_DOWN:
-                            if(viewModel.isVertical()){
-                                viewModel.twoTop();
-                            }else {
-                                viewModel.twoBottom();
-                            }
+                            newV = newV-1;
+                            newV = Math.max(MIN_VALUE,newV);
+                            twdManager.setVerticalDegree(newV);
                             break;
                         case KeyEvent.KEYCODE_DPAD_LEFT:
-                            if(viewModel.isVertical()){
-                                viewModel.twoRight();
-                            }else {
-                                viewModel.twoLeft();
-                            }
+                            newH = newH+1;
+                            newH = Math.min(MAX_VALUE,newH);
+                            twdManager.setHorizontalDegree(newH);
                             break;
                         case KeyEvent.KEYCODE_DPAD_RIGHT:
-                            if(viewModel.isVertical()){
-                                viewModel.twoLeft();
-                            }else {
-                                viewModel.twoRight();
-                            }
+                            newH = newH-1;
+                            newH = Math.max(MIN_VALUE,newH);
+                            twdManager.setHorizontalDegree(newH);
                             break;
                         case KeyEvent.KEYCODE_MENU:
-                            viewModel.resetKeystone();
-                            resetView();
+                            twdManager.resetDegree();
+                            twdManager.setVerticalDegree(0);
+                            twdManager.setHorizontalDegree(0);
                             break;
                     }
                     updateText();
-
                 }
                 return false;
             }

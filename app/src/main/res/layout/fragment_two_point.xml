@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.twd.setting.module.projector.vm.KeystoneViewModel" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -48,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/double_tv_vertical_paddingStart"
                 android:paddingTop="@dimen/double_tv_vertical_paddingTop"
-                android:text="@{viewModel.getTwoPointYString()}"
+                android:text="(0)"
                 android:textSize="@dimen/size_textLevel_textSize"
                 android:textColor="?primaryTextColor"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/double_tv_horizontal_paddingStart"
                 android:paddingTop="@dimen/double_tv_horizontal_paddingTop"
-                android:text="@{viewModel.getTwoPointXString()}"
+                android:text="(0)"
                 android:textSize="@dimen/size_textLevel_textSize"
                 android:textColor="?primaryTextColor"
                 app:layout_constraintBottom_toBottomOf="parent"
