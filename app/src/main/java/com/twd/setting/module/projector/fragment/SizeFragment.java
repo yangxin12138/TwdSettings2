@@ -46,9 +46,16 @@ public class SizeFragment extends BaseBindingVmFragment<FragmentSizeBinding, Key
         super.onViewCreated(paramView, paramBundle);
         binding.setViewModel(viewModel);
         int ZoomMin = TwdManager.getInstance().getZoomMinValue();
-        TwdManager.getInstance().setZoomValue(55);
         int CurrentZoom = TwdManager.getInstance().getZoomValue();
         Log.d(TAG, "onViewCreated: 缩放最小值是 = " + ZoomMin+",当前缩放是 = "+CurrentZoom);
+
+        int initialProgress = (100 - CurrentZoom) / 5;
+        initialProgress = Math.max(0, Math.min(initialProgress, (100 - ZoomMin) / 5));
+        Log.i(TAG, "onViewCreated: 初始化读取的progress 是"+initialProgress);
+        binding.seekbarLevel.setProgress(initialProgress);
+        binding.textLevel.setText("Level: " + initialProgress);
+
+
         binding.seekbarLevel.setFocusable(true);
         binding.seekbarLevel.requestFocus();
         binding.seekbarLevel.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -60,7 +67,7 @@ public class SizeFragment extends BaseBindingVmFragment<FragmentSizeBinding, Key
                     binding.textLevel.setText("Level: " + progress);
                     // 公式：缩放值 = 100 - (进度值 × 5)
                     int zoomValue = 100 - (progress * 5);
-                    if (zoomValue >= 50 && zoomValue <= 100) {
+                    if (zoomValue >= ZoomMin && zoomValue <= 100) {
                         TwdManager.getInstance().setZoomValue(zoomValue);
                         Log.d(TAG, "设置缩放值: " + zoomValue);
                     }

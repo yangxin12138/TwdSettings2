@@ -31,7 +31,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/size_seek_marginTop"
             android:max="10"
-            android:progress="@{viewModel.zoom}"
             android:progressTint="@color/white"
             android:progressBackgroundTint="@color/black"
             android:focusable="true" />
@@ -40,7 +39,6 @@
             android:id="@+id/text_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.progress}"
             android:textSize="@dimen/size_textLevel_textSize"
             android:textStyle="bold"
             android:textColor="?primaryTextColor"
