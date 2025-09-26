@@ -42,8 +42,10 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
         return R.layout.fragment_two_point;
     }
     private void resetView(){
-        binding.tvVertical.setText(ORIGIN_POINT);
-        binding.tvHorizontal.setText(ORIGIN_POINT);
+        twdManager.resetDegree();
+        twdManager.setVerticalDegree(0);
+        twdManager.setHorizontalDegree(0);
+        updateText();
     }
     private void updateText(){
         horizontalValue =(int) twdManager.getHorizontalDegree();
@@ -93,6 +95,7 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
                             twdManager.setHorizontalDegree(newH);
                             break;
                         case KeyEvent.KEYCODE_MENU:
+                            Log.i(TAG, "onKey: 识别的菜单键");
                             twdManager.resetDegree();
                             twdManager.setVerticalDegree(0);
                             twdManager.setHorizontalDegree(0);
@@ -103,6 +106,6 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
                 return false;
             }
         });
-
+        resetView();
     }
 }

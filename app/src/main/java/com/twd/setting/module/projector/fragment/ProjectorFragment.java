@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +77,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         selectItem = 5;
         boolean newCheckedState = !isChecked;
         binding.AutoFocusInclude.switchAuto.setChecked(newCheckedState);
-        autoFocusUtils.setAutoFocusEnable(newCheckedState);
+        twdManager.setAutoFocusEnable(newCheckedState);
     }
 
     private void gotoAutoProjection(boolean isChecked){
@@ -90,7 +91,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.twoPointInclude.itemRL.setFocusable(true);
             binding.fourPointInclude.itemRL.setFocusable(true);
             binding.AutoProjectionInclude.switchAuto.setChecked(false);
-            autoFocusUtils.setTrapezoidCorrectEnable(false);
+            twdManager.setTrapezoidCorrectEnable(false);
         }else {//原本是未选中，手动模式，点击后变成自动模式
             Log.i(TAG, "gotoAuto: 开启switch,走自动模式");
             binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
@@ -100,7 +101,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.twoPointInclude.itemRL.setFocusable(false);
             binding.fourPointInclude.itemRL.setFocusable(false);
             binding.AutoProjectionInclude.switchAuto.setChecked(true);
-            autoFocusUtils.setTrapezoidCorrectEnable(true);
+            twdManager.setTrapezoidCorrectEnable(true);
         }
 
     }
@@ -116,7 +117,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.twoPointInclude.itemRL.setFocusable(true);
             binding.fourPointInclude.itemRL.setFocusable(true);
             binding.VerticalProjectionInclude.switchAuto.setChecked(false);
-            autoFocusUtils.setVerticalCorrectEnable(false);
+            twdManager.setVerticalCorrectEnable(false);
+            Log.i(TAG, "gotoVerticalProjection: ===目前VerticalPro = "+twdManager.getVerticalCorrectStatus());
         }else {//原本是未选中，手动模式，点击后变成自动模式
             Log.i(TAG, "gotoVertical: 开启switch,走自动模式");
             binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
@@ -126,7 +128,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             binding.twoPointInclude.itemRL.setFocusable(false);
             binding.fourPointInclude.itemRL.setFocusable(false);
             binding.VerticalProjectionInclude.switchAuto.setChecked(true);
-            autoFocusUtils.setVerticalCorrectEnable(true);
+            twdManager.setVerticalCorrectEnable(true);
+            Log.i(TAG, "gotoVerticalProjection: ===目前VerticalPro = "+twdManager.getVerticalCorrectStatus());
         }
 
     }
@@ -135,14 +138,14 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         selectItem = 6;
         boolean newCheckedState = !isChecked;
         binding.BootAutoFocusIclude.switchAuto.setChecked(newCheckedState);
-        autoFocusUtils.setPowerOnAutoFocusEnable(newCheckedState);
+        twdManager.setPowerOnAutoFocusEnable(newCheckedState);
     }
 
     private void gotoAutoOBS(boolean isChecked){
         selectItem = 7;
         boolean newCheckedState = !isChecked;
         binding.AutoOBSIclude.switchAuto.setChecked(newCheckedState);
-        autoFocusUtils.setAutoObstacleAvoidanceEnable(newCheckedState);
+        twdManager.setAutoObstacleAvoidanceEnable(newCheckedState);
     }
 
     private void gotoAutoFitScreen(boolean isChecked){
@@ -150,6 +153,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         boolean newCheckedState = !isChecked;
         binding.AutoFitScreenIclude.switchAuto.setChecked(newCheckedState);
         autoFocusUtils.setAutoComeAdmireEnable(newCheckedState);
+        twdManager.setAutoComeAdmireEnable(newCheckedState);
     }
 
     public static ProjectorFragment newInstance() {
@@ -188,6 +192,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         initAutoMode();
         twdManager = TwdManager.getInstance();
         twdUtils.hideSystemUI(getActivity());
+        setOnKeyListener();
         if(selectItem == 0){
             if(binding.twoPointInclude.contentTVLeft.getVisibility() == View.VISIBLE){
                 binding.twoPointInclude.itemRL.requestFocus();
@@ -232,6 +237,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         });
         setClickListener();
         initAutoMode();
+        setOnKeyListener();
     }
 
     private void initAutoMode(){
@@ -308,5 +314,20 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
                 binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
             }
         }
+    }
+
+    private void setOnKeyListener(){
+        binding.sizeInclude.itemRL.setOnKeyListener((v,keyCode,event) ->{
+            if (keyCode == KeyEvent.KEYCODE_DPAD_UP && event.getAction() == KeyEvent.ACTION_DOWN){
+                boolean isVertical = !binding.twoPointInclude.itemRL.isFocusable()
+                        && !binding.fourPointInclude.itemRL.isFocusable();
+                if (isVertical){
+                    binding.sizeInclude.itemRL.requestFocus();
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        });
     }
 }
