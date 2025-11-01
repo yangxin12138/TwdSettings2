@@ -133,7 +133,8 @@
             android:layout_marginTop="@dimen/device_marginTop"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:background="?bBg">
+            android:background="?bBg"
+            android:visibility="gone">
             <TextView
                 android:duplicateParentState="true"
                 android:id="@+id/devices_tv_update"

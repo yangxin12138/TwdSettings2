@@ -1,8 +1,10 @@
 package com.twd.setting.module.bluetooth.fragment;
 
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +45,9 @@ public class BluetoothFragment
     private boolean isShowRemoteControlFragment = false;
     TwdUtils twdUtils;
 
+    private static final String SP_NAME = "BluetoothLastConnected";
+    private static final String KEY_LAST_DEVICE_ADDR = "last_device_address";
+
     private void bondedDeviceDialog(final CachedBluetoothDevice device) {
         DialogTools.Instance().getDialogForCustomView(mActivity, device.getName(), getString(R.string.str_bluetooth_dialog_bonded_msg),
                 R.string.str_bluetooth_dialog_btn_connect, new DialogInterface.OnClickListener() {
@@ -53,6 +58,7 @@ public class BluetoothFragment
                 }, R.string.str_bluetooth_dialog_btn_ignore, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        clearLastConnectedDeviceAddr();
                         viewModel.unPair(device);
                     }
                 }).show();
@@ -68,6 +74,7 @@ public class BluetoothFragment
                 }, R.string.str_bluetooth_dialog_btn_ignore, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        clearLastConnectedDeviceAddr();
                         viewModel.unPair(device);
                     }
                 }).show();
@@ -182,6 +189,13 @@ public class BluetoothFragment
                     binding.bluetoothSwitchRL.setSwitchEnable(true);
                     updateViewEnable(true);
                     viewModel.startScan();
+                    // 新增：蓝牙打开后延迟2秒尝试回连最后连接的设备
+                    binding.getRoot().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            triggerReconnectLastDevice();
+                        }
+                    }, 2000);
                 }
             }
         });
@@ -320,5 +334,58 @@ public class BluetoothFragment
     public void onResume() {
         super.onResume();
         twdUtils.hideSystemUI(getActivity());
+    }
+
+    private void saveLastConnectedDeviceAddr(String deviceAddr) {
+        SharedPreferences sp = getContext().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        sp.edit().putString(KEY_LAST_DEVICE_ADDR, deviceAddr).apply();
+    }
+
+    private String getLastConnectedDeviceAddr() {
+        SharedPreferences sp = getContext().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(KEY_LAST_DEVICE_ADDR, null);
+    }
+
+    private void clearLastConnectedDeviceAddr() {
+        SharedPreferences sp = getContext().getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        sp.edit().remove(KEY_LAST_DEVICE_ADDR).apply();
+    }
+
+    private void triggerReconnectLastDevice() {
+        String lastDeviceAddr = getLastConnectedDeviceAddr();
+        if (lastDeviceAddr == null || lastDeviceAddr.isEmpty()) {
+            Log.d(TAG, "无历史连接设备记录，不发起回连");
+            return;
+        }
+
+        LiveData<List<CachedBluetoothDevice>> deviceListLiveData = viewModel.getBluetoothItemList();
+        List<CachedBluetoothDevice> deviceList = deviceListLiveData.getValue();
+        if (deviceList == null || deviceList.isEmpty()) {
+            Log.d(TAG, "设备列表未加载，延迟1秒后重试");
+            binding.getRoot().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    triggerReconnectLastDevice();
+                }
+            }, 1000);
+            return;
+        }
+
+        CachedBluetoothDevice targetDevice = null;
+        for (CachedBluetoothDevice device : deviceList) {
+            if (device.getDevice() != null && lastDeviceAddr.equals(device.getDevice().getAddress())) {
+                targetDevice = device;
+                break;
+            }
+        }
+
+        if (targetDevice != null && targetDevice.isBonded() && !targetDevice.isConnected()) {
+            Log.d(TAG, "开始回连最后连接的设备：" + targetDevice.getName());
+            viewModel.stopScan();
+            viewModel.connect(targetDevice);
+        } else {
+            Log.d(TAG, "无可用回连设备，清除无效记录");
+            clearLastConnectedDeviceAddr();
+        }
     }
 }

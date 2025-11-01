@@ -218,7 +218,8 @@
             android:layout_marginTop="@dimen/LL_content_marginTop"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:background="?bBg">
+            android:background="?bBg"
+            android:visibility="gone">
             <TextView
                 android:duplicateParentState="true"
                 android:id="@+id/universal_tv_access"

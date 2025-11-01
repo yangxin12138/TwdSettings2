@@ -43,6 +43,7 @@ public class BluetoothViewModel
     private final MutableLiveData<Integer> _BluetoothSwitchValue = new SingleLiveEvent();
     private final MutableLiveData<Boolean> _ScanBtnValue = new SingleLiveEvent();
     private final String TAG = "BluetoothViewModel";
+    private final MutableLiveData<CachedBluetoothDevice> _ConnectSuccessLiveData = new SingleLiveEvent<>();
     private final OnBluetoothResultCallback callback = new OnBluetoothResultCallback() {
         public void onBluetoothStateChanged(int state) {
             Log.d(TAG,"onBluetoothStateChanged"+ state);
@@ -55,6 +56,7 @@ public class BluetoothViewModel
         public void onConnectionStateChanged(CachedBluetoothDevice cachedBluetoothDevice, int paramAnonymousInt) {
             if (mLocalManager != null) {
                 if(cachedBluetoothDevice !=null) {
+                    _ConnectSuccessLiveData.postValue(cachedBluetoothDevice);
                     Log.d(TAG, "onConnectionStateChanged" + cachedBluetoothDevice.getName());
                 }
                 updateListView(mLocalManager.getCachedDeviceManager().getCachedDevicesCopy());
@@ -109,7 +111,6 @@ public class BluetoothViewModel
     };
     private long lastUpdateListTime;
     private LocalBluetoothManager mLocalManager;
-
     public BluetoothViewModel(Application paramApplication) {
         super(paramApplication);
         initData();
@@ -284,6 +285,9 @@ public class BluetoothViewModel
 
     public LiveData<Boolean> getSearchBtnStatus() {
         return _ScanBtnValue;
+    }
+    public LiveData<CachedBluetoothDevice> getConnectSuccessLiveData() {
+        return _ConnectSuccessLiveData;
     }
 
     public void initData() {
