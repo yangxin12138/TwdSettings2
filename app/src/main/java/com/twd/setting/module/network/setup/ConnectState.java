@@ -207,28 +207,46 @@ public class ConnectState
         }
 
         private boolean isNetworkConnected() {
-            NetworkInfo networkInfo = ((ConnectivityManager) requireContext().getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
-            if (networkInfo == null) {
-                if (DEBUG) {
-                    Log.d(TAG, "NetworkInfo is null; network is not connected");
-                }
-                return false;
-            }
-            Log.d(TAG, "NetworkInfo: " + networkInfo.toString());
+            if (isAdded()) {
+                Context context = getContext();
+                if (context != null) {
+                    // 2. 所有需要 Context 的操作（如获取 ConnectivityManager）都放在这里面
+                    ConnectivityManager connectivityManager =
+                            (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                    if (connectivityManager == null) { // 额外检查服务是否获取成功（避免空指针）
+                        if (DEBUG) {
+                            Log.d(TAG, "ConnectivityManager is null");
+                        }
+                        return false;
+                    }
 
-            if ((networkInfo.isConnected()) && (networkInfo.getType() == 1)) {
-                WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
-                if (wifiInfo == null) {
-                    Log.d(TAG, "Connected to nothing");
-                } else {
-                    Log.d(TAG, "Connected to " + wifiInfo.getSSID());
-                }
+                    NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                    if (networkInfo == null) {
+                        if (DEBUG) {
+                            Log.d(TAG, "NetworkInfo is null; network is not connected");
+                        }
+                        return false;
+                    }
 
-                if ((wifiInfo != null) && (wifiInfo.getSSID().equals(mWifiConfiguration.SSID))) {
-                    return true;
+                    Log.d(TAG, "NetworkInfo: " + networkInfo.toString());
+
+                    // 3. 检查网络是否连接且类型为 WiFi（type=1 对应 WiFi）
+                    if (networkInfo.isConnected() && (networkInfo.getType() == ConnectivityManager.TYPE_WIFI)) {
+                        WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+                        if (wifiInfo == null) {
+                            Log.d(TAG, "Connected to nothing");
+                        } else {
+                            Log.d(TAG, "Connected to " + wifiInfo.getSSID());
+                        }
+
+                        // 4. 校验当前连接的 WiFi 是否与目标配置一致（注意处理 SSID 引号问题，部分设备返回的 SSID 带双引号）
+                        if (wifiInfo != null && wifiInfo.getSSID().replace("\"", "").equals(mWifiConfiguration.SSID.replace("\"", ""))) {
+                            return true;
+                        }
+                    } else {
+                        Log.d(TAG, "Network is not connected or not WiFi");
+                    }
                 }
-            } else {
-                Log.d(TAG, "Network is not connected");
             }
             return false;
         }

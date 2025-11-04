@@ -39,6 +39,7 @@ public class NoPasswordNetActivity extends AppCompatActivity implements View.OnC
     String ssid;
     private ProgressDialog progressDialog; // 进度条Dialog
     TwdUtils twdUtils;
+    private Handler mHandler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +62,12 @@ public class NoPasswordNetActivity extends AppCompatActivity implements View.OnC
     public void onResume() {
         super.onResume();
         twdUtils.hideSystemUI(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacksAndMessages(null);
     }
 
     private void showForgetDialog() {
@@ -146,7 +153,7 @@ public class NoPasswordNetActivity extends AppCompatActivity implements View.OnC
         //重新启用wifi
         wifiManager.setWifiEnabled(true);
 
-        new Handler().postDelayed(new Runnable() {
+        mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 dismissProgressDialog();

@@ -65,12 +65,8 @@ public class WifiConnectionActivity
         @Override
         public void onFinish(int paramInt) {
             Log.d(TAG, "StateMachine.Callback  onFinish: "+paramInt);
-            if (paramInt == 0  || paramInt == -1) {
-                //UiUtils.replaceFragment(getSupportFragmentManager(), 16908290, new WifiListFragment());
-                WifiListFragment.clearSelectedSSID();
-                finish();
-
-            }
+            WifiListFragment.clearSelectedSSID();
+            finish();
             //    mStateMachine.getListener().onComplete(-1);
             //WifiListFragment.clearSelectedSSID();
             //mStateMachine.getListener().onComplete(StateMachine.SELECT_WIFI);//6

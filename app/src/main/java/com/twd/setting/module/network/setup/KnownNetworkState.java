@@ -78,6 +78,7 @@ public class KnownNetworkState
         private Context mContext;
         SharedPreferences wifiInfoPreferences;
         FragmentActivity mActivity;
+        private Handler mHandler = new Handler();
 
         public KnownNetworkFragment(FragmentActivity mActivity){
             this.mActivity = mActivity;
@@ -89,6 +90,13 @@ public class KnownNetworkState
             mStateMachine = ((StateMachine) new ViewModelProvider(requireActivity()).get(StateMachine.class));
             super.onCreate(paramBundle);
         }
+
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+            mHandler.removeCallbacksAndMessages(null);
+        }
+
         public static boolean IsNullString(String str) {
             if (str != null && !TextUtils.isEmpty(str) && !TextUtils.equals("", str.trim())) {
                 return false;
@@ -206,7 +214,6 @@ public class KnownNetworkState
             }
             tv_forget.requestFocus();
         }
-
         private void connectToWifi(String ssid,String password){
             WifiConfiguration wifiConfiguration = new WifiConfiguration();
             wifiConfiguration.SSID = "\"" + ssid + "\"";
@@ -226,12 +233,17 @@ public class KnownNetworkState
             //重新启用wifi
             wifiManager.setWifiEnabled(true);
 
-            new Handler().postDelayed(new Runnable() {
+            mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     if (getCurrentWifiSsid(wifiManager).equals(ssid)){
                         Log.d(TAG, "run: 连接成功4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
                         showToast(mContext.getResources().getString(R.string.wifi_setup_connection_success));
+                        // 新增：关闭当前页面，返回上一级
+                        if (mActivity != null) {
+                            mActivity.finish();
+                            Log.d(TAG, "run:新增：关闭当前页面，返回上一级 ");
+                        }
                     }else {
                         //showToast(mContext.getResources().getString(R.string.bluetooth_index_connect_failed));
                         Log.d(TAG, "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
