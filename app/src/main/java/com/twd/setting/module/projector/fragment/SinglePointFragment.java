@@ -32,6 +32,11 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
     private float[] rightUp_Offset = new float[2];
     private float[] rightDown_Offset = new float[2];
     private float[] leftDown_Offset = new float[2];
+
+    private int[] leftUp_IntOffset = new int[2];
+    private int[] rightUp_IntOffset = new int[2];
+    private int[] rightDown_IntOffset = new int[2];
+    private int[] leftDown_IntOffset = new int[2];
     private SharedPreferences sp;
     public static SinglePointFragment newInstance() {
         return new SinglePointFragment();
@@ -49,11 +54,8 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
         super.onViewCreated(paramView, paramBundle);
         twdUtils = new TwdUtils();
         twdUtils.hideSystemUI(getActivity());
-        leftUp_Offset = TwdManager.getInstance().getLeftTopOffset();
-        rightUp_Offset = TwdManager.getInstance().getRightTopOffset();
-        rightDown_Offset = TwdManager.getInstance().getRightBottomOffset();
-        leftDown_Offset = TwdManager.getInstance().getLeftBottomOffset();
-        Log.d(TAG, "onViewCreated: leftUp_Offset = " + leftUp_Offset+",rightUp_Offset = "+rightUp_Offset
+        updateOffset();
+        Log.d(TAG, "onViewCreated: leftUp_Offset = " + leftUp_Offset[0]+leftUp_Offset[1]+",rightUp_Offset = "+rightUp_Offset
         +",rightDown_Offset = "+rightDown_Offset+",leftDown_Offset = "+leftDown_Offset);
         initPointText();
         if(viewModel.isVertical()){
@@ -183,11 +185,11 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
     }
 
     private void initPointText(){
-        binding.tvSingleLeftUp.setText(leftUp_Offset[0]+","+leftUp_Offset[1]);
+        binding.tvSingleLeftUp.setText(leftUp_IntOffset[0]+","+leftUp_IntOffset[1]);
         Log.i(TAG, "initPointText: leftUp = "+ leftUp_Offset[0]+","+leftUp_Offset[1]);
-        binding.tvSingleLeftDown.setText(leftDown_Offset[0]+","+leftDown_Offset[1]);
-        binding.tvSingleRightUp.setText(rightUp_Offset[0]+","+rightUp_Offset[1]);
-        binding.tvSingleRightDown.setText(rightDown_Offset[0]+","+rightDown_Offset[1]);
+        binding.tvSingleLeftDown.setText(leftDown_IntOffset[0]+","+leftDown_IntOffset[1]);
+        binding.tvSingleRightUp.setText(rightUp_IntOffset[0]+","+rightUp_IntOffset[1]);
+        binding.tvSingleRightDown.setText(rightDown_IntOffset[0]+","+rightDown_IntOffset[1]);
     }
     private void resetView(){
         binding.tvSingleLeftUp.setText(ORIGIN_POINT);
@@ -200,6 +202,18 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
         rightUp_Offset = TwdManager.getInstance().getRightTopOffset();
         rightDown_Offset = TwdManager.getInstance().getRightBottomOffset();
         leftDown_Offset = TwdManager.getInstance().getLeftBottomOffset();
+
+        leftUp_IntOffset[0] = (int) leftUp_Offset[0];
+        leftUp_IntOffset[1] = (int) leftUp_Offset[1];
+
+        rightUp_IntOffset[0] = (int) rightUp_Offset[0];
+        rightUp_IntOffset[1] = (int) rightUp_Offset[1];
+
+        rightDown_IntOffset[0] = (int) rightDown_Offset[0];
+        rightDown_IntOffset[1] = (int) rightDown_Offset[1];
+
+        leftDown_IntOffset[0] = (int) leftDown_Offset[0];
+        leftDown_IntOffset[1] = (int) leftDown_Offset[1];
     }
     public boolean dealKey(View view, int keyCode, KeyEvent event) {
         if (event.getAction() == KeyEvent.ACTION_DOWN){
@@ -269,7 +283,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
             }
             if (newX != currentX || newY != currentY) {
                 // 更新 TextView 显示
-                binding.tvSingleLeftUp.setText(newX + "," + newY);
+                binding.tvSingleLeftUp.setText((int)newX + "," + (int)newY);
                 Log.d(TAG, "doOffset: tvSingleLeftUp = " + target + " = " + newX + "," + newY);
                 // 调用 TwdManager 设置新偏移量
                 TwdManager.getInstance().setLeftTopOffset(newX, newY);
@@ -306,7 +320,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                     break;
             }
             if (newX != currentX || newY != currentY) {
-                binding.tvSingleRightUp.setText(newX + "," + newY);
+                binding.tvSingleRightUp.setText((int)newX + "," + (int)newY);
                 Log.d(TAG, "doOffset: tvSingleLeftUp = " + target + " = " + newX + "," + newY);
                 TwdManager.getInstance().setRightTopOffset(newX, newY);
                 updateOffset();
@@ -339,7 +353,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                     break;
             }
             if (newX != currentX || newY != currentY) {
-                binding.tvSingleRightDown.setText(newX + "," + newY);
+                binding.tvSingleRightDown.setText((int)newX + "," +(int) newY);
                 Log.d(TAG, "doOffset: tvSingleLeftUp = " + target + " = " + newX + "," + newY);
                 TwdManager.getInstance().setRightBottomOffset(newX, newY);
                 updateOffset();
@@ -372,7 +386,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                     break;
             }
             if (newX != currentX || newY != currentY) {
-                binding.tvSingleLeftDown.setText(newX + "," + newY);
+                binding.tvSingleLeftDown.setText((int)newX + "," +(int) newY);
                 Log.d(TAG, "doOffset: tvSingleLeftUp = " + target + " = " + newX + "," + newY);
                 TwdManager.getInstance().setLeftBottomOffset(newX, newY);
                 updateOffset();

@@ -13,11 +13,11 @@
     <dimen name="projection_title_textSize">25sp</dimen>
     <dimen name="main_list_width">890dp</dimen>
     <dimen name="main_tv_textSize_small">25sp</dimen>
-    <dimen name="double_vertical_paddingTop">50dp</dimen>
+    <dimen name="double_vertical_paddingTop">40dp</dimen>
     <dimen name="double_tv_vertical_paddingStart">75dp</dimen>
     <dimen name="double_tv_vertical_paddingTop">13dp</dimen>
     <dimen name="double_horizontal_paddingStart">180dp</dimen>
-    <dimen name="double_horizontal_paddingTop">40dp</dimen>
+    <dimen name="double_horizontal_paddingTop">35dp</dimen>
     <dimen name="double_tv_horizontal_paddingStart">230dp</dimen>
     <dimen name="double_tv_horizontal_paddingTop">15dp</dimen>
     <dimen name="doublePoint_iv_width">700dp</dimen>
@@ -48,7 +48,7 @@
     <dimen name="size_iv_height">350dp</dimen>
     <dimen name="size_seek_marginLeft">350dp</dimen>
     <dimen name="size_seek_marginTop">20dp</dimen>
-    <dimen name="size_textLevel_textSize">50sp</dimen>
+    <dimen name="size_textLevel_textSize">40sp</dimen>
     <dimen name="size_textLevel_marginTop">10dp</dimen>
     <dimen name="projection_LL_marginStart">280dp</dimen>
     <dimen name="projection_LL_marginTop">130dp</dimen>
@@ -260,13 +260,13 @@
     <dimen name="wifi_item_paddingStart">30dp</dimen>
     <dimen name="wifiList_arrow_height">24.0dip</dimen>
     <dimen name="enterpassword_title_text_size">26.0sp</dimen>
-    <dimen name="wifi_enterpassword_text_marginTop">73.0dip</dimen>
+    <dimen name="wifi_enterpassword_text_marginTop">53.0dip</dimen>
     <dimen name="enterpassword_edit_text_marginTop">24.0dip</dimen>
     <dimen name="enterpassword_edit_text_width">612.0dip</dimen>
     <dimen name="enterpassword_edit_text_height">48.0dip</dimen>
     <dimen name="enterpassword_edit_text_padding">60.0dip</dimen>
     <dimen name="enterpassword_hide_password_text_size">18sp</dimen>
-    <dimen name="wifi_enterpassword_btn_connect_marginTop">190.0dip</dimen>
+    <dimen name="wifi_enterpassword_btn_connect_marginTop">150.0dip</dimen>
     <dimen name="enterpassword_connect_button_width">195.0dip</dimen>
     <dimen name="enterpassword_connect_button_height">48.0dip</dimen>
     <dimen name="bluetooth_switchlayout_margin_t">31.0dip</dimen>
@@ -305,5 +305,5 @@
     <dimen name="wifi_switch_paddingStart_End">30.0dip</dimen>
     <dimen name="device_name_marginStart">150dp</dimen>
     <dimen name="selector_factory_bt_width">4.0dip</dimen>
-    <dimen name="double_RL_marginTop">60dp</dimen>
+    <dimen name="double_RL_marginTop">20dp</dimen>
 </resources>
