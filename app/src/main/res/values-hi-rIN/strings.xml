@@ -247,4 +247,8 @@
     <string name="projector_auto_projection_title">ऑटो ट्रेपेज़ॉइड</string>
     <string name="projector_auto_focus_title">ऑटो फोकस</string>
     <string name="index_usb_listener">बाह्य संग्रहण डिवाइस का पता चला, क्या आप फ़ाइल प्रबंधन खोलना चाहते हैं?</string>
+    <string name="dialog_title_wifi_connected">यह WiFi नेटवर्क अभी कनेक्टेड है।</string>
+    <string name="dialog_msg_disconnect_forget">डिस्कनेक्ट करें?</string>
+    <string name="dialog_btn_confirm">पुष्टि करना</string>
+    <string name="dialog_btn_cancel">रद्द करना</string>
 </resources>

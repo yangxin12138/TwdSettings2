@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Auto trapezoid</string>
     <string name="projector_auto_focus_title">Autofocus</string>
     <string name="index_usb_listener">Kifaa cha hifadhi ya nje kimetambuliwa, ungependa kufungua usimamizi wa faili?</string>
+    <string name="dialog_title_wifi_connected">Mtandao huu wa WiFi umeunganishwa kwa sasa.</string>
+    <string name="dialog_msg_disconnect_forget">Kukata muunganisho?</string>
+    <string name="dialog_btn_confirm">Thibitisha</string>
+    <string name="dialog_btn_cancel">Ghairi</string>
 </resources>

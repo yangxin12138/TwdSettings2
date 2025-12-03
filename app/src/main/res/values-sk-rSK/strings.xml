@@ -40,6 +40,10 @@
     <string name="str_cancel">zrušiť</string>
     <string name="str_common">Bežný</string>
     <string name="index_usb_listener">Zistené externé úložné zariadenie, chcete otvoriť správu súborov?</string>
+    <string name="dialog_title_wifi_connected">Táto sieť WiFi je momentálne pripojená.</string>
+    <string name="dialog_msg_disconnect_forget">Odpojiť sa?</string>
+    <string name="dialog_btn_confirm">Potvrdiť</string>
+    <string name="dialog_btn_cancel">Zrušiť</string>
     <string name="device_info_softwareDate">Čas kompilácie</string>
     <string name="projection_vertical_projection_title">Vertikálny lichobežník</string>
     <string name="projector_auto_tip">Najprv musíte zapnúť automatické zaostrovanie</string>

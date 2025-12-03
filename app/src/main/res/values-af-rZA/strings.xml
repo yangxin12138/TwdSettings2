@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Outo trapezoid</string>
     <string name="projector_auto_focus_title">Outo -fokus</string>
     <string name="index_usb_listener">Eksterne stoortoestel opgespoor, wil jy lêerbestuur oopmaak?</string>
+    <string name="dialog_title_wifi_connected">Hierdie WiFi-netwerk is tans gekoppel.</string>
+    <string name="dialog_msg_disconnect_forget">Ontkoppel?</string>
+    <string name="dialog_btn_confirm">Bevestig</string>
+    <string name="dialog_btn_cancel">Kanselleer</string>
 </resources>

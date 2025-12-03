@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Авто трапец</string>
     <string name="projector_auto_focus_title">Автоматично фокусиране</string>
     <string name="index_usb_listener">Открито е външно устройство за съхранение, искате ли да отворите управлението на файлове?</string>
+    <string name="dialog_title_wifi_connected">Тази WiFi мрежа е свързана в момента.</string>
+    <string name="dialog_msg_disconnect_forget">Да се ​​прекъсне връзката?</string>
+    <string name="dialog_btn_confirm">Потвърди</string>
+    <string name="dialog_btn_cancel">Отказ</string>
 </resources>

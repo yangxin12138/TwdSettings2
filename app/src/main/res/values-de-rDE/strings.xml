@@ -245,4 +245,8 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="projector_auto_projection_title">Auto Trapez</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="index_usb_listener">Externes Speichergerät erkannt, möchten Sie die Dateiverwaltung öffnen?</string>
+    <string name="dialog_title_wifi_connected">Dieses WLAN-Netzwerk ist derzeit verbunden.</string>
+    <string name="dialog_msg_disconnect_forget">Trennen?</string>
+    <string name="dialog_btn_confirm">Bestätigen</string>
+    <string name="dialog_btn_cancel">Stornieren</string>
 </resources>

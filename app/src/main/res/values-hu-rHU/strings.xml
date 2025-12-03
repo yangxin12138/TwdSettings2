@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Auto trapéz</string>
     <string name="projector_auto_focus_title">Automatikus fókusz</string>
     <string name="index_usb_listener">Külső tárolóeszköz észlelve, megnyitja a fájlkezelőt?</string>
+    <string name="dialog_title_wifi_connected">Ez a WiFi hálózat jelenleg csatlakoztatva van.</string>
+    <string name="dialog_msg_disconnect_forget">Kapcsolat bontása?</string>
+    <string name="dialog_btn_confirm">Megerősítés</string>
+    <string name="dialog_btn_cancel">Mégsem</string>
 </resources>

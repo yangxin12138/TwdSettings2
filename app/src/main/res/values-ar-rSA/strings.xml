@@ -245,4 +245,8 @@
     <string name="projector_auto_projection_title">منحرف السيارات</string>
     <string name="projector_auto_focus_title">التركيز التلقائي</string>
     <string name="index_usb_listener">تم الكشف عن جهاز التخزين الخارجي ، هل تريد فتح ملف إدارة ؟</string>
+    <string name="dialog_title_wifi_connected">تم توصيل شبكة WiFi هذه حاليًا.</string>
+    <string name="dialog_msg_disconnect_forget">قطع الاتصال؟</string>
+    <string name="dialog_btn_confirm">يتأكد</string>
+    <string name="dialog_btn_cancel">يلغي</string>
 </resources>

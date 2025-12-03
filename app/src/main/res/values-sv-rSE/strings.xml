@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Automatisk trapets</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="net_wifiList_connectbypreference_title_tv">Det här nätverket har sparats. Vill du ansluta?</string>
+    <string name="dialog_title_wifi_connected">Detta WiFi-nätverk är för närvarande anslutet.</string>
+    <string name="dialog_msg_disconnect_forget">Koppla från?</string>
+    <string name="dialog_btn_confirm">Bekräfta</string>
+    <string name="dialog_btn_cancel">Avboka</string>
 </resources>

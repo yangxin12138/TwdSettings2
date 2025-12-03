@@ -246,4 +246,8 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="projector_auto_projection_title">Correção trapezoidal automática</string>
     <string name="projector_auto_focus_title">Foco automático</string>
     <string name="index_usb_listener">Dispositivo de armazenamento externo detetado. Deseja abrir a gestão de ficheiros?</string>
+    <string name="dialog_title_wifi_connected">Esta rede Wi-Fi está atualmente ligada.</string>
+    <string name="dialog_msg_disconnect_forget">Desconectar?</string>
+    <string name="dialog_btn_confirm">Confirmar</string>
+    <string name="dialog_btn_cancel">Cancelar</string>
 </resources>

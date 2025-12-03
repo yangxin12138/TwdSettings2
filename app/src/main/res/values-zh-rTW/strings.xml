@@ -246,4 +246,8 @@
     <string name="projector_auto_projection_title">自動梯形矯正</string>
     <string name="projector_auto_focus_title">自動對焦</string>
     <string name="index_usb_listener">檢測到外部儲存設備，是否要打開文件管理？</string>
+    <string name="dialog_title_wifi_connected">此WiFi網路已連線。</string>
+    <string name="dialog_msg_disconnect_forget">是否斷開連線？</string>
+    <string name="dialog_btn_confirm">確認</string>
+    <string name="dialog_btn_cancel">取消</string>
 </resources>

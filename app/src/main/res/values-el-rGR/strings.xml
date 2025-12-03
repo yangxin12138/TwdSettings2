@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Auto Trapezoid</string>
     <string name="projector_auto_focus_title">Αυτόματη εστίαση</string>
     <string name="index_usb_listener">Εντοπίστηκε εξωτερική συσκευή αποθήκευσης, θέλετε να ανοίξετε τη διαχείριση αρχείων;</string>
+    <string name="dialog_title_wifi_connected">Αυτό το δίκτυο WiFi είναι συνδεδεμένο αυτήν τη στιγμή.</string>
+    <string name="dialog_msg_disconnect_forget">Αποσυνδέω;</string>
+    <string name="dialog_btn_confirm">Επιβεβαιώνω</string>
+    <string name="dialog_btn_cancel">Ματαίωση</string>
 </resources>

@@ -243,4 +243,8 @@
     <string name="projector_auto_projection_title">Tự động hình thang</string>
     <string name="projector_auto_focus_title">Lấy nét tự động</string>
     <string name="index_usb_listener">Đã phát hiện thiết bị lưu trữ ngoài, bạn có muốn mở quản lý tệp không?</string>
+    <string name="dialog_title_wifi_connected">Mạng WiFi này hiện đang được kết nối.</string>
+    <string name="dialog_msg_disconnect_forget">Ngắt kết nối?</string>
+    <string name="dialog_btn_confirm">Xác nhận</string>
+    <string name="dialog_btn_cancel">Hủy bỏ</string>
 </resources>

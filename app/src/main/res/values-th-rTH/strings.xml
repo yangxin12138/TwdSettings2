@@ -248,4 +248,8 @@
     <string name="projector_auto_projection_title">สี่เหลี่ยมคางหมู</string>
     <string name="projector_auto_focus_title">ออโต้โฟกัส</string>
     <string name="index_usb_listener">ตรวจพบอุปกรณ์จัดเก็บข้อมูลภายนอก คุณต้องการเปิดการจัดการไฟล์หรือไม่</string>
+    <string name="dialog_title_wifi_connected">เครือข่าย WiFi นี้กำลังเชื่อมต่ออยู่ในขณะนี้</string>
+    <string name="dialog_msg_disconnect_forget">ตัดการเชื่อมต่อ?</string>
+    <string name="dialog_btn_confirm">ยืนยัน</string>
+    <string name="dialog_btn_cancel">ยกเลิก</string>
 </resources>

@@ -496,4 +496,10 @@ Example: 24"</string>
     <string name="projector_auto_fit_screen_title">自动入幕</string>
     <string name="projector_auto_title">垂直梯形</string>
     <string name="index_usb_listener">检测到外部存储设备，是否要打开文件管理？</string>
+
+    <!-- WiFi连接状态Dialog字符串 -->
+    <string name="dialog_title_wifi_connected">当前已连接该WiFi</string>
+    <string name="dialog_msg_disconnect_forget">是否断开连接？</string>
+    <string name="dialog_btn_confirm">确认</string>
+    <string name="dialog_btn_cancel">取消</string>
 </resources>

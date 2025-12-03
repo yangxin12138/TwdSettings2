@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Auto -trapez</string>
     <string name="projector_auto_focus_title">Auto fokus</string>
     <string name="index_usb_listener">Otkriven je vanjski uređaj za pohranu, želite li otvoriti upravljanje datotekama?</string>
+    <string name="dialog_title_wifi_connected">Ova WiFi mreža je trenutno povezana.</string>
+    <string name="dialog_msg_disconnect_forget">Prekinuti vezu?</string>
+    <string name="dialog_btn_confirm">Potvrdi</string>
+    <string name="dialog_btn_cancel">Otkazati</string>
 </resources>

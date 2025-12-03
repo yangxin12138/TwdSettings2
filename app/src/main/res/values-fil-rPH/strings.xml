@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Auto Trapezoid</string>
     <string name="projector_auto_focus_title">Auto Focus</string>
     <string name="index_usb_listener">Natukoy ang panlabas na storage device, gusto mo bang buksan ang pamamahala ng file?</string>
+    <string name="dialog_title_wifi_connected">Kasalukuyang nakakonekta ang WiFi network na ito.</string>
+    <string name="dialog_msg_disconnect_forget">Putulin ang koneksyon?</string>
+    <string name="dialog_btn_confirm">Kumpirmahin</string>
+    <string name="dialog_btn_cancel">Kanselahin</string>
 </resources>

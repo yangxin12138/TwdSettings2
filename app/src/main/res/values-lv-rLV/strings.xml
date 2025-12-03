@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Auto trapecveida</string>
     <string name="projector_auto_focus_title">Autofokuss</string>
     <string name="index_usb_listener">Atrasta ārējā atmiņas ierīce. Vai vēlaties atvērt failu pārvaldību?</string>
+    <string name="dialog_title_wifi_connected">Šis Wi-Fi tīkls pašlaik ir izveidots.</string>
+    <string name="dialog_msg_disconnect_forget">Atvienot savienojumu?</string>
+    <string name="dialog_btn_confirm">Apstiprināt</string>
+    <string name="dialog_btn_cancel">Cancel</string>
 </resources>

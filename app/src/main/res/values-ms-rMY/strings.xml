@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Pembetulan trapezoid automatik</string>
     <string name="projector_auto_focus_title">Autofocus</string>
     <string name="index_usb_listener">Peranti storan luaran dikesan, adakah anda mahu membuka pengurusan fail?</string>
+    <string name="dialog_title_wifi_connected">Rangkaian WiFi ini sedang disambungkan.</string>
+    <string name="dialog_msg_disconnect_forget">Putuskan sambungan?</string>
+    <string name="dialog_btn_confirm">Sahkan</string>
+    <string name="dialog_btn_cancel">Batal</string>
 </resources>

@@ -245,4 +245,8 @@
     <string name="projector_auto_projection_title">Автозоид</string>
     <string name="projector_auto_focus_title">Автофокус</string>
     <string name="index_usb_listener">Обнаружено внешнее запоминающее устройство. Хотите открыть управление файлами?</string>
+    <string name="dialog_title_wifi_connected">Эта сеть WiFi в данный момент подключена.</string>
+    <string name="dialog_msg_disconnect_forget">Отключить?</string>
+    <string name="dialog_btn_confirm">Подтверждать</string>
+    <string name="dialog_btn_cancel">Отмена</string>
 </resources>

@@ -246,4 +246,8 @@
     <string name="projector_auto_projection_title">자동 사다리꼴 교정</string>
     <string name="projector_auto_focus_title">자동 초점</string>
     <string name="index_usb_listener">외부 저장 장치가 감지되었습니다. 파일 관리를 열겠습니까?</string>
+    <string name="dialog_title_wifi_connected">현재 이 WiFi 네트워크에 연결되어 있습니다.</string>
+    <string name="dialog_msg_disconnect_forget">연결을 끊으시겠어요?</string>
+    <string name="dialog_btn_confirm">확인하다</string>
+    <string name="dialog_btn_cancel">취소</string>
 </resources>

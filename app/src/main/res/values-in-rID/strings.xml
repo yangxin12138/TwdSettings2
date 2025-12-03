@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Trapesium otomatis</string>
     <string name="projector_auto_focus_title">Fokus otomatis</string>
     <string name="index_usb_listener">Perangkat penyimpanan eksternal terdeteksi, apakah Anda ingin membuka manajemen file?</string>
+    <string name="dialog_title_wifi_connected">Jaringan WiFi ini saat ini terhubung.</string>
+    <string name="dialog_msg_disconnect_forget">Memutuskan?</string>
+    <string name="dialog_btn_confirm">Mengonfirmasi</string>
+    <string name="dialog_btn_cancel">Membatalkan</string>
 </resources>

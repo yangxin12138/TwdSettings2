@@ -247,4 +247,8 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="projector_auto_projection_title">Corrección trapezoidal automática</string>
     <string name="projector_auto_focus_title">Enfoque automático</string>
     <string name="index_usb_listener">Dispositivo de almacenamiento externo detectado, ¿desea abrir la administración de archivos?</string>
+    <string name="dialog_title_wifi_connected">Esta red WiFi está conectada actualmente.</string>
+    <string name="dialog_msg_disconnect_forget">¿Desconectar?</string>
+    <string name="dialog_btn_confirm">Confirmar</string>
+    <string name="dialog_btn_cancel">Cancelar</string>
 </resources>

@@ -1,12 +1,15 @@
 package com.twd.setting.module.network;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.net.NetworkInfo;
 import android.net.wifi.SupplicantState;
+import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -23,6 +26,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -267,6 +271,15 @@ public class NetworkFragment
         return ssid;
     }
 
+    // 新增：获取当前已连接WiFi的BSSID（用于精准匹配，避免SSID重复问题）
+    private String getCurrentWifiBssid() {
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED) {
+            return wifiInfo.getBSSID();
+        }
+        return null;
+    }
+
     private final BroadcastReceiver wifiReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -296,7 +309,20 @@ public class NetworkFragment
             selectedSSID = "Other";
             selectedBSSID = "add a new network";
             startActivity(new Intent(getContext(), AddWifiNetworkActivity.class));
-        }else {
+        } else {
+            // 1. 获取当前已连接WiFi的BSSID和点击的WiFi的BSSID
+            String currentConnectedBssid = getCurrentWifiBssid();
+            String clickedBssid = paramWifiAccessPoint.getBssid();
+
+            // 2. 判断是否为当前已连接的WiFi（用BSSID匹配，比SSID更精准）
+            if (currentConnectedBssid != null && currentConnectedBssid.equals(clickedBssid)) {
+                Log.d("yangxin", "onItemClick: --------------判断为已连接的wifi");
+                // 3. 显示自定义Dialog：包含“断开并忘记密码”按钮
+                showDisconnectAndForgetDialog(paramWifiAccessPoint);
+                return; // 直接返回，不执行后续连接逻辑
+            }
+
+
             selectedSSID = paramWifiAccessPoint.getSsidStr();
             selectedBSSID = paramWifiAccessPoint.getBssid();
             Log.i("yangxin", "onItemClick: NetworkFragment ----onItemClick成功读取参数 selectedSSID = " + selectedSSID);
@@ -311,6 +337,87 @@ public class NetworkFragment
         }
     }
 
+    // 新增：自定义“断开并忘记密码”Dialog
+    private void showDisconnectAndForgetDialog(WifiAccessPoint wifiAccessPoint) {
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.dialog_title_wifi_connected) // 需要在strings.xml中添加该字符串："当前已连接该WiFi"
+                .setMessage(R.string.dialog_msg_disconnect_forget) // 字符串："是否断开连接并忘记该WiFi密码？"
+                .setPositiveButton(R.string.dialog_btn_confirm, (dialog, which) -> {
+                    // 4. 执行“断开并忘记密码”逻辑
+                    Log.d("yangxin", "showDisconnectAndForgetDialog:忘记密码--- 点击确定按钮");
+                    disconnectAndForgetWifi(wifiAccessPoint);
+                    dialog.dismiss();
+                })
+                .setNegativeButton(R.string.dialog_btn_cancel, (dialog, which) -> {
+                    Log.d("yangxin", "showDisconnectAndForgetDialog:忘记密码--- 点击取消按钮");
+                    dialog.dismiss();
+                })
+                .setCancelable(false) // 点击外部不关闭Dialog
+                .show();
+    }
+
+    // 新增：断开并忘记WiFi密码的核心逻辑
+    private void disconnectAndForgetWifi(WifiAccessPoint wifiAccessPoint) {
+        try {
+
+            String targetSsid = wifiAccessPoint.getSsidStr(); // 目标WiFi的SSID
+            String targetBssid = wifiAccessPoint.getBssid(); // 目标WiFi的BSSID（唯一标识）
+            Log.d("yangxin", "disconnectAndForgetWifi: targetSsid = "+targetSsid+",targetBssid = "+targetBssid);
+            // 步骤1：获取设备上所有已保存的WiFi网络配置
+            if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            List<WifiConfiguration> savedConfigs = wifiManager.getConfiguredNetworks();
+            if (savedConfigs == null || savedConfigs.isEmpty()) {
+                Log.w("yangxin", "disconnectAndForgetWifi: 无已保存的WiFi配置");
+                return;
+            }
+
+            // 步骤2：遍历已保存配置，通过SSID+BSSID匹配目标网络，获取networkId
+            int targetNetworkId = -1;
+            for (WifiConfiguration config : savedConfigs) {
+                // 解析已保存配置的SSID（去除前后引号）
+                String savedSsid = config.SSID.replace("\"", "");
+                // 解析已保存配置的BSSID（部分配置可能为null，需判断）
+                String savedBssid = config.BSSID;
+                Log.d("yangxin", "disconnectAndForgetWifi: savedSsid = "+savedSsid+",savedBssid = "+savedBssid);
+
+
+                // 1. 优先匹配 SSID + BSSID（若 savedBssid 不为 null）
+                // 2. 若 savedBssid 为 null，仅匹配 SSID（因日志中所有已保存网络的BSSID均为null）
+                boolean isSsidMatch = savedSsid.equals(targetSsid);
+                boolean isBssidMatch = (savedBssid != null) ? savedBssid.equals(targetBssid) : true; // savedBssid为null时，BSSID匹配条件直接成立
+                Log.d("yangxin", "disconnectAndForgetWifi: isSsidMatch = "+isSsidMatch+",isBssidMatch = "+isBssidMatch);
+                if (isSsidMatch && isBssidMatch) {
+                    targetNetworkId = config.networkId;
+                    break;
+                }
+            }
+
+            if (targetNetworkId == -1) {
+                Log.w("yangxin", "disconnectAndForgetWifi: 未找到已保存的目标WiFi，SSID：" + targetSsid);
+                return;
+            }
+
+            // 步骤3：断开当前WiFi连接
+            wifiManager.disconnect();
+
+            // 步骤4：忘记该WiFi（移除已保存的网络配置）
+            boolean isForgotten = wifiManager.removeNetwork(targetNetworkId);
+            wifiManager.saveConfiguration(); // 保存配置变更
+
+            Log.i("yangxin", "disconnectAndForgetWifi: 忘记WiFi成功，networkId：" + targetNetworkId + "，SSID：" + targetSsid);
+            // 步骤5：延迟刷新WiFi列表（确保断开和忘记操作完成）
+            mHandler.postDelayed(() -> {
+                updateWifiList();
+                Log.d("yangxin", "disconnectAndForgetWifi: 刷新wifi列表 = "+getCurrentWifiSsid(wifiManager));
+                // 同时更新当前连接状态的文本
+                binding.itemWifiAvailableName.setText(getCurrentWifiSsid(wifiManager));
+            }, 1000); // 延迟1000ms，保证操作生效
+        } catch (Exception e) {
+            Log.e("yangxin", "disconnectAndForgetWifi: 异常", e);
+        }
+    }
     @Override
     public void onAccessPointChanged(WifiAccessPoint wifiAccessPoint) {
         WifiAccessPoint accessPoint = (WifiAccessPoint) wifiAccessPoint.getTag();

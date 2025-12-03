@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Auto trapezoid</string>
     <string name="projector_auto_focus_title">I-autofocus</string>
     <string name="index_usb_listener">Kutholwe idivayisi yesitoreji sangaphandle, uyafuna ukuvula ukuphathwa kwefayela?</string>
+    <string name="dialog_title_wifi_connected">Le nethiwekhi ye-WiFi ixhunyiwe okwamanje.</string>
+    <string name="dialog_msg_disconnect_forget">Nqamula uxhumano?</string>
+    <string name="dialog_btn_confirm">Qinisekisa</string>
+    <string name="dialog_btn_cancel">Khansela</string>
 </resources>

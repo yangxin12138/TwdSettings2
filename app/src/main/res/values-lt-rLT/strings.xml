@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Auto trapecijos</string>
     <string name="projector_auto_focus_title">Automatinis fokusavimas</string>
     <string name="index_usb_listener">Aptiktas išorinis atminties įrenginys, ar norite atidaryti failų tvarkyklę?</string>
+    <string name="dialog_title_wifi_connected">Šis „Wi-Fi“ tinklas šiuo metu prijungtas.</string>
+    <string name="dialog_msg_disconnect_forget">Atsijungti?</string>
+    <string name="dialog_btn_confirm">Patvirtinti</string>
+    <string name="dialog_btn_cancel">Atšaukti</string>
 </resources>

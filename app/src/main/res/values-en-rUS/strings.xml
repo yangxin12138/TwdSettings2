@@ -108,4 +108,8 @@
     <string name="projector_auto_projection_title">Auto Trapezoid</string>
     <string name="projector_auto_focus_title">Auto Focus</string>
     <string name="index_usb_listener">Detected external storage device, do you want to open file management?</string>
+    <string name="dialog_title_wifi_connected">This WiFi network is currently connected.</string>
+    <string name="dialog_msg_disconnect_forget">Disconnect?</string>
+    <string name="dialog_btn_confirm">Confirm</string>
+    <string name="dialog_btn_cancel">Cancel</string>
 </resources>

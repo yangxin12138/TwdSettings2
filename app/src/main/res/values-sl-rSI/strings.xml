@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Avtomatski trapez</string>
     <string name="projector_auto_focus_title">Samodejno ostrenje</string>
     <string name="index_usb_listener">Zaznana zunanja naprava za shranjevanje, ali želite odpreti upravljanje datotek?</string>
+    <string name="dialog_title_wifi_connected">To omrežje WiFi je trenutno povezano.</string>
+    <string name="dialog_msg_disconnect_forget">Želite prekiniti povezavo?</string>
+    <string name="dialog_btn_confirm">Potrdi</string>
+    <string name="dialog_btn_cancel">Prekliči</string>
 </resources>

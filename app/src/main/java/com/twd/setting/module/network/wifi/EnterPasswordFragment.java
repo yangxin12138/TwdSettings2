@@ -79,38 +79,53 @@ public class EnterPasswordFragment
 
     private void setWifiConfigurationPassword(String paramString) {
         WifiConfiguration configuration = mUserChoiceInfo.getWifiConfiguration();
+        // 清空原有安全配置，避免冲突
+        configuration.allowedKeyManagement.clear();
+        configuration.allowedProtocols.clear();
+        configuration.allowedAuthAlgorithms.clear();
+        configuration.allowedPairwiseCiphers.clear();
+
+        int securityType = mUserChoiceInfo.getWifiSecurity();
         StringBuilder localStringBuilder;
-        if (mUserChoiceInfo.getWifiSecurity() == 1) {
-            Log.d(TAG,"setWifiConfigurationPassword  Security is 1");
+
+        if (securityType == 1) { // WEP加密
+            Log.d(TAG, "Configuring WEP security");
+            // 设置WEP关键参数
+            configuration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+            configuration.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
+            configuration.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.SHARED);
+            configuration.allowedPairwiseCiphers.clear();
+            configuration.allowedGroupCiphers.clear();
+
+            // 处理WEP密码
             int length = paramString.length();
-            if (((length == 10) || (length == 26) || (length == 32) || (length == 58)) && (paramString.matches("[0-9A-Fa-f]*"))) {
-                configuration.wepKeys[0] = paramString;
-                return;
-            }
-            if ((length == 5) || (length == 13) || (length == 16) || (length == 29)) {
+            if (((length == 10) || (length == 26) || (length == 58)) && paramString.matches("[0-9A-Fa-f]*")) {
+                configuration.wepKeys[0] = paramString; // 十六进制密钥（不加引号）
+            } else if ((length == 5) || (length == 13)) {
                 localStringBuilder = new StringBuilder();
-                localStringBuilder.append('"');
-                localStringBuilder.append(paramString);
-                localStringBuilder.append('"');
-                configuration.wepKeys[0] = localStringBuilder.toString();
+                localStringBuilder.append('"').append(paramString).append('"');
+                configuration.wepKeys[0] = localStringBuilder.toString(); // ASCII密钥（加引号）
             }
-        } else {
-            if ((mUserChoiceInfo.getWifiSecurity() == 2) && (paramString.length() < 8)) {
-                Log.d(TAG,"setWifiConfigurationPassword  Security is 2");
-                return;
-            }
-            Log.d(TAG,"setWifiConfigurationPassword  Security is "+mUserChoiceInfo.getWifiSecurity());
+        } else if (securityType == 2) { // WPA/WPA2加密
+            Log.d(TAG, "Configuring WPA/WPA2 security");
+            // 设置WPA关键参数
+            configuration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
+            configuration.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
+            configuration.allowedProtocols.set(WifiConfiguration.Protocol.RSN);
+            configuration.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.CCMP);
+            configuration.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.TKIP);
+
+            // 处理WPA密码
             if (paramString.matches("[0-9A-Fa-f]{64}")) {
-                configuration.preSharedKey = paramString;
-                return;
+                configuration.preSharedKey = paramString; // 十六进制PSK（不加引号）
+            } else {
+                localStringBuilder = new StringBuilder();
+                localStringBuilder.append('"').append(paramString).append('"');
+                configuration.preSharedKey = localStringBuilder.toString(); // 明文密码（加引号）
             }
-            Log.d(TAG,"setWifiConfigurationPassword  Security is,"+mUserChoiceInfo.getWifiSecurity()+" not match");
-            localStringBuilder = new StringBuilder();
-            localStringBuilder.append('"');
-            localStringBuilder.append(paramString);
-            localStringBuilder.append('"');
-            configuration.preSharedKey = localStringBuilder.toString();
-            Log.d(TAG,"preShareKey: "+configuration.preSharedKey);
+        } else { // 开放网络（无密码）
+            Log.d(TAG, "Configuring open network");
+            configuration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
         }
     }
 

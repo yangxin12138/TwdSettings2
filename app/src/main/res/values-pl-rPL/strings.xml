@@ -244,4 +244,8 @@
     <string name="projector_auto_projection_title">Auto korekta trapezoidalna</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="index_usb_listener">Wykryto zewnętrzne urządzenie pamięci masowej. Czy chcesz otworzyć zarządzanie plikami?</string>
+    <string name="dialog_title_wifi_connected">Ta sieć WiFi jest obecnie połączona.</string>
+    <string name="dialog_msg_disconnect_forget">Odłączyć?</string>
+    <string name="dialog_btn_confirm">Potwierdzać</string>
+    <string name="dialog_btn_cancel">Anulować</string>
 </resources>

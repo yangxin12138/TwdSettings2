@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Automatické lichoběžníky</string>
     <string name="projector_auto_focus_title">Automatické zaostření</string>
     <string name="index_usb_listener">Detekováno externí úložné zařízení, chcete otevřít správu souborů?</string>
+    <string name="dialog_title_wifi_connected">Tato WiFi síť je aktuálně připojena.</string>
+    <string name="dialog_msg_disconnect_forget">Odpojit?</string>
+    <string name="dialog_btn_confirm">Potvrdit</string>
+    <string name="dialog_btn_cancel">Zrušit</string>
 </resources>

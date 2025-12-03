@@ -247,4 +247,8 @@
     <string name="projector_auto_projection_title">تصحیح ذوزنقه ای اتوماتیک</string>
     <string name="projector_auto_focus_title">فوکوس خودکار</string>
     <string name="index_usb_listener">دستگاه ذخیره‌سازی خارجی شناسایی شد، آیا می‌خواهید مدیریت فایل را باز کنید؟</string>
+    <string name="dialog_title_wifi_connected">این شبکه وای‌فای در حال حاضر متصل است.</string>
+    <string name="dialog_msg_disconnect_forget">قطع ارتباط؟</string>
+    <string name="dialog_btn_confirm">تأیید</string>
+    <string name="dialog_btn_cancel">لغو</string>
 </resources>

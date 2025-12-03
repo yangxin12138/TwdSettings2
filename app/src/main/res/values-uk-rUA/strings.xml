@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Автотрапеція</string>
     <string name="projector_auto_focus_title">Автофокус</string>
     <string name="index_usb_listener">Виявлено зовнішній пристрій зберігання даних, відкрити керування файлами?</string>
+    <string name="dialog_title_wifi_connected">Ця мережа Wi-Fi наразі підключена.</string>
+    <string name="dialog_msg_disconnect_forget">Відключитися?</string>
+    <string name="dialog_btn_confirm">Підтвердити</string>
+    <string name="dialog_btn_cancel">Скасувати</string>
 </resources>

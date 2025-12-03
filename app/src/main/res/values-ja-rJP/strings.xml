@@ -245,4 +245,8 @@
     <string name="projector_auto_projection_title">自動台形補正</string>
     <string name="projector_auto_focus_title">オートフォーカス</string>
     <string name="index_usb_listener">外部ストレージデバイスが検出されました。ファイル管理を開きますか?</string>
+    <string name="dialog_title_wifi_connected">この WiFi ネットワークは現在接続されています。</string>
+    <string name="dialog_msg_disconnect_forget">切断しますか?</string>
+    <string name="dialog_btn_confirm">確認する</string>
+    <string name="dialog_btn_cancel">キャンセル</string>
 </resources>

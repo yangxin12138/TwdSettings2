@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Automaattinen puolisuunnikas</string>
     <string name="projector_auto_focus_title">Automaattitarkennus</string>
     <string name="index_usb_listener">Ulkoinen tallennuslaite havaittu. Haluatko avata tiedostonhallinnan?</string>
+    <string name="dialog_title_wifi_connected">Tämä WiFi-verkko on tällä hetkellä yhdistetty.</string>
+    <string name="dialog_msg_disconnect_forget">Katkaista yhteys?</string>
+    <string name="dialog_btn_confirm">Vahvistaa</string>
+    <string name="dialog_btn_cancel">Peruuttaa</string>
 </resources>

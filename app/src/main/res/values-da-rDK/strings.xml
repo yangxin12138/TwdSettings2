@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Automatisk trapezformet</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="index_usb_listener">Der er fundet en ekstern lagerenhed. Vil du åbne filhåndteringen?</string>
+    <string name="dialog_title_wifi_connected">Dette WiFi-netværk er i øjeblikket forbundet.</string>
+    <string name="dialog_msg_disconnect_forget">Afbryde?</string>
+    <string name="dialog_btn_confirm">Bekræfte</string>
+    <string name="dialog_btn_cancel">Ophæve</string>
 </resources>

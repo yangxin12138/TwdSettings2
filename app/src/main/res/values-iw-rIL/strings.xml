@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">טרפז אוטומטי</string>
     <string name="projector_auto_focus_title">פוקוס אוטומטי</string>
     <string name="index_usb_listener">זוהה התקן אחסון חיצוני, האם ברצונך לפתוח את ניהול הקבצים?</string>
+    <string name="dialog_title_wifi_connected">רשת ה-WiFi הזו מחוברת כעת.</string>
+    <string name="dialog_msg_disconnect_forget">לְנַתֵק?</string>
+    <string name="dialog_btn_confirm">לְאַשֵׁר</string>
+    <string name="dialog_btn_cancel">לְבַטֵל</string>
 </resources>

@@ -247,4 +247,8 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="projector_auto_projection_title">Otomatik yamuk</string>
     <string name="projector_auto_focus_title">Otomatik odaklama</string>
     <string name="index_usb_listener">Harici depolama aygıtı algılandı, dosya yönetimini açmak ister misiniz?</string>
+    <string name="dialog_title_wifi_connected">Bu WiFi ağı şu anda bağlı.</string>
+    <string name="dialog_msg_disconnect_forget">Bağlantıyı kes?</string>
+    <string name="dialog_btn_confirm">Onaylamak</string>
+    <string name="dialog_btn_cancel">İptal etmek</string>
 </resources>

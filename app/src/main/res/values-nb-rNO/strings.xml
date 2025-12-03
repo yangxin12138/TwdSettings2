@@ -238,4 +238,8 @@
     <string name="projector_auto_projection_title">Automatisk trapezoidal korreksjon</string>
     <string name="projector_auto_focus_title">Autofokus</string>
     <string name="index_usb_listener">Ekstern lagringsenhet oppdaget. Vil du åpne filbehandlingen?</string>
+    <string name="dialog_title_wifi_connected">Dette WiFi-nettverket er tilkoblet for øyeblikket.</string>
+    <string name="dialog_msg_disconnect_forget">Frakople?</string>
+    <string name="dialog_btn_confirm">Bekrefte</string>
+    <string name="dialog_btn_cancel">Kansellere</string>
 </resources>
