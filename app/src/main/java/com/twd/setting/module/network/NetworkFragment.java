@@ -90,7 +90,10 @@ public class NetworkFragment
 
     private void updateWifi() {
         if (mConnectivityListener.isWifiEnabledOrEnabling()) {
-            binding.switchWifi.setChecked(true);
+            binding.switchWifi.setChecked(true);        // 确保WiFi列表可见
+            binding.networkWifiList.setVisibility(View.VISIBLE);
+            binding.itemWifiAvailable.setVisibility(View.VISIBLE);
+
             updateWifiList();
             return;
         }
@@ -98,8 +101,6 @@ public class NetworkFragment
         binding.networkWifiList.setVisibility(binding.switchWifi.isChecked()?View.VISIBLE:View.INVISIBLE);
         Log.i(TAG, "updateWifi: networklist = "+binding.networkWifiList.getVisibility()+",switch = "+binding.switchWifi.isChecked());
     }
-
-
 
 
     @Override
@@ -206,13 +207,19 @@ public class NetworkFragment
     @Override
     public void onPause() {
         super.onPause();
-        requireContext().unregisterReceiver(wifiReceiver);
+        try {
+            requireContext().unregisterReceiver(wifiReceiver);
+        } catch (IllegalArgumentException e) {
+            // 接收器可能未注册，忽略异常
+        }
     }
+
     public void onResume() {
         super.onResume();
         twdUtils.hideSystemUI(getActivity());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+        intentFilter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION); // 添加WiFi状态变化监听
         requireContext().registerReceiver(wifiReceiver, intentFilter);
     }
     @Override
@@ -352,7 +359,7 @@ public class NetworkFragment
                     Log.d("yangxin", "showDisconnectAndForgetDialog:忘记密码--- 点击取消按钮");
                     dialog.dismiss();
                 })
-                .setCancelable(false) // 点击外部不关闭Dialog
+                .setCancelable(true) // 点击外部不关闭Dialog
                 .show();
     }
 
@@ -372,52 +379,61 @@ public class NetworkFragment
                 Log.w("yangxin", "disconnectAndForgetWifi: 无已保存的WiFi配置");
                 return;
             }
-
-            // 步骤2：遍历已保存配置，通过SSID+BSSID匹配目标网络，获取networkId
-            int targetNetworkId = -1;
+            // 1. 首先断开当前连接
+            wifiManager.disconnect();
+            // 2. 清除所有匹配的配置（可能有多个相同SSID的配置）
+            boolean removedAny = false;
             for (WifiConfiguration config : savedConfigs) {
-                // 解析已保存配置的SSID（去除前后引号）
-                String savedSsid = config.SSID.replace("\"", "");
-                // 解析已保存配置的BSSID（部分配置可能为null，需判断）
-                String savedBssid = config.BSSID;
-                Log.d("yangxin", "disconnectAndForgetWifi: savedSsid = "+savedSsid+",savedBssid = "+savedBssid);
-
-
-                // 1. 优先匹配 SSID + BSSID（若 savedBssid 不为 null）
-                // 2. 若 savedBssid 为 null，仅匹配 SSID（因日志中所有已保存网络的BSSID均为null）
-                boolean isSsidMatch = savedSsid.equals(targetSsid);
-                boolean isBssidMatch = (savedBssid != null) ? savedBssid.equals(targetBssid) : true; // savedBssid为null时，BSSID匹配条件直接成立
-                Log.d("yangxin", "disconnectAndForgetWifi: isSsidMatch = "+isSsidMatch+",isBssidMatch = "+isBssidMatch);
-                if (isSsidMatch && isBssidMatch) {
-                    targetNetworkId = config.networkId;
-                    break;
+                String savedSsid = config.SSID != null ? config.SSID.replace("\"", "") : "";
+                // 更宽松的匹配逻辑：只要SSID匹配就删除
+                if (savedSsid.equals(targetSsid)) {
+                    boolean success = wifiManager.removeNetwork(config.networkId);
+                    if (success) {
+                        removedAny = true;
+                        Log.d("yangxin", "成功删除网络配置: " + savedSsid + ", networkId: " + config.networkId);
+                    }
                 }
             }
-
-            if (targetNetworkId == -1) {
-                Log.w("yangxin", "disconnectAndForgetWifi: 未找到已保存的目标WiFi，SSID：" + targetSsid);
-                return;
-            }
-
-            // 步骤3：断开当前WiFi连接
-            wifiManager.disconnect();
-
-            // 步骤4：忘记该WiFi（移除已保存的网络配置）
-            boolean isForgotten = wifiManager.removeNetwork(targetNetworkId);
-            wifiManager.saveConfiguration(); // 保存配置变更
-
-            Log.i("yangxin", "disconnectAndForgetWifi: 忘记WiFi成功，networkId：" + targetNetworkId + "，SSID：" + targetSsid);
-            // 步骤5：延迟刷新WiFi列表（确保断开和忘记操作完成）
-            mHandler.postDelayed(() -> {
-                updateWifiList();
-                Log.d("yangxin", "disconnectAndForgetWifi: 刷新wifi列表 = "+getCurrentWifiSsid(wifiManager));
-                // 同时更新当前连接状态的文本
+            if (removedAny) {
+                // 保存配置并重启WiFi以确保状态重置
+                wifiManager.saveConfiguration();
+                // 立即更新UI显示
                 binding.itemWifiAvailableName.setText(getCurrentWifiSsid(wifiManager));
-            }, 1000); // 延迟1000ms，保证操作生效
+                // 延迟更新WiFi列表
+                mHandler.postDelayed(() -> {
+                    updateWifiList();
+                }, 500);
+                // 可选：轻量级重启WiFi（不关闭再打开）
+                restartWifiSoftly();
+            }
         } catch (Exception e) {
             Log.e("yangxin", "disconnectAndForgetWifi: 异常", e);
         }
     }
+
+    // 新增：软重启WiFi方法（更温和）
+    private void restartWifiSoftly(){
+        Log.d("yangxin", "restartWifiSoftly: 软重启WiFi");
+
+        // 1. 先记录当前WiFi状态
+        boolean wasWifiEnabled = wifiManager.isWifiEnabled();
+
+        // 2. 重新扫描
+        wifiManager.startScan();
+
+        // 3. 延迟更新列表
+        mHandler.postDelayed(() -> {
+            updateWifiList();
+
+            // 确保WiFi列表可见
+            if (wifiManager.isWifiEnabled()) {
+                binding.networkWifiList.setVisibility(View.VISIBLE);
+            }
+
+            Log.d("yangxin", "WiFi软重启完成");
+        }, 1500);
+    }
+
     @Override
     public void onAccessPointChanged(WifiAccessPoint wifiAccessPoint) {
         WifiAccessPoint accessPoint = (WifiAccessPoint) wifiAccessPoint.getTag();
@@ -441,4 +457,44 @@ public class NetworkFragment
     public void onWifiListChanged() {
         updateWifiList();
     }
+
+    // 添加BroadcastReceiver来监听WiFi状态变化
+    private final BroadcastReceiver wifiStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (WifiManager.WIFI_STATE_CHANGED_ACTION.equals(action)) {
+                int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, WifiManager.WIFI_STATE_UNKNOWN);
+
+                switch (wifiState) {
+                    case WifiManager.WIFI_STATE_ENABLED:
+                        Log.d("yangxin", "WiFi已启用");
+                        // 确保UI显示正确
+                        binding.networkWifiList.setVisibility(View.VISIBLE);
+                        binding.itemWifiAvailable.setVisibility(View.VISIBLE);
+
+                        // 延迟一点更新列表（给系统一点时间初始化）
+                        mHandler.postDelayed(() -> {
+                            updateWifiList();
+                        }, 1000);
+                        break;
+
+                    case WifiManager.WIFI_STATE_DISABLED:
+                        Log.d("yangxin", "WiFi已禁用");
+                        binding.networkWifiList.setVisibility(View.INVISIBLE);
+                        binding.itemWifiAvailable.setVisibility(View.GONE);
+                        break;
+
+                    case WifiManager.WIFI_STATE_ENABLING:
+                        Log.d("yangxin", "WiFi正在启用");
+                        break;
+
+                    case WifiManager.WIFI_STATE_DISABLING:
+                        Log.d("yangxin", "WiFi正在禁用");
+                        break;
+                }
+            }
+        }
+    };
 }

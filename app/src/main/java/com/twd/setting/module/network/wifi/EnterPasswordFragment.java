@@ -2,6 +2,7 @@ package com.twd.setting.module.network.wifi;
 
 import static com.twd.setting.commonlibrary.Utils.Utils.runOnUiThread;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Instrumentation;
 import android.content.BroadcastReceiver;
@@ -9,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -41,6 +43,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -56,6 +59,7 @@ import com.twd.setting.utils.TwdUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 public class EnterPasswordFragment
         extends BaseFragment implements View.OnFocusChangeListener {
@@ -72,6 +76,7 @@ public class EnterPasswordFragment
     private SharedPreferences wifiInfoPreferences;
     private int connectMode = 1;
     TwdUtils twdUtils;
+    WifiManager wifiManager;
 
     public static EnterPasswordFragment newInstance() {
         return new EnterPasswordFragment();
@@ -180,6 +185,7 @@ public class EnterPasswordFragment
         mUserChoiceInfo = ((UserChoiceInfo) new ViewModelProvider(requireActivity()).get(UserChoiceInfo.class));
         mStateMachine = ((StateMachine) new ViewModelProvider(requireActivity()).get(StateMachine.class));
         wifiInfoPreferences = requireContext().getSharedPreferences("wifi_info",Context.MODE_PRIVATE);
+        wifiManager = (WifiManager) requireContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     }
 
     @Override
@@ -311,8 +317,11 @@ public class EnterPasswordFragment
     }
 
     private void showToast(String text){
-        Toast toast = new Toast(mContext);
-        LayoutInflater inflater = LayoutInflater.from(mContext);
+        // 前置判断：上下文无效则不显示
+        if (!isFragmentAlive()) return;
+
+        Toast toast = new Toast(getContext());
+        LayoutInflater inflater = LayoutInflater.from(getContext());
         View layout = inflater.inflate(R.layout.my_toast,(ViewGroup) mActivity.findViewById(R.id.custom_toast_layout));
 
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
@@ -328,11 +337,13 @@ public class EnterPasswordFragment
         wifiConfiguration.SSID = "\"" + ssid + "\"";
         wifiConfiguration.preSharedKey = "\"" + password + "\"";
 
-        WifiManager wifiManager = (WifiManager) requireContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-
         //如果wifi已启用,请禁用它以确保连接新网络
-        if (wifiManager.isWifiEnabled()){
-            wifiManager.setWifiEnabled(false);
+        // 先检查WiFi状态
+        if (!wifiManager.isWifiEnabled()) {
+            wifiManager.setWifiEnabled(true);
+            new Handler().postDelayed(() -> attemptConnect(ssid, password, 0), 2000);
+        } else {
+            attemptConnect(ssid, password, 0);
         }
 
         //添加并启用网络配置
@@ -341,33 +352,25 @@ public class EnterPasswordFragment
 
         //重新启用wifi
         wifiManager.setWifiEnabled(true);
-        /*new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (getCurrentWifiSsid(wifiManager).equals(ssid)){
-                    Log.d(TAG, "run: 连接成功2秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
-                    showToast("连接成功");
-                }else {
-                    showToast("-----------连接失败-------");
-                    Log.d(TAG, "run: 连接失败2秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
-                }
-            }
-        },2000);*/
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                // 修复：先判断Fragment是否存活
+                if (!isFragmentAlive()) return;
                 if (getCurrentWifiSsid(wifiManager).equals(ssid)){
-                    Log.d(TAG, "run: 连接成功4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                    Log.d("yangxin", "run: 连接成功4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
                     showToast(mContext.getResources().getString(R.string.wifi_setup_connection_success));
                 }else {
                     //showToast(mContext.getResources().getString(R.string.bluetooth_index_connect_failed));
-                    Log.d(TAG, "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                    Log.d("yangxin", "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
                 }
-                SharedPreferences.Editor editor = wifiInfoPreferences.edit();
-                editor.putString(ssid,password);
-                Log.d(TAG, "run: SharedPreferences = " + ssid + ","+password);
-                editor.apply();
+                // 保存SP前判断上下文
+                if (isFragmentAlive()) {
+                    SharedPreferences.Editor editor = wifiInfoPreferences.edit();
+                    editor.putString(ssid,password);
+                    editor.apply();
+                }
             }
         },8000);
     }
@@ -409,5 +412,220 @@ public class EnterPasswordFragment
                 binding.tvTipPwdNum.setTextColor(getResources().getColor(R.color.white));
             }
         }
+    }
+
+    private void attemptConnect(String ssid, String password, int retryCount) {
+        if (retryCount >= 3) {
+            // 修复：先判断Fragment是否存活，再显示Toast
+            if (isFragmentAlive()) {
+                showToast("连接失败请重试"); // 替换为你的失败文案
+            }
+            return;
+        }
+
+        Log.d(TAG, "attemptConnect: 第 " + (retryCount + 1) + " 次尝试连接");
+
+        try {
+            // 前置判断：Fragment不存活则直接终止
+            if (!isFragmentAlive()) return;
+            // 1. 先移除所有相同SSID的配置
+            removeAllNetworksBySsid(ssid);
+
+            // 2. 检查WiFi是否启用
+            if (!wifiManager.isWifiEnabled()) {
+                wifiManager.setWifiEnabled(true);
+                new Handler().postDelayed(() -> {
+                    attemptConnect(ssid, password, retryCount);
+                }, 2000);
+                return;
+            }
+            // 2. 创建新配置
+            WifiConfiguration wifiConfig = createWifiConfig(ssid, password);
+
+            // 3. 添加并连接
+            int networkId = wifiManager.addNetwork(wifiConfig);
+            if (networkId == -1) {
+                Log.e(TAG, "添加网络失败");
+                // 尝试更新现有配置
+                networkId = updateExistingNetwork(ssid, password);
+                if (networkId == -1) {
+                    retryConnect(ssid, password, retryCount);
+                    return;
+                }
+            }
+
+            // 5. 启用网络（禁用其他网络）
+            boolean reconnect = wifiManager.reconnect();
+            Log.d(TAG, "reconnect调用结果: " + reconnect);
+
+            boolean enableSuccess = wifiManager.enableNetwork(networkId, true);
+            Log.d(TAG, "enableNetwork调用结果: " + enableSuccess);
+
+            wifiManager.saveConfiguration();
+
+            // 6. 检查连接状态
+            new Handler().postDelayed(() -> {
+                // 修复：延迟任务执行前，先判断Fragment是否存活
+                if (!isFragmentAlive()) return;
+                if (isConnectedToSsid(ssid)) {
+                    Log.d(TAG, "连接成功: " + ssid);
+                    //showToast(getString(R.string.wifi_setup_connection_success));
+
+                    // 保存到SharedPreferences
+                    SharedPreferences.Editor editor = wifiInfoPreferences.edit();
+                    editor.putString(ssid, password);
+                    editor.apply();
+                    // 关闭当前界面前，判断Activity是否存活
+                    if (getActivity() != null && !getActivity().isFinishing() && !getActivity().isDestroyed()) {
+                        getActivity().finish();
+                    }
+                } else {
+                    Log.d(TAG, "连接未成功，重试");
+                    retryConnect(ssid, password, retryCount);
+                }
+            }, 8000);
+
+        } catch (Exception e) {
+            Log.e(TAG, "attemptConnect: 异常", e);
+            retryConnect(ssid, password, retryCount);
+        }
+    }
+    // 辅助方法：更新现有网络配置
+    private int updateExistingNetwork(String ssid, String password) {
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return -1;
+        }
+
+        List<WifiConfiguration> configs = wifiManager.getConfiguredNetworks();
+        if (configs == null) return -1;
+
+        for (WifiConfiguration config : configs) {
+            if (config.SSID != null && config.SSID.equals("\"" + ssid + "\"")) {
+                // 更新密码
+                int securityType = mUserChoiceInfo != null ? mUserChoiceInfo.getWifiSecurity() : 2;
+
+                if (securityType == 0) { // 开放网络
+                    // 不需要密码
+                } else if (securityType == 1) { // WEP
+                    int length = password.length();
+                    if ((length == 10 || length == 26 || length == 58) &&
+                            password.matches("[0-9A-Fa-f]*")) {
+                        config.wepKeys[0] = password;
+                    } else {
+                        config.wepKeys[0] = "\"" + password + "\"";
+                    }
+                } else { // WPA/WPA2
+                    if (password.matches("[0-9A-Fa-f]{64}")) {
+                        config.preSharedKey = password;
+                    } else {
+                        config.preSharedKey = "\"" + password + "\"";
+                    }
+                }
+
+                wifiManager.updateNetwork(config);
+                wifiManager.saveConfiguration();
+                return config.networkId;
+            }
+        }
+        return -1;
+    }
+    private void retryConnect(String ssid, String password, int retryCount) {
+        new Handler().postDelayed(() -> {
+            attemptConnect(ssid, password, retryCount + 1);
+        }, 2000);
+    }
+
+    private void removeAllNetworksBySsid(String ssid) {
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+
+        List<WifiConfiguration> configs = wifiManager.getConfiguredNetworks();
+        if (configs == null) return;
+
+        for (WifiConfiguration config : configs) {
+            if (config.SSID != null && config.SSID.equals("\"" + ssid + "\"")) {
+                wifiManager.removeNetwork(config.networkId);
+                Log.d(TAG, "移除旧配置: " + config.SSID);
+            }
+        }
+        wifiManager.saveConfiguration();
+    }
+
+    private boolean isConnectedToSsid(String ssid) {
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        if (wifiInfo == null) return false;
+
+        if (wifiInfo.getSupplicantState() == SupplicantState.COMPLETED) {
+            String connectedSsid = wifiInfo.getSSID().replace("\"", "");
+            return connectedSsid.equals(ssid);
+        }
+        return false;
+    }
+
+    private WifiConfiguration createWifiConfig(String ssid, String password) {
+        WifiConfiguration config = new WifiConfiguration();
+
+        // 设置SSID（必须加引号）
+        config.SSID = "\"" + ssid + "\"";
+        config.status = WifiConfiguration.Status.ENABLED;
+        config.priority = 40; // 设置较高优先级
+
+        // 根据安全类型设置不同的配置
+        int securityType = mUserChoiceInfo != null ? mUserChoiceInfo.getWifiSecurity() : 2; // 默认为WPA2
+
+        // 清空所有安全设置
+        config.allowedKeyManagement.clear();
+        config.allowedProtocols.clear();
+        config.allowedAuthAlgorithms.clear();
+        config.allowedPairwiseCiphers.clear();
+        config.allowedGroupCiphers.clear();
+
+        if (securityType == 0) { // 开放网络（无密码）
+            Log.d(TAG, "创建开放网络配置");
+            config.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+
+        } else if (securityType == 1) { // WEP加密
+            Log.d(TAG, "创建WEP网络配置");
+            config.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+            config.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
+            config.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.SHARED);
+
+            // WEP密码处理
+            int length = password.length();
+            if ((length == 10 || length == 26 || length == 58) &&
+                    password.matches("[0-9A-Fa-f]*")) {
+                config.wepKeys[0] = password; // 十六进制
+            } else if (length == 5 || length == 13) {
+                config.wepKeys[0] = "\"" + password + "\""; // ASCII
+            } else {
+                config.wepKeys[0] = "\"" + password + "\"";
+            }
+            config.wepTxKeyIndex = 0;
+
+        } else { // WPA/WPA2加密（最常见）
+            Log.d(TAG, "创建WPA/WPA2网络配置");
+            config.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
+            config.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
+            config.allowedProtocols.set(WifiConfiguration.Protocol.RSN);
+            config.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.TKIP);
+            config.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.CCMP);
+            config.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
+            config.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
+
+            // WPA密码处理
+            if (password.matches("[0-9A-Fa-f]{64}")) {
+                config.preSharedKey = password; // 64位十六进制PSK
+            } else {
+                config.preSharedKey = "\"" + password + "\"";
+            }
+        }
+
+        return config;
+    }
+
+    private boolean isFragmentAlive() {
+        // isAdded：Fragment是否附加到Activity；isResumed：是否处于前台；getContext()：上下文是否有效
+        return isAdded() && !isDetached() && !isRemoving() && getContext() != null;
     }
 }
