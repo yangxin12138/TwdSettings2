@@ -166,6 +166,7 @@ public class Vertex {
                 break;
         }
     }
+
     public void doBottom(){
         switch (point){
             case 0:
@@ -194,6 +195,148 @@ public class Vertex {
                 y = y - 1;
                 if(y<0){
                     y = 0;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    public void doBottomN(int value){
+        switch (point){
+            case 0:
+                Log.d(TAG, "doBottom: case0");
+                y = y + value;
+                if(y>maxYStep){
+                    y = maxYStep;
+                }
+                break;
+            case 1:
+                Log.d(TAG, "doBottom: case1");
+                y = y + value;
+                if(y>maxYStep){
+                    y = maxYStep;
+                }
+                break;
+            case 2:
+                Log.d(TAG, "doBottom: case2");
+                y = y - value;
+                if(y<0){
+                    y = 0;
+                }
+                break;
+            case 3:
+                Log.d(TAG, "doBottom: case3");
+                y = y - value;
+                if(y<0){
+                    y = 0;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+
+
+    public void doLeftN(int value){
+        switch (point){
+            case 0:
+                Log.d(TAG, "doLeft: case0");
+                x = x - value;
+                if(x<0){
+                    x = 0;
+                }
+                break;
+            case 3:
+                Log.d(TAG, "doLeft: case3");
+                x = x - value;
+                if(x<0){
+                    x = 0;
+                }
+                break;
+            case 1:
+                Log.d(TAG, "doLeft: case1");
+                x = x + value;
+                if(x > maxXStep){
+                    x = maxXStep;
+                }
+                break;
+            case 2:
+                Log.d(TAG, "doLeft: case2");
+                x = x + value;
+                if(x > maxXStep){
+                    x = maxXStep;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    public void doRightN(int value){
+        switch (point){
+            case 0:
+                Log.d(TAG, "doRight: case0");
+                Log.d(TAG, "doRight: case3");
+                x = x + value;
+                if(x>maxXStep){
+                    x = maxXStep;
+                }
+                break;
+            case 3:
+                Log.d(TAG, "doRight: case3");
+                x = x + value;
+                if(x>maxXStep){
+                    x = maxXStep;
+                }
+                break;
+            case 1:
+                Log.d(TAG, "doRight: case1");
+                x = x - value;
+                if(x < 0){
+                    x = 0;
+                }
+                break;
+            case 2:
+                Log.d(TAG, "doRight: case2");
+                x = x - value;
+                if(x < 0){
+                    x = 0;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    public void doTopN(int value){
+        switch (point){
+            case 0:
+                Log.d(TAG, "doTop: case0");
+                y = y - value;
+                if(y<0){
+                    y = 0;
+                }
+                break;
+            case 1:
+                Log.d(TAG, "doTop: case1");
+                y = y - value;
+                if(y<0){
+                    y = 0;
+                }
+                break;
+            case 2:
+                Log.d(TAG, "doTop: case2");
+                y = y + value;
+                if(y>maxYStep){
+                    y = maxYStep;
+                }
+                break;
+            case 3:
+                Log.d(TAG, "doTop: case3");
+                y = y + value;
+                if(y>maxYStep){
+                    y = maxYStep;
                 }
                 break;
             default:

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_tip"
+	android:src="@mipmap/manual_tip"/>
+	<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_anim"
+	android:src="@mipmap/manual_tip_anim"/>
+	<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_logo"
+	android:src="@mipmap/manual_tip_logo"/>-->
+	<com.twd.setting.module.projector.sensor.FocusingView
+        android:id="@+id/temp_control"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

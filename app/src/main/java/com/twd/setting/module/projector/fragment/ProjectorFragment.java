@@ -120,13 +120,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private void gotoAutoProjection(boolean isChecked){//false
         selectItem = 4;
         if (isChecked){//原本是选中，自动模式，点击后变成手动模式
-            if (vertical_focus){
-                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
-                binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
-                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
-                binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
-                binding.twoPointInclude.itemRL.setFocusable(true);
-                binding.fourPointInclude.itemRL.setFocusable(true);
+            if (!vertical_focus){
+                binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
+                binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
             }
             binding.AutoProjectionInclude.switchAuto.setChecked(false);
             Log.d(TAG, "gotoAutoProjection: 关闭自动梯形 ，走手动模式");
@@ -140,13 +136,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             }
         }else {//原本是未选中，手动模式，点击后变成自动模式
             Log.i(TAG, "gotoAuto: 开启switch,走自动模式");
-            if (vertical_focus){
-                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
-                binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
-                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
-                binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
-                binding.twoPointInclude.itemRL.setFocusable(false);
-                binding.fourPointInclude.itemRL.setFocusable(false);
+            if (!vertical_focus){
+                binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
+                binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
             }
             binding.AutoProjectionInclude.switchAuto.setChecked(true);
             if (vertical_focus) {
@@ -290,8 +282,6 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         } else if (isAutoFitScreen) {
             binding.AutoProjectionInclude.itemRL.setVisibility(View.GONE);
             binding.AutoOBSIclude.itemRL.setVisibility(View.GONE);
-            gotoAutoProjection(true);
-
         }
         boolean isAutoProjection = vertical_focus ? autoFocusUtils.getVerticalCorrectStatus() : autoFocusUtils.getTrapezoidCorrectStatus();
         Log.i(TAG, "initAutoSwitch: 自动投影 ： " + isAutoProjection);
@@ -300,8 +290,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         boolean isAutoOBS = autoFocusUtils.getAutoObstacleAvoidanceStatus();
         Log.i(TAG, "initAutoSwitch: 自动避障 ： " + isAutoOBS);
 
-        binding.twoPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
-        binding.fourPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
+        initCustomProjection(isAutoProjection);
         binding.AutoProjectionInclude.switchAuto.setChecked(isAutoProjection);
         if (!vertical_focus){
             binding.AutoFocusInclude.switchAuto.setChecked(isAutoFocus);
@@ -314,6 +303,18 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
                 binding.projectionInclude.rightTV.setSelected(hasFocus);
             }
         });
+    }
+
+    private void initCustomProjection(boolean isAutoProjection){
+        if (isAutoProjection && !vertical_focus){
+                binding.twoPointInclude.itemRL.setVisibility(View.GONE);
+                binding.fourPointInclude.itemRL.setVisibility(View.GONE);
+        }else {
+                binding.twoPointInclude.itemRL.setVisibility(View.VISIBLE);
+                binding.fourPointInclude.itemRL.setVisibility(View.VISIBLE);
+        }
+        binding.twoPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
+        binding.fourPointInclude.itemRL.setOnFocusChangeListener(this::onFocusChange);
     }
 
     @Override

@@ -25,6 +25,7 @@ public class BluetoothActivity
         super.onDestroy();
         if (mLocalManager != null) {
             mLocalManager.onDestroy();
+      		mLocalManager = null;
         }
     }
 }
