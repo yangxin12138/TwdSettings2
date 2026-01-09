@@ -247,4 +247,5 @@
     <string name="dialog_msg_disconnect_forget">Ngắt kết nối?</string>
     <string name="dialog_btn_confirm">Xác nhận</string>
     <string name="dialog_btn_cancel">Hủy bỏ</string>
+    <string name="wifi_state_connected_no_network">Đã kết nối, Không có Internet</string>
 </resources>

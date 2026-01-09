@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Atvienot savienojumu?</string>
     <string name="dialog_btn_confirm">Apstiprināt</string>
     <string name="dialog_btn_cancel">Cancel</string>
+    <string name="wifi_state_connected_no_network">Savienots, nav interneta</string>
 </resources>

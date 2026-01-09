@@ -250,4 +250,5 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="dialog_msg_disconnect_forget">Desconectar?</string>
     <string name="dialog_btn_confirm">Confirmar</string>
     <string name="dialog_btn_cancel">Cancelar</string>
+    <string name="wifi_state_connected_no_network">Ligado, sem internet</string>
 </resources>

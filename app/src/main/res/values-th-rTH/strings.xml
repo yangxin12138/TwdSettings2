@@ -252,4 +252,5 @@
     <string name="dialog_msg_disconnect_forget">ตัดการเชื่อมต่อ?</string>
     <string name="dialog_btn_confirm">ยืนยัน</string>
     <string name="dialog_btn_cancel">ยกเลิก</string>
+    <string name="wifi_state_connected_no_network">เชื่อมต่อแล้ว ไม่มีอินเทอร์เน็ต</string>
 </resources>

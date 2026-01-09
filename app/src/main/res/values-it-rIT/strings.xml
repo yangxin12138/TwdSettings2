@@ -251,4 +251,5 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="dialog_msg_disconnect_forget">Disconnettersi?</string>
     <string name="dialog_btn_confirm">Confermare</string>
     <string name="dialog_btn_cancel">Cancellare</string>
+    <string name="wifi_state_connected_no_network">Connesso, nessuna connessione Internet</string>
 </resources>

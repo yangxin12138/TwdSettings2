@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">לְנַתֵק?</string>
     <string name="dialog_btn_confirm">לְאַשֵׁר</string>
     <string name="dialog_btn_cancel">לְבַטֵל</string>
+    <string name="wifi_state_connected_no_network">מחובר, אין אינטרנט</string>
 </resources>

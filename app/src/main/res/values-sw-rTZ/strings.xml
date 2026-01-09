@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Kukata muunganisho?</string>
     <string name="dialog_btn_confirm">Thibitisha</string>
     <string name="dialog_btn_cancel">Ghairi</string>
+    <string name="wifi_state_connected_no_network">imeunganishwa, Hakuna Intaneti</string>
 </resources>

@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Ontkoppel?</string>
     <string name="dialog_btn_confirm">Bevestig</string>
     <string name="dialog_btn_cancel">Kanselleer</string>
+    <string name="wifi_state_connected_no_network">Verbind, Geen internet nie</string>
 </resources>

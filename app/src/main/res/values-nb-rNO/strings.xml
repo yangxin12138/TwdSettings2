@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Frakople?</string>
     <string name="dialog_btn_confirm">Bekrefte</string>
     <string name="dialog_btn_cancel">Kansellere</string>
+    <string name="wifi_state_connected_no_network">Tilkoblet, ingen internett</string>
 </resources>

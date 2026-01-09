@@ -251,4 +251,5 @@
     <string name="dialog_msg_disconnect_forget">قطع ارتباط؟</string>
     <string name="dialog_btn_confirm">تأیید</string>
     <string name="dialog_btn_cancel">لغو</string>
+    <string name="wifi_state_connected_no_network">متصل، بدون اینترنت</string>
 </resources>

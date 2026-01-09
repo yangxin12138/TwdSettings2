@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Koppla från?</string>
     <string name="dialog_btn_confirm">Bekräfta</string>
     <string name="dialog_btn_cancel">Avboka</string>
+    <string name="wifi_state_connected_no_network">ansluten, inget internet</string>
 </resources>

@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Putuskan sambungan?</string>
     <string name="dialog_btn_confirm">Sahkan</string>
     <string name="dialog_btn_cancel">Batal</string>
+    <string name="wifi_state_connected_no_network">Tersambung, Tiada Internet</string>
 </resources>

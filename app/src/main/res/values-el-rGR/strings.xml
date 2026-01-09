@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Αποσυνδέω;</string>
     <string name="dialog_btn_confirm">Επιβεβαιώνω</string>
     <string name="dialog_btn_cancel">Ματαίωση</string>
+    <string name="wifi_state_connected_no_network">Συνδεδεμένο, Χωρίς Διαδίκτυο</string>
 </resources>

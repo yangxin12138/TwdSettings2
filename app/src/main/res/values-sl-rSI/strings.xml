@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Želite prekiniti povezavo?</string>
     <string name="dialog_btn_confirm">Potrdi</string>
     <string name="dialog_btn_cancel">Prekliči</string>
+    <string name="wifi_state_connected_no_network">povezan, brez interneta</string>
 </resources>

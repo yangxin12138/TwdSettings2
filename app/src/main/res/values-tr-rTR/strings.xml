@@ -251,4 +251,5 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="dialog_msg_disconnect_forget">Bağlantıyı kes?</string>
     <string name="dialog_btn_confirm">Onaylamak</string>
     <string name="dialog_btn_cancel">İptal etmek</string>
+    <string name="wifi_state_connected_no_network">Bağlı değil, İnternet yok</string>
 </resources>

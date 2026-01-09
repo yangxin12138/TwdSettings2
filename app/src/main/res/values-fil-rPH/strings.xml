@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Putulin ang koneksyon?</string>
     <string name="dialog_btn_confirm">Kumpirmahin</string>
     <string name="dialog_btn_cancel">Kanselahin</string>
+    <string name="wifi_state_connected_no_network">Konektado, Walang Internet</string>
 </resources>

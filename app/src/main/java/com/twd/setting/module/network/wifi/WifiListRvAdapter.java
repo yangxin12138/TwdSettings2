@@ -6,6 +6,9 @@ import static com.twd.setting.module.network.wifi.WifiConnectionActivity.TAG;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -29,6 +32,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import com.twd.setting.R;
 import com.twd.setting.databinding.LayoutItemWifiListBinding;
+import com.twd.setting.module.network.model.AccessPoint;
 import com.twd.setting.module.network.model.WifiAccessPoint;
 import com.twd.setting.utils.UiUtils;
 
@@ -124,43 +128,6 @@ public class WifiListRvAdapter
             }
         });
     }
-  /*
-  public void onBindViewHolder(ViewHolder paramViewHolder, int paramInt)
-  {
-    Object localObject1 = getWifiAccessPoints();
-    if (paramInt == getWifiAccessPoints().size())
-    {
-
-      paramViewHolder.binding.tvSSID.setText("其他");
-      paramViewHolder.binding.tvTip.setVisibility(View.INVISIBLE);
-
-      if (TextUtils.equals(WifiListFragment.selectedSSID, paramViewHolder.itemView.getContext().getString(R.string.selected_ssid_add_new_network)))
-      {
-
-        if (TextUtils.equals(WifiListFragment.selectedBSSID, paramViewHolder.itemView.getContext().getString(R.string.selected_bssid_add_new_network)))
-        {
-          itemClickListener.onFocusRequest(paramViewHolder.itemView, getItemCount() - 1);
-
-        }
-      }
-    }
-    else
-    {
-      WifiAccessPoint wifiAccessPoint = (WifiAccessPoint)getWifiAccessPoints().get(paramInt);
-      paramViewHolder.bind(wifiAccessPoint);
-      if ((TextUtils.equals(wifiAccessPoint.getSsidStr(), WifiListFragment.selectedSSID)) && (TextUtils.equals(wifiAccessPoint.getBssid(), WifiListFragment.selectedBSSID))) {
-        itemClickListener.onFocusRequest(paramViewHolder.itemView, paramInt);
-      }
-    }
-    UiUtils.setOnClickListener(paramViewHolder.binding.getRoot(), new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-
-      }
-    });
-  }
-
-   */
 
     public void onBindViewHolder(ViewHolder paramViewHolder, int paramInt, List<Object> paramList) {
 
@@ -222,15 +189,6 @@ public class WifiListRvAdapter
             Text.setText(text);
             toast.show();
         }
-        /*
-        public ViewHolder(LayoutItemWifiListBinding layoutItemWifiListBinding)
-        {
-          super();
-          //super();
-          binding = layoutItemWifiListBinding;
-          context = layoutItemWifiListBinding.getRoot().getContext();
-        }
-        */
         public void bind(WifiAccessPoint wifiAccessPoint) {
             if (wifiAccessPoint == null) {
                 return;
@@ -240,25 +198,22 @@ public class WifiListRvAdapter
             Log.d("WifiListAdapter","=========WifiAccessPoint:"+wifiAccessPoint);
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(WIFI_SERVICE);
             String ssid = getCurrentWifiSsid(wifiManager);
+
+            // 核心修改：判断已连接 + 检测网络状态
             if (wifiAccessPoint.getSsidStr().equals(ssid)){
                 Log.d(TAG, "bind: wifiAccessPoint.getSsidStr() = " + wifiAccessPoint.getSsidStr() + ", ssid = " + ssid);
-                str = context.getString(R.string.wifi_state_connected);
-                /*if (!isToastDisplayed){
-                    showToast(context.getResources().getString(R.string.wifi_setup_connection_success));
-                    isToastDisplayed = true;
-                }*/
+                if (hasInternet()) {
+                    Log.d(TAG, "bind: 20260108:已连接");
+                    str = context.getString(R.string.wifi_state_connected); // 原有“已连接”
+                } else {
+                    Log.d(TAG, "bind: 20260108:已连接，无网络");
+                    str = context.getString(R.string.wifi_state_connected_no_network);
+                }
             }else if (wifiAccessPoint.isSaved()){
                 str = context.getString(R.string.wifi_state_saved);
             }else {
                 str = "";
             }
-            /*if (wifiAccessPoint.isActive()) {
-                str = context.getString(R.string.wifi_state_connected);
-            } else if (wifiAccessPoint.isSaved()) {
-                str = context.getString(R.string.wifi_state_saved);
-            } else {
-                str = "";
-            }*/
             binding.tvTip.setText(str);
             Drawable drawable = WifiSignalHelper.getIconSignalStrength(context, wifiAccessPoint);
             DisplayMetrics metric = new DisplayMetrics();
@@ -297,6 +252,26 @@ public class WifiListRvAdapter
             }
             return ssid;
         }
+
+        private boolean hasInternet() {
+            // 获取连接管理器
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm == null) return true;
+
+            // 获取当前活跃网络
+            Network activeNetwork = cm.getActiveNetwork();
+            if (activeNetwork == null) return false;
+
+            // 获取网络能力
+            NetworkCapabilities capabilities = cm.getNetworkCapabilities(activeNetwork);
+            if (capabilities == null) return false;
+
+            // 验证：是WiFi + 系统已验证可访问公网 + 有互联网能力
+            return capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                    && capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+                    && capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+        }
+
     }
 
 

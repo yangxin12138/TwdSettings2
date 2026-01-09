@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Odpojit?</string>
     <string name="dialog_btn_confirm">Potvrdit</string>
     <string name="dialog_btn_cancel">Zrušit</string>
+    <string name="wifi_state_connected_no_network">Připojeno, bez internetu</string>
 </resources>

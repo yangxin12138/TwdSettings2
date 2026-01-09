@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Verbinding verbreken?</string>
     <string name="dialog_btn_confirm">Bevestigen</string>
     <string name="dialog_btn_cancel">Annuleren</string>
+    <string name="wifi_state_connected_no_network">Aangesloten, maar geen internet</string>
 </resources>

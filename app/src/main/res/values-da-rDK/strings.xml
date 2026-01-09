@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Afbryde?</string>
     <string name="dialog_btn_confirm">Bekræfte</string>
     <string name="dialog_btn_cancel">Ophæve</string>
+    <string name="wifi_state_connected_no_network">Forbundet, intet internet</string>
 </resources>

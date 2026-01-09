@@ -251,4 +251,5 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="dialog_msg_disconnect_forget">Déconnexion ?</string>
     <string name="dialog_btn_confirm">Confirmer</string>
     <string name="dialog_btn_cancel">Annuler</string>
+    <string name="wifi_state_connected_no_network">Connecté, pas d\'Internet</string>
 </resources>

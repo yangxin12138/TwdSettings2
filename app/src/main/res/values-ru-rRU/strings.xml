@@ -249,4 +249,5 @@
     <string name="dialog_msg_disconnect_forget">Отключить?</string>
     <string name="dialog_btn_confirm">Подтверждать</string>
     <string name="dialog_btn_cancel">Отмена</string>
+    <string name="wifi_state_connected_no_network">Подключено, нет интернета</string>
 </resources>

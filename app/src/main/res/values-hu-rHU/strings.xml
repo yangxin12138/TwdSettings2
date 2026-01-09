@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Kapcsolat bontása?</string>
     <string name="dialog_btn_confirm">Megerősítés</string>
     <string name="dialog_btn_cancel">Mégsem</string>
+    <string name="wifi_state_connected_no_network">Csatlakozva, nincs internet</string>
 </resources>

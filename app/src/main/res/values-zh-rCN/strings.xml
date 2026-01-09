@@ -502,4 +502,5 @@ Example: 24"</string>
     <string name="dialog_msg_disconnect_forget">是否断开连接？</string>
     <string name="dialog_btn_confirm">确认</string>
     <string name="dialog_btn_cancel">取消</string>
+    <string name="wifi_state_connected_no_network">已连接，无网络</string>
 </resources>

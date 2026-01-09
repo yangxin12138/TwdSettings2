@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Memutuskan?</string>
     <string name="dialog_btn_confirm">Mengonfirmasi</string>
     <string name="dialog_btn_cancel">Membatalkan</string>
+    <string name="wifi_state_connected_no_network">Terhubung, Tidak Ada Internet</string>
 </resources>

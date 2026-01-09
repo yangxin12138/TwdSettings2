@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Nqamula uxhumano?</string>
     <string name="dialog_btn_confirm">Qinisekisa</string>
     <string name="dialog_btn_cancel">Khansela</string>
+    <string name="wifi_state_connected_no_network">kuxhunyiwe, Akukho inthanethi</string>
 </resources>

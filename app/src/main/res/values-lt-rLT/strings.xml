@@ -242,4 +242,5 @@
     <string name="dialog_msg_disconnect_forget">Atsijungti?</string>
     <string name="dialog_btn_confirm">Patvirtinti</string>
     <string name="dialog_btn_cancel">Atšaukti</string>
+    <string name="wifi_state_connected_no_network">Prisijungta, nėra interneto</string>
 </resources>

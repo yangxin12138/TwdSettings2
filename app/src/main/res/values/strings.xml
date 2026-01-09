@@ -356,6 +356,7 @@ Example: 24"</string>
     <string name="net_other_functions">Other Functions</string>
     <string name="net_speed_measurement">Network speed measurement</string>
     <string name="wifi_state_connected">connected</string>
+    <string name="wifi_state_connected_no_network">connected,No Internet</string>
     <string name="wifi_state_saved">saved</string>
     <string name="wifi_state_scan">Scanning WIFI ...</string>
     <string name="wifi_enter_passwd_show">Show Password</string>

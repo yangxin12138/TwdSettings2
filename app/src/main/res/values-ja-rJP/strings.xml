@@ -249,4 +249,5 @@
     <string name="dialog_msg_disconnect_forget">切断しますか?</string>
     <string name="dialog_btn_confirm">確認する</string>
     <string name="dialog_btn_cancel">キャンセル</string>
+    <string name="wifi_state_connected_no_network">接続済み、インターネットなし</string>
 </resources>
