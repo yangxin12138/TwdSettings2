@@ -115,8 +115,10 @@ public class DeviceStorageActivity extends AppCompatActivity {
         double other_Long = 0;
 
         //总容量
-        String totalRom = SystemPropertiesUtils.readSystemProp();
-        Log.i(TAG, "initView: totalRom = "+totalRom);
+        String totalRom = getTotalRom();
+        //可用容量
+        String availableRom = getAvailableStorage();
+        Log.i(TAG, "initView: totalRom = "+totalRom+",availableRom = "+availableRom);
 //        String total = totalRom.substring(0, totalRom.indexOf("GB")).trim();
 //        Log.i(TAG, "initView: total = " + total);
 //        total_Long= InternationalReplace(total);
@@ -181,6 +183,7 @@ public class DeviceStorageActivity extends AppCompatActivity {
 
         if (Locale.getDefault().getLanguage().equals("ar") || Locale.getDefault().getLanguage().equals("fa")){
            storage_total.setText(totalRom + ":" + getString(R.string.device_storage_total));
+           storage_available.setText(availableRom+":"+getString(R.string.device_storage_available));
            /*storage_available.setText(availableRom + " : " + getString(R.string.device_storage_available));
            storage_system.setText(systemRom + " : " + getString(R.string.device_storage_system));
            storage_app.setText(appRom + " : " + getString(R.string.device_storage_app));
@@ -188,6 +191,7 @@ public class DeviceStorageActivity extends AppCompatActivity {
         }else {
             Log.i(TAG, "initView: storage_total = " + storage_total.getText());
             storage_total.setText(getString(R.string.device_storage_total) + ":" + totalRom);
+            storage_available.setText(getString(R.string.device_storage_available)+":"+availableRom);
             /*storage_available.setText(getString(R.string.device_storage_available) + ":" + availableRom);
             storage_system.setText(getString(R.string.device_storage_system) + ":" + systemRom);
             storage_app.setText(getString(R.string.device_storage_app) + ":" + appRom);
