@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="174.0dip"
-        android:layout_marginTop="100.0dip"
+        android:layout_marginTop="50.0dip"
         android:layout_marginEnd="174.0dip"
         android:layout_marginBottom="20.0dip"
         android:orientation="vertical">
@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/net_index_title_text"
+            android:textColor="@color/white"
             android:textSize="30sp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_wifi_list"
