@@ -502,4 +502,14 @@ Example: 24"</string>
     <string name="dialog_msg_disconnect_forget">Disconnect?</string>
     <string name="dialog_btn_confirm">Confirm</string>
     <string name="dialog_btn_cancel">Cancel</string>
+    <string name="wifi_list_empty_tip">No Wi-Fi found</string>
+    <string name="wifi_list_update_fail">WiFi update failed</string>
+    <string name="wifi_list_load_error">WiFi list loading error</string>
+    <string name="wifi_info_error">WiFi information is abnormal.</string>
+    <string name="wifi_ssid_empty">The WiFi name is empty.</string>
+    <string name="permission_location_denied">Location permissions are missing, unable to operate WiFi.</string>
+    <string name="wifi_forget_success">WiFi forgotten: %s</string>
+    <string name="wifi_forget_fail">Forgot WiFi failed</string>
+    <string name="wifi_operate_error">WiFi operation failed.</string>
+    <string name="wifi_click_error">WiFi click operation abnormal</string>
 </resources>

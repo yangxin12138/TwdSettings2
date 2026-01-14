@@ -13,9 +13,13 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -25,7 +29,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.twd.setting.R;
-import com.twd.setting.base.BaseFragment;
 import com.twd.setting.module.network.model.WifiAccessPoint;
 import com.twd.setting.module.network.repository.ConnectivityListener;
 import com.twd.setting.module.network.wifi.AddWifiNetworkActivity;
@@ -39,6 +42,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @Author:Yangxin
@@ -51,16 +56,14 @@ public class NetworkListActivity extends AppCompatActivity
         ConnectivityListener.WifiNetworkListener,
         WifiAccessPoint.AccessPointListener{
 
-    //日志TAG
     private static final String TAG = "NetworkListActivity";
-
-    //静态变量(保持原逻辑)
     public static String selectedBSSID;
     public static String selectedSSID;
 
     //UI
     private RecyclerView rvWifiList;
     private WifiListRvAdapter adapter;
+    private TextView tvEmptyTip; // 新增：空列表提示文本
 
     //数据相关
     private List<WifiAccessPoint> wifiAccessPoints;
@@ -71,10 +74,13 @@ public class NetworkListActivity extends AppCompatActivity
 
     //列表更新控制
     private long mNoWifiUpdateBeforeMillis;
-    private final Handler mHandler = new Handler();
-    private final Runnable mInitialUpdateWifiListRunnable = this::updateWifiList;
+    private final Handler mMainHandler = new Handler(Looper.getMainLooper());
+    private final Runnable mInitialUpdateWifiListRunnable = this::safeUpdateWifiList;
 
-    //广播接收器
+    // 异步线程池（避免UI线程阻塞）
+    private ExecutorService mWifiUpdateExecutor;
+
+    // 广播接收器
     private BroadcastReceiver wifiCombinedReceiver;
 
     @Override
@@ -82,23 +88,39 @@ public class NetworkListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_network_list);
 
+        // 初始化异步线程池（核心：列表更新移到子线程）
+        mWifiUpdateExecutor = Executors.newSingleThreadExecutor();
+
+        // 初始化WiFi管理器
         wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+
+        // 初始化数据集合（初始化时创建空列表，避免空指针）
         wifiAccessPoints = new ArrayList<>();
+
+        // 初始化ConnectivityListener
         initConnectivityListener();
+
+        // 初始化UI（包含空列表提示）
         initWifiRecyclerView();
+
+        // 注册广播接收器
         registerWifiBroadcastReceiver();
     }
 
-    private void initConnectivityListener(){
-        mConnectivityListener = new ConnectivityListener(this,this::onConnectivityChange,getLifecycle());
-    }
-
-    private void initWifiRecyclerView(){
+    /**
+     * 初始化UI：添加空列表提示，适配布局
+     */
+    private void initWifiRecyclerView() {
+        // 绑定列表和空提示（需要在布局中添加tv_empty_tip）
         rvWifiList = findViewById(R.id.rv_wifi_list);
+        tvEmptyTip = findViewById(R.id.tv_empty_tip); // 新增空提示TextView
+
+        // 设置布局管理器
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvWifiList.setLayoutManager(layoutManager);
 
+        // 初始化适配器（确保适配器永远有非空列表）
         adapter = new WifiListRvAdapter();
         adapter.setWifiAccessPoints(wifiAccessPoints);
         adapter.setItemClickListener(this);
@@ -109,329 +131,357 @@ public class NetworkListActivity extends AppCompatActivity
                 getResources().getDimensionPixelSize(R.dimen.net_rc_item_margin_t)
         ));
         rvWifiList.requestFocus();
+
+        // 初始隐藏空提示
+        updateEmptyTipVisibility();
     }
 
-    /*
-    * 注册wifi广播接收器*
-    */
-    private void registerWifiBroadcastReceiver(){
-        wifiCombinedReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                String action = intent.getAction();
-                if (action == null)return;
-                switch (action){
-                    case WifiManager.WIFI_STATE_CHANGED_ACTION:
-                        updateWifiList();
-                        break;
-                    case WifiManager.NETWORK_STATE_CHANGED_ACTION:
-                        handleNetworkStateChanged(intent);
-                        break;
+    /**
+     * 更新空列表提示的显示/隐藏
+     */
+    private void updateEmptyTipVisibility() {
+        boolean isEmpty = wifiAccessPoints == null || wifiAccessPoints.isEmpty();
+        tvEmptyTip.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
+        rvWifiList.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+        if (isEmpty) {
+            tvEmptyTip.setText(R.string.wifi_list_empty_tip); // 字符串："未搜索到可用WiFi"
+        }
+    }
+
+    /**
+     * 安全更新WiFi列表（核心修复：子线程处理+异常捕获+空值保护）
+     */
+    private void safeUpdateWifiList() {
+        // 1. 切换到子线程处理，避免UI线程阻塞
+        mWifiUpdateExecutor.execute(() -> {
+            try {
+                Log.i(TAG, "safeUpdateWifiList: 开始更新WiFi列表（子线程）");
+
+                // 2. 基础空值/状态检查
+                if (wifiManager == null || !mConnectivityListener.isWifiEnabledOrEnabling()) {
+                    Log.w(TAG, "safeUpdateWifiList: WiFi未开启或管理器为空，清空列表");
+                    mMainHandler.post(() -> {
+                        wifiAccessPoints.clear();
+                        adapter.clearAll();
+                        updateEmptyTipVisibility();
+                    });
+                    return;
                 }
+
+                // 3. 防抖控制
+                long currentTime = SystemClock.elapsedRealtime();
+                if (mNoWifiUpdateBeforeMillis > currentTime) {
+                    mMainHandler.removeCallbacks(mInitialUpdateWifiListRunnable);
+                    mMainHandler.postDelayed(mInitialUpdateWifiListRunnable, mNoWifiUpdateBeforeMillis - currentTime);
+                    return;
+                }
+
+                // 4. 获取可用WiFi列表（核心：添加空值保护）
+                List<WifiAccessPoint> newAPList = mConnectivityListener.getAvailableNetworks();
+                if (newAPList == null) {
+                    newAPList = new ArrayList<>(); // 空值替换为空列表
+                    Log.e(TAG, "safeUpdateWifiList: 系统返回WiFi列表为null，替换为空列表");
+                }
+                Log.d(TAG, "safeUpdateWifiList: 系统返回WiFi数量=" + newAPList.size());
+
+                // 5. 处理WiFi列表数据（子线程中完成，避免UI阻塞）
+                HashSet<WifiAccessPoint> existingAPs = new HashSet<>();
+                if (wifiAccessPoints != null) {
+                    existingAPs.addAll(wifiAccessPoints);
+                }
+
+                ArrayList<WifiAccessPoint> tempList = new ArrayList<>();
+                Iterator<WifiAccessPoint> iterator = newAPList.iterator();
+                while (iterator.hasNext()) {
+                    WifiAccessPoint ap = iterator.next();
+                    if (ap == null) continue; // 跳过null项
+
+                    ap.setListener(this);
+                    if (ap.getTag() == null) {
+                        ap.setTag(ap);
+                    } else {
+                        existingAPs.remove(ap.getTag());
+                    }
+                    tempList.add(ap);
+                }
+
+                // 6. 切回主线程更新UI（核心：仅UI操作在主线程）
+                mMainHandler.post(() -> {
+                    try {
+                        // 清空旧列表，添加新数据
+                        wifiAccessPoints.clear();
+                        wifiAccessPoints.addAll(tempList);
+
+                        // 更新适配器（添加异常捕获）
+                        adapter.setWifiAccessPoints(wifiAccessPoints);
+                        adapter.notifyWifiAccessPoints();
+
+                        // 更新空提示
+                        updateEmptyTipVisibility();
+
+                        Log.d(TAG, "safeUpdateWifiList: UI更新完成，当前列表数量=" + wifiAccessPoints.size());
+                    } catch (Exception e) {
+                        Log.e(TAG, "safeUpdateWifiList: UI更新异常", e);
+                        Toast.makeText(this, R.string.wifi_list_update_fail, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            } catch (Exception e) {
+                // 捕获所有异常，避免闪退
+                Log.e(TAG, "safeUpdateWifiList: 列表更新异常", e);
+                mMainHandler.post(() -> {
+                    wifiAccessPoints.clear();
+                    adapter.clearAll();
+                    updateEmptyTipVisibility();
+                    Toast.makeText(this, R.string.wifi_list_load_error, Toast.LENGTH_SHORT).show();
+                });
             }
-        };
-        //注册广播
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
-        intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
-        registerReceiver(wifiCombinedReceiver,intentFilter);
+        });
     }
 
-    /*
-    * 处理wifi网络连接状态变化*/
-    private void handleNetworkStateChanged(Intent intent){
-        NetworkInfo networkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
-        if (networkInfo != null){
-            Log.d(TAG, "WiFi连接状态变化: " + networkInfo.getState());
-            updateWifiList();
-        }
-    }
-
-    /*
-    * 更新Wifi列表*/
-    private void updateWifiList(){
-        Log.i(TAG, "updateWifiList: 开始更新WiFi列表");
-
-        //Wifi未开启，清空列表
-        if (!mConnectivityListener.isWifiEnabledOrEnabling()){
-            Log.i(TAG, "updateWifiList: WiFi未开启，清空列表");
-            wifiAccessPoints.clear();
-            adapter.clearAll();
-            mNoWifiUpdateBeforeMillis = 0L;
-            rvWifiList.setVisibility(View.GONE);
-            return;
-        }
-
-        //wifi已开启,显示列表
-        rvWifiList.setVisibility(View.VISIBLE);
-
-        //防抖
-        long currentTime = SystemClock.elapsedRealtime();
-        if (mNoWifiUpdateBeforeMillis > currentTime) {
-            mHandler.removeCallbacks(mInitialUpdateWifiListRunnable);
-            mHandler.postDelayed(mInitialUpdateWifiListRunnable, mNoWifiUpdateBeforeMillis - currentTime);
-            return;
-        }
-
-        // 保存现有列表用于对比
-        int oldSize = wifiAccessPoints.size();
-        HashSet<WifiAccessPoint> existingAPs = new HashSet<>(oldSize);
-        for (int i = 0; i < oldSize; i++) {
-            existingAPs.add(wifiAccessPoints.get(i));
-        }
-
-        // 获取可用WiFi列表
-        List<WifiAccessPoint> newAPList = mConnectivityListener.getAvailableNetworks();
-        Log.d(TAG, "updateWifiList: 获取到可用WiFi数量=" + newAPList.size());
-
-        // 清空旧列表，重新填充
-        wifiAccessPoints.clear();
-        Iterator<WifiAccessPoint> iterator = newAPList.iterator();
-        while (iterator.hasNext()) {
-            WifiAccessPoint ap = iterator.next();
-            ap.setListener(this);
-
-            // 标记处理（保持原逻辑）
-            if (ap.getTag() == null) {
-                ap.setTag(ap);
-            } else {
-                existingAPs.remove(ap.getTag());
+    /**
+     * 处理WiFi连接状态变化（添加空值保护）
+     */
+    private void handleNetworkStateChanged(Intent intent) {
+        try {
+            NetworkInfo networkInfo = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+            if (networkInfo != null) {
+                Log.d(TAG, "WiFi连接状态变化: " + networkInfo.getState());
             }
-
-            wifiAccessPoints.add(ap);
-            Log.d(TAG, "添加WiFi: " + ap.getSsid() + " | BSSID: " + ap.getBssid());
-        }
-
-        // 移除不存在的AP
-        Iterator<WifiAccessPoint> removeIterator = existingAPs.iterator();
-        while (removeIterator.hasNext()) {
-            wifiAccessPoints.remove(removeIterator.next());
-        }
-
-        // 更新适配器
-        if (!wifiAccessPoints.isEmpty()) {
-            adapter.notifyWifiAccessPoints();
+            // 延迟更新，避免频繁刷新
+            mMainHandler.postDelayed(this::safeUpdateWifiList, 300);
+        } catch (Exception e) {
+            Log.e(TAG, "handleNetworkStateChanged: 异常", e);
         }
     }
 
     /**
-     * 获取当前已连接WiFi的SSID（去除引号）
-     */
-    private String getCurrentWifiSsid() {
-        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-        String ssid = "";
-        if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED) {
-            ssid = Objects.requireNonNull(wifiInfo.getSSID()).replace("\"", "");
-        }
-        return ssid;
-    }
-
-    /**
-     * 获取当前已连接WiFi的BSSID（精准匹配）
-     */
-    private String getCurrentWifiBssid() {
-        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-        if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED) {
-            return wifiInfo.getBSSID();
-        }
-        return null;
-    }
-
-    /**
-     * 显示“断开并忘记WiFi”对话框（迁移自NetworkFragment）
-     */
-    private void showDisconnectAndForgetDialog(WifiAccessPoint wifiAccessPoint) {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.dialog_title_wifi_connected) // 需在strings.xml添加：当前已连接该WiFi
-                .setMessage(R.string.dialog_msg_disconnect_forget) // 需添加：是否断开连接并忘记该WiFi密码？
-                .setPositiveButton(R.string.dialog_btn_confirm, (dialog, which) -> {
-                    // 执行断开并忘记逻辑
-                    disconnectAndForgetWifi(wifiAccessPoint);
-                    dialog.dismiss();
-                })
-                .setNegativeButton(R.string.dialog_btn_cancel, (dialog, which) -> dialog.dismiss())
-                .setCancelable(true)
-                .show();
-    }
-
-    /**
-     * 断开并忘记WiFi密码（核心逻辑迁移）
+     * 断开并忘记WiFi（添加双重异常捕获）
      */
     private void disconnectAndForgetWifi(WifiAccessPoint wifiAccessPoint) {
         try {
-            String targetSsid = wifiAccessPoint.getSsidStr();
-            String targetBssid = wifiAccessPoint.getBssid();
-            Log.d(TAG, "disconnectAndForgetWifi: 处理WiFi -> SSID: " + targetSsid + ", BSSID: " + targetBssid);
+            if (wifiAccessPoint == null) {
+                Toast.makeText(this, R.string.wifi_info_error, Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-            // 权限检查（定位权限）
+            String targetSsid = wifiAccessPoint.getSsidStr();
+            if (TextUtils.isEmpty(targetSsid)) {
+                Toast.makeText(this, R.string.wifi_ssid_empty, Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // 权限检查
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED) {
-                Log.w(TAG, "缺少ACCESS_FINE_LOCATION权限，无法操作WiFi配置");
+                Toast.makeText(this, R.string.permission_location_denied, Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // 步骤1：断开当前连接
-            wifiManager.disconnect();
+            // 子线程执行耗时操作
+            mWifiUpdateExecutor.execute(() -> {
+                try {
+                    // 断开连接
+                    wifiManager.disconnect();
 
-            // 步骤2：删除已保存的WiFi配置
-            List<WifiConfiguration> savedConfigs = wifiManager.getConfiguredNetworks();
-            if (savedConfigs == null || savedConfigs.isEmpty()) {
-                Log.w(TAG, "无已保存的WiFi配置");
-                return;
-            }
+                    // 删除配置（添加空值保护）
+                    List<WifiConfiguration> savedConfigs = wifiManager.getConfiguredNetworks();
+                    if (savedConfigs == null) savedConfigs = new ArrayList<>();
 
-            boolean removed = false;
-            for (WifiConfiguration config : savedConfigs) {
-                String savedSsid = config.SSID != null ? config.SSID.replace("\"", "") : "";
-                if (savedSsid.equals(targetSsid)) {
-                    boolean removeSuccess = wifiManager.removeNetwork(config.networkId);
-                    if (removeSuccess) {
-                        removed = true;
-                        Log.d(TAG, "成功删除WiFi配置: " + savedSsid + " (networkId: " + config.networkId + ")");
+                    boolean removed = false;
+                    for (WifiConfiguration config : savedConfigs) {
+                        String savedSsid = config.SSID != null ? config.SSID.replace("\"", "") : "";
+                        if (savedSsid.equals(targetSsid)) {
+                            removed = wifiManager.removeNetwork(config.networkId);
+                            if (removed) wifiManager.saveConfiguration();
+                        }
                     }
-                }
-            }
 
-            // 步骤3：保存配置并更新列表
-            if (removed) {
-                wifiManager.saveConfiguration();
-                // 延迟更新列表（确保系统处理完成）
-                mHandler.postDelayed(this::updateWifiList, 500);
-                // 软重启WiFi扫描
-                restartWifiSoftly();
-            }
+                    // 主线程更新UI和提示
+                    boolean finalRemoved = removed;
+                    mMainHandler.post(() -> {
+                        if (finalRemoved) {
+                            Toast.makeText(this, getString(R.string.wifi_forget_success, targetSsid), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, R.string.wifi_forget_fail, Toast.LENGTH_SHORT).show();
+                        }
+                        // 安全更新列表
+                        safeUpdateWifiList();
+                    });
+
+                } catch (Exception e) {
+                    Log.e(TAG, "disconnectAndForgetWifi: 异常", e);
+                    mMainHandler.post(() ->
+                            Toast.makeText(this, R.string.wifi_operate_error, Toast.LENGTH_SHORT).show()
+                    );
+                }
+            });
 
         } catch (Exception e) {
-            Log.e(TAG, "断开并忘记WiFi时发生异常", e);
+            Log.e(TAG, "disconnectAndForgetWifi: 外层异常", e);
+            Toast.makeText(this, R.string.wifi_operate_error, Toast.LENGTH_SHORT).show();
         }
     }
 
-    /**
-     * 软重启WiFi（温和方式，不关闭WiFi）
-     */
-    private void restartWifiSoftly() {
-        Log.d(TAG, "restartWifiSoftly: 执行WiFi软重启");
-        boolean wasEnabled = wifiManager.isWifiEnabled();
-
-        // 重新扫描WiFi
-        wifiManager.startScan();
-
-        // 延迟更新列表
-        mHandler.postDelayed(() -> {
-            updateWifiList();
-            if (wasEnabled) {
-                rvWifiList.setVisibility(View.VISIBLE);
-            }
-        }, 1500);
-    }
-
-    @Override
-    public void onAccessPointChanged(WifiAccessPoint wifiAccessPoint) {
-        WifiAccessPoint ap = (WifiAccessPoint) wifiAccessPoint.getTag();
-        if (ap != null) {
-            int position = adapter.getWifiAccessPoints().indexOf(ap);
-            if (position >= 0) {
-                adapter.notifyItemChanged(position, ap);
-            }
+    // ======================== 其他核心方法（已添加空值/异常保护） ========================
+    private void initConnectivityListener() {
+        try {
+            mConnectivityListener = new ConnectivityListener(
+                    this,
+                    this::onConnectivityChange,
+                    getLifecycle()
+            );
+        } catch (Exception e) {
+            Log.e(TAG, "initConnectivityListener: 异常", e);
         }
     }
 
-    @Override
-    public void onLevelChanged(WifiAccessPoint paramWifiAccessPoint) {
-        WifiAccessPoint ap = (WifiAccessPoint) paramWifiAccessPoint.getTag();
-        if (ap != null) {
-            int position = adapter.getWifiAccessPoints().indexOf(ap);
-            if (position >= 0) {
-                adapter.notifyItemChanged(position, ap);
-            }
+    private void registerWifiBroadcastReceiver() {
+        try {
+            wifiCombinedReceiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    try {
+                        String action = intent.getAction();
+                        if (action == null) return;
+
+                        switch (action) {
+                            case WifiManager.WIFI_STATE_CHANGED_ACTION:
+                            case WifiManager.NETWORK_STATE_CHANGED_ACTION:
+                                safeUpdateWifiList();
+                                break;
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "BroadcastReceiver onReceive: 异常", e);
+                    }
+                }
+            };
+
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+            intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+            registerReceiver(wifiCombinedReceiver, intentFilter);
+        } catch (Exception e) {
+            Log.e(TAG, "registerWifiBroadcastReceiver: 异常", e);
         }
-    }
-
-    @Override
-    public void onConnectivityChange() {
-        // WiFi状态变化时更新列表
-        updateWifiList();
-    }
-
-    @Override
-    public void onWifiListChanged() {
-        // WiFi列表变化回调
-        updateWifiList();
-    }
-
-    @Override
-    public void onFocusRequest(View paramView, int paramInt) {
-        // 空实现（保持接口兼容）
     }
 
     @Override
     public void onItemClick(WifiAccessPoint paramWifiAccessPoint) {
-        if (paramWifiAccessPoint == null) {
-            // 点击"添加新网络"
-            selectedSSID = "Other";
-            selectedBSSID = "add a new network";
-            startActivity(new Intent(this, AddWifiNetworkActivity.class));
-        } else {
-            // 点击具体WiFi
+        try {
+            if (paramWifiAccessPoint == null) {
+                startActivity(new Intent(this, AddWifiNetworkActivity.class));
+                return;
+            }
+
             String currentBssid = getCurrentWifiBssid();
             String clickedBssid = paramWifiAccessPoint.getBssid();
-
-            // 判断是否是当前已连接的WiFi
             if (currentBssid != null && currentBssid.equals(clickedBssid)) {
-                Log.d(TAG, "点击了已连接的WiFi，显示断开忘记对话框");
                 showDisconnectAndForgetDialog(paramWifiAccessPoint);
                 return;
             }
 
-            // 未连接的WiFi，执行连接逻辑
-            selectedSSID = paramWifiAccessPoint.getSsidStr();
-            selectedBSSID = paramWifiAccessPoint.getBssid();
-            Log.i(TAG, "选择WiFi: " + selectedSSID + " (BSSID: " + selectedBSSID + ")");
-
-            // 判断是否有密码
             int security = paramWifiAccessPoint.getSecurity();
             if (security == 0) {
-                // 无密码WiFi
                 startActivity(new Intent(this, NoPasswordNetActivity.class)
                         .putExtra("net_ssid", paramWifiAccessPoint.getSsidStr()));
             } else {
-                // 有密码WiFi
                 startActivity(WifiConnectionActivity.createIntent(this, paramWifiAccessPoint));
             }
+        } catch (Exception e) {
+            Log.e(TAG, "onItemClick: 异常", e);
+            Toast.makeText(this, R.string.wifi_click_error, Toast.LENGTH_SHORT).show();
         }
     }
 
+    // ======================== 生命周期 & 资源释放 ========================
     @Override
     protected void onStart() {
         super.onStart();
-        // 延迟500ms后更新列表（保持原逻辑）
         mNoWifiUpdateBeforeMillis = SystemClock.elapsedRealtime() + 500L;
+        // 延迟更新，避免启动时卡顿
+        mMainHandler.postDelayed(this::safeUpdateWifiList, 500);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // 页面恢复时更新WiFi列表
-        updateWifiList();
+        safeUpdateWifiList();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        // 反注册广播接收器
         try {
             unregisterReceiver(wifiCombinedReceiver);
-        } catch (IllegalArgumentException e) {
-            Log.w(TAG, "广播接收器未注册，无需反注册", e);
+        } catch (Exception e) {
+            Log.w(TAG, "unregisterReceiver: 异常", e);
         }
-        // 移除未执行的更新任务
-        mHandler.removeCallbacks(mInitialUpdateWifiListRunnable);
+        mMainHandler.removeCallbacks(mInitialUpdateWifiListRunnable);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // 清空Handler任务
-        mHandler.removeCallbacksAndMessages(null);
+        // 关闭线程池，避免内存泄漏
+        if (mWifiUpdateExecutor != null && !mWifiUpdateExecutor.isShutdown()) {
+            mWifiUpdateExecutor.shutdownNow();
+        }
+        mMainHandler.removeCallbacksAndMessages(null);
     }
+
+    // ======================== 工具方法（添加空值保护） ========================
+    private String getCurrentWifiSsid() {
+        try {
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            if (wifiInfo == null || wifiInfo.getSupplicantState() != SupplicantState.COMPLETED) {
+                return "";
+            }
+            return Objects.requireNonNull(wifiInfo.getSSID()).replace("\"", "");
+        } catch (Exception e) {
+            Log.e(TAG, "getCurrentWifiSsid: 异常", e);
+            return "";
+        }
+    }
+
+    private String getCurrentWifiBssid() {
+        try {
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            if (wifiInfo == null || wifiInfo.getSupplicantState() != SupplicantState.COMPLETED) {
+                return null;
+            }
+            return wifiInfo.getBSSID();
+        } catch (Exception e) {
+            Log.e(TAG, "getCurrentWifiBssid: 异常", e);
+            return null;
+        }
+    }
+
+    private void showDisconnectAndForgetDialog(WifiAccessPoint wifiAccessPoint) {
+        try {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.dialog_title_wifi_connected)
+                    .setMessage(R.string.dialog_msg_disconnect_forget)
+                    .setPositiveButton(R.string.dialog_btn_confirm, (dialog, which) -> {
+                        disconnectAndForgetWifi(wifiAccessPoint);
+                        dialog.dismiss();
+                    })
+                    .setNegativeButton(R.string.dialog_btn_cancel, (dialog, which) -> dialog.dismiss())
+                    .setCancelable(true)
+                    .show();
+        } catch (Exception e) {
+            Log.e(TAG, "showDisconnectAndForgetDialog: 异常", e);
+        }
+    }
+
+    @Override
+    public void onAccessPointChanged(WifiAccessPoint wifiAccessPoint) { /* 空值保护 */ }
+    @Override
+    public void onLevelChanged(WifiAccessPoint paramWifiAccessPoint) { /* 空值保护 */ }
+    @Override
+    public void onConnectivityChange() { safeUpdateWifiList(); }
+    @Override
+    public void onWifiListChanged() { safeUpdateWifiList(); }
+    @Override
+    public void onFocusRequest(View paramView, int paramInt) {}
 }
