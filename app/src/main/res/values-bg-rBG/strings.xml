@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Това устройство е свързано. Искате ли да се свържете?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Това устройство е свързано. Наистина ли искате да прекъснете връзката?</string>
     <string name="bluetooth_index_connect_succese">Свързването е успешно</string>
-    <string name="bluetooth_index_connect_failed">Неуспешно свързване</string>
+    <string name="bluetooth_index_connect_failed">Свързването неуспешно, моля, опитайте отново</string>
     <string name="bluetooth_index_close">Връзката беше прекъсната успешно</string>
     <string name="bluetooth_dialog_connect">Свържете се</string>
     <string name="bluetooth_dialog_cancel">Отказ</string>

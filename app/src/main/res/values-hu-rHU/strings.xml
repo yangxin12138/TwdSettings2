@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Ez az eszköz kötött. Csatlakozni akarsz?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Ez az eszköz kötött. Biztos benne, hogy meg akarja kapcsolni?</string>
     <string name="bluetooth_index_connect_succese">Connect sikeres volt</string>
-    <string name="bluetooth_index_connect_failed">Csatlakoztassa a kudarcot</string>
+    <string name="bluetooth_index_connect_failed">Kapcsolódási hiba, kérjük, próbálja újra</string>
     <string name="bluetooth_index_close">Sikeresen leválasztva</string>
     <string name="bluetooth_dialog_connect">Összekapcsol</string>
     <string name="bluetooth_dialog_cancel">Töröl</string>

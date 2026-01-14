@@ -436,7 +436,7 @@ Example: 24"</string>
     <string name="bluetooth_index_Connectdialog_flag_1">
         This device has been bound.Are you sure you want to disconnect?</string>
     <string name="bluetooth_index_connect_succese">Connect succeeded</string>
-    <string name="bluetooth_index_connect_failed">Connect Fail</string>
+    <string name="bluetooth_index_connect_failed">Connect Fail,Please Retry</string>
     <string name="bluetooth_index_close">Disconnected successfully</string>
     <string name="bluetooth_dialog_connect">Connect</string>
     <string name="bluetooth_dialog_cancel">Cancel</string>

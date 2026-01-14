@@ -8,10 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.twd.setting.R;
 import com.twd.setting.module.network.util.State;
 import com.twd.setting.module.network.util.State.FragmentChangeListener;
 import com.twd.setting.module.network.util.State.StateCompleteListener;
 import com.twd.setting.module.network.util.StateMachine;
+import com.twd.setting.widgets.ToastTools;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -37,6 +39,7 @@ public class ConnectTimeOutState
 
     public void processForward() {
         Log.d(TAG,"processForward");
+        Log.d("yangxin", "processForward: 超时的执行前");
         Object localObject3 = (AdvancedOptionsFlowInfo) new ViewModelProvider(mActivity).get(AdvancedOptionsFlowInfo.class);
         Object localObject1 = (UserChoiceInfo) new ViewModelProvider(mActivity).get(UserChoiceInfo.class);
         ((AdvancedOptionsFlowInfo) localObject3).setCanStart(true);
@@ -69,6 +72,8 @@ public class ConnectTimeOutState
 
         public void onResume() {
             super.onResume();
+            Log.d("yangxin", "processForward: 超时的执行前——————这里没显示Toast");
+            ToastTools.Instance().showToast(requireContext(),getString(R.string.net_wifiList_connecttoWifi_isConnected_false));
             this.mStateMachine.getListener().onComplete(6);
         }
     }

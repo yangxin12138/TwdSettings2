@@ -188,7 +188,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Toto zariadenie bolo viazané. Chcete sa pripojiť?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Toto zariadenie bolo viazané. Určite sa chcete odpojiť?</string>
     <string name="bluetooth_index_connect_succese">Pripojte sa</string>
-    <string name="bluetooth_index_connect_failed">Pripojiť zlyhanie</string>
+    <string name="bluetooth_index_connect_failed">Pripojenie zlyhalo, skúste to znova</string>
     <string name="bluetooth_index_close">Úspešne odpojené</string>
     <string name="bluetooth_dialog_connect">Pripojiť</string>
     <string name="bluetooth_dialog_cancel">Zrušiť</string>

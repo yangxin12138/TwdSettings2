@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Kifaa hiki kimefungwa. Je! Unataka kuungana?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Kifaa hiki kimefungwa. Je! Una hakika unataka kukata?</string>
     <string name="bluetooth_index_connect_succese">Unganisha ilifanikiwa</string>
-    <string name="bluetooth_index_connect_failed">Unganisha Kushindwa</string>
+    <string name="bluetooth_index_connect_failed">Kushindwa kwa Muunganisho, Tafadhali Jaribu Tena</string>
     <string name="bluetooth_index_close">Imekataliwa kwa mafanikio</string>
     <string name="bluetooth_dialog_connect">Unganisha</string>
     <string name="bluetooth_dialog_cancel">Ghairi</string>

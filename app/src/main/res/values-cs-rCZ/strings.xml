@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Toto zařízení bylo svázáno. Chcete se připojit?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Toto zařízení bylo svázáno. Opravdu se chcete odpojit?</string>
     <string name="bluetooth_index_connect_succese">Připojení bylo úspěšné</string>
-    <string name="bluetooth_index_connect_failed">Připojení se nezdařilo</string>
+    <string name="bluetooth_index_connect_failed">Připojení selhalo, zkuste to prosím znovu</string>
     <string name="bluetooth_index_close">Úspěšně odpojeno</string>
     <string name="bluetooth_dialog_connect">Připojit</string>
     <string name="bluetooth_dialog_cancel">Zrušit</string>

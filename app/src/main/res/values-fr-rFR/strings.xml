@@ -186,7 +186,7 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="bluetooth_index_Connectdialog_flag_1">
         Cet appareil est connecté. Voulez-vous vraiment vous déconnecter?</string>
     <string name="bluetooth_index_connect_succese">connexion réussie</string>
-    <string name="bluetooth_index_connect_failed">connexion succès</string>
+    <string name="bluetooth_index_connect_failed">Échec de la connexion, veuillez réessayer</string>
     <string name="bluetooth_index_close">Déconnecté avec succès</string>
     <string name="bluetooth_dialog_connect">connecter</string>
     <string name="bluetooth_dialog_cancel">Annuler</string>

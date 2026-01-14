@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Hierdie toestel is gebind. Wil jy koppel?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Hierdie toestel is gebind. Is jy seker jy wil ontkoppel?</string>
     <string name="bluetooth_index_connect_succese">Verbinding het geslaag</string>
-    <string name="bluetooth_index_connect_failed">Verbinding misluk</string>
+    <string name="bluetooth_index_connect_failed">Verbinding misluk, probeer asseblief weer</string>
     <string name="bluetooth_index_close">Suksesvol ontkoppel</string>
     <string name="bluetooth_dialog_connect">Koppel</string>
     <string name="bluetooth_dialog_cancel">Kanselleer</string>

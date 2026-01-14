@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Den här enheten har kopplats. Vill du ansluta?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Den här enheten har kopplats. Är du säker på att du vill koppla från?</string>
     <string name="bluetooth_index_connect_succese">Anslutningen lyckades</string>
-    <string name="bluetooth_index_connect_failed">Anslutningsfel</string>
+    <string name="bluetooth_index_connect_failed">Anslutningsfel, försök igen</string>
     <string name="bluetooth_index_close">Frånkopplingen lyckades</string>
     <string name="bluetooth_dialog_connect">Ansluta</string>
     <string name="bluetooth_dialog_cancel">Avboka</string>

@@ -185,7 +185,7 @@
     <string name="bluetooth_index_Connectdialog_flag_1">
         此設備已經连接，確定要斷開連接嗎？</string>
     <string name="bluetooth_index_connect_succese">連接成功</string>
-    <string name="bluetooth_index_connect_failed">连接失败</string>
+    <string name="bluetooth_index_connect_failed">連線失敗，請重試</string>
     <string name="bluetooth_index_close">斷開成功</string>
     <string name="bluetooth_dialog_connect">連接</string>
     <string name="bluetooth_dialog_cancel">取消</string>

@@ -435,7 +435,7 @@ Example: 24"</string>
     <string name="bluetooth_index_Connectdialog_flag_1">
         此设备已连接.确定断开连接吗？</string>
     <string name="bluetooth_index_connect_succese">连接成功</string>
-    <string name="bluetooth_index_connect_failed">连接失败</string>
+    <string name="bluetooth_index_connect_failed">连接失败,请重试</string>
     <string name="bluetooth_index_close">断开成功</string>
     <string name="bluetooth_dialog_connect">连接</string>
     <string name="bluetooth_dialog_cancel">取消</string>

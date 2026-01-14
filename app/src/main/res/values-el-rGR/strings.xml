@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Αυτή η συσκευή έχει συνδεθεί. Θέλετε να συνδεθείτε;</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Αυτή η συσκευή έχει συνδεθεί. Είστε σίγουροι ότι θέλετε να αποσυνδεθείτε;</string>
     <string name="bluetooth_index_connect_succese">Η σύνδεση ήταν επιτυχής</string>
-    <string name="bluetooth_index_connect_failed">Αποτυχία σύνδεσης</string>
+    <string name="bluetooth_index_connect_failed">Αποτυχία σύνδεσης, δοκιμάστε ξανά</string>
     <string name="bluetooth_index_close">Η αποσύνδεση ολοκληρώθηκε με επιτυχία</string>
     <string name="bluetooth_dialog_connect">Συνδέω</string>
     <string name="bluetooth_dialog_cancel">Ματαίωση</string>

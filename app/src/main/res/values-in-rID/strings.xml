@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Perangkat ini telah terikat. Apakah Anda ingin terhubung?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Perangkat ini telah diikat. Apakah Anda yakin ingin memutuskan sambungan?</string>
     <string name="bluetooth_index_connect_succese">Hubungkan berhasil</string>
-    <string name="bluetooth_index_connect_failed">Hubungkan gagal</string>
+    <string name="bluetooth_index_connect_failed">Koneksi gagal, silakan coba lagi.</string>
     <string name="bluetooth_index_close">Terputus dengan sukses</string>
     <string name="bluetooth_dialog_connect">Menghubungkan</string>
     <string name="bluetooth_dialog_cancel">Membatalkan</string>

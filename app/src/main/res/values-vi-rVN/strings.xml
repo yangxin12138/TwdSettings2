@@ -182,7 +182,7 @@
     <string name="bluetooth_index_Connectdialog_flag_1">
         Thiết bị này đã được liên kết. Bạn có chắc chắn muốn ngắt kết nối không?</string>
     <string name="bluetooth_index_connect_succese">Kết nối thành công</string>
-    <string name="bluetooth_index_connect_failed">Kết nối thất bại</string>
+    <string name="bluetooth_index_connect_failed">Kết nối thất bại, vui lòng thử lại.</string>
     <string name="bluetooth_index_close">Đã ngắt kết nối thành công</string>
     <string name="bluetooth_dialog_connect">Kết nối</string>
     <string name="bluetooth_dialog_cancel">Hủy bỏ</string>

@@ -186,7 +186,7 @@
     <string name="bluetooth_index_Connectdialog_flag_1">
         این دستگاه متصل است. آیا مطمئن هستید که می‌خواهید اتصال را قطع کنید؟</string>
     <string name="bluetooth_index_connect_succese">اتصال موفق شد</string>
-    <string name="bluetooth_index_connect_failed">ارتباط ناموفق بود</string>
+    <string name="bluetooth_index_connect_failed">اتصال ناموفق بود، لطفا دوباره امتحان کنید</string>
     <string name="bluetooth_index_close">با موفقیت قطع شد</string>
     <string name="bluetooth_dialog_connect">اتصال</string>
     <string name="bluetooth_dialog_cancel">لغو کنید</string>

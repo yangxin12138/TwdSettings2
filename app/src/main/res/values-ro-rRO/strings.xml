@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Acest dispozitiv a fost legat. Vrei să te conectezi?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Acest dispozitiv a fost legat. Sunteți sigur că doriți să vă deconectați?</string>
     <string name="bluetooth_index_connect_succese">Connect a reușit</string>
-    <string name="bluetooth_index_connect_failed">Conectați -vă eșuați</string>
+    <string name="bluetooth_index_connect_failed">Conectare eșuată, vă rugăm să încercați din nou</string>
     <string name="bluetooth_index_close">Deconectat cu succes</string>
     <string name="bluetooth_dialog_connect">Conectați</string>
     <string name="bluetooth_dialog_cancel">Anula</string>

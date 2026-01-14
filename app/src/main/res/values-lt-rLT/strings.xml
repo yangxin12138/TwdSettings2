@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Šis įrenginys buvo surištas. Ar norite prisijungti?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Šis įrenginys buvo surištas. Ar tikrai norite atjungti?</string>
     <string name="bluetooth_index_connect_succese">Jungtis pavyko</string>
-    <string name="bluetooth_index_connect_failed">Jungtis nepavyksta</string>
+    <string name="bluetooth_index_connect_failed">Prisijungti nepavyko, bandykite dar kartą</string>
     <string name="bluetooth_index_close">Sėkmingai atjungta</string>
     <string name="bluetooth_dialog_connect">Jungtis</string>
     <string name="bluetooth_dialog_cancel">Atšaukti</string>

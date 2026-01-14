@@ -186,7 +186,7 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="bluetooth_index_Connectdialog_flag_1">
         Questo dispositivo è connesso. Vuoi disconnetterti?</string>
     <string name="bluetooth_index_connect_succese">Connessione riuscita</string>
-    <string name="bluetooth_index_connect_failed">Connessione fallita</string>
+    <string name="bluetooth_index_connect_failed">Connessione fallita, riprovare</string>
     <string name="bluetooth_index_close">Disconnesso con successo</string>
     <string name="bluetooth_dialog_connect">Collegare</string>
     <string name="bluetooth_dialog_cancel">Annulla</string>

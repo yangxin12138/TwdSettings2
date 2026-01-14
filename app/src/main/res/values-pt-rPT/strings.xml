@@ -185,7 +185,7 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="bluetooth_index_Connectdialog_flag_1">
         Este dispositivo está conectado. Tem certeza de que deseja desconectar?</string>
     <string name="bluetooth_index_connect_succese">conexão bem-sucedida</string>
-    <string name="bluetooth_index_connect_failed">Falha na conexão</string>
+    <string name="bluetooth_index_connect_failed">Falha na ligação. Tente novamente.</string>
     <string name="bluetooth_index_close">Desconectado com sucesso</string>
     <string name="bluetooth_dialog_connect">conectado</string>
     <string name="bluetooth_dialog_cancel">Cancelar</string>

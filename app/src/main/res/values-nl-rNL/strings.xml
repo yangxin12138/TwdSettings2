@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Dit apparaat is gebonden. Wil je verbinding maken?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Dit apparaat is gebonden. Weet u zeker dat u de verbinding wilt verbreken?</string>
     <string name="bluetooth_index_connect_succese">Connect is geslaagd</string>
-    <string name="bluetooth_index_connect_failed">Connect falen</string>
+    <string name="bluetooth_index_connect_failed">Verbinding mislukt, probeer het opnieuw.</string>
     <string name="bluetooth_index_close">Met succes losgekoppeld</string>
     <string name="bluetooth_dialog_connect">Verbinden</string>
     <string name="bluetooth_dialog_cancel">Annuleren</string>

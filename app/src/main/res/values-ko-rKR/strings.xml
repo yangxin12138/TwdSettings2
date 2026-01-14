@@ -185,7 +185,7 @@
     <string name="bluetooth_index_Connectdialog_flag_1">
         이 장치는 연결되어 있습니다. 연결을 해제하시겠습니까?</string>
     <string name="bluetooth_index_connect_succese">연결 성공</string>
-    <string name="bluetooth_index_connect_failed">연결에 실패</string>
+    <string name="bluetooth_index_connect_failed">연결 실패, 다시 시도해 주세요</string>
     <string name="bluetooth_index_close">연결이 끊어졌습니다.</string>
     <string name="bluetooth_dialog_connect">연결하다</string>
     <string name="bluetooth_dialog_cancel">취소</string>

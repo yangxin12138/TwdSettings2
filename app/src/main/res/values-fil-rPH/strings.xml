@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Ang aparatong ito ay nakatali. Gusto mo bang kumonekta?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Nakatali ang device na ito. Sigurado ka bang gusto mong idiskonekta?</string>
     <string name="bluetooth_index_connect_succese">Nagtagumpay ang kumonekta</string>
-    <string name="bluetooth_index_connect_failed">Nabigo ang Kumonekta</string>
+    <string name="bluetooth_index_connect_failed">Nabigo ang Pagkonekta, Pakisubukang Muli</string>
     <string name="bluetooth_index_close">Matagumpay na nadiskonekta</string>
     <string name="bluetooth_dialog_connect">Kumonekta</string>
     <string name="bluetooth_dialog_cancel">Kanselahin</string>

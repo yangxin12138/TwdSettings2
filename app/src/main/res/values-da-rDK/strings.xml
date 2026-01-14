@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Denne enhed er blevet bundet. Vil du oprette forbindelse?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Denne enhed er blevet bundet. Er du sikker på, at du vil afbryde forbindelsen?</string>
     <string name="bluetooth_index_connect_succese">Tilslutningen lykkedes</string>
-    <string name="bluetooth_index_connect_failed">Tilslutning mislykkedes</string>
+    <string name="bluetooth_index_connect_failed">Forbindelsesfejl, prøv venligst igen</string>
     <string name="bluetooth_index_close">Forbindelsen blev afbrudt</string>
     <string name="bluetooth_dialog_connect">Forbinde</string>
     <string name="bluetooth_dialog_cancel">Ophæve</string>

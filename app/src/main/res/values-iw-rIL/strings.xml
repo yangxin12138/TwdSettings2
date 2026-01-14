@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">מכשיר זה נקשר. האם ברצונך להתחבר?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">מכשיר זה נקשר. האם אתה בטוח שברצונך להתנתק?</string>
     <string name="bluetooth_index_connect_succese">החיבור הצליח</string>
-    <string name="bluetooth_index_connect_failed">כשל בחיבור</string>
+    <string name="bluetooth_index_connect_failed">נכשל בחיבור, אנא נסה שוב</string>
     <string name="bluetooth_index_close">ניתוק בהצלחה</string>
     <string name="bluetooth_dialog_connect">לְחַבֵּר</string>
     <string name="bluetooth_dialog_cancel">לְבַטֵל</string>

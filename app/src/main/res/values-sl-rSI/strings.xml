@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Ta naprava je bila povezana. Ali se želite povezati?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Ta naprava je bila povezana. Ste prepričani, da želite prekiniti povezavo?</string>
     <string name="bluetooth_index_connect_succese">Povezava je bila uspešna</string>
-    <string name="bluetooth_index_connect_failed">Povezava ni uspela</string>
+    <string name="bluetooth_index_connect_failed">Povezava ni uspela, poskusite znova</string>
     <string name="bluetooth_index_close">Povezava je bila uspešno prekinjena</string>
     <string name="bluetooth_dialog_connect">Poveži se</string>
     <string name="bluetooth_dialog_cancel">Prekliči</string>

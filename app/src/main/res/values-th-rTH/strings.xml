@@ -187,7 +187,7 @@
     <string name="bluetooth_index_Connectdialog_flag_1">
         อุปกรณ์นี้เชื่อมต่ออยู่ คุณต้องการยกเลิกการเชื่อมต่อหรือไม่?</string>
     <string name="bluetooth_index_connect_succese">การเชื่อมต่อสำเร็จ</string>
-    <string name="bluetooth_index_connect_failed">การเชื่อมต่อล้มเหลว</string>
+    <string name="bluetooth_index_connect_failed">การเชื่อมต่อล้มเหลว โปรดลองใหม่อีกครั้ง</string>
     <string name="bluetooth_index_close">ตัดการเชื่อมต่อเรียบร้อยแล้ว</string>
     <string name="bluetooth_dialog_connect">เชื่อมต่อ</string>
     <string name="bluetooth_dialog_cancel">ยกเลิก</string>

@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Tämä laite on yhdistetty. Haluatko muodostaa yhteyden?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Tämä laite on yhdistetty. Haluatko varmasti katkaista yhteyden?</string>
     <string name="bluetooth_index_connect_succese">Yhdistäminen onnistui</string>
-    <string name="bluetooth_index_connect_failed">Yhteys epäonnistui</string>
+    <string name="bluetooth_index_connect_failed">Yhteys epäonnistui, yritä uudelleen</string>
     <string name="bluetooth_index_close">Yhteys katkaistu onnistuneesti</string>
     <string name="bluetooth_dialog_connect">Yhdistä</string>
     <string name="bluetooth_dialog_cancel">Peruuttaa</string>

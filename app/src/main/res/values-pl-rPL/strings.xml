@@ -183,7 +183,7 @@
     <string name="bluetooth_index_Connectdialog_flag_1">
         To urządzenie jest już połączone. Czy na pewno chcesz się rozłączyć?</string>
     <string name="bluetooth_index_connect_succese">Połączenie pomyślne</string>
-    <string name="bluetooth_index_connect_failed">Połączenie nie powiodło się</string>
+    <string name="bluetooth_index_connect_failed">Połączenie nieudane, proszę spróbować ponownie</string>
     <string name="bluetooth_index_close">Rozłączono pomyślnie</string>
     <string name="bluetooth_dialog_connect">łączyć</string>
     <string name="bluetooth_dialog_cancel">Anulować</string>

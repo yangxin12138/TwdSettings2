@@ -184,7 +184,7 @@
     <string name="bluetooth_index_Connectdialog_flag_1">
         Это устройство подключено. Вы уверены, что хотите отключиться?</string>
     <string name="bluetooth_index_connect_succese">соединение выполнено успешно</string>
-    <string name="bluetooth_index_connect_failed">Соединение не удалось</string>
+    <string name="bluetooth_index_connect_failed">Подключение не удалось. Пожалуйста, повторите попытку.</string>
     <string name="bluetooth_index_close">Отключено успешно</string>
     <string name="bluetooth_dialog_connect">соединять</string>
     <string name="bluetooth_dialog_cancel">Отмена</string>

@@ -186,7 +186,7 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="bluetooth_index_Connectdialog_flag_1">
         Bu cihaz bağlı. Bağlantıyı kesmek istediğinizden emin misiniz?</string>
     <string name="bluetooth_index_connect_succese">bağlantı başarılı</string>
-    <string name="bluetooth_index_connect_failed">Bağlantı başarısız oldu</string>
+    <string name="bluetooth_index_connect_failed">Bağlantı başarısız, lütfen tekrar deneyin.</string>
     <string name="bluetooth_index_close">Bağlantı başarıyla kesildi</string>
     <string name="bluetooth_dialog_connect">OK</string>
     <string name="bluetooth_dialog_cancel">İptal etmek</string>

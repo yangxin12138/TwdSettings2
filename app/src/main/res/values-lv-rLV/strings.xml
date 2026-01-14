@@ -177,7 +177,7 @@
     <string name="bluetooth_index_Connectdialog_flag_0">Šī ierīce ir saistīta. Vai vēlaties izveidot savienojumu?</string>
     <string name="bluetooth_index_Connectdialog_flag_1">Šī ierīce ir bijusi saistīta.Vai esat pārliecināts, ka vēlaties atvienoties?</string>
     <string name="bluetooth_index_connect_succese">Connect izdevās</string>
-    <string name="bluetooth_index_connect_failed">Savienojums neizdodas</string>
+    <string name="bluetooth_index_connect_failed">Savienojuma kļūme, lūdzu, mēģiniet vēlreiz</string>
     <string name="bluetooth_index_close">Veiksmīgi atvienots</string>
     <string name="bluetooth_dialog_connect">Savienot</string>
     <string name="bluetooth_dialog_cancel">Atcelt</string>

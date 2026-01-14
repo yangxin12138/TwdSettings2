@@ -186,7 +186,7 @@
     <string name="bluetooth_index_Connectdialog_flag_1">
         このデバイスは接続されています。切断してもよろしいですか？</string>
     <string name="bluetooth_index_connect_succese">接続に成功しました</string>
-    <string name="bluetooth_index_connect_failed">接続に失敗しました</string>
+    <string name="bluetooth_index_connect_failed">接続に失敗しました。再試行してください</string>
     <string name="bluetooth_index_close">正常に切断されました</string>
     <string name="bluetooth_dialog_connect">接続する</string>
     <string name="bluetooth_dialog_cancel">キャンセル</string>
