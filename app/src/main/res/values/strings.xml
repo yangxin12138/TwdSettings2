@@ -512,4 +512,5 @@ Example: 24"</string>
     <string name="wifi_forget_fail">Forgot WiFi failed</string>
     <string name="wifi_operate_error">WiFi operation failed.</string>
     <string name="wifi_click_error">WiFi click operation abnormal</string>
+    <string name="wifi_state_verifying">verifying…</string>
 </resources>

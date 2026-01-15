@@ -36,6 +36,7 @@ import com.twd.setting.module.network.model.AccessPoint;
 import com.twd.setting.module.network.model.WifiAccessPoint;
 import com.twd.setting.utils.UiUtils;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -194,21 +195,53 @@ public class WifiListRvAdapter
                 return;
             }
             binding.tvSSID.setText(wifiAccessPoint.getSsidStr());
-            String str = null;
-            Log.d("WifiListAdapter","=========WifiAccessPoint:"+wifiAccessPoint);
-            WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(WIFI_SERVICE);
-            String ssid = getCurrentWifiSsid(wifiManager);
+            String str = "";
+            final String TAG = "WIFI_STATE_CHECK";
+
+            WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            String currentSsid = wifiInfo.getSSID() != null ? wifiInfo.getSSID().replace("\"", "") : "";
+            String apSsid = wifiAccessPoint.getSsidStr().replace("\"", "");
 
             // 核心修改：判断已连接 + 检测网络状态
-            if (wifiAccessPoint.getSsidStr().equals(ssid)){
-                Log.d(TAG, "bind: wifiAccessPoint.getSsidStr() = " + wifiAccessPoint.getSsidStr() + ", ssid = " + ssid);
-                if (hasInternet()) {
-                    Log.d(TAG, "bind: 20260108:已连接");
-                    str = context.getString(R.string.wifi_state_connected); // 原有“已连接”
-                } else {
-                    Log.d(TAG, "bind: 20260108:已连接，无网络");
-                    str = context.getString(R.string.wifi_state_connected_no_network);
-                }
+            if (apSsid.equals(currentSsid)){
+                Log.d(TAG, "【初始状态】当前连接WiFi：" + apSsid + "，先显示验证中");
+                str = context.getString(R.string.wifi_state_verifying);
+                binding.tvTip.setText(str);
+
+                new Thread(() -> {
+                    boolean isNetworkOk = false;
+                    try {
+                        Log.d(TAG, "【延迟检测】开始3秒内多次验证网络状态");
+                        // 每500毫秒检测一次，持续3秒，取最后一次结果
+                        for (int i = 0; i < 6; i++) { // 6次 × 500毫秒 = 3秒
+                            Thread.sleep(500);
+                            isNetworkOk = hasInternet();
+                            Log.d(TAG, "【多次检测】第" + (i+1) + "次检测结果：" + isNetworkOk);
+                        }
+                    } catch (InterruptedException e) {
+                        Log.e(TAG, "【延迟异常】等待过程被中断：" + e.getMessage());
+                        Thread.currentThread().interrupt();
+                    } catch (Exception e) {
+                        Log.e(TAG, "【检测异常】" + e.getMessage());
+                    }
+
+                    // 3. 切回主线程更新UI + 打日志
+                    boolean finalIsNetworkOk = isNetworkOk;
+                    binding.tvTip.post(() -> {
+                        String finalStr = finalIsNetworkOk
+                                ? context.getString(R.string.wifi_state_connected)
+                                : context.getString(R.string.wifi_state_connected_no_network);
+                        Log.d(TAG, "【检测完成】" + apSsid + "网络可用：" + finalIsNetworkOk + "，更新状态为：" + finalStr);
+
+                        // 更新文字
+                        binding.tvTip.setText(finalStr);
+
+                        // 强制刷新当前item（极简刷新：不用notifyItemChanged，直接更新）
+                        binding.tvTip.invalidate();
+                        Log.d(TAG, "【UI刷新】已刷新" + apSsid + "的状态文字");
+                    });
+                }).start();
             }else if (wifiAccessPoint.isSaved()){
                 str = context.getString(R.string.wifi_state_saved);
             }else {
@@ -224,7 +257,7 @@ public class WifiListRvAdapter
             float density = metric.density;//屏幕密度（常见的有：1.5、2.0、3.0）
             int densityDpi = metric.densityDpi;//屏幕DPI（常见的有：240、320、480）
             float densitySW = height / density;
-            Log.d(TAG, "width=" + width + ",height=" + height + ",density=" + density + ",densityDpi=" + densityDpi);
+            //Log.d(TAG, "width=" + width + ",height=" + height + ",density=" + density + ",densityDpi=" + densityDpi);
             int newWidth = (int)(drawable.getIntrinsicWidth() * 0.6);  // 将宽度缩小为原来的0.5倍
             int newHeight = (int)(drawable.getIntrinsicHeight() * 0.6);  // 将高度缩小为原来的0.5倍
             if (densitySW == 720 || densitySW == 600){
