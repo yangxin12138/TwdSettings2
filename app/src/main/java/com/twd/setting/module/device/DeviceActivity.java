@@ -100,7 +100,7 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
             startActivity(intent);
         } else if (view.getId() == R.id.devices_LL_update) {
             intent = new Intent();
-            intent.setComponent(new ComponentName("com.vsoontech.mos.ota","com.linkin.ota.activity.DownloadActivity"));
+            intent.setComponent(new ComponentName("com.adups.fota","com.adups.fota.GoogleOtaClient"));
             startActivity(intent);
         } else {
             showDialog();
