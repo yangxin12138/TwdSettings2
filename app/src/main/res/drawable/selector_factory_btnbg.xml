@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape>
-            <solid android:color="@color/white" />
+            <solid android:color="@color/text_red_new" />
             <corners android:radius="25.0dip" />
         </shape>
     </item>
@@ -11,7 +11,7 @@
         <layer-list>
             <item>
                 <shape>
-                    <stroke android:width="@dimen/selector_factory_bt_width" android:color="@color/white" />
+                    <stroke android:width="@dimen/selector_factory_bt_width" android:color="@color/text_red_new" />
                     <corners android:radius="25.0dip" />
                 </shape>
             </item>
@@ -32,7 +32,7 @@
         <layer-list>
             <item>
                 <shape>
-                    <stroke android:width="@dimen/selector_factory_bt_width" android:color="@color/white" />
+                    <stroke android:width="@dimen/selector_factory_bt_width" android:color="@color/black" />
                     <corners android:radius="20.0dip" />
                 </shape>
             </item>
@@ -52,7 +52,7 @@
     <item android:state_enabled="false">
         <shape>
             <!--<stroke android:width="1.0dip" android:color="#999999" />-->
-            <solid android:color="#999999" />
+            <solid android:color="@color/black" />
             <corners android:radius="4.0dip" />
         </shape>
     </item>

@@ -1,10 +1,12 @@
 package com.twd.setting.module;
 
 import android.annotation.SuppressLint;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -61,7 +63,9 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
         } else if (id == R.id.bluetoothItem) {
             intent = new Intent(mActivity, BluetoothActivity.class);
         } else if (id == R.id.networkItem) {
-            intent = new Intent(mActivity, NetworkActivity.class);
+            intent = new Intent();
+            intent.setComponent(new ComponentName("com.android.settings","com.android.settings.wifi.WifiSettings"));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }else if (id == R.id.projectorItem) {
             intent = new Intent(mActivity, ProjectorActivity.class);
         }

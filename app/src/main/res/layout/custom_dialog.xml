@@ -34,7 +34,9 @@
         android:includeFontPadding="false"
         android:textColor="?dialogMsgColor"
         android:textSize="@dimen/dialog_title_textsize"
-        app:layout_constraintBottom_toBottomOf="@id/custom_dialog_icon_iv_id"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="none"
         app:layout_constraintLeft_toRightOf="@id/custom_dialog_icon_iv_id"
         app:layout_constraintRight_toLeftOf="@id/guidelineRight"
         app:layout_constraintTop_toTopOf="@id/custom_dialog_icon_iv_id" />

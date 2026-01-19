@@ -17,6 +17,7 @@ import com.twd.setting.R;
 import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentProjectorBinding;
 import com.twd.setting.module.projector.ProjectionActivity;
+import com.twd.setting.module.projector.application.ProjectionApp;
 import com.twd.setting.module.projector.vm.ProjectorViewModel;
 import com.twd.setting.utils.AutoFocusUtils;
 import com.twd.setting.utils.SystemPropertiesUtils;
@@ -29,6 +30,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     private AutoFocusUtils autoFocusUtils;
     TwdUtils twdUtils;
     TwdManager twdManager;
+    private ProjectionApp Vertical_Reset;
     private void clickItem(int item) {
         if(item == R.id.twoPointInclude){//1
             gotoTwoPoint();
@@ -84,9 +86,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         selectItem = 4;
         if (isChecked){//原本是选中，自动模式，点击后变成手动模式
             Log.i(TAG, "gotoAuto: 关闭switch,走手动模式");
-            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
             binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
-            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
             binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
             binding.twoPointInclude.itemRL.setFocusable(true);
             binding.fourPointInclude.itemRL.setFocusable(true);
@@ -94,9 +96,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             twdManager.setTrapezoidCorrectEnable(false);
         }else {//原本是未选中，手动模式，点击后变成自动模式
             Log.i(TAG, "gotoAuto: 开启switch,走自动模式");
-            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.tooltip_background_dark));
             binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
-            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.tooltip_background_dark));
             binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
             binding.twoPointInclude.itemRL.setFocusable(false);
             binding.fourPointInclude.itemRL.setFocusable(false);
@@ -110,9 +112,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         selectItem = 9;
         if (isChecked){//原本是选中，自动模式，点击后变成手动模式
             Log.i(TAG, "gotoVertical: 关闭switch,走手动模式");
-            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
             binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
-            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
             binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
             binding.twoPointInclude.itemRL.setFocusable(true);
             binding.fourPointInclude.itemRL.setFocusable(true);
@@ -121,9 +123,9 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             Log.i(TAG, "gotoVerticalProjection: ===目前VerticalPro = "+twdManager.getVerticalCorrectStatus());
         }else {//原本是未选中，手动模式，点击后变成自动模式
             Log.i(TAG, "gotoVertical: 开启switch,走自动模式");
-            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.tooltip_background_dark));
             binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
-            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.tooltip_background_dark));
             binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
             binding.twoPointInclude.itemRL.setFocusable(false);
             binding.fourPointInclude.itemRL.setFocusable(false);
@@ -131,7 +133,8 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
             twdManager.setVerticalCorrectEnable(true);
             Log.i(TAG, "gotoVerticalProjection: ===目前VerticalPro = "+twdManager.getVerticalCorrectStatus());
         }
-
+        Vertical_Reset.setVertical_Reset(true);
+        Log.d("Vertical", "gotoVerticalProjection: 设置全局变量垂直重置为true >>" + Vertical_Reset.isVertical_Reset());
     }
 
     private void gotoBootAutoFocus(boolean isChecked){
@@ -238,6 +241,7 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
         setClickListener();
         initAutoMode();
         setOnKeyListener();
+        Vertical_Reset = (ProjectionApp) getActivity().getApplicationContext();
     }
 
     private void initAutoMode(){
@@ -273,23 +277,23 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
 
     private void iniCustomProjection(boolean isAutoProjection,boolean isVerticalProjection){
         if (isAutoProjection || isVerticalProjection){
-            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.tooltip_background_dark));
             binding.twoPointInclude.contentTVLeft.setVisibility(View.GONE);
-            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.unselectable_color));
+            binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.tooltip_background_dark));
             binding.fourPointInclude.contentTVLeft.setVisibility(View.GONE);
             binding.twoPointInclude.itemRL.setFocusable(false);
             binding.fourPointInclude.itemRL.setFocusable(false);
         }else {
             if (binding.twoPointInclude.itemRL.isFocused()){
-                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.color_0f39e9));
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
             }else {
-                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
             }
             binding.twoPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
             if (binding.fourPointInclude.itemRL.isFocused()){
-                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.color_0f39e9));
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
             }else {
-                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
             }
             binding.fourPointInclude.contentTVLeft.setVisibility(View.VISIBLE);
             binding.twoPointInclude.itemRL.setFocusable(true);
@@ -303,15 +307,15 @@ public class ProjectorFragment extends BaseBindingVmFragment<FragmentProjectorBi
     public void onFocusChange(View v, boolean hasFocus) {
         if (hasFocus){
             if (v == binding.twoPointInclude.itemRL){
-                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.color_0f39e9));
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
             } else if (v == binding.fourPointInclude.itemRL) {
-                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.color_0f39e9));
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.text_red_new));
             }
         }else {
             if (v == binding.twoPointInclude.itemRL){
-                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+                binding.twoPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
             } else if (v == binding.fourPointInclude.itemRL) {
-                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.white));
+                binding.fourPointInclude.contentTV.setTextColor(getResources().getColor(R.color.black));
             }
         }
     }

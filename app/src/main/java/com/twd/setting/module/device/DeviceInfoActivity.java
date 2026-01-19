@@ -27,7 +27,7 @@ public class DeviceInfoActivity extends AppCompatActivity {
     private static final String TAG = DeviceInfoActivity.class.getName();
     private Context context = this;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
-    String theme_code = "0";
+    String theme_code = "1";
     TwdUtils twdUtils;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

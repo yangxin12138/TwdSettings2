@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.twd.setting.R;
 import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentTwoPointBinding;
+import com.twd.setting.module.projector.application.ProjectionApp;
 import com.twd.setting.module.projector.vm.KeystoneViewModel;
 import com.twd.setting.utils.TwdUtils;
 
@@ -26,6 +27,7 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
     int MAX_VALUE = 50;
     int MIN_VALUE = -50;
     private TwdManager twdManager;
+    private ProjectionApp Vertical_Reset;
     public static TwoPointFragment newInstance() {
         return new TwoPointFragment();
     }
@@ -59,6 +61,7 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
         twdUtils = new TwdUtils();
         twdUtils.hideSystemUI(getActivity());
         twdManager = TwdManager.getInstance();
+        Vertical_Reset = (ProjectionApp) getActivity().getApplicationContext();
         horizontalValue =(int) twdManager.getHorizontalDegree();
         verticalValue = (int) twdManager.getVertivalDegree();
         binding.tvHorizontal.setText("("+horizontalValue+")");
@@ -106,6 +109,11 @@ public class TwoPointFragment extends BaseBindingVmFragment<FragmentTwoPointBind
                 return false;
             }
         });
-        resetView();
+        if (Vertical_Reset.isVertical_Reset()){
+            resetView();
+            Vertical_Reset.setVertical_Reset(false);
+            Log.d("Vertical", "Two:打开两点梯形并且识别的true，重置完后 >>" + Vertical_Reset.isVertical_Reset());
+        }
+
     }
 }

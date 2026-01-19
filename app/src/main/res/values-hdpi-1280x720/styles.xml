@@ -291,5 +291,7 @@
         <item name="projection_bg">@drawable/trape_background</item>
         <item name="arrow_horizontal">@mipmap/arrow_horizont</item>
         <item name="arrow_vertical">@mipmap/arrow_vertical</item>
+        <item name="projector_spaceHeightPercent">0.114</item>
+        <item name="main_spaceVertical_weight">0.3</item>
     </style>
 </resources>

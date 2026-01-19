@@ -59,6 +59,7 @@
     <!-- android:theme="@style/Theme.TVSettings2.White"   IceCreamBlue  StarrySkyBlue-->
     <!-- android:process="system"-->
     <application
+        android:name=".module.projector.application.ProjectionApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -67,7 +68,7 @@
         android:roundIcon="@mipmap/ic_settings"
         android:supportsRtl="true"
 
-        android:theme="@style/Theme.TVSettings2.IceCreamBlue"
+        android:theme="@style/Theme.TVSettings2.White"
         tools:targetApi="31">
         <activity
             android:name=".module.network.wifi.NoPasswordNetActivity"

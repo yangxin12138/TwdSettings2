@@ -49,7 +49,7 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
     LanguageItemAdapter languageItemAdapter ;
     TwdUtils twdUtils;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
-    String theme_code = "0";
+    String theme_code = "1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         switch (theme_code){

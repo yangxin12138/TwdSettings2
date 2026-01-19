@@ -1,5 +1,6 @@
 package com.twd.setting.module.projector.fragment;
 
+import android.app.Application;
 import android.app.TwdManager;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import com.twd.setting.R;
 import com.twd.setting.base.BaseBindingVmFragment;
 import com.twd.setting.databinding.FragmentSinglePointBinding;
+import com.twd.setting.module.projector.application.ProjectionApp;
 import com.twd.setting.module.projector.vm.KeystoneViewModel;
 import com.twd.setting.utils.SystemPropertiesUtils;
 import com.twd.setting.utils.TwdUtils;
@@ -38,6 +40,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
     private int[] rightDown_IntOffset = new int[2];
     private int[] leftDown_IntOffset = new int[2];
     private SharedPreferences sp;
+    private ProjectionApp Vertical_Reset;
     public static SinglePointFragment newInstance() {
         return new SinglePointFragment();
     }
@@ -63,7 +66,7 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
         }else {
             nowPoint = 0;
         }
-
+        Vertical_Reset = (ProjectionApp) getActivity().getApplicationContext();
         projectorMode = TwdManager.getInstance().getScreenMirror();
         Log.d(TAG, "onViewCreated: projectorMode = " + projectorMode);
         if (projectorMode==1){
@@ -394,5 +397,12 @@ public class SinglePointFragment extends BaseBindingVmFragment<FragmentSinglePoi
                 Log.d(TAG, "doOffset: 偏移量已达边界（" + MIN_STEP + "-" + MAX_STEP + "），无需修改");
             }
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Vertical_Reset.setVertical_Reset(true);
+        Log.d("Vertical", "onDestroy: 设置全局变量垂直重置为true >>" + Vertical_Reset.isVertical_Reset());
     }
 }
