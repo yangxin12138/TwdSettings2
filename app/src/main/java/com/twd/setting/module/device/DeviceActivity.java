@@ -114,7 +114,7 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         LayoutInflater inflater = LayoutInflater.from(this);
         View dialogView = inflater.inflate(R.layout.factory_dialog, null);
         FactoryDialog.setContentView(dialogView);
-        dialogView.setPadding(100,0,100,50);
+        dialogView.setPadding(50,0,50,50);
 
         final TextView factoryTitle = dialogView.findViewById(R.id.factory_title);
         final LinearLayout okBT = dialogView.findViewById(R.id.factory_ok_bt);

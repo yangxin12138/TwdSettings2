@@ -164,7 +164,7 @@
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <color name="toast_black">#cc1a1a1a</color>
-    <color name="tooltip_background_dark">#e6616161</color>
+    <color name="tooltip_background_dark">#F8C5C5C5</color>
     <color name="tooltip_background_light">#e6ffffff</color>
     <color name="white">#ffffffff</color>
     <color name="white77">#77ffffff</color>
