@@ -61,7 +61,8 @@ public class MainFragment extends BaseBindingVmFragment<FragmentMainBinding, Mai
         } else if (id == R.id.commonItem) {
             intent = new Intent(mActivity, UniversalActivity.class);
         } else if (id == R.id.bluetoothItem) {
-            intent = new Intent(mActivity, BluetoothActivity.class);
+            intent = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         } else if (id == R.id.networkItem) {
             intent = new Intent();
             intent.setComponent(new ComponentName("com.android.settings","com.android.settings.wifi.WifiSettings"));
