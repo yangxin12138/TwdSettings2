@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Mtandao</string>
     <string name="fragment_title_wifi_list">Mitandao inayopatikana</string>
 
+    <string name="time_usenettime">Matumizi ya Mtandao Wakati</string>
+    <string name="time_settime">Wakati</string>
+    <string name="time_setdate">Tarehe</string>
+    <string name="time_use24hours">Tumia muundo wa saa 24</string>
+    <string name="time_settimezone">TimeZone ya</string>
     <string name="selected_ssid_add_new_network">Nyingine</string>
     <string name="settings">Mipangilio</string>
     <string name="str_bluetooth">Bluetooth</string>

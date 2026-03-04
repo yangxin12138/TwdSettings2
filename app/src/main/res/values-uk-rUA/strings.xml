@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Мережа</string>
     <string name="fragment_title_wifi_list">Доступні мережі</string>
 
+    <string name="time_usenettime">Використовувати мережевий час</string>
+    <string name="time_settime">Час</string>
+    <string name="time_setdate">Дата</string>
+    <string name="time_use24hours">Використовувати 24-годинний формат</string>
+    <string name="time_settimezone">Часовий пояс</string>
     <string name="selected_ssid_add_new_network">Інше</string>
     <string name="settings">Налаштування</string>
     <string name="str_bluetooth">Bluetooth</string>

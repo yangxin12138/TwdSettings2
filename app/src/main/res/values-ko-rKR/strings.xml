@@ -251,4 +251,10 @@
     <string name="dialog_btn_confirm">확인하다</string>
     <string name="dialog_btn_cancel">취소</string>
     <string name="wifi_state_connected_no_network">연결됨, 인터넷 없음</string>
+
+    <string name="time_usenettime">네트워크 시간 사용</string>
+    <string name="time_settime">시간</string>
+    <string name="time_setdate">날짜</string>
+    <string name="time_use24hours">24시간 형식을 사용하세요</string>
+    <string name="time_settimezone">시간대</string>
 </resources>

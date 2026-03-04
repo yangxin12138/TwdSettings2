@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Rangkaian</string>
     <string name="fragment_title_wifi_list">Rangkaian yang ada</string>
 
+    <string name="time_usenettime">Gunakan Masa Rangkaian</string>
+    <string name="time_settime">Masa</string>
+    <string name="time_setdate">Tarikh</string>
+    <string name="time_use24hours">Gunakan format 24 jam</string>
+    <string name="time_settimezone">Zon Masa</string>
     <string name="selected_ssid_add_new_network">Yang lain</string>
     <string name="settings">Tetapan</string>
     <string name="str_bluetooth">Bluetooth</string>

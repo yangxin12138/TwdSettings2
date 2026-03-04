@@ -252,4 +252,10 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="dialog_btn_confirm">Confirmar</string>
     <string name="dialog_btn_cancel">Cancelar</string>
     <string name="wifi_state_connected_no_network">conectado, sin internet</string>
+
+    <string name="time_usenettime">Usar tiempo de red</string>
+    <string name="time_settime">Tiempo</string>
+    <string name="time_setdate">Fecha</string>
+    <string name="time_use24hours">Usar el formato de 24 horas</string>
+    <string name="time_settimezone">Zona horaria</string>
 </resources>

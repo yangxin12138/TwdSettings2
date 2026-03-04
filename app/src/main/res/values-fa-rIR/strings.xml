@@ -252,4 +252,10 @@
     <string name="dialog_btn_confirm">تأیید</string>
     <string name="dialog_btn_cancel">لغو</string>
     <string name="wifi_state_connected_no_network">متصل، بدون اینترنت</string>
+
+    <string name="time_usenettime">از زمان شبکه استفاده کنید</string>
+    <string name="time_settime">زمان</string>
+    <string name="time_setdate">تاریخ</string>
+    <string name="time_use24hours">از قالب 24 ساعته استفاده کنید</string>
+    <string name="time_settimezone">منطقه زمانی</string>
 </resources>

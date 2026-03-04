@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Nettverk</string>
     <string name="fragment_title_wifi_list">Tilgjengelige nettverk</string>
 
+    <string name="time_usenettime">Use Network Time</string>
+    <string name="time_settime">Tid</string>
+    <string name="time_setdate">Dato</string>
+    <string name="time_use24hours">Bruk 24-timers format</string>
+    <string name="time_settimezone">TimeZone</string>
     <string name="selected_ssid_add_new_network">Annen</string>
     <string name="settings">Innstillinger</string>
     <string name="str_bluetooth">Bluetooth</string>

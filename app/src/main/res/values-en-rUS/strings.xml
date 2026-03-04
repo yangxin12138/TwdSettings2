@@ -112,4 +112,10 @@
     <string name="dialog_msg_disconnect_forget">Disconnect?</string>
     <string name="dialog_btn_confirm">Confirm</string>
     <string name="dialog_btn_cancel">Cancel</string>
+
+    <string name="time_usenettime">Use Network Time</string>
+    <string name="time_settime">Time</string>
+    <string name="time_setdate">Date</string>
+    <string name="time_use24hours">Use 24-hour format</string>
+    <string name="time_settimezone">TimeZone</string>
 </resources>

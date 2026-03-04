@@ -12,6 +12,10 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SET_TIME"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SET_TIME_ZONE"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -124,7 +128,7 @@
         <activity android:name=".module.device.DeviceInfoActivity"/>
         <activity android:name=".module.device.DeviceStorageActivity"/>
         <activity android:name=".module.network.NetworkListActivity"/>
-
+        <activity android:name=".module.universal.TimeDateActivity"/>
         <receiver android:name=".module.bluetooth.bluetoothlib.BluetoothPairingReceiver"
             android:enabled="true"
             android:exported="true">

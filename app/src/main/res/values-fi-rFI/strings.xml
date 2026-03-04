@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Verkko</string>
     <string name="fragment_title_wifi_list">Käytettävissä olevat verkot</string>
 
+    <string name="time_usenettime">Käytä verkkoaikaa</string>
+    <string name="time_settime">Aika</string>
+    <string name="time_setdate">Päivämäärä</string>
+    <string name="time_use24hours">Käytä 24 tunnin muotoa</string>
+    <string name="time_settimezone">Aikavyöhykkeen</string>
     <string name="selected_ssid_add_new_network">Muut</string>
     <string name="settings">Asetukset</string>
     <string name="str_bluetooth">Bluetooth</string>

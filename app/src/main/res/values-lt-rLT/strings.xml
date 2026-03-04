@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Tinklas</string>
     <string name="fragment_title_wifi_list">Galimi tinklai</string>
 
+    <string name="time_usenettime">Naudokite tinklo laiką</string>
+    <string name="time_settime">Laikas</string>
+    <string name="time_setdate">Datos</string>
+    <string name="time_use24hours">Naudokite 24 valandų formatą</string>
+    <string name="time_settimezone">Laiko juosta</string>
     <string name="selected_ssid_add_new_network">Kita</string>
     <string name="settings">Nustatymai</string>
     <string name="str_bluetooth">Bluetooth</string>

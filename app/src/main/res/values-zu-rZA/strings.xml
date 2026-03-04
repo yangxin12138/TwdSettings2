@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Inethiwekhi</string>
     <string name="fragment_title_wifi_list">Amanethiwekhi atholakalayo</string>
 
+    <string name="time_usenettime">Sebenzisa Isikhathi Senethiwekhi</string>
+    <string name="time_settime">Isikhathi</string>
+    <string name="time_setdate">Umhla</string>
+    <string name="time_use24hours">Sebenzisa ifomathi yamahora angu-24</string>
+    <string name="time_settimezone">Isikhathi</string>
     <string name="selected_ssid_add_new_network">-Nye nje</string>
     <string name="settings">Amasethingi</string>
     <string name="str_bluetooth">Bluetooth</string>

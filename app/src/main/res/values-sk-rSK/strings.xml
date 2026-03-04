@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Sieť</string>
     <string name="fragment_title_wifi_list">Dostupné siete</string>
 
+    <string name="time_usenettime">Použiť sieťový čas</string>
+    <string name="time_settime">Čas</string>
+    <string name="time_setdate">Dátum</string>
+    <string name="time_use24hours">Použiť 24-hodinový formát</string>
+    <string name="time_settimezone">Časové pásmo</string>
     <string name="selected_ssid_add_new_network">Druhý</string>
     <string name="settings">Nastavenia</string>
     <string name="str_bluetooth">Bluetooth</string>

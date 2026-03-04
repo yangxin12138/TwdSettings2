@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Hálózat</string>
     <string name="fragment_title_wifi_list">Elérhető hálózatok</string>
 
+    <string name="time_usenettime">Hálózati idő használata</string>
+    <string name="time_settime">Idő</string>
+    <string name="time_setdate">dátum</string>
+    <string name="time_use24hours">24 órás formátum használata</string>
+    <string name="time_settimezone">Időzóna</string>
     <string name="selected_ssid_add_new_network">Más</string>
     <string name="settings">Beállítások</string>
     <string name="str_bluetooth">Bluetooth</string>

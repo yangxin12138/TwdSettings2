@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Tīkls</string>
     <string name="fragment_title_wifi_list">Pieejamie tīkli</string>
 
+    <string name="time_usenettime">Izmantot tīkla laiku</string>
+    <string name="time_settime">Laiks</string>
+    <string name="time_setdate">Datums</string>
+    <string name="time_use24hours">Izmantojiet 24 stundu formātu</string>
+    <string name="time_settimezone">Laika zona</string>
     <string name="selected_ssid_add_new_network">Cits</string>
     <string name="settings">Iestatījumi</string>
     <string name="str_bluetooth">Bluetooth</string>

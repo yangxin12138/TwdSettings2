@@ -250,4 +250,10 @@
     <string name="dialog_btn_confirm">Подтверждать</string>
     <string name="dialog_btn_cancel">Отмена</string>
     <string name="wifi_state_connected_no_network">Подключено, нет интернета</string>
+
+    <string name="time_usenettime">Использовать сетевое время</string>
+    <string name="time_settime">Время</string>
+    <string name="time_setdate">Дата</string>
+    <string name="time_use24hours">Используйте 24-часовой формат</string>
+    <string name="time_settimezone">Часовой пояс</string>
 </resources>

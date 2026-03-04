@@ -249,4 +249,11 @@
     <string name="dialog_btn_confirm">Potwierdzać</string>
     <string name="dialog_btn_cancel">Anulować</string>
     <string name="wifi_state_connected_no_network">połączony, brak internetu</string>
+
+    <!--Time&Date-->
+    <string name="time_usenettime">Użyj czasu sieciowego</string>
+    <string name="time_settime">Czas</string>
+    <string name="time_setdate">Data</string>
+    <string name="time_use24hours">Użyj formatu 24-godzinnego</string>
+    <string name="time_settimezone">Strefa czasowa</string>
 </resources>

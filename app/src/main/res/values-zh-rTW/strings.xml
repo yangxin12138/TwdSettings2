@@ -251,4 +251,10 @@
     <string name="dialog_btn_confirm">確認</string>
     <string name="dialog_btn_cancel">取消</string>
     <string name="wifi_state_connected_no_network">已連接，但無互聯網</string>
+
+    <string name="time_usenettime">使用網路時間</string>
+    <string name="time_settime">時間設定</string>
+    <string name="time_setdate">日期設定</string>
+    <string name="time_use24hours">24小時格式</string>
+    <string name="time_settimezone">時區</string>
 </resources>

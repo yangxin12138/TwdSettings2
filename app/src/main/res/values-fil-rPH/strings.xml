@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Network</string>
     <string name="fragment_title_wifi_list">Magagamit na Mga Network</string>
 
+    <string name="time_usenettime">Gamitin ang Network Time</string>
+    <string name="time_settime">Oras</string>
+    <string name="time_setdate">Date</string>
+    <string name="time_use24hours">Gamitin ang 24-oras na format</string>
+    <string name="time_settimezone">TimeZone</string>
     <string name="selected_ssid_add_new_network">Iba pa</string>
     <string name="settings">Mga setting</string>
     <string name="str_bluetooth">Bluetooth</string>

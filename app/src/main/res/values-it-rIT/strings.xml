@@ -252,4 +252,10 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="dialog_btn_confirm">Confermare</string>
     <string name="dialog_btn_cancel">Cancellare</string>
     <string name="wifi_state_connected_no_network">Connesso, nessuna connessione Internet</string>
+
+    <string name="time_usenettime">Utilizza l\'ora della rete</string>
+    <string name="time_settime">Tempo</string>
+    <string name="time_setdate">Data</string>
+    <string name="time_use24hours">Utilizza il formato 24 ore</string>
+    <string name="time_settimezone">Fuso orario</string>
 </resources>

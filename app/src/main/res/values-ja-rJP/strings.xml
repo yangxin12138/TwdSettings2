@@ -250,4 +250,10 @@
     <string name="dialog_btn_confirm">確認する</string>
     <string name="dialog_btn_cancel">キャンセル</string>
     <string name="wifi_state_connected_no_network">接続済み、インターネットなし</string>
+
+    <string name="time_usenettime">ネットワーク時間を使用する</string>
+    <string name="time_settime">時間</string>
+    <string name="time_setdate">日付</string>
+    <string name="time_use24hours">24時間形式を使用する</string>
+    <string name="time_settimezone">タイムゾーン</string>
 </resources>

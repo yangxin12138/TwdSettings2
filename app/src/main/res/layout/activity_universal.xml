@@ -252,11 +252,13 @@
             android:id="@+id/universal_LL_time"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/universal_content_LL_height"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/switchlayout_padding_tb"
+            android:paddingBottom="@dimen/switchlayout_padding_tb"
             android:layout_marginTop="@dimen/LL_content_marginTop"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:visibility="gone"
+            android:visibility="visible"
             android:background="?bBg">
             <TextView
                 android:duplicateParentState="true"

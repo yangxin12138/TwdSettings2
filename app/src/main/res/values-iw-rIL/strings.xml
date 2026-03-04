@@ -5,6 +5,11 @@
     <string name="fragment_title_network">רֶשֶׁת</string>
     <string name="fragment_title_wifi_list">רשתות זמינות</string>
 
+    <string name="time_usenettime">השתמש בזמן הרשת</string>
+    <string name="time_settime">זמן</string>
+    <string name="time_setdate">תאריך</string>
+    <string name="time_use24hours">השתמש בפורמט 24 שעות</string>
+    <string name="time_settimezone">אזור זמן</string>
     <string name="selected_ssid_add_new_network">אַחֵר</string>
     <string name="settings">הגדרות</string>
     <string name="str_bluetooth">Bluetooth</string>

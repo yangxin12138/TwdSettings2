@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Mạng</string>
     <string name="fragment_title_wifi_list">Mạng lưới có sẵn</string>
 
+    <string name="time_usenettime">Sử dụng thời gian mạng</string>
+    <string name="time_settime">Thời gian</string>
+    <string name="time_setdate">Ngày</string>
+    <string name="time_use24hours">Sử dụng định dạng 24 giờ</string>
+    <string name="time_settimezone">Khu vực thời gian</string>
     <string name="selected_ssid_add_new_network">Khác</string>
     <string name="settings">Cài đặt</string>
     <string name="str_bluetooth">Bluetooth</string>

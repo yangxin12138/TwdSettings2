@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Nätverk</string>
     <string name="fragment_title_wifi_list">Tillgängliga nätverk</string>
 
+    <string name="time_usenettime">Använd nätverkstid</string>
+    <string name="time_settime">Tid</string>
+    <string name="time_setdate">Datum</string>
+    <string name="time_use24hours">Använd 24-timmarsformat</string>
+    <string name="time_settimezone">Tidszon</string>
     <string name="selected_ssid_add_new_network">Andra</string>
     <string name="settings">Inställningar</string>
     <string name="str_bluetooth">Bluetooth</string>

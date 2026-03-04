@@ -252,4 +252,10 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="dialog_btn_confirm">Confirmer</string>
     <string name="dialog_btn_cancel">Annuler</string>
     <string name="wifi_state_connected_no_network">Connecté, pas d\'Internet</string>
+
+    <string name="time_usenettime">Utiliser l\'heure du réseau</string>
+    <string name="time_settime">Temps</string>
+    <string name="time_setdate">Date</string>
+    <string name="time_use24hours">Utiliser le format 24 heures</string>
+    <string name="time_settimezone">Fuseau horaire</string>
 </resources>

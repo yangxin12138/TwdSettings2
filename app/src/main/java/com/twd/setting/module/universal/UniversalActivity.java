@@ -280,9 +280,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
             }
         }else {
             selectItem = 5;
-            intent = new Intent();
-            intent.setComponent(new ComponentName("com.twd.timedate2","com.twd.timedate2.MainActivity"));
-            //com.twd.timedate2/com.twd.timedate2.MainActivity
+            intent = new Intent(this,TimeDateActivity.class);
             startActivity(intent);
         }
     }

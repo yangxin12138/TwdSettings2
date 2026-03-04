@@ -253,4 +253,10 @@
     <string name="dialog_btn_confirm">ยืนยัน</string>
     <string name="dialog_btn_cancel">ยกเลิก</string>
     <string name="wifi_state_connected_no_network">เชื่อมต่อแล้ว ไม่มีอินเทอร์เน็ต</string>
+
+    <string name="time_usenettime">ใช้เวลาเครือข่าย</string>
+    <string name="time_settime">เวลา</string>
+    <string name="time_setdate">วันที่</string>
+    <string name="time_use24hours">ใช้รูปแบบ 24 ชั่วโมง</string>
+    <string name="time_settimezone">เขตเวลา</string>
 </resources>

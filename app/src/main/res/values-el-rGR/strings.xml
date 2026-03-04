@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Δίκτυο</string>
     <string name="fragment_title_wifi_list">Διαθέσιμα Δίκτυα</string>
 
+    <string name="time_usenettime">Χρήση χρόνου δικτύου</string>
+    <string name="time_settime">Χρόνος</string>
+    <string name="time_setdate">Ημερομηνία</string>
+    <string name="time_use24hours">Χρησιμοποιήστε μορφή 24 ωρών</string>
+    <string name="time_settimezone">Ζώνη ώρας</string>
     <string name="selected_ssid_add_new_network">Αλλος</string>
     <string name="settings">Ρυθμίσεις</string>
     <string name="str_bluetooth">Bluetooth</string>

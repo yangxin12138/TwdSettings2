@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Mreža</string>
     <string name="fragment_title_wifi_list">Dostupne mreže</string>
 
+    <string name="time_usenettime">Koristi mrežno vrijeme</string>
+    <string name="time_settime">Vrijeme</string>
+    <string name="time_setdate">Datum</string>
+    <string name="time_use24hours">Koristi 24-satni format</string>
+    <string name="time_settimezone">Vrijeme</string>
     <string name="selected_ssid_add_new_network">Drugi</string>
     <string name="settings">Postavke</string>
     <string name="str_bluetooth">Bluetooth</string>

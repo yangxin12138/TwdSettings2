@@ -252,4 +252,10 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="dialog_btn_confirm">Onaylamak</string>
     <string name="dialog_btn_cancel">İptal etmek</string>
     <string name="wifi_state_connected_no_network">Bağlı değil, İnternet yok</string>
+
+    <string name="time_usenettime">Ağ Zamanını Kullan</string>
+    <string name="time_settime">Zaman</string>
+    <string name="time_setdate">Tarih</string>
+    <string name="time_use24hours">24 saat biçimini kullan</string>
+    <string name="time_settimezone">Saat dilimi</string>
 </resources>

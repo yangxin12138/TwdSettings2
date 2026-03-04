@@ -252,4 +252,10 @@
     <string name="dialog_btn_confirm">पुष्टि करना</string>
     <string name="dialog_btn_cancel">रद्द करना</string>
     <string name="wifi_state_connected_no_network">कनेक्टेड, इंटरनेट नहीं</string>
+
+    <string name="time_usenettime">नेटवर्क समय का उपयोग करें</string>
+    <string name="time_settime">समय</string>
+    <string name="time_setdate">तारीख</string>
+    <string name="time_use24hours">24 घंटे का प्रारूप उपयोग करें</string>
+    <string name="time_settimezone">समय क्षेत्र</string>
 </resources>

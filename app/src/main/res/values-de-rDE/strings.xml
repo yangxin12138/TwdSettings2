@@ -250,4 +250,10 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="dialog_btn_confirm">Bestätigen</string>
     <string name="dialog_btn_cancel">Stornieren</string>
     <string name="wifi_state_connected_no_network">Verbunden, aber kein Internet</string>
+    <!--Time&Date-->
+    <string name="time_usenettime">Netzwerkzeit verwenden</string>
+    <string name="time_settime">Zeit</string>
+    <string name="time_setdate">Datum</string>
+    <string name="time_use24hours">24-Stunden-Format verwenden</string>
+    <string name="time_settimezone">Zeitzone</string>
 </resources>

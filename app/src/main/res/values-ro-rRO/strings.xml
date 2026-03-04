@@ -5,6 +5,11 @@
     <string name="fragment_title_network">Reţea</string>
     <string name="fragment_title_wifi_list">Rețele disponibile</string>
 
+    <string name="time_usenettime">Utilizați timpul de rețea</string>
+    <string name="time_settime">Timpul</string>
+    <string name="time_setdate">Dată</string>
+    <string name="time_use24hours">Utilizați formatul 24 de ore</string>
+    <string name="time_settimezone">fusul orar</string>
     <string name="selected_ssid_add_new_network">Alte</string>
     <string name="settings">Setări</string>
     <string name="str_bluetooth">Bluetooth</string>

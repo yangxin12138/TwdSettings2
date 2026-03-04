@@ -196,4 +196,5 @@
     <color name="background_color">#103AE9</color>
     
     <color name="unselectable_color">#CACACA</color>
+    <color name="auto_time_checked">#9c9b9e</color>
 </resources>
