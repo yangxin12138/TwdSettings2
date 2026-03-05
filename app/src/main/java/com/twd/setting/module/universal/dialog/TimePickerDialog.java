@@ -21,6 +21,7 @@ import com.twd.setting.module.universal.interfaces.TimeSelectedInterface;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * @Author:Yangxin
@@ -56,31 +57,45 @@ public class TimePickerDialog extends Dialog implements View.OnClickListener, Vi
         setContentView(R.layout.dialog_time_picker);
         timePicker = findViewById(R.id.timePicker);
         utils = new DateTimeUtils(mContext);
+        Calendar now = Calendar.getInstance();
         timePicker.setIs24HourView(utils.is24HoursEnabled());
         if (utils.is24HoursEnabled()){
-            timePicker.setCurrentHour(new GregorianCalendar().get(Calendar.HOUR_OF_DAY));
+            timePicker.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));
+            timePicker.setCurrentMinute(now.get(Calendar.MINUTE));
         }else {
-            timePicker.setCurrentHour(new GregorianCalendar().get(Calendar.HOUR));
-            timePicker.setCurrentMinute(new GregorianCalendar().get(Calendar.MINUTE));
+            int hour12 = now.get(Calendar.HOUR);
+            hour12 = hour12 == 0 ? 12 : hour12;
+            timePicker.setCurrentHour(hour12);
+            timePicker.setCurrentMinute(now.get(Calendar.MINUTE));
         }
         View hourView = timePicker.findViewById(Resources.getSystem().getIdentifier("hour", "id", "android"));
         View minuteView = timePicker.findViewById(Resources.getSystem().getIdentifier("minute", "id", "android"));
         View amPmView = timePicker.findViewById(Resources.getSystem().getIdentifier("amPm", "id", "android"));
         timePicker.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
-        selectTime = timePicker.is24HourView() ? String.format("%02d:%02d", timePicker.getCurrentHour(), timePicker.getCurrentMinute())
-                : String.format("%02d:%02d AM", timePicker.getCurrentHour() % 12 == 0 ? 12 : timePicker.getCurrentHour() % 12, timePicker.getCurrentMinute());
+        initSelectTime();
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 selectTime = String.format("%02d:%02d", hourOfDay, minute);
                 if(view.is24HourView()){
                     //24小时制
-                    Log.i(TAG, "onTimeChanged: 24-hour format time is " + selectTime);
                     selectTime = String.format("%02d:%02d", hourOfDay, minute);
+                    Log.i(TAG, "onTimeChanged: 24-hour format time is " + selectTime);
                 }else {
                     // 12小时制，需要获取AM/PM
-                    int amPm = view.getCurrentHour() >= 12 ? Calendar.PM : Calendar.AM;
-                    selectTime = String.format("%02d:%02d %s", hourOfDay % 12 == 0 ? 12 : hourOfDay % 12, minute, amPm == Calendar.PM ? "PM" : "AM");
+                    int currentHour = view.getCurrentHour(); // 12小时制小时（1-12）
+                    boolean isPM = currentHour == 12 ? now.get(Calendar.AM_PM) == Calendar.PM : currentHour >= 12;
+
+                    Locale currentLocale = mContext.getResources().getConfiguration().locale;
+                    String period = "";
+                    if (Locale.CHINESE.getLanguage().equals(currentLocale.getLanguage())) {
+                        period = isPM ? "下午" : "上午";
+                    } else {
+                        period = isPM ? "PM" : "AM";
+                    }
+
+                    int displayHour = currentHour % 12 == 0 ? 12 : currentHour % 12;
+                    selectTime = String.format("%02d:%02d %s", displayHour, minute, period);
                     Log.i(TAG, "onTimeChanged: 12-hour format time is " + selectTime);
                 }
             }
@@ -94,6 +109,24 @@ public class TimePickerDialog extends Dialog implements View.OnClickListener, Vi
         hourView.setOnClickListener(this); minuteView.setOnClickListener(this); amPmView.setOnClickListener(this);
         hourView.setOnFocusChangeListener(this); minuteView.setOnFocusChangeListener(this); amPmView.setOnFocusChangeListener(this);
     }
+
+    private void initSelectTime() {
+        if (timePicker.is24HourView()) {
+            selectTime = String.format("%02d:%02d", timePicker.getCurrentHour(), timePicker.getCurrentMinute());
+        } else {
+            // 12小时制：先判定AM/PM
+            Calendar now = Calendar.getInstance();
+            boolean isPM = timePicker.getCurrentHour() == 12 ? now.get(Calendar.AM_PM) == Calendar.PM : timePicker.getCurrentHour() >= 12;
+            Locale currentLocale = mContext.getResources().getConfiguration().locale;
+            String period = Locale.CHINESE.getLanguage().equals(currentLocale.getLanguage())
+                    ? (isPM ? "下午" : "上午")
+                    : (isPM ? "PM" : "AM");
+            int displayHour = timePicker.getCurrentHour() % 12 == 0 ? 12 : timePicker.getCurrentHour() % 12;
+            selectTime = String.format("%02d:%02d %s", displayHour, timePicker.getCurrentMinute(), period);
+        }
+        Log.i(TAG, "initSelectTime: 初始时间 = " + selectTime);
+    }
+
     @Override
     public void onClick(View v) {
         Log.i(TAG, "onClick: selectTime = " + selectTime);
