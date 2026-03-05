@@ -106,13 +106,23 @@ public class DatePickerDialog extends Dialog implements View.OnClickListener, Vi
 
             // 核心修复2：固定月份选择器的显示值，禁用系统自动格式化
             if (monthPicker != null) {
-                // 设置月份范围（0-11 对应1-12月）
+                // 1. 先清空系统默认的显示值
+                monthPicker.setDisplayedValues(null);
+                // 2. 设置自定义月份数组（中文/英文）
+                monthPicker.setDisplayedValues(currentMonthDisplayValues);
+                // 3. 强制设置月份范围（0-11 对应1-12月）
                 monthPicker.setMinValue(0);
                 monthPicker.setMaxValue(11);
-                // 设置自定义的月份显示文本（中文/英文）
-                monthPicker.setDisplayedValues(currentMonthDisplayValues);
-                // 禁用系统自动包装显示值（关键：防止滚动后恢复默认格式）
+                // 4. 禁用系统自动包装，防止还原
                 monthPicker.setWrapSelectorWheel(true);
+                // 5. 强制刷新显示（核心：解决初始显示数字的问题）
+                monthPicker.setValue(datePicker.getMonth()); // 设为当前月份
+                monthPicker.invalidate(); // 刷新视图
+                NumberPicker finalMonthPicker1 = monthPicker;
+                monthPicker.post(() -> {
+                    // 延迟刷新，确保生效
+                    finalMonthPicker1.setDisplayedValues(currentMonthDisplayValues);
+                });
             }
         } catch (Exception e) {
             Log.e(TAG, "获取NumberPicker失败", e);
@@ -157,14 +167,13 @@ public class DatePickerDialog extends Dialog implements View.OnClickListener, Vi
         }
 
         // 请求焦点
+        NumberPicker finalMonthPicker2 = monthPicker;
         datePicker.post(new Runnable() {
             @Override
             public void run() {
                 datePicker.requestFocus();
             }
         });
-        yearPicker.setOnClickListener(this); monthPicker.setOnClickListener(this); dayPicker.setOnClickListener(this);
-        yearPicker.setOnFocusChangeListener(this); monthPicker.setOnFocusChangeListener(this); dayPicker.setOnFocusChangeListener(this);
     }
     @Override
     public void onClick(View v) {

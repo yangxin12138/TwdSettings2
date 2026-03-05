@@ -53,6 +53,8 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
     private SwitchCompat switch_24Hours;
     private Handler timerHandler = new Handler();
 
+    private TimeZone mCurrentTimeZone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.setTheme(R.style.Theme_KapokWhite);
@@ -60,6 +62,7 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_time);
         utils = new DateTimeUtils(this);
         utils.hideSystemUI(this);
+        mCurrentTimeZone = TimeZone.getDefault();
         initView();
         updateTimeRunnable.run();
     }
@@ -68,8 +71,8 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
         @Override
         public void run() {
             getSystemTime();
-            //每隔一秒更新一次时间
-            timerHandler.postDelayed(this,1000);
+            //每隔5秒更新一次时间
+            timerHandler.postDelayed(this,5000);
         }
     };
 
@@ -122,16 +125,10 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
     private void getSystemTime(){
         //获取当前时间和日期
         Calendar calendar = Calendar.getInstance();
+        calendar.setTimeZone(mCurrentTimeZone);
         Date currentDate = calendar.getTime();
         //设置日期的格式
-        TimeZone timeZone = calendar.getTimeZone();
-        String timeZoneId = timeZone.getID();
-        DateFormat dateFormat;
-        if ("Asia/Shanghai".equals(timeZoneId)){
-            dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        }else {
-            dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        }
+        SimpleDateFormat dateFormat = getDateFormatterByTimeZone(mCurrentTimeZone);
         String formatterDate = dateFormat.format(currentDate);
 
         String dayOfWeek = new SimpleDateFormat("EEEE", Locale.getDefault()).format(currentDate);
@@ -140,21 +137,46 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
         String timeFormatString = DateTimeUtils.getTimeFormat(this);
         //设置时间的格式
         DateFormat timeFormat = new SimpleDateFormat(timeFormatString);
+        timeFormat.setTimeZone(mCurrentTimeZone); // 时间也绑定时区
         String formatterTime = timeFormat.format(currentDate);
 
         // 获取当前时区的完整名称
-        String timeZoneDisplayName = utils.getTimeZoneList().get(timeZoneId);
+        String timeZoneDisplayName = utils.getTimeZoneList().get(mCurrentTimeZone.getID());
 
         // 计算时区偏移量，并格式化为"+HH:mm"的形式
         String timeZoneInfo = timeZoneDisplayName +"\n"+ " GMT " +
                 String.format("%s%02d:%02d",
-                        timeZone.getRawOffset() >= 0 ? "+" : "-",
-                        Math.abs(timeZone.getRawOffset()) / 3600000,
-                        Math.abs(timeZone.getRawOffset() % 3600000) / 60000);
+                        mCurrentTimeZone.getRawOffset() >= 0 ? "+" : "-",
+                        Math.abs(mCurrentTimeZone.getRawOffset()) / 3600000,
+                        Math.abs(mCurrentTimeZone.getRawOffset() % 3600000) / 60000);
         //在TextView上更新日期和时间
         time_summary.setText(formatterTime);
         date_summary.setText(formatterDate);
         timeZone_summary.setText(timeZoneInfo);
+    }
+
+    private SimpleDateFormat getDateFormatterByTimeZone(TimeZone timeZone) {
+        SimpleDateFormat sdf;
+        // 判定是否为东八区（GMT+8，兼容Asia/Shanghai、GMT+8等ID）
+        boolean isEast8Zone = timeZone.getRawOffset() == TimeZone.getTimeZone("Asia/Shanghai").getRawOffset();
+
+        // 中文环境下的格式规则
+        if (Locale.CHINESE.getLanguage().equals(getResources().getConfiguration().locale.getLanguage())) {
+            if (isEast8Zone) {
+                // 东八区：年月日（如 2024/05/20）
+                sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.CHINA);
+            } else {
+                // 非东八区：日月年（如 20/05/2024）
+                sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.CHINA);
+            }
+        } else {
+            // 英文环境（保留原有逻辑）
+            sdf = new SimpleDateFormat(isEast8Zone ? "yyyy/MM/dd" : "dd/MM/yyyy", Locale.US);
+        }
+
+        // 绑定时区，避免系统默认时区干扰
+        sdf.setTimeZone(timeZone);
+        return sdf;
     }
     private void refreshSwitch(){
         if (switch_time.isChecked()){
@@ -229,6 +251,7 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
                 int month = Integer.parseInt(parts[1]);
                 int day = Integer.parseInt(parts[2]);
                 Calendar calendar =  Calendar.getInstance();
+                calendar.setTimeZone(mCurrentTimeZone);
                 calendar.set(Calendar.YEAR,year);
                 calendar.set(Calendar.MONTH,month-1);
                 calendar.set(Calendar.DAY_OF_MONTH,day);
@@ -237,7 +260,9 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
                 if (when / 1000 < Integer.MAX_VALUE){
                     ((AlarmManager) context.getSystemService(Context.ALARM_SERVICE)).setTime(when);
                 }
-                date_summary.setText(date);
+                SimpleDateFormat dateFormat = getDateFormatterByTimeZone(mCurrentTimeZone);
+                String formattedDate = dateFormat.format(calendar.getTime());
+                date_summary.setText(formattedDate);
 
             } else {
                 // 如果日期格式不正确，抛出异常或处理错误
@@ -253,23 +278,28 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
     }
     @Override
     public void onTimeZoneSelected(String timeZoneId) {
+        mCurrentTimeZone = TimeZone.getTimeZone(timeZoneId);
+
         Calendar calendar = Calendar.getInstance();
-        TimeZone timeZone = calendar.getTimeZone();
+        calendar.setTimeZone(mCurrentTimeZone);
         // 获取当前时区的完整名称
         String timeZoneDisplayName = utils.getTimeZoneList().get(timeZoneId);
 
         // 计算时区偏移量，并格式化为"+HH:mm"的形式
         String timeZoneInfo = timeZoneDisplayName +"\n"+ " GMT " +
                 String.format("%s%02d:%02d",
-                        timeZone.getRawOffset() >= 0 ? "+" : "-",
-                        Math.abs(timeZone.getRawOffset()) / 3600000,
-                        Math.abs(timeZone.getRawOffset() % 3600000) / 60000);
+                        mCurrentTimeZone.getRawOffset() >= 0 ? "+" : "-",
+                        Math.abs(mCurrentTimeZone.getRawOffset()) / 3600000,
+                        Math.abs(mCurrentTimeZone.getRawOffset() % 3600000) / 60000);
         timeZone_summary.setText(timeZoneInfo);
+
+        getSystemTime();
     }
     @Override
     public void onTimeSelected(String time) {
         Log.i(TAG, "onTimeSelected: 选择的时间=" + time + " | 当前是否24小时制=" + switch_24Hours.isChecked());
         Calendar targetCalendar = Calendar.getInstance();
+        targetCalendar.setTimeZone(mCurrentTimeZone); // 时间也绑定时区
 
         // 步骤1：根据当前系统的时间格式（12/24小时制），选择对应的解析格式
         SimpleDateFormat timeParser = null;
@@ -348,5 +378,11 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
             date_title.setTextColor(getResources().getColor(color));
             date_summary.setTextColor(getResources().getColor(color));
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timerHandler.removeCallbacks(updateTimeRunnable);
     }
 }
