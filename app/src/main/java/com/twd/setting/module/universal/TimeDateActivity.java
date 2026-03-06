@@ -1,7 +1,10 @@
 package com.twd.setting.module.universal;
 
 import android.app.AlarmManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -23,6 +26,8 @@ import com.twd.setting.module.universal.interfaces.DateSelectedInterface;
 import com.twd.setting.module.universal.interfaces.OnTimeZoneSelectedListener;
 import com.twd.setting.module.universal.interfaces.TimeSelectedInterface;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,6 +59,11 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
     private Handler timerHandler = new Handler();
 
     private TimeZone mCurrentTimeZone;
+    private boolean mIsNetworkTimeEnabled = false;
+    // 核心：手动设置的时间戳（用于锁定时间，防止系统覆盖）
+    private long mManualSetTimeMillis = 0;
+    // 时间同步广播接收器（拦截系统时间更新）
+    private BroadcastReceiver mTimeChangeReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,16 +73,61 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
         utils = new DateTimeUtils(this);
         utils.hideSystemUI(this);
         mCurrentTimeZone = TimeZone.getDefault();
+
+        mIsNetworkTimeEnabled = utils.isNetworkTimeEnabled();
+        // 注册时间变化广播（拦截系统自动同步）
+        registerTimeChangeReceiver();
+
         initView();
         updateTimeRunnable.run();
     }
 
+    // ========== 注册时间变化广播，拦截系统自动同步 ==========
+    private void registerTimeChangeReceiver() {
+        mTimeChangeReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                // 拦截系统时间/日期/时区变化广播
+                if (Intent.ACTION_TIME_CHANGED.equals(action)
+                        || Intent.ACTION_DATE_CHANGED.equals(action)
+                        || Intent.ACTION_TIMEZONE_CHANGED.equals(action)) {
+                    // 仅在关闭网络时间且有手动设置的时间时，恢复手动时间
+                    if (!mIsNetworkTimeEnabled && mManualSetTimeMillis > 0) {
+                        Log.i(TAG, "拦截到系统时间变化，恢复手动设置的时间");
+                        resetToManualTime();
+                    }
+                }
+            }
+        };
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_TIME_CHANGED);
+        filter.addAction(Intent.ACTION_DATE_CHANGED);
+        filter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
+        registerReceiver(mTimeChangeReceiver, filter);
+    }
+
+    // ========== 恢复手动设置的时间（拦截系统同步后调用） ==========
+    private void resetToManualTime() {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager != null && mManualSetTimeMillis > 0) {
+            try {
+                alarmManager.setTime(mManualSetTimeMillis);
+                Log.i(TAG, "resetToManualTime: 恢复手动时间成功，时间戳=" + mManualSetTimeMillis);
+                // 立即更新UI
+                getSystemTime();
+            } catch (SecurityException e) {
+                Log.e(TAG, "resetToManualTime: 恢复时间失败", e);
+            }
+        }
+    }
     private Runnable updateTimeRunnable = new Runnable() {
         @Override
         public void run() {
             getSystemTime();
-            //每隔5秒更新一次时间
-            timerHandler.postDelayed(this,5000);
+            //每隔1秒更新一次时间
+            timerHandler.postDelayed(this,1000);
         }
     };
 
@@ -80,7 +135,23 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
     protected void onResume() {
         super.onResume();
         utils.hideSystemUI(this);
+        syncNetworkTimeSetting();
     }
+
+    // ========== 同步自动时间设置（双重保险） ==========
+    private void syncNetworkTimeSetting() {
+        boolean currentAutoTime = Settings.Global.getInt(getContentResolver(), Settings.Global.AUTO_TIME, 0) == 1;
+        if (currentAutoTime != mIsNetworkTimeEnabled) {
+            mIsNetworkTimeEnabled = currentAutoTime;
+            switch_time.setChecked(mIsNetworkTimeEnabled);
+            refreshSwitch();
+        }
+        // 关闭自动时间时，禁用自动时区
+        if (!mIsNetworkTimeEnabled) {
+            setUseAutoTimeZone(false);
+        }
+    }
+
     private void initView(){
         //LL
         LL_Time = findViewById(R.id.LL_Time);
@@ -94,6 +165,7 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
         time_title = findViewById(R.id.time_title);date_title = findViewById(R.id.date_title);timeZone_title = findViewById(R.id.timeZone_summary);
         //switch
         switch_time = findViewById(R.id.switch_auto);switch_24Hours = findViewById(R.id.switch_24Hours);
+        // 初始化开关状态
         switch_time.setChecked(utils.isNetworkTimeEnabled());
         switch_24Hours.setChecked(utils.is24HoursEnabled());
         //clicklistener
@@ -109,8 +181,18 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
         switch_time.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // 更新系统设置
+                // 更新状态记录
+                mIsNetworkTimeEnabled = isChecked;
+                // 1. 更新系统设置（核心）
                 setUseNetworkTime(isChecked);
+                // 2. 同步自动时区
+                setUseAutoTimeZone(isChecked);
+                // 3. 开启自动时间时，清空手动时间锁定
+                if (isChecked) {
+                    mManualSetTimeMillis = 0;
+                }
+                // 4. 更新UI
+                refreshSwitch();
             }
         });
 
@@ -122,6 +204,17 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
             }
         });
     }
+
+    // 禁用/启用自动时区（跟随网络时间开关）
+    private void setUseAutoTimeZone(boolean enabled) {
+        try {
+            Settings.Global.putInt(getContentResolver(), Settings.Global.AUTO_TIME_ZONE, enabled ? 1 : 0);
+            Settings.Global.putString(getContentResolver(), "timezone.auto", enabled ? "1" : "0");
+            Log.i(TAG, "setUseAutoTimeZone: 自动时区" + (enabled ? "启用" : "禁用"));
+        } catch (SecurityException e) {
+            Log.e(TAG, "setUseAutoTimeZone: 权限异常", e);
+        }
+    }
     private void getSystemTime(){
         //获取当前时间和日期
         Calendar calendar = Calendar.getInstance();
@@ -131,8 +224,7 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
         SimpleDateFormat dateFormat = getDateFormatterByTimeZone(mCurrentTimeZone);
         String formatterDate = dateFormat.format(currentDate);
 
-        String dayOfWeek = new SimpleDateFormat("EEEE", Locale.getDefault()).format(currentDate);
-        String finalFormatterDate = dayOfWeek+"\n"+formatterDate;
+
 
         String timeFormatString = DateTimeUtils.getTimeFormat(this);
         //设置时间的格式
@@ -157,24 +249,13 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
 
     private SimpleDateFormat getDateFormatterByTimeZone(TimeZone timeZone) {
         SimpleDateFormat sdf;
-        // 判定是否为东八区（GMT+8，兼容Asia/Shanghai、GMT+8等ID）
         boolean isEast8Zone = timeZone.getRawOffset() == TimeZone.getTimeZone("Asia/Shanghai").getRawOffset();
 
-        // 中文环境下的格式规则
         if (Locale.CHINESE.getLanguage().equals(getResources().getConfiguration().locale.getLanguage())) {
-            if (isEast8Zone) {
-                // 东八区：年月日（如 2024/05/20）
-                sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.CHINA);
-            } else {
-                // 非东八区：日月年（如 20/05/2024）
-                sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.CHINA);
-            }
+            sdf = new SimpleDateFormat(isEast8Zone ? "yyyy/MM/dd" : "dd/MM/yyyy", Locale.CHINA);
         } else {
-            // 英文环境（保留原有逻辑）
             sdf = new SimpleDateFormat(isEast8Zone ? "yyyy/MM/dd" : "dd/MM/yyyy", Locale.US);
         }
-
-        // 绑定时区，避免系统默认时区干扰
         sdf.setTimeZone(timeZone);
         return sdf;
     }
@@ -192,22 +273,16 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    private void  setUseNetworkTime(boolean enabled){
-        //更新系统设置
-        if (Settings.Global.putInt(getContentResolver(),Settings.Global.AUTO_TIME, enabled? 1:0)){
-            Log.i(TAG, "setUseNetworkTime: Network time " + (enabled ? "enabled":"disabled"));
-        }else {
-            Log.i(TAG, "setUseNetworkTime: Failed to update setting");
-        }
+    private void setUseNetworkTime(boolean enabled){
+        // 强制设置自动时间开关（系统应用有权限）
+        Settings.Global.putInt(getContentResolver(),Settings.Global.AUTO_TIME, enabled? 1:0);
+        Settings.Global.putString(getContentResolver(), "auto_time", enabled ? "1" : "0");
+        Log.i(TAG, "setUseNetworkTime: 网络时间" + (enabled ? "启用" : "禁用"));
     }
 
     private void setUse24HoursTime(boolean enabled){
-        //更新系统设置
-        if (Settings.System.putInt(getContentResolver(),Settings.System.TIME_12_24,enabled ? 24 : 12)){
-            Log.i(TAG, "setUse24HoursTime: is24Hours + " + (enabled ? "24" : "12"));
-        }else {
-            Log.i(TAG, "setUse24HoursTime: Failed to set 24Hours");
-        }
+        Settings.System.putInt(getContentResolver(),Settings.System.TIME_12_24,enabled ? 24 : 12);
+        Log.i(TAG, "setUse24HoursTime: 24小时制" + (enabled ? "启用" : "禁用"));
     }
 
     @Override
@@ -257,9 +332,15 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
                 calendar.set(Calendar.DAY_OF_MONTH,day);
 
                 long when = calendar.getTimeInMillis();
-                if (when / 1000 < Integer.MAX_VALUE){
-                    ((AlarmManager) context.getSystemService(Context.ALARM_SERVICE)).setTime(when);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                if (alarmManager != null) {
+                    alarmManager.setTime(when);
+                    Log.i(TAG, "onDateSelected: 手动设置日期成功 → " + date);
                 }
+                // 2. 缓存手动设置的时间戳（核心！用于拦截后恢复）
+                mManualSetTimeMillis = when;
+
+                // 3. 立即更新UI
                 SimpleDateFormat dateFormat = getDateFormatterByTimeZone(mCurrentTimeZone);
                 String formattedDate = dateFormat.format(calendar.getTime());
                 date_summary.setText(formattedDate);
@@ -268,12 +349,8 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
                 // 如果日期格式不正确，抛出异常或处理错误
                 throw new IllegalArgumentException("Date format should be yyyy/MM/dd");
             }
-        }catch (NumberFormatException e) {
-            // 如果解析整数失败，打印错误信息
-            System.out.println("Error parsing date components to integers: " + e.getMessage());
-        } catch (IllegalArgumentException e) {
-            // 如果日期格式不正确，打印错误信息
-            System.out.println("Error: " + e.getMessage());
+        }catch (Exception e) {
+            Log.e(TAG, "onDateSelected: 设置日期异常", e);
         }
     }
     @Override
@@ -299,45 +376,35 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
     public void onTimeSelected(String time) {
         Log.i(TAG, "onTimeSelected: 选择的时间=" + time + " | 当前是否24小时制=" + switch_24Hours.isChecked());
         Calendar targetCalendar = Calendar.getInstance();
-        targetCalendar.setTimeZone(mCurrentTimeZone); // 时间也绑定时区
+        targetCalendar.setTimeZone(mCurrentTimeZone);
 
-        // 步骤1：根据当前系统的时间格式（12/24小时制），选择对应的解析格式
-        SimpleDateFormat timeParser = null;
-        if (switch_24Hours.isChecked()) {
-            // 24小时制：解析格式为 HH:mm（如 20:25）
-            timeParser = new SimpleDateFormat("HH:mm", Locale.getDefault());
-        } else {
-            // 12小时制：解析格式为 hh:mm a（如 08:25 PM/AM）
-            timeParser = new SimpleDateFormat("hh:mm a", Locale.getDefault());
-        }
+        SimpleDateFormat timeParser = switch_24Hours.isChecked()
+                ? new SimpleDateFormat("HH:mm", Locale.getDefault())
+                : new SimpleDateFormat("hh:mm a", Locale.getDefault());
 
         try {
-            // 步骤2：解析用户选择的时间（自动适配12/24小时制）
             Date selectedTime = timeParser.parse(time);
             if (selectedTime == null) {
                 Log.e(TAG, "onTimeSelected: 时间解析失败，格式不匹配 | 选择的时间=" + time + " | 解析格式=" + timeParser.toPattern());
                 return;
             }
 
-            // 步骤3：提取解析后的小时/分钟（统一用Calendar处理，避免12/24制换算错误）
             Calendar selectedCalendar = Calendar.getInstance();
             selectedCalendar.setTime(selectedTime);
-            int targetHour = selectedCalendar.get(Calendar.HOUR_OF_DAY); // 始终取24小时制小时数（关键！）
+            int targetHour = selectedCalendar.get(Calendar.HOUR_OF_DAY);
             int targetMinute = selectedCalendar.get(Calendar.MINUTE);
 
             Log.i(TAG, "onTimeSelected: 解析结果 → 24小时制小时=" + targetHour + ", 分钟=" + targetMinute);
 
-            // 步骤4：保留当前日期，仅修改小时/分钟（秒和毫秒置0，避免残留）
             Calendar currentCalendar = Calendar.getInstance();
             targetCalendar.set(Calendar.YEAR, currentCalendar.get(Calendar.YEAR));
             targetCalendar.set(Calendar.MONTH, currentCalendar.get(Calendar.MONTH));
             targetCalendar.set(Calendar.DAY_OF_MONTH, currentCalendar.get(Calendar.DAY_OF_MONTH));
-            targetCalendar.set(Calendar.HOUR_OF_DAY, targetHour); // 24小时制小时，兼容所有场景
+            targetCalendar.set(Calendar.HOUR_OF_DAY, targetHour);
             targetCalendar.set(Calendar.MINUTE, targetMinute);
             targetCalendar.set(Calendar.SECOND, 0);
             targetCalendar.set(Calendar.MILLISECOND, 0);
 
-            // 步骤5：设置系统时间（用AlarmManager，兼容所有Android版本）
             long newTimeInMillis = targetCalendar.getTimeInMillis();
             AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
             if (alarmManager != null) {
@@ -352,16 +419,16 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
                 Log.e(TAG, "onTimeSelected: 获取AlarmManager失败");
                 return;
             }
-
+// 2. 缓存手动设置的时间戳（核心！用于拦截后恢复）
+            mManualSetTimeMillis = newTimeInMillis;
             // 步骤6：更新UI显示（适配当前的12/24小时制格式）
             String timeFormatString = DateTimeUtils.getTimeFormat(this); // 复用原有工具类的格式
             DateFormat displayFormat = new SimpleDateFormat(timeFormatString, Locale.getDefault());
-            String formattedTime = displayFormat.format(targetCalendar.getTime());
-            time_summary.setText(formattedTime);
+            displayFormat.setTimeZone(mCurrentTimeZone);
+            time_summary.setText(displayFormat.format(targetCalendar.getTime()));
 
         } catch (ParseException e) {
-            Log.e(TAG, "onTimeSelected: 时间解析异常 | 选择的时间=" + time + " | 解析格式=" + (timeParser != null ? timeParser.toPattern() : "null"), e);
-            // 容错：如果解析失败，尝试反向兼容（比如用户选了24小时制格式但当前是12小时制）
+            Log.e(TAG, "onTimeSelected: 解析异常", e);
         }
     }
     @Override
@@ -384,5 +451,9 @@ public class TimeDateActivity extends AppCompatActivity implements View.OnClickL
     protected void onDestroy() {
         super.onDestroy();
         timerHandler.removeCallbacks(updateTimeRunnable);
+        // 注销广播接收器
+        if (mTimeChangeReceiver != null) {
+            unregisterReceiver(mTimeChangeReceiver);
+        }
     }
 }
