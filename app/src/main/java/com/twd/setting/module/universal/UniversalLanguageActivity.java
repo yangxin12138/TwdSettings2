@@ -91,53 +91,10 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             }
             LanguageBean languageBean = null;
             Map<String,String> languageMap = new HashMap<>();
-            languageMap.put("zh_CN","简体中文"); //简体中文
-            languageMap.put("zh_TW","繁體中文"); //繁体中文
             languageMap.put("en_US","English"); //英语
-            languageMap.put("ja_JP","日本語"); //日语
-            languageMap.put("ko_KR","한국어"); //韩语-韩国
-            languageMap.put("th_TH","ไทย"); //泰语-泰国
-            languageMap.put("hi_IN","हिन्दी"); //印地语-印度
-            languageMap.put("fr_FR","Français"); //法语-法国
-            languageMap.put("de_DE","Deutsch"); //德语-德国
-            languageMap.put("it_IT","Italiano"); //意大利语-意大利
             languageMap.put("ru_RU","Pусский"); //俄语-俄罗斯
-            languageMap.put("es_ES","Español"); //西班牙语-西班牙
-            languageMap.put("pt_PT","Português"); //葡萄牙语-葡萄牙
-            languageMap.put("ar_SA","العربية");//阿拉伯语-沙特阿拉伯
-            languageMap.put("fa_IR","فارسی");//波斯语-伊朗
-            languageMap.put("tr_TR","Türkçe");//土耳其语-土耳其
-            languageMap.put("pl_PL","Polski");//波兰语-波兰------
-            languageMap.put("af_ZA","Afrikaans");//南非荷兰语
-            languageMap.put("cs_CZ","Čeština");//捷克语
-            languageMap.put("da_DK","Dansk");//丹麦语
-            languageMap.put("fil_PH","Filipino");//菲律宾语
-            languageMap.put("hr_HR","Hrvatski");//克罗地亚语
-            languageMap.put("in_ID","Indonesia");//印度尼西亚语
-            languageMap.put("zu_ZA","IsiZulu");//祖鲁语
-            languageMap.put("sw_TZ","Kiswahili");//斯瓦西里语
-            languageMap.put("lv_LV","Latviešu");//拉脱维亚语
-            languageMap.put("lt_LT","Lietuvių");//立陶宛
-            languageMap.put("hu_HU","Magyar");//匈牙利语
-            languageMap.put("ms_MY","Melayu");//马来西亚语
-            languageMap.put("nl_NL","Nederlands");//荷兰语
-            languageMap.put("nb_NO","Bokmål");//挪威语
-            languageMap.put("ro_RO","Română");//罗马尼亚语
-            languageMap.put("sk_SK","Slovenčina");//斯洛伐克语
-            languageMap.put("sl_SI","Slovenščina");//斯洛文尼亚语
-            languageMap.put("fi_FI","Suomi");//芬兰语
-            languageMap.put("sv_SE","Svenska");//瑞典语
-            languageMap.put("vi_VN","Tiếng Việt");//越南语
-            languageMap.put("el_GR","Ελληνικά");//希腊语
-            languageMap.put("bg_BG","Български");//保加利亚语
-            languageMap.put("uk_UA","Українська");//乌克兰语
-            languageMap.put("iw_IL","עברית");//希伯来语
 
-            List<String> supportedLanguages = Arrays.asList("zh_CN","zh_TW","en_US","ja_JP"
-                                                    ,"ko_KR","th_TH","hi_IN","fr_FR","de_DE","it_IT"
-                                                    ,"ru_RU","es_ES","pt_PT","ar_SA","fa_IR","tr_TR","pl_PL","af_ZA","cs_CZ",
-                    "da_DK","fil_PH","hr_HR","in_ID","zu_ZA","sw_TZ","lv_LV","lt_LT","hu_HU","ms_MY","nl_NL","nb_NO","ro_RO",
-                    "sk_SK","sl_SI","fi_FI","sv_SE","vi_VN","el_GR","bg_BG","uk_UA","iw_IL");
+            List<String> supportedLanguages = Arrays.asList("en_US","ru_RU");
             for (String language_sup : supportedLanguages){
                 if (language_sup.equals(languageCode) && !language.equals("English (United States,Computer)_en_US")){
                     String languageName = languageMap.get(language_sup);
@@ -184,90 +141,11 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                 String indexLanguage = languageBean.getLanguageCode(); // en_US ; zh_CN ; zh_TW
                 //showToast(indexLanguage);
                 /*切换语言方法*/
-                if (indexLanguage.equals("zh_CN") ){
-                    changeSystemLanguage(Locale.SIMPLIFIED_CHINESE);
-                } else if (indexLanguage.equals("zh_TW") ) {
-                    changeSystemLanguage(Locale.TRADITIONAL_CHINESE);
-                } else if (indexLanguage.equals("en_US")) {
+                if (indexLanguage.equals("en_US")) {
                     changeSystemLanguage(new Locale("en","US"));
-                } else if (indexLanguage.equals("ja_JP")) {
-                    changeSystemLanguage(Locale.JAPAN);
-                } else if (indexLanguage.equals("ko_KR")) {
-                    changeSystemLanguage(Locale.KOREA);
-                } else if (indexLanguage.equals("th_TH")) {
-                    changeSystemLanguage(new Locale("th","TH"));
-                } else if (indexLanguage.equals("hi_IN")) {
-                    changeSystemLanguage(new Locale("hi","IN"));
-                } else if (indexLanguage.equals("fr_FR")) {
-                    changeSystemLanguage(Locale.FRANCE);
-                } else if (indexLanguage.equals("de_DE")) {
-                    changeSystemLanguage(Locale.GERMANY);
-                } else if (indexLanguage.equals("it_IT")) {
-                    changeSystemLanguage(Locale.ITALY);
                 } else if (indexLanguage.equals("ru_RU")) {
-                    changeSystemLanguage(new Locale("ru","RU"));
-                } else if (indexLanguage.equals("es_ES")) {
-                    changeSystemLanguage(new Locale("es","ES"));
-                } else if (indexLanguage.equals("pt_PT")) {
-                    changeSystemLanguage(new Locale("pt","PT"));
-                } else if (indexLanguage.equals("ar_SA")) {
-                    changeSystemLanguage(new Locale("ar","SA"));
-                } else if (indexLanguage.equals("fa_IR")) {
-                    changeSystemLanguage(new Locale("fa","IR"));
-                } else if (indexLanguage.equals("tr_TR")) {
-                    changeSystemLanguage(new Locale("tr","TR"));
-                } else if (indexLanguage.equals("pl_PL")) {
-                    changeSystemLanguage(new Locale("pl","PL"));
-                } else if (indexLanguage.equals("af_ZA")) {
-                    changeSystemLanguage(new Locale("af","ZA"));
-                } else if (indexLanguage.equals("cs_CZ")) {
-                    changeSystemLanguage(new Locale("cs","CZ"));
-                } else if (indexLanguage.equals("da_DK")) {
-                    changeSystemLanguage(new Locale("da","DK"));
-                } else if (indexLanguage.equals("fil_PH")) {
-                    changeSystemLanguage(new Locale("fil","PH"));
-                } else if (indexLanguage.equals("hr_HR")) {
-                    changeSystemLanguage(new Locale("hr","HR"));
-                } else if (indexLanguage.equals("in_ID")) {
-                    changeSystemLanguage(new Locale("in","ID"));
-                } else if (indexLanguage.equals("zu_ZA")) {
-                    changeSystemLanguage(new Locale("zu","ZA"));
-                } else if (indexLanguage.equals("sw_TZ")) {
-                    changeSystemLanguage(new Locale("sw","TZ"));
-                } else if (indexLanguage.equals("lv_LV")) {
-                    changeSystemLanguage(new Locale("lv","LV"));
-                } else if (indexLanguage.equals("lt_LT")) {
-                    changeSystemLanguage(new Locale("lt","LT"));
-                } else if (indexLanguage.equals("hu_HU")) {
-                    changeSystemLanguage(new Locale("hu","HU"));
-                } else if (indexLanguage.equals("ms_MY")) {
-                    changeSystemLanguage(new Locale("ms","MY"));
-                } else if (indexLanguage.equals("nl_NL")) {
-                    changeSystemLanguage(new Locale("nl","NL"));
-                }else if (indexLanguage.equals("nb_NO")) {
-                    changeSystemLanguage(new Locale("nb","NO"));
-                }else if (indexLanguage.equals("ro_RO")) {
-                    changeSystemLanguage(new Locale("ro","RO"));
-                }else if (indexLanguage.equals("sk_SK")) {
-                    changeSystemLanguage(new Locale("sk","SK"));
-                }else if (indexLanguage.equals("sl_SI")) {
-                    changeSystemLanguage(new Locale("sl","SI"));
-                }else if (indexLanguage.equals("fi_FI")) {
-                    changeSystemLanguage(new Locale("fi","FI"));
-                }else if (indexLanguage.equals("sv_SE")) {
-                    changeSystemLanguage(new Locale("sv","SE"));
-                }else if (indexLanguage.equals("vi_VN")) {
-                    changeSystemLanguage(new Locale("vi","VN"));
-                }else if (indexLanguage.equals("el_GR")) {
-                    changeSystemLanguage(new Locale("el","GR"));
-                }else if (indexLanguage.equals("bg_BG")) {
-                    changeSystemLanguage(new Locale("bg","BG"));
-                }else if (indexLanguage.equals("uk_UA")) {
-                    changeSystemLanguage(new Locale("uk","UA"));
-                }else if (indexLanguage.equals("iw_IL")) {
-                    changeSystemLanguage(new Locale("iw","IL"));
+                    changeSystemLanguage(new Locale("ru", "RU"));
                 }
-
                 /*// 关闭当前应用程序
                 finish();*/
 
