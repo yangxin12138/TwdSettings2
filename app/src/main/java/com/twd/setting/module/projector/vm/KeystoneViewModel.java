@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.os.Parcel;
 import android.util.Log;
 
+import com.twd.setting.R;
 import com.twd.setting.base.BaseViewModel;
 import com.twd.setting.module.projector.keystone.Lcd;
 import com.twd.setting.module.projector.keystone.Vertex;
@@ -761,6 +762,6 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         return (int)vZoom;
     }
     public String getProgress(){
-        return "Level: "+(int)vZoom;
+        return getApplication().getString(R.string.progress_level)+(int)vZoom;
     }
 }

@@ -6,7 +6,7 @@
     <string name="fragment_title_wifi_list">Доступные сети</string>
 
     <string name="selected_ssid_add_new_network">другой</string>
-    <string name="settings">настраивать</string>
+    <string name="settings">Настройки</string>
     <string name="str_bluetooth">Bluetooth</string>
     <string name="str_bluetooth_add_handset_device">Добавьте пульт дистанционного управления Bluetooth</string>
     <string name="str_bluetooth_bonded">Парный</string>
@@ -35,12 +35,12 @@
     <string name="str_bluetooth_paring_request_title_passkey">от %1$s запрос на сопряжение, код сопряжения устройства：%2$s</string>
     <string name="str_bluetooth_remote_control">Bluetooth-пульт дистанционного управления</string>
     <string name="str_bluetooth_stop_search">Остановить поиск</string>
-    <string name="str_bluetooth_switch">Bluetooth-переключатель</string>
+    <string name="str_bluetooth_switch">Bluetooth-пульт</string>
     <string name="str_bluetooth_switch_desc">После его включения вы можете использовать пульт дистанционного управления Bluetooth и выполнять поиск устройств.</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth-устройство：%s Сопряжение не удалось</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth-устройство：%s Соединение не удалось</string>
     <string name="str_cancel">Отмена</string>
-    <string name="str_common">Универсальный</string>
+    <string name="str_common">Другое</string>
     <string name="str_timeanddate">Время и дата</string>
     <string name="str_common_equipment">Часто используемое оборудование</string>
     <string name="str_common_settings">Общие настройки</string>
@@ -88,7 +88,7 @@
     <string name="str_storage_sys_used_prefix">система：%s</string>
     <string name="str_storage_system">Встроенное хранилище</string>
     <string name="str_storage_vedio_prefix">видео：%s</string>
-    <string name="str_system_equipment">Системы и оборудование</string>
+    <string name="str_system_equipment">Система</string>
     <string name="str_tip_get_log_path_error">Не удалось получить путь к журналу</string>
     <string name="str_tip_get_usb_error">U-диск не был прочитан</string>
     <string name="str_unsupport_bluetooth_tip">Текущее устройство не поддерживает функцию Bluetooth.！</string>
@@ -100,8 +100,8 @@
     <string name="wifi_connect">соединять</string>
     <string name="wifi_connecting">%1$s подключение...</string>
     <string name="wifi_forget_network">игнорировать эту сеть</string>
-    <string name="net_wireless_network_title">беспроводная сеть</string>
-    <string name="net_wireless_network_switch">беспроводная сеть</string>
+    <string name="net_wireless_network_title">Беспроводная сеть</string>
+    <string name="net_wireless_network_switch">Беспроводная сеть</string>
     <string name="net_wired_network_title">проводная сеть</string>
     <string name="net_wired_network_content">проводная сеть</string>
     <string name="net_wireless_network_available">Доступные сети</string>
@@ -147,7 +147,7 @@
     <string name="projection_method_neg_neg">Потолочный монтаж, обратная проекция</string>
     <!--Internet-->
     <string name="net_index_title_text">Настройки сети</string>
-    <string name="net_index_wifi_tv">беспроводная сеть</string>
+    <string name="net_index_wifi_tv">Беспроводная сеть</string>
     <string name="net_index_available_tv">Доступные сети</string>
     <string name="net_connect_dialog_ok_button">OK</string>
     <string name="net_connectbypreference_dialog_ok_button">соединять</string>
@@ -192,7 +192,7 @@
     <string name="bluetooth_dialog_pair">соединять</string>
     <!--Universal-->
     <string name="universal_index_title_tv">Универсальный</string>
-    <string name="universal_index_input_tv">Вход</string>
+    <string name="universal_index_input_tv">Ввод</string>
     <string name="universal_index_language_tv">язык</string>
     <string name="universal_index_deviceName_tv">Имя устройства</string>
     <string name="universal_index_Screensaver_tv">Заставка</string>
@@ -250,4 +250,6 @@
     <string name="projector_auto_tip">Сначала вам нужно включить автофокус.</string>
     <string name="projector_auto_projector_tip">Сначала вам нужно включить автоматическую проекцию.</string>
     <string name="projector_auto_projector_off_tip">Сначала вам нужно отключить автоматическую проекцию.</string>
+
+    <string name="progress_level">Масштаб:</string>
 </resources>

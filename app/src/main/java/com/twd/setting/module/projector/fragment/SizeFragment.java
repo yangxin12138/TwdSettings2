@@ -48,7 +48,7 @@ public class SizeFragment extends BaseBindingVmFragment<FragmentSizeBinding, Key
                 Log.d(TAG,"onProgressChanged:"+i+",flag:"+b);
                 if(b) {
                     viewModel.setZoom(i);
-                    binding.textLevel.setText("Level: " + i);
+                    binding.textLevel.setText(getString(R.string.progress_level) + i);
                 }
             }
 
