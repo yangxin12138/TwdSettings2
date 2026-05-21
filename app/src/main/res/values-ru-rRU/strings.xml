@@ -193,7 +193,7 @@
     <!--Universal-->
     <string name="universal_index_title_tv">Универсальный</string>
     <string name="universal_index_input_tv">Ввод</string>
-    <string name="universal_index_language_tv">язык</string>
+    <string name="universal_index_language_tv">Язык</string>
     <string name="universal_index_deviceName_tv">Имя устройства</string>
     <string name="universal_index_Screensaver_tv">Заставка</string>
     <string name="universal_index_access_tv">Разрешения</string>
