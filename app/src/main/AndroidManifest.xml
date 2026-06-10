@@ -82,7 +82,12 @@
         <activity
             android:name="com.twd.setting.module.network.NetworkActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.settings.NETWORK_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.twd.setting.module.network.wifi.WifiConnectionActivity"
             android:exported="true"
