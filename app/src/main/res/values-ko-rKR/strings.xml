@@ -243,4 +243,5 @@
     <string name="projector_auto_tip">먼저 자동 초점을 켜야 합니다.</string>
     <string name="projector_auto_projector_tip">먼저 자동 투사를 켜야 합니다.</string>
     <string name="projector_auto_projector_off_tip">먼저 자동 투사 기능을 꺼야 합니다.</string>
+    <string name="device_index_screen_tv">화면 보호기</string>
 </resources>

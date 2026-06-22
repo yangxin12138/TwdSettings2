@@ -27,6 +27,7 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
     private LinearLayout LL_storage;
     private LinearLayout LL_factory;
     private LinearLayout LL_update;
+    private LinearLayout LL_Screen;
     private TextView tv_info;
     private TextView tv_storage;
     private TextView tv_factory;
@@ -68,6 +69,7 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         LL_storage = findViewById(R.id.devices_LL_storage);
         LL_factory = findViewById(R.id.devices_LL_factory);
         LL_update = findViewById(R.id.devices_LL_update);
+        LL_Screen = findViewById(R.id.devices_LL_screen);
         tv_info = findViewById(R.id.devices_tv_Info);
         tv_storage = findViewById(R.id.devices_tv_storage);
         tv_factory = findViewById(R.id.devices_tv_factory);
@@ -81,6 +83,7 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         LL_storage.setOnClickListener(this::onClick);
         LL_factory.setOnClickListener(this::onClick);
         LL_update.setOnClickListener(this::onClick);
+        LL_Screen.setOnClickListener(this::onClick);
 
         LL_info.requestFocus();
     }
@@ -98,6 +101,8 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
             intent = new Intent();
             intent.setComponent(new ComponentName("com.yunos.osupdate","com.yunos.osupdate.front.UpdateActivity"));
             startActivity(intent);
+        } else if (view.getId() == R.id.devices_LL_screen) {
+            showScreenTimeoutDialog();
         } else {
             showDialog();
         }
@@ -150,4 +155,67 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    private void showScreenTimeoutDialog() {
+        Dialog screenDialog = new Dialog(this, R.style.DialogStyle);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.screen_timeout_dialog, null);
+        screenDialog.setContentView(dialogView);
+
+        // 获取三个条目与勾选图标
+        LinearLayout item5 = dialogView.findViewById(R.id.item_5min);
+        LinearLayout item15 = dialogView.findViewById(R.id.item_15min);
+        LinearLayout itemOff = dialogView.findViewById(R.id.item_off);
+
+        ImageView iv5 = dialogView.findViewById(R.id.iv_check_5min);
+        ImageView iv15 = dialogView.findViewById(R.id.iv_check_15min);
+        ImageView ivOff = dialogView.findViewById(R.id.iv_check_off);
+
+        // 先全部隐藏勾选
+        iv5.setVisibility(View.INVISIBLE);
+        iv15.setVisibility(View.INVISIBLE);
+        ivOff.setVisibility(View.INVISIBLE);
+
+        // 读取系统当前屏幕超时值 单位：毫秒
+        int currentTimeout;
+        try {
+            currentTimeout = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT);
+        } catch (Settings.SettingNotFoundException e) {
+            currentTimeout = 0;
+        }
+
+        // 根据当前值显示对应勾选图标
+        if (currentTimeout == 5 * 60 * 1000) {
+            iv5.setVisibility(View.VISIBLE);
+        } else if (currentTimeout == 15 * 60 * 1000) {
+            iv15.setVisibility(View.VISIBLE);
+        } else if (currentTimeout == Integer.MAX_VALUE || currentTimeout == 0) {
+            // 永不息屏/关闭
+            ivOff.setVisibility(View.VISIBLE);
+        }
+
+        // 5分钟点击
+        item5.setOnClickListener(v -> {
+            setScreenTimeout(5 * 60 * 1000);
+            screenDialog.dismiss();
+        });
+        //15分钟点击
+        item15.setOnClickListener(v -> {
+            setScreenTimeout(15 * 60 * 1000);
+            screenDialog.dismiss();
+        });
+        //关闭息屏（永不休眠）
+        itemOff.setOnClickListener(v -> {
+            setScreenTimeout(Integer.MAX_VALUE);
+            screenDialog.dismiss();
+        });
+
+        screenDialog.show();
+    }
+
+    private void setScreenTimeout(int ms) {
+        try {
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, ms);
+        } catch (Exception e) {
+            Log.e(TAG, "set screen timeout failed", e);
+        }
+    }
 }

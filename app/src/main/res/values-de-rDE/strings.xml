@@ -241,4 +241,5 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="projector_auto_tip">Sie müssen zuerst den Autofokus einschalten</string>
     <string name="projector_auto_projector_tip">Sie müssen zuerst die automatische Projektion aktivieren</string>
     <string name="projector_auto_projector_off_tip">Sie müssen zuerst die automatische Projektion ausschalten</string>
+    <string name="device_index_screen_tv">Bildschirmschoner</string>
 </resources>

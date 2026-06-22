@@ -242,4 +242,5 @@
     <string name="projector_auto_tip">يجب عليك تشغيل التركيز التلقائي أولاً</string>
     <string name="projector_auto_projector_tip">يجب عليك تشغيل العرض التلقائي أولاً</string>
     <string name="projector_auto_projector_off_tip">يجب عليك إيقاف تشغيل العرض التلقائي أولاً</string>
+    <string name="device_index_screen_tv">شاشة التوقف</string>
 </resources>

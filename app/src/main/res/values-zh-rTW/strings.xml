@@ -243,4 +243,5 @@
     <string name="projector_auto_tip">需要先開啟自動對焦</string>
     <string name="projector_auto_projector_tip">您需要先開啟自動投影</string>
     <string name="projector_auto_projector_off_tip">您需要先關閉自動投影</string>
+    <string name="device_index_screen_tv">螢幕保護</string>
 </resources>

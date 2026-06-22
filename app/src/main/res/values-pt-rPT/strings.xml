@@ -243,4 +243,5 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="projector_auto_tip">Precisa de ativar o foco automático primeiro</string>
     <string name="projector_auto_projector_tip">Precisa de ativar a projeção automática primeiro</string>
     <string name="projector_auto_projector_off_tip">Precisa de desligar a projeção automática primeiro</string>
+    <string name="device_index_screen_tv">Protetor de ecrã</string>
 </resources>

@@ -244,4 +244,5 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="projector_auto_tip">Primero debes activar el enfoque automático</string>
     <string name="projector_auto_projector_tip">Primero debes activar la proyección automática</string>
     <string name="projector_auto_projector_off_tip">Primero debes desactivar la proyección automática</string>
+    <string name="device_index_screen_tv">Protector de pantalla</string>
 </resources>

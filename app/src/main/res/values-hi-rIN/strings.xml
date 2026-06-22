@@ -244,4 +244,5 @@
     <string name="projector_auto_tip">आपको सबसे पहले ऑटो फोकस चालू करना होगा</string>
     <string name="projector_auto_projector_tip">आपको पहले स्वचालित प्रक्षेपण चालू करना होगा</string>
     <string name="projector_auto_projector_off_tip">आपको पहले ऑटो प्रोजेक्शन बंद करना होगा</string>
+    <string name="device_index_screen_tv">स्क्रीन सेवर</string>
 </resources>
