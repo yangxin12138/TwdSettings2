@@ -64,8 +64,9 @@ public class ConnectivityListener
 
         mNetworkReceiver = new BroadcastReceiver() {
             public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent) {
+                String action = paramAnonymousIntent.getAction();
                 Log.d("ConnectivityListener", "mNetworkReceiver receives broadcast"+paramAnonymousIntent);
-                if (("android.net.wifi.WIFI_STATE_CHANGED".equals(paramAnonymousIntent.getAction()))|| ("android.net.wifi.STATE_CHANGED".equals(paramAnonymousIntent.getAction()))) {
+                if (("android.net.wifi.WIFI_STATE_CHANGED".equals(action))|| ("android.net.wifi.STATE_CHANGED".equals(paramAnonymousIntent.getAction()))) {
                     int i = paramAnonymousIntent.getIntExtra("wifi_state", 4);
                     Log.d("ConnectivityListener", "mNetworkReceiver receives broadcast  wifi_state:"+i);
                     if(i==0){
@@ -79,8 +80,10 @@ public class ConnectivityListener
                     }else {
                         Log.d("ConnectivityListener", "其他状态");
                     }
-                }else if("android.net.conn.CONNECTIVITY_CHANGE".equals(paramAnonymousIntent.getAction())){
+                }else if("android.net.conn.CONNECTIVITY_CHANGE".equals(action)){
                     Log.d("ConnectivityListener", "android.net.conn.CONNECTIVITY_CHANGE");
+                } else if (WifiManager.SCAN_RESULTS_AVAILABLE_ACTION.equals(action)) {
+                    Log.d("ConnectivityListener", "mNetworkReceiver 收到扫描完成广播");
                 }
                 ConnectivityListener.this.updateConnectivityStatus();
                 if (mListener != null) {
@@ -262,6 +265,7 @@ public class ConnectivityListener
             intentFilter.addAction("android.net.wifi.RSSI_CHANGED");
             intentFilter.addAction("android.net.wifi.WIFI_STATE_CHANGED");
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
             mContext.registerReceiver(mNetworkReceiver, intentFilter);
         }
     }

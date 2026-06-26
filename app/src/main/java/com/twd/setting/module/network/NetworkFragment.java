@@ -75,12 +75,12 @@ public class NetworkFragment
     private WifiManager wifiManager;
     private List<WifiAccessPoint> wifiAccessPoints;
     private WifiListRvAdapter adapter;
-    private long mNoWifiUpdateBeforeMillis;
     private final Handler mHandler = new Handler();
 
     private SharedPreferences lastWifiInfoPreference;
     private SharedPreferences wifiInfoPreference;
 	private AlertDialog loadingDialog;
+    private long mNoWifiUpdateBeforeMillis = 0;
 
     private final Runnable mInitialUpdateWifiListRunnable = new Runnable() {
         @Override
@@ -125,8 +125,7 @@ public class NetworkFragment
             mNoWifiUpdateBeforeMillis = 0L;
             return;
         }
-        wifiAccessPoints.clear();
-        adapter.clearAll();
+
         long l = SystemClock.elapsedRealtime();
         Log.d(TAG, "updateWifiList  2222  l:"+l+", mNoWifiUpdateBeforeMillis:"+mNoWifiUpdateBeforeMillis);
         if (mNoWifiUpdateBeforeMillis > l) {
@@ -135,33 +134,21 @@ public class NetworkFragment
             return;
         }
         Log.d(TAG, "updateWifiList  3333");
-        int j = wifiAccessPoints.size();
-        HashSet localHashSet = new HashSet(j);
-        int i = 0;
-        while (i < j) {
-            localHashSet.add((WifiAccessPoint) wifiAccessPoints.get(i));
-            i += 1;
-        }
+
         List<WifiAccessPoint> wifiAccessPoint_list = mConnectivityListener.getAvailableNetworks();
         wifiAccessPoints.clear();
-        Iterator iterator = wifiAccessPoint_list.iterator();
-        while (iterator.hasNext()) {
-            WifiAccessPoint wifiAccessPoint = (WifiAccessPoint) iterator.next();
+        adapter.clearAll();
+
+        for (WifiAccessPoint wifiAccessPoint : wifiAccessPoint_list) {
             wifiAccessPoint.setListener(this);
-            if(wifiAccessPoint.getTag() == null){
+            if (wifiAccessPoint.getTag() == null) {
                 wifiAccessPoint.setTag(wifiAccessPoint);
-            }else{
-                localHashSet.remove((WifiAccessPoint)wifiAccessPoint.getTag());
             }
-        //    Log.d(TAG,"list:"+wifiAccessPoint.getSsid()+",state:"+((wifiAccessPoint.getNetworkInfo()==null)?"null": wifiAccessPoint.getNetworkInfo().getState()));
             wifiAccessPoints.add(wifiAccessPoint);
         }
-        Iterator iterator_hashset = localHashSet.iterator();
-        while (iterator_hashset.hasNext()) {
-            wifiAccessPoints.remove(iterator_hashset.next());
-        }
 
-        if ((wifiAccessPoints != null) && (wifiAccessPoints.size() != 0)) {
+        // 有数据才刷新Adapter
+        if (!wifiAccessPoints.isEmpty()) {
             adapter.notifyWifiAccessPoints();
         }
     }
@@ -252,7 +239,11 @@ public class NetworkFragment
                     editor.putString(ssid,passWord);
                     editor.apply();
                 }else {//开启
-                    wifiManager.setWifiEnabled(true);
+                    if (!wifiManager.isWifiEnabled()) {
+                        wifiManager.setWifiEnabled(true);
+                        // 开启WiFi后主动扫描
+                        wifiManager.startScan();
+                    }
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -263,7 +254,11 @@ public class NetworkFragment
                             if (!keys.isEmpty()){
                                 String lastedSsid = keys.iterator().next();
                                 String lastedPassword = lastWifiInfoPreference.getString(lastedSsid,"");
-                                connectToWifi(lastedSsid,lastedPassword);
+                                if (!TextUtils.isEmpty(lastedSsid)) {
+                                    connectToWifi(lastedSsid,lastedPassword);
+                                } else {
+                                    Log.d(TAG, "自动连接：保存的SSID为空，跳过连接");
+                                }
                             }
                         }
                     },4000);
@@ -280,13 +275,20 @@ public class NetworkFragment
 
     private String getCurrentWifiSsid(WifiManager wifiManager){
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-        String ssid;
-        if (wifiInfo != null && wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
-            ssid = wifiInfo.getSSID().replace("\"","");
-        }else {
-            ssid = "";
+        if (wifiInfo == null) {
+            return "";
         }
-        return ssid;
+        // 真正连接完成才读取SSID
+        if (wifiInfo.getSupplicantState() == SupplicantState.COMPLETED){
+            String rawSsid = wifiInfo.getSSID().replace("\"","");
+            // 过滤系统默认未知ssid
+            if ("<unknown ssid>".equals(rawSsid)) {
+                return "";
+            }
+            return rawSsid;
+        }else {
+            return "";
+        }
     }
 
     private final BroadcastReceiver wifiReceiver = new BroadcastReceiver() {
@@ -357,6 +359,10 @@ public class NetworkFragment
     }
 
     private void connectToWifi(String ssid,String password){
+        if (TextUtils.isEmpty(ssid)) {
+            Log.d(TAG, "connectToWifi: ssid为空，终止连接");
+            return;
+        }
         WifiConfiguration wifiConfiguration = new WifiConfiguration();
         wifiConfiguration.SSID = "\"" + ssid + "\"";
         wifiConfiguration.preSharedKey = "\"" + password + "\"";
@@ -386,12 +392,13 @@ public class NetworkFragment
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (getCurrentWifiSsid(wifiManager).equals(ssid)){
-                    Log.d(TAG, "run: 连接成功4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                String realConnectedSsid = getCurrentWifiSsid(wifiManager);
+                if (!TextUtils.isEmpty(realConnectedSsid) && realConnectedSsid.equals(ssid)){
+                    Log.d(TAG, "run: 连接成功4秒 getCurrentWifiSsid(wifiManager) = " + realConnectedSsid + ",ssid = " + ssid);
                     showToast(getContext().getResources().getString(R.string.wifi_setup_connection_success));
                 }else {
                     showToast(getContext().getResources().getString(R.string.bluetooth_index_connect_failed));
-                    Log.d(TAG, "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + getCurrentWifiSsid(wifiManager)+ ",ssid = " + ssid);
+                    Log.d(TAG, "run: 连接失败4秒 getCurrentWifiSsid(wifiManager) = " + realConnectedSsid + ",ssid = " + ssid);
                 }
                 SharedPreferences.Editor editor = wifiInfoPreference.edit();
                 editor.putString(ssid,password);
