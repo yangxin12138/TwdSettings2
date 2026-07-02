@@ -79,14 +79,14 @@ public class SystemPropertiesUtils {
         LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(ACTION_DEVICE_NAME_UPDATE));
     }
 
-    public static String readSystemProp(){
+    public static String readSystemProp(String sysProp){
         String line = "";
         try {
             File file = new File("/system/etc/settings.ini");
             FileInputStream fis = new FileInputStream(file);
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
             while ((line = reader.readLine()) != null) {
-                if (line.contains("STORAGE_SIMPLE_SYSDATA")) {
+                if (line.contains(sysProp)) {
                     // 这里可以进一步解析line来获取STORAGE_SIMPLE_SYSDATA的值
                     String value = line.split("=")[1]; // 获取等号后面的值
                     reader.close();

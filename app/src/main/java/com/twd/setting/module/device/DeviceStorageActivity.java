@@ -108,97 +108,11 @@ public class DeviceStorageActivity extends AppCompatActivity {
         legend_app = findViewById(R.id.storage_color_app);
         legend_other = findViewById(R.id.storage_color_other);
 
-        double total_Long = 0;
-        double available_Long = 0;
-        double system_Long = 0;
-        double app_Long = 0;
-        double other_Long = 0;
-
         //总容量
-        String totalRom = getTotalRom();
-        //可用容量
-        String availableRom = getAvailableStorage();
-        Log.i(TAG, "initView: totalRom = "+totalRom+",availableRom = "+availableRom);
-//        String total = totalRom.substring(0, totalRom.indexOf("GB")).trim();
-//        Log.i(TAG, "initView: total = " + total);
-//        total_Long= InternationalReplace(total);
+        String totalRom = SystemPropertiesUtils.readSystemProp("STORAGE_SIMPLE_SYSDATA");
+        Log.i(TAG, "initView: totalRom = "+totalRom);
+        storage_total.setText(totalRom);
 
-        //可用容量
-       /* String availableRom = getAvailableStorage().replace(",",".");
-        String available = availableRom.substring(0,availableRom.indexOf("GB")).trim();
-        Log.i(TAG, "initView: availableFormat = " + available);
-        String formattedAvailable = formatNumberWithCommas(available);
-        Log.i(TAG, "initView: formattedAvailable = " + formattedAvailable);
-        if (Locale.getDefault().getLanguage().equals("ar") || Locale.getDefault().getLanguage().equals("fa")){
-            available_Long = InternationalReplace(formattedAvailable);
-        }else {
-            available_Long = InternationalReplace(available);
-        }
-
-        //系统占用
-        String systemRom = getSystemFileSize().replace(",",".");
-        String system = systemRom.substring(0,systemRom.indexOf("GB")).trim();
-        Log.i(TAG, "initView: system = " + system);
-        String formattedSystem = formatNumberWithCommas(system);
-        Log.i(TAG, "initView: formattedSystem = " + formattedSystem);
-        if (Locale.getDefault().getLanguage().equals("ar") || Locale.getDefault().getLanguage().equals("fa")){
-            system_Long = InternationalReplace(formattedSystem);
-        }else {
-            system_Long = InternationalReplace(system);
-        }
-
-        //应用数据
-        String appRom = getTotalStorageUsedByApps().replace(",",".");
-        String app = appRom.substring(0,appRom.indexOf("GB"));
-        Log.i(TAG, "initView: app = " + app);
-        String formattedApp = formatNumberWithCommas(app);
-        Log.i(TAG, "initView: formattedApp = " + formattedApp);
-        if (Locale.getDefault().getLanguage().equals("ar") || Locale.getDefault().getLanguage().equals("fa")){
-            app_Long = InternationalReplace(formattedApp);
-        }else {
-            app_Long = InternationalReplace(app);
-        }
-
-        //其他占用
-        double otherRom = total_Long - (available_Long + system_Long + app_Long);
-        Log.i(TAG, "initView:  total = " + total_Long +", available = " + available_Long + ", system =" + system_Long +", app = " + app_Long);
-        String formattedOther = "";*/
-         /*if (Locale.getDefault().getLanguage().equals("tr")){
-            DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.getDefault());
-            decimalFormatSymbols.setDecimalSeparator(',');
-            decimalFormatSymbols.setGroupingSeparator('.');
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00",decimalFormatSymbols);
-            formattedOther = decimalFormat.format(otherRom).replace(",",".");
-        }else {
-            formattedOther = String.format("%.2f", otherRom).replace(",",".");
-        }*/
-       /* formattedOther = String.format("%.2f",otherRom).replace(",",".");
-        Log.i(TAG, "initView: other = " + formattedOther);
-        String finnalOther = formatNumberWithCommas(formattedOther);
-        if (Locale.getDefault().getLanguage().equals("ar") || Locale.getDefault().getLanguage().equals("fa")){
-            other_Long = InternationalReplace(finnalOther);
-        }else {
-            other_Long = InternationalReplace(formattedOther);
-        }*/
-
-        if (Locale.getDefault().getLanguage().equals("ar") || Locale.getDefault().getLanguage().equals("fa")){
-           storage_total.setText(totalRom + ":" + getString(R.string.device_storage_total));
-           storage_available.setText(availableRom+":"+getString(R.string.device_storage_available));
-           /*storage_available.setText(availableRom + " : " + getString(R.string.device_storage_available));
-           storage_system.setText(systemRom + " : " + getString(R.string.device_storage_system));
-           storage_app.setText(appRom + " : " + getString(R.string.device_storage_app));
-           storage_other.setText(formattedOther + "GB" + ":" + getString(R.string.device_storage_other));*/
-        }else {
-            Log.i(TAG, "initView: storage_total = " + storage_total.getText());
-            storage_total.setText(getString(R.string.device_storage_total) + ":" + totalRom);
-            storage_available.setText(getString(R.string.device_storage_available)+":"+availableRom);
-            /*storage_available.setText(getString(R.string.device_storage_available) + ":" + availableRom);
-            storage_system.setText(getString(R.string.device_storage_system) + ":" + systemRom);
-            storage_app.setText(getString(R.string.device_storage_app) + ":" + appRom);
-            storage_other.setText(getString(R.string.device_storage_other)+ ":"+ formattedOther + "GB");*/
-        }
-
-        //Draw_Charts(total_Long,available_Long,system_Long,app_Long,other_Long);
     }
 
     //RAM内存大小, 返回1GB/2GB/3GB/4GB/8G/16G
