@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Efter öppning kan den användas som en Bluetooth-fjärrkontroll och sökenhet</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth-enhet: %s-parkoppling misslyckades</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth-enhet: %s anslutning misslyckades</string>
-    <string name="str_cancel">avboka</string>
+    <string name="str_cancel">Avboka</string>
     <string name="str_common">Gemensam</string>
     <string name="str_timeanddate">Tid och datum</string>
     <string name="str_common_equipment">Gemensam utrustning</string>
     <string name="str_common_settings">Vanliga inställningar</string>
-    <string name="str_complete">komplett</string>
-    <string name="str_confirm">bekräfta</string>
+    <string name="str_complete">Komplett</string>
+    <string name="str_confirm">Bekräfta</string>
     <string name="str_device_info_android_version">Android-version</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC-adress (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC-adress (kabelansluten)</string>
@@ -110,7 +110,7 @@
     <string name="net_wireless_network_available">Tillgängliga nätverk</string>
     <string name="net_other_functions">Andra funktioner</string>
     <string name="net_speed_measurement">Mätning av nätverkshastighet</string>
-    <string name="wifi_state_connected">ansluten</string>
+    <string name="wifi_state_connected">Ansluten</string>
     <string name="wifi_state_saved">sparad</string>
     <string name="wifi_state_scan">Skannar WIFI ...</string>
     <string name="wifi_enter_passwd_show">Visa lösenord</string>
@@ -247,5 +247,5 @@
     <string name="dialog_msg_disconnect_forget">Koppla från?</string>
     <string name="dialog_btn_confirm">Bekräfta</string>
     <string name="dialog_btn_cancel">Avboka</string>
-    <string name="wifi_state_connected_no_network">ansluten, inget internet</string>
+    <string name="wifi_state_connected_no_network">Ansluten, inget internet</string>
 </resources>

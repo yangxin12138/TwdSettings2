@@ -6,7 +6,7 @@
     <string name="fragment_title_network">rede</string>
     <string name="fragment_title_wifi_list">Redes disponíveis</string>
     <string name="selected_ssid_add_new_network">outro</string>
-    <string name="settings">configurar</string>
+    <string name="settings">Configurações</string>
     <string name="str_bluetooth">Bluetooth</string>
     <string name="str_bluetooth_add_handset_device">Adicionar controle remoto Bluetooth</string>
     <string name="str_bluetooth_bonded">Emparelhado</string>
@@ -55,12 +55,12 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="str_device_info_series">Series</string>
     <string name="str_device_info_software_no">Número do software</string>
     <string name="str_device_info_wifi_mac_addr">MAC Endereço (sem fio)</string>
-    <string name="str_device_information">informações locais</string>
+    <string name="str_device_information">Informações locais</string>
     <string name="str_devices_found">Dispositivos encontrados</string>
     <string name="str_error_tip">Operação falhou！</string>
     <string name="str_ime">Entrada</string>
 
-    <string name="str_network">rede</string>
+    <string name="str_network">Rede</string>
     <string name="str_offline_update">Atualização off-line</string>
     <string name="str_offline_update_tip">Foi detectado que há um pacote de atualização do sistema na unidade flash USB. Deseja atualizá-lo?？</string>
     <string name="str_online_update">Atualização on-line</string>
@@ -85,7 +85,7 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="str_storage_music_prefix">música：%s</string>
     <string name="str_storage_other_used_prefix">outro：%s</string>
     <string name="str_storage_pic_prefix">foto：%s</string>
-    <string name="str_storage_size">capacidade：%s</string>
+    <string name="str_storage_size">Capacidade：%s</string>
     <string name="str_storage_sys_used_prefix">sistema：%s</string>
     <string name="str_storage_system">Armazenamento integrado</string>
     <string name="str_storage_vedio_prefix">vídeo：%s</string>
@@ -208,7 +208,7 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="inputMethod_value_Aosp">Android teclado</string>
     <!--Device-->
     <string name="device_index_title_tv">Informação de dispositivo</string>
-    <string name="device_index_info_tv">informações locais</string>
+    <string name="device_index_info_tv">Informações locais</string>
     <string name="device_index_storage_tv">Dispositivo de armazenamento</string>
     <string name="device_index_factory_tv">Restaurar fábrica</string>
     <string name="device_index_update_tv">Atualização do sistema</string>
@@ -220,8 +220,8 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="device_info_mac_bluetooth">MAC Endereço (Bluetooth)</string>
     <string name="device_storage_title">Detalhes de armazenamento</string>
     <string name="device_storage_internal">Armazenamento integrado</string>
-    <string name="device_storage_total">capacidade total</string>
-    <string name="device_storage_available">capacidade disponível</string>
+    <string name="device_storage_total">Capacidade total</string>
+    <string name="device_storage_available">Capacidade disponível</string>
     <string name="device_storage_system">Ocupação do sistema</string>
     <string name="device_storage_app">dados de aplicativos</string>
     <string name="device_storage_other">Outros dados</string>

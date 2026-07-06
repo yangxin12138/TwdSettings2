@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Avaamisen jälkeen sitä voidaan käyttää Bluetooth-kaukosäätimenä ja hakulaitteena</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth-laite: %s pariliitos epäonnistui</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth-laite: %s yhteys epäonnistui</string>
-    <string name="str_cancel">peruuttaa</string>
+    <string name="str_cancel">Peruuttaa</string>
     <string name="str_common">Yleinen</string>
     <string name="str_timeanddate">Aika ja päivämäärä</string>
     <string name="str_common_equipment">Yhteiset laitteet</string>
     <string name="str_common_settings">Yleiset asetukset</string>
-    <string name="str_complete">täydellinen</string>
-    <string name="str_confirm">vahvistaa</string>
+    <string name="str_complete">Täydellinen</string>
+    <string name="str_confirm">Vahvistaa</string>
     <string name="str_device_info_android_version">Android-versio</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC-osoite (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC-osoite (langallinen)</string>

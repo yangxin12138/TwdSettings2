@@ -47,7 +47,7 @@
     <string name="str_timeanddate">Wakati &amp; tarehe</string>
     <string name="str_common_equipment">Vifaa vya kawaida</string>
     <string name="str_common_settings">Mipangilio ya kawaida</string>
-    <string name="str_complete">kamili</string>
+    <string name="str_complete">Kamili</string>
     <string name="str_confirm">Thibitisha</string>
     <string name="str_device_info_android_version">Toleo la Android</string>
     <string name="str_device_info_bluetooth_mac_addr">Anwani ya MAC (Bluetooth)</string>
@@ -247,5 +247,5 @@
     <string name="dialog_msg_disconnect_forget">Kukata muunganisho?</string>
     <string name="dialog_btn_confirm">Thibitisha</string>
     <string name="dialog_btn_cancel">Ghairi</string>
-    <string name="wifi_state_connected_no_network">imeunganishwa, Hakuna Intaneti</string>
+    <string name="wifi_state_connected_no_network">Imeunganishwa, Hakuna Intaneti</string>
 </resources>

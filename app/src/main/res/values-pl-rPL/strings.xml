@@ -3,10 +3,10 @@
     <string name="fragment_add_network">inne</string>
     <string name="fragment_title_ethernet_configs">Sieć przewodowa</string>
     <string name="fragment_title_net_speed_test">Pomiar prędkości sieci</string>
-    <string name="fragment_title_network">sieć</string>
+    <string name="fragment_title_network">Sieć</string>
     <string name="fragment_title_wifi_list">Dostępna sieć</string>
     <string name="selected_ssid_add_new_network">inne</string>
-    <string name="settings">ustawić</string>
+    <string name="settings">Ustawić</string>
     <string name="str_bluetooth">Bluetooth</string>
     <string name="str_bluetooth_add_handset_device">Dodaj pilota Bluetooth</string>
     <string name="str_bluetooth_bonded">sparowane</string>
@@ -37,13 +37,13 @@
     <string name="str_bluetooth_switch_desc">Po aktywacji może być używany do pilota Bluetooth i wyszukiwania urządzeń</string>
     <string name="str_bluetooth_toast_bond_failed">Urządzenie Bluetooth：%s Parowanie nie powiodło się</string>
     <string name="str_bluetooth_toast_connect_failed">Urządzenie Bluetooth：%s Awaria online</string>
-    <string name="str_cancel">anuluj</string>
+    <string name="str_cancel">Anuluj</string>
     <string name="str_common">Wspólny</string>
     <string name="str_timeanddate">Czas i data</string>
     <string name="str_common_equipment">Wspólne wyposażenie</string>
     <string name="str_common_settings">Ustawienia ogólne</string>
-    <string name="str_complete">kompletny</string>
-    <string name="str_confirm">określić</string>
+    <string name="str_complete">Kompletny</string>
+    <string name="str_confirm">Określić</string>
     <string name="str_device_info_android_version">Android edycja</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC Adres (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC Adres (przewodowy)</string>
@@ -58,7 +58,7 @@
     <string name="str_error_tip">operacja nie powiodła się！</string>
     <string name="str_ime">pismo pisemne</string>
 
-    <string name="str_network">sieć</string>
+    <string name="str_network">Sieć</string>
     <string name="str_offline_update">Aktualizacja offline</string>
     <string name="str_offline_update_tip">Wykryty pakiet aktualizacji systemu na dysku USB, chcesz uaktualnić?</string>
     <string name="str_online_update">Aktualizacja online</string>
@@ -127,7 +127,7 @@
     <string name="add_wifi_connect">połącz</string>
     <string name="add_wifi_error_passwd">Błąd hasła, proszę ponownie wprowadzić</string>
     <!--Index-->
-    <string name="main_index_title_text">ustawić</string>
+    <string name="main_index_title_text">Ustawić</string>
     <string name="main_projection_text">Ustawienia projekcji</string>
     <string name="main_wifi_text">Ustawienia sieci</string>
     <string name="main_bluetooth_text">Bluetooth</string>
@@ -191,12 +191,12 @@
     <string name="bluetooth_dialog_pair">para</string>
     <!--Universal-->
     <string name="universal_index_title_tv">Uniwersalny</string>
-    <string name="universal_index_input_tv">prawo importowe</string>
-    <string name="universal_index_language_tv">język</string>
+    <string name="universal_index_input_tv">Prawo importowe</string>
+    <string name="universal_index_language_tv">Język</string>
     <string name="universal_index_deviceName_tv">Nazwa urządzenia</string>
     <string name="universal_index_Screensaver_tv">wygaszacz ekranu</string>
     <string name="universal_index_access_tv">Zarządzanie uprawnieniami</string>
-    <string name="title_language">język</string>
+    <string name="title_language">Język</string>
     <string name="dialog_changeLanguage_title">wskazówka</string>
     <string name="dialog_changeLanguage_message">Zmiana ustawień języka wymaga ponownego uruchomienia urządzenia. Czy chcesz to zmienić?</string>
     <string name="dialog_changeLanguage_btConfirm">potwierdzenie</string>
@@ -213,12 +213,12 @@
     <string name="factory_dialog_title">Przywrócenie ustawień fabrycznych spowoduje usunięcie wszystkich danych i ponowne uruchomienie..</string>
     <string name="device_info_deviceNo">Numer urządzenia</string>
     <string name="device_info_androidVersion">Wersja na Androida</string>
-    <string name="device_info_softwareVersion">numer oprogramowania</string>
+    <string name="device_info_softwareVersion">Numer oprogramowania</string>
     <string name="device_info_mac_wifi">MACAdres (bezprzewodowy)</string>
     <string name="device_info_mac_bluetooth">MACAdres (Bluetooth)</string>
     <string name="device_storage_title">Zapisz szczegóły</string>
     <string name="device_storage_internal">Wbudowana pamięć</string>
-    <string name="device_storage_total">całkowita pojemność</string>
+    <string name="device_storage_total">Całkowita pojemność</string>
     <string name="device_storage_available">dostępna pojemność</string>
     <string name="device_storage_system">Obłożenie systemu</string>
     <string name="device_storage_app">dane aplikacji</string>
@@ -239,7 +239,7 @@
     <string name="projector_boot_auto_focus_title">Boot Auto Focus</string>
     <string name="projector_auto_obs_title">Auto unikanie przeszkód</string>
     <string name="projector_auto_fit_screen_title">Auto wprowadź ekran</string>
-    <string name="projector_auto_title">trapez pionowy</string>
+    <string name="projector_auto_title">Trapez pionowy</string>
     <string name="wifi_no_passwd_info">Połącz się z tą siecią：</string>
     <string name="projector_auto_projection_title">Auto korekta trapezoidalna</string>
     <string name="projector_auto_focus_title">Autofokus</string>

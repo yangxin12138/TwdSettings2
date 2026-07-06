@@ -47,8 +47,8 @@
     <string name="str_timeanddate">Thời gian &amp; Ngày tháng</string>
     <string name="str_common_equipment">Thiết bị chung</string>
     <string name="str_common_settings">Cài đặt chung</string>
-    <string name="str_complete">hoàn thành</string>
-    <string name="str_confirm">xác nhận</string>
+    <string name="str_complete">Hoàn thành</string>
+    <string name="str_confirm">Xác nhận</string>
     <string name="str_device_info_android_version">Phiên bản Android</string>
     <string name="str_device_info_bluetooth_mac_addr">Địa chỉ MAC (Bluetooth)</string>
     <string name="str_device_info_mac_addr">Địa chỉ MAC (có dây)</string>

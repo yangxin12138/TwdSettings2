@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Po atidarymo jis gali būti naudojamas kaip „Bluetooth“ nuotolinio valdymo pultas ir paieškos įrenginys</string>
     <string name="str_bluetooth_toast_bond_failed">„Bluetooth“ įrenginys: %s poros nepavyko</string>
     <string name="str_bluetooth_toast_connect_failed">„Bluetooth“ įrenginys: %s prisijungti nepavyko</string>
-    <string name="str_cancel">atšaukti</string>
+    <string name="str_cancel">Atšaukti</string>
     <string name="str_common">Įprasta</string>
     <string name="str_timeanddate">Laikas &amp; data</string>
     <string name="str_common_equipment">Bendra įranga</string>
     <string name="str_common_settings">Dažni nustatymai</string>
-    <string name="str_complete">užbaigti</string>
-    <string name="str_confirm">patvirtinti</string>
+    <string name="str_complete">Užbaigti</string>
+    <string name="str_confirm">Patvirtinti</string>
     <string name="str_device_info_android_version">„Android“ versija</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC adresas („Bluetooth“)</string>
     <string name="str_device_info_mac_addr">MAC adresas (laidinis)</string>

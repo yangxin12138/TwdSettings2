@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Po otevření jej lze použít jako dálkové ovládání Bluetooth a vyhledávací zařízení</string>
     <string name="str_bluetooth_toast_bond_failed">Zařízení Bluetooth: Párování %s se nezdařilo</string>
     <string name="str_bluetooth_toast_connect_failed">Zařízení Bluetooth: %s připojení se nezdařilo</string>
-    <string name="str_cancel">zrušit</string>
+    <string name="str_cancel">Zrušit</string>
     <string name="str_common">Společný</string>
     <string name="str_timeanddate">Čas a datum</string>
     <string name="str_common_equipment">Společné vybavení</string>
     <string name="str_common_settings">Společná nastavení</string>
-    <string name="str_complete">kompletní</string>
-    <string name="str_confirm">potvrdit</string>
+    <string name="str_complete">Kompletní</string>
+    <string name="str_confirm">Potvrdit</string>
     <string name="str_device_info_android_version">Verze pro Android</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC adresa (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC adresa (kabelová)</string>

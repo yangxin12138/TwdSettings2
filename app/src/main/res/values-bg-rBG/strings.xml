@@ -110,7 +110,7 @@
     <string name="net_wireless_network_available">Налични мрежи</string>
     <string name="net_other_functions">Други функции</string>
     <string name="net_speed_measurement">Измерване на скоростта на мрежата</string>
-    <string name="wifi_state_connected">свързан</string>
+    <string name="wifi_state_connected">Cвързан</string>
     <string name="wifi_state_saved">запазен</string>
     <string name="wifi_state_scan">Сканиране на Wi-Fi...</string>
     <string name="wifi_enter_passwd_show">Покажи паролата</string>

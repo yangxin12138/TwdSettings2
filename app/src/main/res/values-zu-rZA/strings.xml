@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Ngemuva kokuvula, ingasetshenziswa njengesilawuli kude se-Bluetooth nedivayisi yokusesha</string>
     <string name="str_bluetooth_toast_bond_failed">I-Bluetooth Idivaysi:%s Paing Ihlulekile</string>
     <string name="str_bluetooth_toast_connect_failed">Idivayisi ye-Bluetooth:%s Connect yehlulekile</string>
-    <string name="str_cancel">hlikihla</string>
+    <string name="str_cancel">Hlikihla</string>
     <string name="str_common">-Jwayelekile</string>
     <string name="str_timeanddate">Isikhathi &amp; usuku</string>
     <string name="str_common_equipment">Imishini ejwayelekile</string>
     <string name="str_common_settings">Izilungiselelo ezijwayelekile</string>
-    <string name="str_complete">feza</string>
-    <string name="str_confirm">gcizelela</string>
+    <string name="str_complete">Feza</string>
+    <string name="str_confirm">Gcizelela</string>
     <string name="str_device_info_android_version">I-Android version</string>
     <string name="str_device_info_bluetooth_mac_addr">Ikheli le-MAC (i-Bluetooth)</string>
     <string name="str_device_info_mac_addr">Ikheli le-MAC (Intambo)</string>
@@ -247,5 +247,5 @@
     <string name="dialog_msg_disconnect_forget">Nqamula uxhumano?</string>
     <string name="dialog_btn_confirm">Qinisekisa</string>
     <string name="dialog_btn_cancel">Khansela</string>
-    <string name="wifi_state_connected_no_network">kuxhunyiwe, Akukho inthanethi</string>
+    <string name="wifi_state_connected_no_network">Kuxhunyiwe, Akukho inthanethi</string>
 </resources>

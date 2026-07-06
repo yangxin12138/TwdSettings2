@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Nakon otvaranja, može se koristiti kao Bluetooth daljinski upravljač i uređaj za pretraživanje</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth uređaj: %s uparivanje nije uspjelo</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth uređaj: %s Connect nije uspio</string>
-    <string name="str_cancel">otkazati</string>
+    <string name="str_cancel">Otkazati</string>
     <string name="str_common">Uobičajen</string>
     <string name="str_timeanddate">Vrijeme &amp; datum</string>
     <string name="str_common_equipment">Uobičajena oprema</string>
     <string name="str_common_settings">Uobičajene postavke</string>
-    <string name="str_complete">cjelovit</string>
-    <string name="str_confirm">potvrditi</string>
+    <string name="str_complete">Cjelovit</string>
+    <string name="str_confirm">Potvrditi</string>
     <string name="str_device_info_android_version">Android verzija</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC adresa (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC adresa (ožičena)</string>

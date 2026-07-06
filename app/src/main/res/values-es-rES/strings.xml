@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">configuración</string>
+    <string name="app_name">Configuración</string>
     <string name="fragment_add_network">otro</string>
-    <string name="fragment_title_ethernet_configs">red cableada</string>
+    <string name="fragment_title_ethernet_configs">Red cableada</string>
     <string name="fragment_title_net_speed_test">Prueba de velocidad de red</string>
-    <string name="fragment_title_network">red</string>
+    <string name="fragment_title_network">Red</string>
     <string name="fragment_title_wifi_list">Redes disponibles</string>
 
     <string name="selected_ssid_add_new_network">otro</string>
-    <string name="settings">configuración</string>
+    <string name="settings">Configuración</string>
     <string name="str_bluetooth">Bluetooth</string>
     <string name="str_bluetooth_add_handset_device">Agregar control remoto Bluetooth</string>
     <string name="str_bluetooth_bonded">emparejado</string>
@@ -56,11 +56,11 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="str_device_info_series">serie</string>
     <string name="str_device_info_software_no">Número de software</string>
     <string name="str_device_info_wifi_mac_addr">MAC Dirección (inalámbrica)</string>
-    <string name="str_device_information">información local</string>
+    <string name="str_device_information">Información local</string>
     <string name="str_devices_found">Dispositivos encontrados</string>
     <string name="str_error_tip">operación fallida！</string>
     <string name="str_ime">Aporte</string>
-    <string name="str_network">red</string>
+    <string name="str_network">Red</string>
     <string name="str_offline_update">Actualización sin conexión</string>
     <string name="str_offline_update_tip">Se detecta que hay un paquete de actualización del sistema en la unidad flash USB. ¿Desea actualizarlo?？</string>
     <string name="str_online_update">Actualización en línea</string>
@@ -79,7 +79,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="str_storage_app_used_prefix">solicitud：%s</string>
     <string name="str_storage_detail">Detalles de almacenamiento</string>
     <string name="str_storage_detail_sys_error">No se pudo obtener la información de almacenamiento del sistema</string>
-    <string name="str_storage_external">almacenamiento externo</string>
+    <string name="str_storage_external">Almacenamiento externo</string>
     <string name="str_storage_free_prefix">Disponible：%s</string>
     <string name="str_storage_freesize">Espacio disponible：%1$s/%2$s</string>
     <string name="str_storage_music_prefix">música：%s</string>
@@ -87,7 +87,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="str_storage_pic_prefix">imagen：%s</string>
     <string name="str_storage_size">capacidad：%s</string>
     <string name="str_storage_sys_used_prefix">sistema：%s</string>
-    <string name="str_storage_system">almacenamiento incorporado</string>
+    <string name="str_storage_system">Almacenamiento incorporado</string>
     <string name="str_storage_vedio_prefix">video：%s</string>
     <string name="str_system_equipment">Sistemas y equipos</string>
     <string name="str_tip_get_log_path_error">No se pudo obtener la ruta del registro</string>
@@ -109,7 +109,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="net_wireless_network_available">Redes disponibles</string>
     <string name="net_other_functions">otro</string>
     <string name="net_speed_measurement">Prueba de velocidad de red</string>
-    <string name="wifi_state_connected">conectado</string>
+    <string name="wifi_state_connected">Conectado</string>
     <string name="wifi_state_saved">Salvado</string>
     <string name="wifi_state_scan">exploración WIFI ...</string>
     <string name="wifi_enter_passwd_show">mostrar contraseña</string>
@@ -129,7 +129,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="add_wifi_connect">conectar</string>
     <string name="add_wifi_error_passwd">Contraseña incorrecta, vuelva a ingresarla</string>
     <!--Index-->
-    <string name="main_index_title_text">configuración</string>
+    <string name="main_index_title_text">Configuración</string>
     <string name="main_projection_text">Configuración de proyección</string>
     <string name="main_wifi_text">Configuración de la red</string>
     <string name="main_bluetooth_text">Bluetooth</string>
@@ -195,11 +195,11 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <!--Universal-->
     <string name="universal_index_title_tv">Universal</string>
     <string name="universal_index_input_tv">Método de entrada</string>
-    <string name="universal_index_language_tv">idioma</string>
+    <string name="universal_index_language_tv">Idioma</string>
     <string name="universal_index_deviceName_tv">Nombre del dispositivo</string>
     <string name="universal_index_Screensaver_tv">Protector de pantalla</string>
     <string name="universal_index_access_tv">Permisos</string>
-    <string name="title_language">idioma</string>
+    <string name="title_language">Idioma</string>
     <string name="dialog_changeLanguage_title">Consejos</string>
     <string name="dialog_changeLanguage_message">Cambiar la configuración de idioma requiere reiniciar la aplicación para que surta efecto. ¿Quieres cambiar?</string>
     <string name="dialog_changeLanguage_btConfirm">OK</string>
@@ -220,8 +220,8 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="device_info_mac_wifi">MAC Dirección (inalámbrica)</string>
     <string name="device_info_mac_bluetooth">MAC Dirección (Bluetooth)</string>
     <string name="device_storage_title">Detalles de almacenamiento</string>
-    <string name="device_storage_internal">almacenamiento incorporado</string>
-    <string name="device_storage_total">capacidad total</string>
+    <string name="device_storage_internal">Almacenamiento incorporado</string>
+    <string name="device_storage_total">Capacidad total</string>
     <string name="device_storage_available">capacidad disponible</string>
     <string name="device_storage_system">Ocupación del sistema</string>
     <string name="device_storage_app">Datos de la aplicación</string>
@@ -251,7 +251,7 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="dialog_msg_disconnect_forget">¿Desconectar?</string>
     <string name="dialog_btn_confirm">Confirmar</string>
     <string name="dialog_btn_cancel">Cancelar</string>
-    <string name="wifi_state_connected_no_network">conectado, sin internet</string>
+    <string name="wifi_state_connected_no_network">Conectado, sin internet</string>
 
     <string name="time_usenettime">Usar tiempo de red</string>
     <string name="time_settime">Tiempo</string>

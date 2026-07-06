@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">A kinyitás után felhasználható Bluetooth távirányító és keresési eszközként</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth eszköz: A %s párosítás sikertelen</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth eszköz ：%s nem sikerült</string>
-    <string name="str_cancel">töröl</string>
+    <string name="str_cancel">Töröl</string>
     <string name="str_common">Közös</string>
     <string name="str_timeanddate">Idő &amp; dátum</string>
     <string name="str_common_equipment">Közös berendezés</string>
     <string name="str_common_settings">Közös beállítások</string>
-    <string name="str_complete">teljes</string>
-    <string name="str_confirm">megerősít</string>
+    <string name="str_complete">Teljes</string>
+    <string name="str_confirm">Megerősít</string>
     <string name="str_device_info_android_version">Android verzió</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC cím (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC cím (vezetékes)</string>

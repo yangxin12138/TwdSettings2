@@ -37,13 +37,13 @@
     <string name="str_bluetooth_switch_desc">Setelah dibuka, dapat digunakan sebagai remote control dan perangkat pencarian Bluetooth</string>
     <string name="str_bluetooth_toast_bond_failed">Perangkat Bluetooth: Pairing %s gagal</string>
     <string name="str_bluetooth_toast_connect_failed">Perangkat Bluetooth: %s Connect gagal</string>
-    <string name="str_cancel">membatalkan</string>
+    <string name="str_cancel">Membatalkan</string>
     <string name="str_common">Umum</string>
     <string name="str_timeanddate">Waktu &amp; tanggal</string>
     <string name="str_common_equipment">Peralatan umum</string>
     <string name="str_common_settings">Pengaturan umum</string>
-    <string name="str_complete">menyelesaikan</string>
-    <string name="str_confirm">mengonfirmasi</string>
+    <string name="str_complete">Menyelesaikan</string>
+    <string name="str_confirm">Mengonfirmasi</string>
     <string name="str_device_info_android_version">Versi Android</string>
     <string name="str_device_info_bluetooth_mac_addr">Alamat MAC (Bluetooth)</string>
     <string name="str_device_info_mac_addr">Alamat MAC (WIRED)</string>

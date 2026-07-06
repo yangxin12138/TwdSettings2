@@ -42,7 +42,7 @@
     <string name="str_bluetooth_switch_desc">Після відкриття його можна використовувати як пульт дистанційного керування Bluetooth та пошуковий пристрій</string>
     <string name="str_bluetooth_toast_bond_failed">Пристрій Bluetooth: не вдалося сполучити %s</string>
     <string name="str_bluetooth_toast_connect_failed">Пристрій Bluetooth: не вдалося підключитися %s</string>
-    <string name="str_cancel">скасувати</string>
+    <string name="str_cancel">Cкасувати</string>
     <string name="str_common">Звичайний</string>
     <string name="str_timeanddate">Час і дата</string>
     <string name="str_common_equipment">Загальне обладнання</string>

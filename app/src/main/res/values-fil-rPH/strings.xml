@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Pagkatapos buksan, maaari itong magamit bilang Bluetooth remote control at search device</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth device: Nabigo ang pagpapares ng %s</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth device: Nabigo ang pagkonekta ng %s</string>
-    <string name="str_cancel">kanselahin</string>
+    <string name="str_cancel">Kanselahin</string>
     <string name="str_common">Karaniwan</string>
     <string name="str_timeanddate">Oras at Petsa</string>
     <string name="str_common_equipment">Karaniwang Kagamitan</string>
     <string name="str_common_settings">Mga Karaniwang Setting</string>
-    <string name="str_complete">kumpleto</string>
-    <string name="str_confirm">kumpirmahin</string>
+    <string name="str_complete">Kumpleto</string>
+    <string name="str_confirm">Kumpirmahin</string>
     <string name="str_device_info_android_version">bersyon ng Android</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC address (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC address (wired)</string>

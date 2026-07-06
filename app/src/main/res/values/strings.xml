@@ -180,13 +180,13 @@ Please click 'Try Again' to pair the Bluetooth remote control again."</string>
     <string name="str_bluetooth_switch_desc">After opening, it can be used as a Bluetooth remote control and search device</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth device: %s pairing failed</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth device: %s connect failed</string>
-    <string name="str_cancel">cancel</string>
+    <string name="str_cancel">Cancel</string>
     <string name="str_common">Common</string>
     <string name="str_timeanddate">Time&amp;Date</string>
     <string name="str_common_equipment">Common Equipment</string>
     <string name="str_common_settings">Common Settings</string>
-    <string name="str_complete">complete</string>
-    <string name="str_confirm">confirm</string>
+    <string name="str_complete">Complete</string>
+    <string name="str_confirm">Confirm</string>
     <string name="str_debug_menu">debug menu</string>
     <string name="str_debugmenu_debug_switch">Debug Mode</string>
     <string name="str_debugmenu_explain">Create a new file and place it in the root directory of the USB drive, such as：MAC000102030405.txt , SN025193200168785XXXX1.txt</string>

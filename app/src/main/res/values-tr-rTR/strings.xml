@@ -3,15 +3,15 @@
     <string name="fragment_add_network">diğer</string>
     <string name="fragment_title_ethernet_configs">kablolu ağ</string>
     <string name="fragment_title_net_speed_test">Ağ hızı testi</string>
-    <string name="fragment_title_network">ağ</string>
+    <string name="fragment_title_network">Dğ</string>
     <string name="fragment_title_wifi_list">Mevcut ağlar</string>
-    <string name="selected_ssid_add_new_network">diğer</string>
-    <string name="settings">kurmak</string>
+    <string name="selected_ssid_add_new_network">Diğer</string>
+    <string name="settings">Kurmak</string>
     <string name="str_bluetooth">Bluetooth</string>
     <string name="str_bluetooth_add_handset_device">Bluetooth uzaktan kumandası ekleyin</string>
     <string name="str_bluetooth_bonded">Eşleştirilmiş</string>
     <string name="str_bluetooth_bonding">Eşleştirme</string>
-    <string name="str_bluetooth_connected">bağlı</string>
+    <string name="str_bluetooth_connected">Bağlı</string>
     <string name="str_bluetooth_connecting">Bağlanıyor</string>
     <string name="str_bluetooth_dialog_bonded_msg">Eşleştirilen Bluetooth cihazını bağlayabilir veya yok sayabilirsiniz.Cihazı yoksaydıktan sonra eşleştirmeyi tekrar aramanız gerekir.</string>
     <string name="str_bluetooth_dialog_btn_connect">Bluetooth\'u bağlayın</string>
@@ -109,7 +109,7 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="net_wireless_network_available">Mevcut ağlar</string>
     <string name="net_other_functions">diğer</string>
     <string name="net_speed_measurement">Ağ hızı testi</string>
-    <string name="wifi_state_connected">bağlı</string>
+    <string name="wifi_state_connected">Bağlı</string>
     <string name="wifi_state_saved">Kaydedildi</string>
     <string name="wifi_state_scan">tarama WIFI ...</string>
     <string name="wifi_enter_passwd_show">Şifreyi göster</string>
@@ -195,11 +195,11 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <!--Universal-->
     <string name="universal_index_title_tv">Evrensel</string>
     <string name="universal_index_input_tv">Giriş</string>
-    <string name="universal_index_language_tv">dil</string>
+    <string name="universal_index_language_tv">Dil</string>
     <string name="universal_index_deviceName_tv">Cihaz adı</string>
     <string name="universal_index_Screensaver_tv">Ekran koruyucusu</string>
     <string name="universal_index_access_tv">İzinler</string>
-    <string name="title_language">dil</string>
+    <string name="title_language">Dil</string>
     <string name="dialog_changeLanguage_title">ipucu</string>
     <string name="dialog_changeLanguage_message">Dil ayarlarını değiştirmenin etkili olması için uygulamanın yeniden başlatılması gerekir. Geçiş yapmak istiyor musunuz?</string>
     <string name="dialog_changeLanguage_btConfirm">OK</string>
@@ -221,7 +221,7 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="device_info_mac_bluetooth">MAC Adres(Bluetooth)</string>
     <string name="device_storage_title">Depolama ayrıntıları</string>
     <string name="device_storage_internal">Dahili depolama</string>
-    <string name="device_storage_total">toplam kapasite</string>
+    <string name="device_storage_total">Toplam kapasite</string>
     <string name="device_storage_available">Boş alan</string>
     <string name="device_storage_system">Sistem doluluğu</string>
     <string name="device_storage_app">Uygulama Verileri</string>

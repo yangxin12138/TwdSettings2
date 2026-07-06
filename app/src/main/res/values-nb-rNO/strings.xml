@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Etter åpning kan den brukes som en Bluetooth -fjernkontroll og søkeenhet</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth -enhet: %s -parring mislyktes</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth -enhet: %s Connect mislyktes</string>
-    <string name="str_cancel">kansellere</string>
+    <string name="str_cancel">Kansellere</string>
     <string name="str_common">Vanlig</string>
     <string name="str_timeanddate">Tid &amp; date</string>
     <string name="str_common_equipment">Vanlig utstyr</string>
     <string name="str_common_settings">Vanlige innstillinger</string>
-    <string name="str_complete">fullstendig</string>
-    <string name="str_confirm">bekrefte</string>
+    <string name="str_complete">Fullstendig</string>
+    <string name="str_confirm">Bekrefte</string>
     <string name="str_device_info_android_version">Android -versjon</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC -adresse (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC -adresse (kablet)</string>

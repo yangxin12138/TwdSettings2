@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Pēc atvēršanas to var izmantot kā Bluetooth tālvadības ierīci un meklēšanas ierīci</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth ierīce: %s pāra neizdevās</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth ierīce: %s Connect neizdevās</string>
-    <string name="str_cancel">atcelt</string>
+    <string name="str_cancel">Atcelt</string>
     <string name="str_common">Kopīgs</string>
     <string name="str_timeanddate">Laiks un datums</string>
     <string name="str_common_equipment">Kopīgs aprīkojums</string>
     <string name="str_common_settings">Kopīgi iestatījumi</string>
-    <string name="str_complete">pilnīgs</string>
-    <string name="str_confirm">apstiprināt</string>
+    <string name="str_complete">Pilnīgs</string>
+    <string name="str_confirm">Apstiprināt</string>
     <string name="str_device_info_android_version">Android versija</string>
     <string name="str_device_info_bluetooth_mac_addr">Mac adrese (Bluetooth)</string>
     <string name="str_device_info_mac_addr">Mac adrese (vadu)</string>

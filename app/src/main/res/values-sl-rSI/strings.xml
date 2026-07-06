@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Po odprtju se lahko uporablja kot daljinski upravljalnik Bluetooth in iskalna naprava</string>
     <string name="str_bluetooth_toast_bond_failed">Naprava Bluetooth: seznanjanje %s ni uspelo</string>
     <string name="str_bluetooth_toast_connect_failed">Naprava Bluetooth: povezava %s ni uspela</string>
-    <string name="str_cancel">prekliči</string>
+    <string name="str_cancel">Prekliči</string>
     <string name="str_common">Pogosto</string>
     <string name="str_timeanddate">Čas in datum</string>
     <string name="str_common_equipment">Skupna oprema</string>
     <string name="str_common_settings">Pogoste nastavitve</string>
-    <string name="str_complete">popolno</string>
-    <string name="str_confirm">potrdi</string>
+    <string name="str_complete">Popolno</string>
+    <string name="str_confirm">Potrdi</string>
     <string name="str_device_info_android_version">Različica za Android</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC naslov (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC naslov (žično)</string>

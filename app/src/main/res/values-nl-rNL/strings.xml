@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">Na opening kan het worden gebruikt als een Bluetooth -afstandsbediening en zoekapparaat</string>
     <string name="str_bluetooth_toast_bond_failed">Bluetooth -apparaat: %s -koppeling is mislukt</string>
     <string name="str_bluetooth_toast_connect_failed">Bluetooth -apparaat: %s Connect is mislukt</string>
-    <string name="str_cancel">annuleren</string>
+    <string name="str_cancel">Annuleren</string>
     <string name="str_common">Gewoon</string>
     <string name="str_timeanddate">Tijd &amp; datum</string>
     <string name="str_common_equipment">Veel voorkomende apparatuur</string>
     <string name="str_common_settings">Veel voorkomende instellingen</string>
-    <string name="str_complete">compleet</string>
-    <string name="str_confirm">bevestigen</string>
+    <string name="str_complete">Compleet</string>
+    <string name="str_confirm">Bevestigen</string>
     <string name="str_device_info_android_version">Android -versie</string>
     <string name="str_device_info_bluetooth_mac_addr">MAC -adres (Bluetooth)</string>
     <string name="str_device_info_mac_addr">MAC -adres (bedraad)</string>

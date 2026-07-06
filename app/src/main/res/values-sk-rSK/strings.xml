@@ -42,7 +42,7 @@
     <string name="str_bluetooth_switch_desc">Po otvorení sa dá použiť ako diaľkové ovládacie a vyhľadávacie zariadenie Bluetooth</string>
     <string name="str_bluetooth_toast_bond_failed">Zariadenie Bluetooth: %s párovanie zlyhalo</string>
     <string name="str_bluetooth_toast_connect_failed">Zariadenie Bluetooth: %s Connect zlyhalo</string>
-    <string name="str_cancel">zrušiť</string>
+    <string name="str_cancel">Zrušiť</string>
     <string name="str_common">Bežný</string>
     <string name="index_usb_listener">Zistené externé úložné zariadenie, chcete otvoriť správu súborov?</string>
     <string name="dialog_title_wifi_connected">Táto sieť WiFi je momentálne pripojená.</string>
@@ -58,8 +58,8 @@
     <string name="str_timeanddate">Čas a dátum</string>
     <string name="str_common_equipment">Spoločné vybavenie</string>
     <string name="str_common_settings">Bežné nastavenia</string>
-    <string name="str_complete">dokončiť</string>
-    <string name="str_confirm">potvrdiť</string>
+    <string name="str_complete">Dokončiť</string>
+    <string name="str_confirm">Potvrdiť</string>
     <string name="str_device_info_android_version">Verzia Android</string>
     <string name="str_device_info_bluetooth_mac_addr">Adresa MAC (Bluetooth)</string>
     <string name="str_device_info_mac_addr">Adresa MAC (káblové)</string>

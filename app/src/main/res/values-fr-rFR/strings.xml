@@ -1,12 +1,12 @@
 <resources>
     <string name="fragment_add_network">autre</string>
-    <string name="fragment_title_ethernet_configs">réseau filaire</string>
+    <string name="fragment_title_ethernet_configs">Réseau filaire</string>
     <string name="fragment_title_net_speed_test">Test de vitesse du réseau</string>
-    <string name="fragment_title_network">réseau</string>
+    <string name="fragment_title_network">Réseau</string>
     <string name="fragment_title_wifi_list">Réseaux disponibles</string>
     <string name="app_name">Paramètres</string>
     <string name="selected_ssid_add_new_network">autre</string>
-    <string name="settings">installation</string>
+    <string name="settings">Installation</string>
     <string name="str_bluetooth">Bluetooth</string>
     <string name="str_bluetooth_add_handset_device">Ajouter une télécommande Bluetooth</string>
     <string name="str_bluetooth_bonded">Jumelé</string>
@@ -60,7 +60,7 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="str_error_tip">l\'opération a échoué！</string>
     <string name="str_ime">Saisir</string>
 
-    <string name="str_network">réseau</string>
+    <string name="str_network">Réseau</string>
     <string name="str_offline_update">Mise à niveau hors ligne</string>
     <string name="str_offline_update_tip">Il a été détecté qu\'un package de mise à niveau du système se trouve dans la clé USB. Voulez-vous la mettre à niveau?</string>
     <string name="str_online_update">Mise à niveau en ligne</string>
@@ -221,7 +221,7 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="device_info_mac_bluetooth">MAC Adresse (Bluetooth)</string>
     <string name="device_storage_title">Détails de stockage</string>
     <string name="device_storage_internal">Stockage intégré</string>
-    <string name="device_storage_total">capacité totale</string>
+    <string name="device_storage_total">Capacité totale</string>
     <string name="device_storage_available">Capacité disponible</string>
     <string name="device_storage_system">Occupation du système</string>
     <string name="device_storage_app">Application Data</string>

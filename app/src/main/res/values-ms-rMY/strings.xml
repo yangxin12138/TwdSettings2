@@ -48,7 +48,7 @@
     <string name="str_common_equipment">Peralatan biasa</string>
     <string name="str_common_settings">Tetapan biasa</string>
     <string name="str_complete">lengkap</string>
-    <string name="str_confirm">mengesahkan</string>
+    <string name="str_confirm">Mengesahkan</string>
     <string name="str_device_info_android_version">Versi Android</string>
     <string name="str_device_info_bluetooth_mac_addr">Alamat MAC (Bluetooth)</string>
     <string name="str_device_info_mac_addr">Alamat MAC (berwayar)</string>

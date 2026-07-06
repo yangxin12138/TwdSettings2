@@ -42,13 +42,13 @@
     <string name="str_bluetooth_switch_desc">După împerechere, dispozitivul poate accesa proiectorul. Vă rugăm să introduceți codul de împerechere de mai sus pe dispozitiv și faceți clic pentru a confirma</string>
     <string name="str_bluetooth_toast_bond_failed">Dispozitiv Bluetooth: %s împerechere a eșuat</string>
     <string name="str_bluetooth_toast_connect_failed">Dispozitiv Bluetooth: %s Connect a eșuat</string>
-    <string name="str_cancel">anula</string>
+    <string name="str_cancel">Anula</string>
     <string name="str_common">Comun</string>
     <string name="str_timeanddate">Ora &amp; data</string>
     <string name="str_common_equipment">Echipament comun</string>
     <string name="str_common_settings">Setări comune</string>
-    <string name="str_complete">complet</string>
-    <string name="str_confirm">confirma</string>
+    <string name="str_complete">Complet</string>
+    <string name="str_confirm">Confirma</string>
     <string name="str_device_info_android_version">Versiune Android</string>
     <string name="str_device_info_bluetooth_mac_addr">Versiune Android</string>
     <string name="str_device_info_mac_addr">Adresa MAC (Wired)</string>

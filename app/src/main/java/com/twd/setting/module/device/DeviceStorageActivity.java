@@ -111,7 +111,7 @@ public class DeviceStorageActivity extends AppCompatActivity {
         //总容量
         String totalRom = SystemPropertiesUtils.readSystemProp("STORAGE_SIMPLE_SYSDATA");
         Log.i(TAG, "initView: totalRom = "+totalRom);
-        storage_total.setText(totalRom);
+        storage_total.setText(getString(R.string.device_storage_total)+":"+totalRom);
 
     }
 
