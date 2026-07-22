@@ -248,4 +248,9 @@
     <string name="dialog_btn_confirm">Thibitisha</string>
     <string name="dialog_btn_cancel">Ghairi</string>
     <string name="wifi_state_connected_no_network">Imeunganishwa, Hakuna Intaneti</string>
+    <string name="device_index_permission_tv">Ruhusa</string>
+    <string name="device_index_screen_tv">Kioo cha Kuokoa</string>
+    <string name="device_index_screen_5min">Dakika 5</string>
+    <string name="device_index_screen_15min">Dakika 15</string>
+    <string name="device_index_screen_close">Zima</string>
 </resources>

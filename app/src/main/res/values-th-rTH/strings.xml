@@ -259,4 +259,9 @@
     <string name="time_setdate">วันที่</string>
     <string name="time_use24hours">ใช้รูปแบบ 24 ชั่วโมง</string>
     <string name="time_settimezone">เขตเวลา</string>
+    <string name="device_index_permission_tv">สิทธิ์การเข้าถึง</string>
+    <string name="device_index_screen_tv">หน้าจอกักเก็บภาพ</string>
+    <string name="device_index_screen_5min">5 นาที</string>
+    <string name="device_index_screen_15min">15 นาที</string>
+    <string name="device_index_screen_close">ปิด</string>
 </resources>

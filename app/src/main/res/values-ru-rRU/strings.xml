@@ -256,4 +256,9 @@
     <string name="time_setdate">Дата</string>
     <string name="time_use24hours">Используйте 24-часовой формат</string>
     <string name="time_settimezone">Часовой пояс</string>
+    <string name="device_index_permission_tv">Права доступа</string>
+    <string name="device_index_screen_tv">Экранное сбережение</string>
+    <string name="device_index_screen_5min">5 минут</string>
+    <string name="device_index_screen_15min">15 минут</string>
+    <string name="device_index_screen_close">Выкл</string>
 </resources>

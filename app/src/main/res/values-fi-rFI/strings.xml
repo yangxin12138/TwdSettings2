@@ -248,4 +248,9 @@
     <string name="dialog_btn_confirm">Vahvistaa</string>
     <string name="dialog_btn_cancel">Peruuttaa</string>
     <string name="wifi_state_connected_no_network">Yhdistetty, ei internetiä</string>
+    <string name="device_index_permission_tv">Oikeudet</string>
+    <string name="device_index_screen_tv">Ekranipalautin</string>
+    <string name="device_index_screen_5min">5 minuuttia</string>
+    <string name="device_index_screen_15min">15 minuuttia</string>
+    <string name="device_index_screen_close">Off</string>
 </resources>

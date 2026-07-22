@@ -258,4 +258,9 @@
     <string name="time_setdate">تاریخ</string>
     <string name="time_use24hours">از قالب 24 ساعته استفاده کنید</string>
     <string name="time_settimezone">منطقه زمانی</string>
+    <string name="device_index_permission_tv">مجوزها</string>
+    <string name="device_index_screen_tv">محافظ صفحه نمایش</string>
+    <string name="device_index_screen_5min">5 دقیقه</string>
+    <string name="device_index_screen_15min">15 دقیقه</string>
+    <string name="device_index_screen_close">خاموش</string>
 </resources>

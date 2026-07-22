@@ -257,4 +257,9 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="time_setdate">Data</string>
     <string name="time_use24hours">Usar formato de 24 horas</string>
     <string name="time_settimezone">Fuso horário</string>
+    <string name="device_index_permission_tv">Permissões</string>
+    <string name="device_index_screen_tv">Economizador de Tela</string>
+    <string name="device_index_screen_5min">5 Minute</string>
+    <string name="device_index_screen_15min">15 Minute</string>
+    <string name="device_index_screen_close">Off</string>
 </resources>

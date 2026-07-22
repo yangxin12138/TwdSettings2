@@ -50,6 +50,9 @@
     <string name="dialog_btn_confirm">Potvrdiť</string>
     <string name="dialog_btn_cancel">Zrušiť</string>
     <string name="wifi_state_connected_no_network">pripojené, bez internetu</string>
+    <string name="device_index_screen_5min">5 minút</string>
+    <string name="device_index_screen_15min">15 minút</string>
+    <string name="device_index_screen_close">Vypnúť</string>
     <string name="device_info_softwareDate">Čas kompilácie</string>
     <string name="projection_vertical_projection_title">Vertikálny lichobežník</string>
     <string name="projector_auto_tip">Najprv musíte zapnúť automatické zaostrovanie</string>
@@ -253,4 +256,6 @@
     <string name="wifi_no_passwd_info">Pripojte sa k tejto sieti:</string>
     <string name="projector_auto_projection_title">Automatický lichobežník</string>
     <string name="projector_auto_focus_title">Automatické zaostrovanie</string>
+    <string name="device_index_permission_tv">Povolenia</string>
+    <string name="device_index_screen_tv">Screen Saver</string>
 </resources>

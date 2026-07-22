@@ -248,4 +248,9 @@
     <string name="dialog_btn_confirm">Bevestigen</string>
     <string name="dialog_btn_cancel">Annuleren</string>
     <string name="wifi_state_connected_no_network">Aangesloten, maar geen internet</string>
+    <string name="device_index_permission_tv">Toestemmingen</string>
+    <string name="device_index_screen_tv">Schermopslag</string>
+    <string name="device_index_screen_5min">5 minuten</string>
+    <string name="device_index_screen_15min">15 minuten</string>
+    <string name="device_index_screen_close">sluiten</string>
 </resources>

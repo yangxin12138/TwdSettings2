@@ -163,5 +163,71 @@
                 android:layout_height="@dimen/universal_current_arrow_height"
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/devices_LL_permission"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/switchlayout_padding_tb"
+            android:paddingBottom="@dimen/switchlayout_padding_tb"
+            android:layout_marginTop="@dimen/LL_content_marginTop"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="?bBg">
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/devices_tv_permission"
+                android:text="@string/device_index_permission_tv"
+                android:textSize="@dimen/universal_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/devices_storage_tv_marginStart"
+                android:textDirection="ltr"/>
+            <ImageView
+                android:duplicateParentState="true"
+                android:id="@+id/arrow_permission"
+                android:src="?arrowSrc"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/universal_current_arrow_height"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/devices_LL_screen"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/switchlayout_padding_tb"
+            android:paddingBottom="@dimen/switchlayout_padding_tb"
+            android:layout_marginTop="@dimen/LL_content_marginTop"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="?bBg">
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/devices_tv_screen"
+                android:text="@string/device_index_screen_tv"
+                android:textSize="@dimen/universal_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/devices_storage_tv_marginStart"
+                android:textDirection="ltr"/>
+            <ImageView
+                android:duplicateParentState="true"
+                android:id="@+id/arrow_screen"
+                android:src="?arrowSrc"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/devices_storage_iv_height"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

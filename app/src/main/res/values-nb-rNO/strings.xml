@@ -248,4 +248,9 @@
     <string name="dialog_btn_confirm">Bekrefte</string>
     <string name="dialog_btn_cancel">Kansellere</string>
     <string name="wifi_state_connected_no_network">Tilkoblet, ingen internett</string>
+    <string name="device_index_permission_tv">Tillatelser</string>
+    <string name="device_index_screen_tv">Skjermklaringsprogram</string>
+    <string name="device_index_screen_5min">5 minutter</string>
+    <string name="device_index_screen_15min">15 minutter</string>
+    <string name="device_index_screen_close">Av</string>
 </resources>

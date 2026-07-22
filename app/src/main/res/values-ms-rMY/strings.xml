@@ -248,4 +248,9 @@
     <string name="dialog_btn_confirm">Sahkan</string>
     <string name="dialog_btn_cancel">Batal</string>
     <string name="wifi_state_connected_no_network">Tersambung, Tiada Internet</string>
+    <string name="device_index_permission_tv">Kekosongan</string>
+    <string name="device_index_screen_tv">Penyelamat skrin</string>
+    <string name="device_index_screen_5min">5 Minit</string>
+    <string name="device_index_screen_15min">15 Minit</string>
+    <string name="device_index_screen_close">Off</string>
 </resources>

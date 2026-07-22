@@ -248,4 +248,9 @@
     <string name="dialog_btn_confirm">לְאַשֵׁר</string>
     <string name="dialog_btn_cancel">לְבַטֵל</string>
     <string name="wifi_state_connected_no_network">מחובר, אין אינטרנט</string>
+    <string name="device_index_permission_tv">רשויות</string>
+    <string name="device_index_screen_tv">שומר מסך</string>
+    <string name="device_index_screen_5min">5 דקות</string>
+    <string name="device_index_screen_15min">15 דקות</string>
+    <string name="device_index_screen_close">סגור</string>
 </resources>

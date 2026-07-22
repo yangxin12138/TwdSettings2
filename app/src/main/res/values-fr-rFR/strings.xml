@@ -258,4 +258,9 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="time_setdate">Date</string>
     <string name="time_use24hours">Utiliser le format 24 heures</string>
     <string name="time_settimezone">Fuseau horaire</string>
+    <string name="device_index_permission_tv">Permissions</string>
+    <string name="device_index_screen_tv">Économiseur d\'écran</string>
+    <string name="device_index_screen_5min">5 Minutes</string>
+    <string name="device_index_screen_15min">15 Minutes</string>
+    <string name="device_index_screen_close">Off</string>
 </resources>

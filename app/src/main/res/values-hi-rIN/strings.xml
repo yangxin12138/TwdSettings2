@@ -258,4 +258,9 @@
     <string name="time_setdate">तारीख</string>
     <string name="time_use24hours">24 घंटे का प्रारूप उपयोग करें</string>
     <string name="time_settimezone">समय क्षेत्र</string>
+    <string name="device_index_permission_tv">अनुमतियाँ</string>
+    <string name="device_index_screen_tv">स्क्रीन सेवर</string>
+    <string name="device_index_screen_5min">5 मिनट</string>
+    <string name="device_index_screen_15min">15 मिनट</string>
+    <string name="device_index_screen_close">ऑफ</string>
 </resources>

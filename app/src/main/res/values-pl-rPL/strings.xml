@@ -256,4 +256,9 @@
     <string name="time_setdate">Data</string>
     <string name="time_use24hours">Użyj formatu 24-godzinnego</string>
     <string name="time_settimezone">Strefa czasowa</string>
+    <string name="device_index_permission_tv">Uprawnienia</string>
+    <string name="device_index_screen_tv">Ekrany zabezpieczające</string>
+    <string name="device_index_screen_5min">5 minut</string>
+    <string name="device_index_screen_15min">15 minut</string>
+    <string name="device_index_screen_close">Wyłącz</string>
 </resources>

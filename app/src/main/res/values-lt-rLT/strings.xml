@@ -248,4 +248,9 @@
     <string name="dialog_btn_confirm">Patvirtinti</string>
     <string name="dialog_btn_cancel">Atšaukti</string>
     <string name="wifi_state_connected_no_network">Prisijungta, nėra interneto</string>
+    <string name="device_index_permission_tv">Permissions</string>
+    <string name="device_index_screen_tv">Ekranų gelbėtojas</string>
+    <string name="device_index_screen_5min">5 minučių</string>
+    <string name="device_index_screen_15min">15 minučių</string>
+    <string name="device_index_screen_close">Išjungti</string>
 </resources>

@@ -258,4 +258,9 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="time_setdate">Tarih</string>
     <string name="time_use24hours">24 saat biçimini kullan</string>
     <string name="time_settimezone">Saat dilimi</string>
+    <string name="device_index_permission_tv">İzinler</string>
+    <string name="device_index_screen_tv">Ekran Kaybetme</string>
+    <string name="device_index_screen_5min">5 Dakika</string>
+    <string name="device_index_screen_15min">15 Dakika</string>
+    <string name="device_index_screen_close">Kapalı</string>
 </resources>

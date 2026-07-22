@@ -248,4 +248,9 @@
     <string name="dialog_btn_confirm">Potvrdi</string>
     <string name="dialog_btn_cancel">Otkazati</string>
     <string name="wifi_state_connected_no_network">Povezano, nema interneta</string>
+    <string name="device_index_permission_tv">Dozvole</string>
+    <string name="device_index_screen_tv">ZaslonSaver</string>
+    <string name="device_index_screen_5min">5 minuta</string>
+    <string name="device_index_screen_15min">15 minuta</string>
+    <string name="device_index_screen_close">zatvoriti</string>
 </resources>

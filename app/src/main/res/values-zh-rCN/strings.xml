@@ -593,4 +593,9 @@ Example: 24"</string>
     <string name="time_setdate">日期设置</string>
     <string name="time_use24hours">24小时制</string>
     <string name="time_settimezone">时区</string>
+    <string name="device_index_permission_tv">权限</string>
+    <string name="device_index_screen_tv">屏幕保护</string>
+    <string name="device_index_screen_5min">5 分钟</string>
+    <string name="device_index_screen_15min">15 分钟</string>
+    <string name="device_index_screen_close">关闭</string>
 </resources>

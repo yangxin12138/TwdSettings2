@@ -258,4 +258,9 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="time_setdate">Fecha</string>
     <string name="time_use24hours">Usar el formato de 24 horas</string>
     <string name="time_settimezone">Zona horaria</string>
+    <string name="device_index_permission_tv">Permisos</string>
+    <string name="device_index_screen_tv">Ahorro de pantalla</string>
+    <string name="device_index_screen_5min">5 minutos</string>
+    <string name="device_index_screen_15min">15 minutos</string>
+    <string name="device_index_screen_close">Apagado</string>
 </resources>

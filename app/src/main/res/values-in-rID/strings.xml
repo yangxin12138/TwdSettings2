@@ -249,4 +249,9 @@
     <string name="time_setdate">Tanggal</string>
     <string name="time_use24hours">Gunakan format 24 jam</string>
     <string name="time_settimezone">Zona waktu</string>
+    <string name="device_index_permission_tv">Izin</string>
+    <string name="device_index_screen_tv">Layar Penyelamat</string>
+    <string name="device_index_screen_5min">5 Menit</string>
+    <string name="device_index_screen_15min">15 Menit</string>
+    <string name="device_index_screen_close">Off</string>
 </resources>

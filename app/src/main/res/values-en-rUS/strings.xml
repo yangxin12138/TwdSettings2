@@ -118,4 +118,9 @@
     <string name="time_setdate">Date</string>
     <string name="time_use24hours">Use 24-hour format</string>
     <string name="time_settimezone">TimeZone</string>
+    <string name="device_index_permission_tv">Permission</string>
+    <string name="device_index_screen_tv">Screen Saver</string>
+    <string name="device_index_screen_5min">5 Minute</string>
+    <string name="device_index_screen_15min">15 Minute</string>
+    <string name="device_index_screen_close">Off</string>
 </resources>

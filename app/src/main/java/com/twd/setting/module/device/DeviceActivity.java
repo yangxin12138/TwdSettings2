@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,14 +29,20 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
     private LinearLayout LL_storage;
     private LinearLayout LL_factory;
     private LinearLayout LL_update;
+    private LinearLayout LL_permission;
+    private LinearLayout LL_Screen;
+
     private TextView tv_info;
     private TextView tv_storage;
     private TextView tv_factory;
     private TextView tv_update;
+    private TextView tv_permission;
     private ImageView arrow_info;
     private ImageView arrow_storage;
     private ImageView arrow_factory;
     private ImageView arrow_update;
+    private ImageView arrow_permission;
+
     private Context context;
     //String theme_code = SystemPropertiesUtils.getPropertyColor("persist.sys.background_blue","0");
     String theme_code = "1";
@@ -72,6 +79,12 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         LL_storage = findViewById(R.id.devices_LL_storage);
         LL_factory = findViewById(R.id.devices_LL_factory);
         LL_update = findViewById(R.id.devices_LL_update);
+        LL_permission = findViewById(R.id.devices_LL_permission);
+        LL_Screen = findViewById(R.id.devices_LL_screen);
+
+        tv_permission = findViewById(R.id.devices_tv_permission);
+        arrow_permission = findViewById(R.id.arrow_permission);
+
         tv_info = findViewById(R.id.devices_tv_Info);
         tv_storage = findViewById(R.id.devices_tv_storage);
         tv_factory = findViewById(R.id.devices_tv_factory);
@@ -85,6 +98,8 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         LL_storage.setOnClickListener(this::onClick);
         LL_factory.setOnClickListener(this::onClick);
         LL_update.setOnClickListener(this::onClick);
+        LL_permission.setOnClickListener(this::onClick);
+        LL_Screen.setOnClickListener(this::onClick);
 
         LL_info.requestFocus();
     }
@@ -102,7 +117,12 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
             intent = new Intent();
             intent.setComponent(new ComponentName("com.adups.fota","com.adups.fota.GoogleOtaClient"));
             startActivity(intent);
-        } else {
+        } else if (view.getId() == R.id.devices_LL_permission) {
+            intent = new Intent(Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
+            startActivity(intent);
+        } else if (view.getId() == R.id.devices_LL_screen) {
+            showScreenTimeoutDialog();
+        }else {
             showDialog();
         }
     }
@@ -151,6 +171,70 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
             intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
             intent.setPackage("android");
             context.sendBroadcast(intent);
+        }
+    }
+
+    private void showScreenTimeoutDialog() {
+        Dialog screenDialog = new Dialog(this, R.style.DialogStyle);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.screen_timeout_dialog, null);
+        screenDialog.setContentView(dialogView);
+
+        // 获取三个条目与勾选图标
+        FrameLayout item5 = dialogView.findViewById(R.id.item_5min);
+        FrameLayout item15 = dialogView.findViewById(R.id.item_15min);
+        FrameLayout itemOff = dialogView.findViewById(R.id.item_close);
+
+        ImageView iv5 = dialogView.findViewById(R.id.iv_check_5min);
+        ImageView iv15 = dialogView.findViewById(R.id.iv_check_15min);
+        ImageView ivOff = dialogView.findViewById(R.id.iv_item_close);
+
+        // 先全部隐藏勾选
+        iv5.setVisibility(View.INVISIBLE);
+        iv15.setVisibility(View.INVISIBLE);
+        ivOff.setVisibility(View.INVISIBLE);
+
+        // 读取系统当前屏幕超时值 单位：毫秒
+        int currentTimeout;
+        try {
+            currentTimeout = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT);
+        } catch (Settings.SettingNotFoundException e) {
+            currentTimeout = 0;
+        }
+
+        // 根据当前值显示对应勾选图标
+        if (currentTimeout == 5 * 60 * 1000) {
+            iv5.setVisibility(View.VISIBLE);
+        } else if (currentTimeout == 15 * 60 * 1000) {
+            iv15.setVisibility(View.VISIBLE);
+        } else if (currentTimeout == Integer.MAX_VALUE || currentTimeout == 0) {
+            // 永不息屏/关闭
+            ivOff.setVisibility(View.VISIBLE);
+        }
+
+        // 5分钟点击
+        item5.setOnClickListener(v -> {
+            setScreenTimeout(5 * 60 * 1000);
+            screenDialog.dismiss();
+        });
+        //15分钟点击
+        item15.setOnClickListener(v -> {
+            setScreenTimeout(15 * 60 * 1000);
+            screenDialog.dismiss();
+        });
+        //关闭息屏（永不休眠）
+        itemOff.setOnClickListener(v -> {
+            setScreenTimeout(Integer.MAX_VALUE);
+            screenDialog.dismiss();
+        });
+
+        screenDialog.show();
+    }
+
+    private void setScreenTimeout(int ms) {
+        try {
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, ms);
+        } catch (Exception e) {
+            Log.e(TAG, "set screen timeout failed", e);
         }
     }
 

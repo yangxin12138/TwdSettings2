@@ -256,4 +256,9 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="time_setdate">Datum</string>
     <string name="time_use24hours">24-Stunden-Format verwenden</string>
     <string name="time_settimezone">Zeitzone</string>
+    <string name="device_index_permission_tv">Berechtigungen</string>
+    <string name="device_index_screen_tv">Bildschirmschoner</string>
+    <string name="device_index_screen_5min">5 Minuten</string>
+    <string name="device_index_screen_15min">15 Minuten</string>
+    <string name="device_index_screen_close">Aus</string>
 </resources>
