@@ -263,4 +263,10 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="device_index_screen_5min">5 Dakika</string>
     <string name="device_index_screen_15min">15 Dakika</string>
     <string name="device_index_screen_close">Kapalı</string>
+    <string name="device_index_screen_3min">3 Dakika</string>
+    <string name="device_index_screen_1min">1 Dakika</string>
+    <string name="device_index_screen_13min">13 Dakika</string>
+    <string name="device_index_screen_10min">10 Dakika</string>
+    <string name="device_index_screen_7min">7 Dakika</string>
+    <string name="device_index_screen_now">Şu An</string>
 </resources>

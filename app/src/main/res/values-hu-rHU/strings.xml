@@ -253,4 +253,10 @@
     <string name="device_index_screen_5min">5 perc</string>
     <string name="device_index_screen_15min">15 perc</string>
     <string name="device_index_screen_close">Kikapcs</string>
+    <string name="device_index_screen_3min">3 perc</string>
+    <string name="device_index_screen_1min">1 perc</string>
+    <string name="device_index_screen_13min">13 perc</string>
+    <string name="device_index_screen_10min">10 perc</string>
+    <string name="device_index_screen_7min">7 perc</string>
+    <string name="device_index_screen_now">Most</string>
 </resources>

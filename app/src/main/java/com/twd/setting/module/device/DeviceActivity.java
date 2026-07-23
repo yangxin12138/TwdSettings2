@@ -180,18 +180,13 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         screenDialog.setContentView(dialogView);
 
         // 获取三个条目与勾选图标
-        FrameLayout item5 = dialogView.findViewById(R.id.item_5min);
-        FrameLayout item15 = dialogView.findViewById(R.id.item_15min);
-        FrameLayout itemOff = dialogView.findViewById(R.id.item_close);
-
-        ImageView iv5 = dialogView.findViewById(R.id.iv_check_5min);
-        ImageView iv15 = dialogView.findViewById(R.id.iv_check_15min);
-        ImageView ivOff = dialogView.findViewById(R.id.iv_item_close);
-
-        // 先全部隐藏勾选
-        iv5.setVisibility(View.INVISIBLE);
-        iv15.setVisibility(View.INVISIBLE);
-        ivOff.setVisibility(View.INVISIBLE);
+        FrameLayout item1 = dialogView.findViewById(R.id.item_1min); ImageView iv1 = dialogView.findViewById(R.id.iv_check_1min); iv1.setVisibility(View.INVISIBLE);
+        FrameLayout item3 = dialogView.findViewById(R.id.item_3min); ImageView iv3 = dialogView.findViewById(R.id.iv_check_3min); iv3.setVisibility(View.INVISIBLE);
+        FrameLayout item5 = dialogView.findViewById(R.id.item_5min); ImageView iv5 = dialogView.findViewById(R.id.iv_check_5min); iv5.setVisibility(View.INVISIBLE);
+        FrameLayout item7 = dialogView.findViewById(R.id.item_7min); ImageView iv7 = dialogView.findViewById(R.id.iv_check_7min); iv7.setVisibility(View.INVISIBLE);
+        FrameLayout item10 = dialogView.findViewById(R.id.item_10min); ImageView iv10 = dialogView.findViewById(R.id.iv_check_10min); iv10.setVisibility(View.INVISIBLE);
+        FrameLayout item15 = dialogView.findViewById(R.id.item_15min); ImageView iv15 = dialogView.findViewById(R.id.iv_check_15min); iv15.setVisibility(View.INVISIBLE);
+        FrameLayout itemOff = dialogView.findViewById(R.id.item_close); ImageView ivOff = dialogView.findViewById(R.id.iv_item_close); ivOff.setVisibility(View.INVISIBLE);
 
         // 读取系统当前屏幕超时值 单位：毫秒
         int currentTimeout;
@@ -202,18 +197,41 @@ public class DeviceActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         // 根据当前值显示对应勾选图标
-        if (currentTimeout == 5 * 60 * 1000) {
+        if (currentTimeout == 60 * 1000) {
+            iv1.setVisibility(View.VISIBLE);
+        } else if (currentTimeout == 3 * 60 * 1000) {
+            iv3.setVisibility(View.VISIBLE);
+        } else if (currentTimeout == 5 * 60 * 1000) {
             iv5.setVisibility(View.VISIBLE);
+        } else if (currentTimeout == 7 * 60 * 1000) {
+            iv7.setVisibility(View.VISIBLE);
+        } else if (currentTimeout == 10 * 60 * 1000) {
+            iv10.setVisibility(View.VISIBLE);
         } else if (currentTimeout == 15 * 60 * 1000) {
             iv15.setVisibility(View.VISIBLE);
         } else if (currentTimeout == Integer.MAX_VALUE || currentTimeout == 0) {
             // 永不息屏/关闭
             ivOff.setVisibility(View.VISIBLE);
         }
-
+        item1.setOnClickListener(v -> {
+            setScreenTimeout(60 * 1000);
+            screenDialog.dismiss();
+        });
+        item3.setOnClickListener(v -> {
+            setScreenTimeout(3 * 60 * 1000);
+            screenDialog.dismiss();
+        });
         // 5分钟点击
         item5.setOnClickListener(v -> {
             setScreenTimeout(5 * 60 * 1000);
+            screenDialog.dismiss();
+        });
+        item7.setOnClickListener(v -> {
+            setScreenTimeout(7 * 60 * 1000);
+            screenDialog.dismiss();
+        });
+        item10.setOnClickListener(v -> {
+            setScreenTimeout(10 * 60 * 1000);
             screenDialog.dismiss();
         });
         //15分钟点击

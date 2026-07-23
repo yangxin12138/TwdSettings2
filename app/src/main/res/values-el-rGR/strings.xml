@@ -252,5 +252,11 @@
     <string name="device_index_screen_tv">Screen Saver</string>
     <string name="device_index_screen_5min">5 Λεπτά</string>
     <string name="device_index_screen_15min">15 Λεπτά</string>
-    <string name="device_index_screen_close">Off</string>
+    <string name="device_index_screen_close">Απενεργοποιημένο</string>
+    <string name="device_index_screen_3min">3 Λεπτά</string>
+    <string name="device_index_screen_1min">1 Λεπτά</string>
+    <string name="device_index_screen_13min">13 Λεπτά</string>
+    <string name="device_index_screen_10min">10 Λεπτά</string>
+    <string name="device_index_screen_7min">7 Λεπτά</string>
+    <string name="device_index_screen_now">Σταμα</string>
 </resources>

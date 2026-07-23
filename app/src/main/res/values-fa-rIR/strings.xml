@@ -263,4 +263,10 @@
     <string name="device_index_screen_5min">5 دقیقه</string>
     <string name="device_index_screen_15min">15 دقیقه</string>
     <string name="device_index_screen_close">خاموش</string>
+    <string name="device_index_screen_3min">3 دقیقه</string>
+    <string name="device_index_screen_1min">1 دقیقه</string>
+    <string name="device_index_screen_13min">13 دقیقه</string>
+    <string name="device_index_screen_10min">10 دقیقه</string>
+    <string name="device_index_screen_7min">7 دقیقه</string>
+    <string name="device_index_screen_now">الآن</string>
 </resources>

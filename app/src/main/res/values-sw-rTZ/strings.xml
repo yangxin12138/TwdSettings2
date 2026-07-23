@@ -253,4 +253,10 @@
     <string name="device_index_screen_5min">Dakika 5</string>
     <string name="device_index_screen_15min">Dakika 15</string>
     <string name="device_index_screen_close">Zima</string>
+    <string name="device_index_screen_3min">Dakika 3</string>
+    <string name="device_index_screen_1min">Dakika 1</string>
+    <string name="device_index_screen_13min">Dakika 13</string>
+    <string name="device_index_screen_10min">Dakika 10</string>
+    <string name="device_index_screen_7min">Dakika 7</string>
+    <string name="device_index_screen_now">Sasa</string>
 </resources>

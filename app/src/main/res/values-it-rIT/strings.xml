@@ -263,4 +263,10 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="device_index_screen_5min">5 minuti</string>
     <string name="device_index_screen_15min">15 minuti</string>
     <string name="device_index_screen_close">Spento</string>
+    <string name="device_index_screen_3min">3 minuti</string>
+    <string name="device_index_screen_1min">1 minuto</string>
+    <string name="device_index_screen_13min">13 minuti</string>
+    <string name="device_index_screen_10min">10 minuti</string>
+    <string name="device_index_screen_7min">7 minuti</string>
+    <string name="device_index_screen_now">Ora</string>
 </resources>

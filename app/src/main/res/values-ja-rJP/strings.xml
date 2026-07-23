@@ -261,4 +261,10 @@
     <string name="device_index_screen_5min">5分間</string>
     <string name="device_index_screen_15min">15分間</string>
     <string name="device_index_screen_close">オフ</string>
+    <string name="device_index_screen_3min">3分間</string>
+    <string name="device_index_screen_1min">1分間</string>
+    <string name="device_index_screen_13min">13分間</string>
+    <string name="device_index_screen_10min">10分間</string>
+    <string name="device_index_screen_7min">7分間</string>
+    <string name="device_index_screen_now">現在</string>
 </resources>

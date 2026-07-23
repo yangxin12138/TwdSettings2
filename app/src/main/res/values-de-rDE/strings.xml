@@ -261,4 +261,10 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="device_index_screen_5min">5 Minuten</string>
     <string name="device_index_screen_15min">15 Minuten</string>
     <string name="device_index_screen_close">Aus</string>
+    <string name="device_index_screen_3min">3 Minuten</string>
+    <string name="device_index_screen_1min">1 Minute</string>
+    <string name="device_index_screen_13min">13 Minuten</string>
+    <string name="device_index_screen_10min">10 Minuten</string>
+    <string name="device_index_screen_7min">7 Minuten</string>
+    <string name="device_index_screen_now">Jetzt</string>
 </resources>

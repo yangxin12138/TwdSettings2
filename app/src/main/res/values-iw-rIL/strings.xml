@@ -253,4 +253,10 @@
     <string name="device_index_screen_5min">5 דקות</string>
     <string name="device_index_screen_15min">15 דקות</string>
     <string name="device_index_screen_close">סגור</string>
+    <string name="device_index_screen_3min">3 דקות</string>
+    <string name="device_index_screen_1min">1 דקות</string>
+    <string name="device_index_screen_13min">13 דקות</string>
+    <string name="device_index_screen_10min">10 דקות</string>
+    <string name="device_index_screen_7min">7 דקות</string>
+    <string name="device_index_screen_now">הה</string>
 </resources>

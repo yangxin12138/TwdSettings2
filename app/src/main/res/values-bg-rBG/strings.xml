@@ -253,4 +253,10 @@
     <string name="device_index_screen_5min">5 минути</string>
     <string name="device_index_screen_15min">15 минути</string>
     <string name="device_index_screen_close">изключено</string>
+    <string name="device_index_screen_3min">3 минути</string>
+    <string name="device_index_screen_1min">1 минути</string>
+    <string name="device_index_screen_13min">13 минути</string>
+    <string name="device_index_screen_10min">10 минути</string>
+    <string name="device_index_screen_7min">7 минута</string>
+    <string name="device_index_screen_now">Сега</string>
 </resources>

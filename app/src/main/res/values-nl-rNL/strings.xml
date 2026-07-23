@@ -253,4 +253,10 @@
     <string name="device_index_screen_5min">5 minuten</string>
     <string name="device_index_screen_15min">15 minuten</string>
     <string name="device_index_screen_close">sluiten</string>
+    <string name="device_index_screen_3min">3 minuten</string>
+    <string name="device_index_screen_1min">1 minu</string>
+    <string name="device_index_screen_13min">13 minuten</string>
+    <string name="device_index_screen_10min">10 minuten</string>
+    <string name="device_index_screen_7min">7 minuten</string>
+    <string name="device_index_screen_now">Nu</string>
 </resources>

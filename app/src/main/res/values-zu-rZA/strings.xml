@@ -253,4 +253,10 @@
     <string name="device_index_screen_5min">5 Imizuzu</string>
     <string name="device_index_screen_15min">15 Imizuzu</string>
     <string name="device_index_screen_close">Ukuphumula</string>
+    <string name="device_index_screen_3min">3 Imizuzu</string>
+    <string name="device_index_screen_1min">1 Imizuzu</string>
+    <string name="device_index_screen_13min">13 Imizuzu</string>
+    <string name="device_index_screen_10min">10 Imizuzu</string>
+    <string name="device_index_screen_7min">7 Imizuzu</string>
+    <string name="device_index_screen_now">Ukhule</string>
 </resources>

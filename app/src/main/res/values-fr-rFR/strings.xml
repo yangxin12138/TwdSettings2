@@ -263,4 +263,10 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="device_index_screen_5min">5 Minutes</string>
     <string name="device_index_screen_15min">15 Minutes</string>
     <string name="device_index_screen_close">Off</string>
+    <string name="device_index_screen_3min">3 Minutes</string>
+    <string name="device_index_screen_1min">1 Minute</string>
+    <string name="device_index_screen_13min">13 Minutes</string>
+    <string name="device_index_screen_10min">10 Minutes</string>
+    <string name="device_index_screen_7min">7 Minutes</string>
+    <string name="device_index_screen_now">Maintenant</string>
 </resources>

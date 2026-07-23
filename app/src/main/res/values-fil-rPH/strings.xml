@@ -253,4 +253,10 @@
     <string name="device_index_screen_5min">5 minuto</string>
     <string name="device_index_screen_15min">15 minuto</string>
     <string name="device_index_screen_close">Off</string>
+    <string name="device_index_screen_3min">3 minuto</string>
+    <string name="device_index_screen_1min">1 minuto</string>
+    <string name="device_index_screen_13min">13 minuto</string>
+    <string name="device_index_screen_10min">10 minuto</string>
+    <string name="device_index_screen_7min">7 minuto</string>
+    <string name="device_index_screen_now">Nagdagdag</string>
 </resources>

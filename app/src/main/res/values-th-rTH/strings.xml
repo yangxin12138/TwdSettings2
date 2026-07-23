@@ -264,4 +264,10 @@
     <string name="device_index_screen_5min">5 นาที</string>
     <string name="device_index_screen_15min">15 นาที</string>
     <string name="device_index_screen_close">ปิด</string>
+    <string name="device_index_screen_3min">3 นาที</string>
+    <string name="device_index_screen_1min">1 นาที</string>
+    <string name="device_index_screen_13min">13 นาที</string>
+    <string name="device_index_screen_10min">10 นาที</string>
+    <string name="device_index_screen_7min">7 นาที</string>
+    <string name="device_index_screen_now">ขณะนี้</string>
 </resources>

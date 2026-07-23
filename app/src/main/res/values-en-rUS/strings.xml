@@ -123,4 +123,10 @@
     <string name="device_index_screen_5min">5 Minute</string>
     <string name="device_index_screen_15min">15 Minute</string>
     <string name="device_index_screen_close">Off</string>
+    <string name="device_index_screen_3min">3 Minute</string>
+    <string name="device_index_screen_1min">1 Minute</string>
+    <string name="device_index_screen_13min">13 Minute</string>
+    <string name="device_index_screen_10min">10 Minute</string>
+    <string name="device_index_screen_7min">7 Minute</string>
+    <string name="device_index_screen_now">Now</string>
 </resources>

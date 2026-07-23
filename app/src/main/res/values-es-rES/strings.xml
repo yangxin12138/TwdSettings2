@@ -263,4 +263,10 @@ Haga clic en [Intentar de nuevo] para volver a emparejar el control remoto Bluet
     <string name="device_index_screen_5min">5 minutos</string>
     <string name="device_index_screen_15min">15 minutos</string>
     <string name="device_index_screen_close">Apagado</string>
+    <string name="device_index_screen_3min">3 minutos</string>
+    <string name="device_index_screen_1min">1 min</string>
+    <string name="device_index_screen_13min">13 min</string>
+    <string name="device_index_screen_10min">10 min</string>
+    <string name="device_index_screen_7min">7 min</string>
+    <string name="device_index_screen_now">Ahora</string>
 </resources>
