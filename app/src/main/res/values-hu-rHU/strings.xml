@@ -248,7 +248,7 @@
     <string name="dialog_btn_confirm">Megerősítés</string>
     <string name="dialog_btn_cancel">Mégsem</string>
     <string name="wifi_state_connected_no_network">Csatlakozva, nincs internet</string>
-    <string name="device_index_permission_tv">Jogosztályok</string>
+    <string name="device_index_permission_tv">Szoftver engedélyek</string>
     <string name="device_index_screen_tv">Képernyőmentesítő</string>
     <string name="device_index_screen_5min">5 perc</string>
     <string name="device_index_screen_15min">15 perc</string>

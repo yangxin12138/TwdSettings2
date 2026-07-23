@@ -248,7 +248,7 @@
     <string name="dialog_btn_confirm">Підтвердити</string>
     <string name="dialog_btn_cancel">Скасувати</string>
     <string name="wifi_state_connected_no_network">підключено, немає інтернету</string>
-    <string name="device_index_permission_tv">Права доступу</string>
+    <string name="device_index_permission_tv">Дозволи на програмне забезпечення</string>
     <string name="device_index_screen_tv">Екранний захисник</string>
     <string name="device_index_screen_5min">5 хвилин</string>
     <string name="device_index_screen_15min">15 хвилин</string>

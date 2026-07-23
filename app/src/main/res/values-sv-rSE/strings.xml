@@ -248,7 +248,7 @@
     <string name="dialog_btn_confirm">Bekräfta</string>
     <string name="dialog_btn_cancel">Avboka</string>
     <string name="wifi_state_connected_no_network">Ansluten, inget internet</string>
-    <string name="device_index_permission_tv">Tillstånd</string>
+    <string name="device_index_permission_tv">Programvarurättigheter</string>
     <string name="device_index_screen_tv">Skärmsparare</string>
     <string name="device_index_screen_5min">5 minuters</string>
     <string name="device_index_screen_15min">15 minuters</string>

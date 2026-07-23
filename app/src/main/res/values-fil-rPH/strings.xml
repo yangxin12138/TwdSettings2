@@ -248,7 +248,7 @@
     <string name="dialog_btn_confirm">Kumpirmahin</string>
     <string name="dialog_btn_cancel">Kanselahin</string>
     <string name="wifi_state_connected_no_network">Konektado, Walang Internet</string>
-    <string name="device_index_permission_tv">Pangalan ng Pera</string>
+    <string name="device_index_permission_tv">Mga permiso ng software</string>
     <string name="device_index_screen_tv">Screen Saver</string>
     <string name="device_index_screen_5min">5 minuto</string>
     <string name="device_index_screen_15min">15 minuto</string>

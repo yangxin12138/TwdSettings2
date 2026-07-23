@@ -256,7 +256,7 @@
     <string name="time_setdate">日付</string>
     <string name="time_use24hours">24時間形式を使用する</string>
     <string name="time_settimezone">タイムゾーン</string>
-    <string name="device_index_permission_tv">権限</string>
+    <string name="device_index_permission_tv">ソフトウェア権限</string>
     <string name="device_index_screen_tv">スクリーンセーバー</string>
     <string name="device_index_screen_5min">5分間</string>
     <string name="device_index_screen_15min">15分間</string>

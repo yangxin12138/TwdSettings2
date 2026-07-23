@@ -248,7 +248,7 @@
     <string name="dialog_btn_confirm">Επιβεβαιώνω</string>
     <string name="dialog_btn_cancel">Ματαίωση</string>
     <string name="wifi_state_connected_no_network">Συνδεδεμένο, Χωρίς Διαδίκτυο</string>
-    <string name="device_index_permission_tv">Δικαιώματα</string>
+    <string name="device_index_permission_tv">Δικαιώματα λογισμικού</string>
     <string name="device_index_screen_tv">Screen Saver</string>
     <string name="device_index_screen_5min">5 Λεπτά</string>
     <string name="device_index_screen_15min">15 Λεπτά</string>

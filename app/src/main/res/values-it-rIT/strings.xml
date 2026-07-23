@@ -258,7 +258,7 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="time_setdate">Data</string>
     <string name="time_use24hours">Utilizza il formato 24 ore</string>
     <string name="time_settimezone">Fuso orario</string>
-    <string name="device_index_permission_tv">Autorizzazioni</string>
+    <string name="device_index_permission_tv">Permessi software</string>
     <string name="device_index_screen_tv">Schermata di protezione</string>
     <string name="device_index_screen_5min">5 minuti</string>
     <string name="device_index_screen_15min">15 minuti</string>

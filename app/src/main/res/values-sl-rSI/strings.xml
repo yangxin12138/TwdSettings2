@@ -248,7 +248,7 @@
     <string name="dialog_btn_confirm">Potrdi</string>
     <string name="dialog_btn_cancel">Prekliči</string>
     <string name="wifi_state_connected_no_network">povezan, brez interneta</string>
-    <string name="device_index_permission_tv">Dovoljenja</string>
+    <string name="device_index_permission_tv">Dovoljenja za programske vire</string>
     <string name="device_index_screen_tv">Zaslonoshranilnik</string>
     <string name="device_index_screen_5min">5 minut</string>
     <string name="device_index_screen_15min">15 minut</string>

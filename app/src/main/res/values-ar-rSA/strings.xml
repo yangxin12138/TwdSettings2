@@ -256,7 +256,7 @@
     <string name="time_setdate">تاريخ</string>
     <string name="time_use24hours">استخدم تنسيق 24 ساعة</string>
     <string name="time_settimezone">وحدة زمنية</string>
-    <string name="device_index_permission_tv">السماح</string>
+    <string name="device_index_permission_tv">أذونات التطبيق</string>
     <string name="device_index_screen_tv">برنامج حماية الشاشة</string>
     <string name="device_index_screen_5min">5 دقيقة</string>
     <string name="device_index_screen_15min">15 دقيقة</string>

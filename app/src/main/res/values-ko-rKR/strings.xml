@@ -257,7 +257,7 @@
     <string name="time_setdate">날짜</string>
     <string name="time_use24hours">24시간 형식을 사용하세요</string>
     <string name="time_settimezone">시간대</string>
-    <string name="device_index_permission_tv">권한</string>
+    <string name="device_index_permission_tv">소프트웨어 권한</string>
     <string name="device_index_screen_tv">화면 보호기</string>
     <string name="device_index_screen_5min">5분</string>
     <string name="device_index_screen_15min">15분</string>

@@ -248,7 +248,7 @@
     <string name="dialog_btn_confirm">Потвърди</string>
     <string name="dialog_btn_cancel">Отказ</string>
     <string name="wifi_state_connected_no_network">Свързан, без интернет</string>
-    <string name="device_index_permission_tv">Разрешение</string>
+    <string name="device_index_permission_tv">Софтуерни права</string>
     <string name="device_index_screen_tv">Екранен защитник</string>
     <string name="device_index_screen_5min">5 минути</string>
     <string name="device_index_screen_15min">15 минути</string>

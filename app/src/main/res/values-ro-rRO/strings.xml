@@ -248,7 +248,7 @@
     <string name="dialog_btn_confirm">Confirma</string>
     <string name="dialog_btn_cancel">Anula</string>
     <string name="wifi_state_connected_no_network">conectat, fără internet</string>
-    <string name="device_index_permission_tv">Permisiuni</string>
+    <string name="device_index_permission_tv">Permisiuni software</string>
     <string name="device_index_screen_tv">Screen Saver</string>
     <string name="device_index_screen_5min">5 Minute</string>
     <string name="device_index_screen_15min">15 Minute</string>

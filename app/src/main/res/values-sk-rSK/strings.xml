@@ -256,6 +256,6 @@
     <string name="wifi_no_passwd_info">Pripojte sa k tejto sieti:</string>
     <string name="projector_auto_projection_title">Automatický lichobežník</string>
     <string name="projector_auto_focus_title">Automatické zaostrovanie</string>
-    <string name="device_index_permission_tv">Povolenia</string>
+    <string name="device_index_permission_tv">Prístupové práva softvéru</string>
     <string name="device_index_screen_tv">Screen Saver</string>
 </resources>
