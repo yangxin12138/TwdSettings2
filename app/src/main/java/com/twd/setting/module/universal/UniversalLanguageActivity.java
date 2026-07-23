@@ -112,6 +112,9 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                                                     ,"ko_KR","th_TH","hi_IN","fr_FR","de_DE","it_IT"
                                                     ,"ru_RU","es_ES","pt_PT","ar_SA","fa_IR","tr_TR");
             for (String language_sup : supportedLanguages){
+                if(!"zh_CN".equals(language_sup)){
+                    continue;
+                }
                 if (language_sup.equals(languageCode) && !language.equals("English (United States,Computer)_en_US")){
                     String languageName = languageMap.get(language_sup);
                     languageBean = new LanguageBean(languageName,languageCode,false);
