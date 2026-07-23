@@ -119,7 +119,9 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
 
         horizontal_projector = Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp("HORIZONTAL_PROJECTOR").trim());
 
+        Log.d(TAG, "getInitKeystone: horizontal_projector="+horizontal_projector);
         String vertical = horizontal_projector ? SystemPropertiesUtils.getProperty("ro.keystone.vertical","0"):"1";
+        Log.d(TAG, "getInitKeystone: vertical="+vertical);
         //String vertical = "1";
         if(vertical.equals("1")){
             is_Vertical = true;
@@ -159,26 +161,26 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public void savePoint(int point){
         switch (point){
             case 0:
-                editor.putString("top_left",vTopLeft.toString());
+                editor.putString("top_left",vTopLeft.persistString());
                 editor.apply();
                 break;
             case 1:
-                editor.putString("top_right",vTopRight.toString());
+                editor.putString("top_right",vTopRight.persistString());
                 editor.apply();
                 break;
             case 3:
-                editor.putString("bottom_left",vBottomLeft.toString());
+                editor.putString("bottom_left",vBottomLeft.persistString());
                 editor.apply();
                 break;
             case 2:
-                editor.putString("bottom_right",vBottomRight.toString());
+                editor.putString("bottom_right",vBottomRight.persistString());
                 editor.apply();
                 break;
             default:
-                editor.putString("top_left",vTopLeft.toString());
-                editor.putString("top_right",vTopRight.toString());
-                editor.putString("bottom_left",vBottomLeft.toString());
-                editor.putString("bottom_right",vBottomRight.toString());
+                editor.putString("top_left",vTopLeft.persistString());
+                editor.putString("top_right",vTopRight.persistString());
+                editor.putString("bottom_left",vBottomLeft.persistString());
+                editor.putString("bottom_right",vBottomRight.persistString());
                 editor.apply();
                 break;
         }
@@ -339,10 +341,9 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
             case 2:
                 vBottomRight.doLeft();
                 break;
-            default:
-                break;
         }
-        updatePoint(4);//updatePoint(point);
+        //updatePoint(4);
+        updatePoint(point);
         savePoint(point);
         update();
     }
@@ -363,7 +364,8 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
             default:
                 break;
         }
-        updatePoint(4);//updatePoint(point);
+        //updatePoint(4);
+        updatePoint(point);
         savePoint(point);
         update();
     }
@@ -384,7 +386,8 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
             default:
                 break;
         }
-        updatePoint(4);//updatePoint(point);
+       // updatePoint(4);
+        updatePoint(point);
         savePoint(point);
         update();
     }
@@ -405,7 +408,8 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
             default:
                 break;
         }
-        updatePoint(4);//updatePoint(point);
+       //updatePoint(4);
+        updatePoint(point);
         savePoint(point);
         update();
     }

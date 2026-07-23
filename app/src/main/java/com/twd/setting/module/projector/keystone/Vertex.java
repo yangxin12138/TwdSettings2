@@ -40,6 +40,7 @@ public class Vertex {
         this.point = point;
         this.x = x;
         this.y = y;
+        horizontal_pro = Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp("HORIZONTAL_PROJECTOR").trim());
     }
     public Vertex(String strVertex) {
         String v[] = strVertex.trim().split(",");
@@ -52,6 +53,7 @@ public class Vertex {
     }
     public Vertex(int point,String strVertex) {
         this.point = point;
+        horizontal_pro = Boolean.parseBoolean(SystemPropertiesUtils.readSystemProp("HORIZONTAL_PROJECTOR").trim());
         String v[] = strVertex.trim().split(",");
         if (v != null) {
             //this.x = Integer.parseInt(v[0]);
@@ -113,10 +115,12 @@ public class Vertex {
             case 1:
                 y = isHorizontal ? y - 1 : y -3;
                 if (y < 0) y = 0;
+                break;
             case 2:
             case 3:
                 y = isHorizontal ? y + 1 : y + 3;
                 if (y > maxYStep) y = maxYStep;
+                break;
             default:
                 break;
         }
@@ -143,5 +147,7 @@ public class Vertex {
         }
     }
 
-
+    public String persistString() {
+        return x + "," + y;
+    }
 }

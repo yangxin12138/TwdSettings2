@@ -30,41 +30,12 @@ public class Lcd {
         lcdWidth = dm.widthPixels;
         lcdHeight = dm.heightPixels;
 
-        /*if(lcdWidth==1024 && lcdHeight == 600){
-            mStepX_onepoint = 2.56f;
-            mStepY_onepoint = 1.5f;
-            mStepX_twopoint = 5.12f;
-            mStepY_twopoint = 3.0f;
-        }else if(lcdWidth==1136 && lcdHeight == 640){
-            mStepX_onepoint = 1.6f;//2.56f;
-            mStepY_onepoint = 2.84f;//1.5f;
-            mStepX_twopoint = 3.2f;//5.12f;
-            mStepY_twopoint = 5.68f;//3.0f;
-        }else if(lcdWidth==1280 && lcdHeight == 720){
-            mStepX_onepoint = 3.2f;
-            mStepY_onepoint = 1.8f;
-            mStepX_twopoint = 6.4f;
-            mStepY_twopoint = 3.6f;
-        }else if(lcdWidth==1920 && lcdHeight == 1080){
-            mStepX_onepoint = 4.8f;
-            mStepY_onepoint = 2.7f;
-            mStepX_twopoint = 9.6f;
-            mStepY_twopoint = 5.4f;
-        }else{
-            mStepX_onepoint = 2.56f;
-            mStepY_onepoint = 1.5f;
-            mStepX_twopoint = 5.12f;
-            mStepY_twopoint = 3.0f;
-        }*/
-
 
         mStepX_twopoint = getFloatProperty("STEPX_TWOPOINT", 5.12f);
         mStepY_twopoint = getFloatProperty("STEPY_TWOPOINT", 3.0f);
         mStepX_onepoint = getFloatProperty("STEPX_ONEPOINT", 2.56f);
         mStepY_onepoint = getFloatProperty("STEPY_ONEPOINT", 1.5f);
 
-//        prefs = context.getSharedPreferences("keystone_mode", Context.MODE_PRIVATE);
-//        mode = prefs.getInt("mode",MODE_ONEPOINT);
         Log.d(TAG, "SizeActivity mode: "+mode+", lcdWidth:"+lcdWidth+",lcdHeight:"+lcdHeight);
 
     }
