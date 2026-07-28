@@ -1,6 +1,16 @@
 package com.twd.setting.utils;
 
+import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.provider.Settings;
 import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,9 +21,12 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 
 public class SystemPropertiesUtils {
+    private static final String TAG = "SystemPropertiesUtils";
     private static final String CLASS_NAME = "android.os.SystemProperties";
 
     private static final String INI_LAUNCHER_KEY = "LAUNCHER_PROJECTOR";
+    public static final String ACTION_DEVICE_NAME_UPDATE =
+            "com.twd.setting.utils.SystemPropertiesUtils.DEVICE_NAME_UPDATE";
 
 
     public static <T> T getProperty(String key, T defaultValue){
@@ -118,4 +131,24 @@ public class SystemPropertiesUtils {
         }
         return "";
     }
+
+    public static String getDeviceName(Context context) {
+        return Settings.System.getString(context.getContentResolver(), "device_name");
+    }
+
+    public static void setDeviceName(Context context, String name) {
+        Settings.System.putString(context.getContentResolver(), "device_name", name);
+        Settings.System.putString(context.getContentResolver(), "device_custom_name", name);
+        BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (btAdapter != null) {
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            btAdapter.setName(name);
+        }else {
+            Log.v(TAG, "Bluetooth adapter is null. Running on device without bluetooth?");
+        }
+        LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(ACTION_DEVICE_NAME_UPDATE));
+    }
+
 }

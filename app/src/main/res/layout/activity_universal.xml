@@ -81,7 +81,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="@dimen/universal_content_LL_height"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/LL_content_marginTop"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:background="?bBg">
@@ -111,6 +111,52 @@
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_language"
+                android:src="?arrowSrc"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/universal_current_arrow_height"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/universal_LL_deviceName"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/switchlayout_padding_tb"
+            android:paddingBottom="@dimen/switchlayout_padding_tb"
+            android:layout_marginTop="@dimen/LL_content_marginTop"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="?bBg">
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/universal_tv_deviceName"
+                android:text="@string/universal_index_deviceName_tv"
+                android:textSize="@dimen/universal_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/universal_tv_marginStart"
+                android:textDirection="ltr"/>
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/universal_tv_namecurrent"
+                android:text=""
+                android:textSize="@dimen/universal_tv_textSize"
+                android:textColor="?textColor"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:layout_gravity="center_vertical" />
+            <ImageView
+                android:duplicateParentState="true"
+                android:id="@+id/arrow_deviceName"
                 android:src="?arrowSrc"
                 android:layout_width="0dp"
                 android:layout_weight="1"
