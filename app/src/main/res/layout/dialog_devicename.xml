@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="50dp"
+    android:background="?background_color">
+
+    <EditText
+        android:id="@+id/deviceName_edit"
+        android:layout_width="@dimen/device_name_input_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/device_name_layout_marginTop"
+        android:gravity="center"
+        android:textColor="?editTextColor"
+        android:textColorHighlight="@color/white"
+        android:imeOptions="actionDone"
+        android:inputType="textImeMultiLine"
+        android:textSize="@dimen/factory_title_textSize" />
+    <LinearLayout
+        android:layout_marginTop="@dimen/device_name_layout_button_marginTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <LinearLayout
+            android:id="@+id/deviceName_cancel_bt"
+            android:layout_width="@dimen/factory_button_width"
+            android:layout_height="@dimen/factory_button_height"
+            android:background="@drawable/selector_factory_btnbg"
+            android:layout_marginStart="@dimen/device_name_marginStart"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:nextFocusRight="@id/factory_ok_bt"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+            <TextView
+                android:duplicateParentState="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/dialog_changeLanguage_btCancel"
+                android:textSize="@dimen/factory_button_textSize"
+                android:gravity="center"
+                android:textColor="?factory_textColor"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/deviceName_ok_bt"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/factory_button_width"
+            android:layout_height="@dimen/factory_button_height"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="@dimen/device_name_marginStart"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:nextFocusLeft="@id/factory_cancel_bt"
+            android:background="@drawable/selector_factory_btnbg"
+            android:orientation="horizontal">
+            <TextView
+                android:duplicateParentState="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/dialog_changeLanguage_btConfirm"
+                android:textSize="@dimen/factory_button_textSize"
+                android:gravity="center"
+                android:textColor="?factory_textColor"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
