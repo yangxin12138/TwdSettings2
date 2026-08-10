@@ -135,13 +135,14 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
             languageMap.put("el_GR","Ελληνικά");//希腊语
             languageMap.put("bg_BG","Български");//保加利亚语
             languageMap.put("uk_UA","Українська");//乌克兰语
+            languageMap.put("ur_PK","اردو"); //乌尔都语
             languageMap.put("iw_IL","עברית");//希伯来语
 
             List<String> supportedLanguages = Arrays.asList("zh_CN","zh_TW","en_US","ja_JP"
                                                     ,"ko_KR","th_TH","hi_IN","fr_FR","de_DE","it_IT"
                                                     ,"ru_RU","es_ES","pt_PT","ar_SA","fa_IR","tr_TR","pl_PL","af_ZA","cs_CZ",
                     "da_DK","fil_PH","hr_HR","in_ID","zu_ZA","sw_TZ","lv_LV","lt_LT","hu_HU","ms_MY","nl_NL","nb_NO","ro_RO",
-                    "sk_SK","sl_SI","fi_FI","sv_SE","vi_VN","el_GR","bg_BG","uk_UA","iw_IL");
+                    "sk_SK","sl_SI","fi_FI","sv_SE","vi_VN","el_GR","bg_BG","uk_UA","ur_PK","iw_IL");
             for (String language_sup : supportedLanguages){
                 if (language_sup.equals(languageCode) && !language.equals("English (United States,Computer)_en_US")){
                     String languageName = languageMap.get(language_sup);
@@ -268,6 +269,8 @@ public class UniversalLanguageActivity extends AppCompatActivity implements Adap
                     changeSystemLanguage(new Locale("bg","BG"));
                 }else if (indexLanguage.equals("uk_UA")) {
                     changeSystemLanguage(new Locale("uk","UA"));
+                }else if (indexLanguage.equals("ur_PK")) {
+                    changeSystemLanguage(new Locale("ur","PK"));
                 }else if (indexLanguage.equals("iw_IL")) {
                     changeSystemLanguage(new Locale("iw","IL"));
                 }

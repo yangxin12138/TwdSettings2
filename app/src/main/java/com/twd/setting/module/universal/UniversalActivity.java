@@ -216,6 +216,8 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
             tv_languageCurrent.setText("Български");
         }else if (currentLanguage.contains("uk_UA")) {
             tv_languageCurrent.setText("Українська");
+        }else if (currentLanguage.contains("ur_PK")) {
+            tv_languageCurrent.setText("اردو");
         }else if (currentLanguage.contains("iw_IL")) {
             tv_languageCurrent.setText("עברית");
         }
