@@ -109,6 +109,7 @@
             android:text="@string/device_info_mac_wifi"
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor"
+            android:textDirection="ltr"
             android:layout_marginStart="@dimen/device_info_marginStart"/>
         <TextView
             android:id="@+id/devices_tv_macAddressWifi_value"
@@ -131,6 +132,7 @@
             android:text="@string/device_info_mac_bluetooth"
             android:textSize="@dimen/device_info_textSize"
             android:textColor="?textColor"
+            android:textDirection="ltr"
             android:layout_marginStart="@dimen/device_info_marginStart"/>
         <TextView
             android:id="@+id/devices_tv_macAddressBluetooth_value"

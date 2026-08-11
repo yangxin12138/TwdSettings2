@@ -212,4 +212,18 @@
     <dimen name="wifi_switch_paddingStart_End">30.0dip</dimen>
     <dimen name="device_name_marginStart">150dp</dimen>
     <dimen name="selector_factory_bt_width">4.0dip</dimen>
+
+    <dimen name="universal_time_LL_height">50dp</dimen>
+    <dimen name="LL_content_paddingStart">50dp</dimen>
+    <dimen name="time_text_size">15sp</dimen>
+    <dimen name="switch_paddingEnd">30dp</dimen>
+    <dimen name="timeZone_summary">15sp</dimen>
+    <dimen name="time_dialog_text_size">13sp</dimen>
+    <dimen name="timezone_dialog_padding">13dp</dimen>
+    <dimen name="timezone_dialog_title_text_size">28sp</dimen>
+    <dimen name="timezone_dialog_list_width">600dp</dimen>
+    <dimen name="timezone_list_item_padding">10dp</dimen>
+    <dimen name="timezone_list_item_paddingStart">20dp</dimen>
+    <dimen name="timezone_list_item_offset_paddingStart">16dp</dimen>
+    <dimen name="timezone_list_item_offset_paddingEnd">16dp</dimen>
 </resources>

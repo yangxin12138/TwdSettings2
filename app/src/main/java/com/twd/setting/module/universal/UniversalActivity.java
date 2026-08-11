@@ -67,6 +67,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
                 break;
         }
         super.onCreate(savedInstanceState);
+        getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         setContentView(R.layout.activity_universal);
         twdUtils = new TwdUtils();
         twdUtils.hideSystemUI(this);

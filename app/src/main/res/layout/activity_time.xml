@@ -55,6 +55,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/time_usenettime"
                 android:textColor="?textColor"
+                android:textDirection="ltr"
                 android:textSize="@dimen/time_text_size" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -90,6 +91,7 @@
                 android:text="@string/time_settime"
                 android:duplicateParentState="true"
                 android:gravity="center_vertical"
+                android:textDirection="ltr"
                 android:textSize="@dimen/time_text_size"/>
             <TextView
                 android:id="@+id/time_summary"
@@ -121,6 +123,7 @@
                 android:text="@string/time_setdate"
                 android:duplicateParentState="true"
                 android:gravity="center_vertical"
+                android:textDirection="ltr"
                 android:textSize="@dimen/time_text_size"/>
             <TextView
                 android:id="@+id/date_summary"
@@ -154,6 +157,7 @@
                 android:text="@string/time_use24hours"
                 android:duplicateParentState="true"
                 android:textSize="@dimen/time_text_size"
+                android:textDirection="ltr"
                 android:gravity="center_vertical"/>
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_24Hours"
@@ -188,6 +192,7 @@
                 android:text="@string/time_settimezone"
                 android:duplicateParentState="true"
                 android:textSize="@dimen/time_text_size"
+                android:textDirection="ltr"
                 android:gravity="center_vertical"/>
             <TextView
                 android:id="@+id/timeZone_summary"
