@@ -91,24 +91,6 @@ public class UniversalInputActivity extends AppCompatActivity implements Adapter
                 e.printStackTrace();
             }
 
-
-            /*if (packageName.contains("sogou")){
-                inputItem = new InputItem(getString(R.string.inputMethod_value_sougou),inputMethodID,false);
-                if (inputMethodID.equals(selectedInputMethodId)){
-                    inputItem.setSelected(true);
-                }
-            } else if (packageName.contains("inputmethod.latin")) {
-                inputItem = new InputItem(getString(R.string.inputMethod_value_Aosp),inputMethodID,false);
-                if (inputMethodID.equals(selectedInputMethodId)){
-                    inputItem.setSelected(true);
-                }
-            } else if (packageName.contains("inputmethod.pinyin")) {
-                inputItem = new InputItem(getString(R.string.inputMethod_value_google),inputMethodID,false);
-                if (inputMethodID.equals(selectedInputMethodId)){
-                    inputItem.setSelected(true);
-                }
-            }*/
-
             if (inputItem != null)inputItems.add(inputItem);
             Log.i(TAG, "initView: packageName = " + packageName + ",id = " + inputMethodID);
         }

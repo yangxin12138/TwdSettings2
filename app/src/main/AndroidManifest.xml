@@ -70,7 +70,7 @@
         android:icon="@mipmap/ic_settings"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_settings"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
 
         android:theme="@style/Theme.TVSettings2.White"
         tools:targetApi="31">

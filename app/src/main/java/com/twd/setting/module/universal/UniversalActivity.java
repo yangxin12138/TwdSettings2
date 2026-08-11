@@ -36,15 +36,12 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
     private LinearLayout LL_input;
     private LinearLayout LL_language;
     private LinearLayout LL_device;
-    private LinearLayout LL_screensaver;
-    private LinearLayout LL_access;
     private LinearLayout LL_time;
     private TextView tv_input;
     private TextView tv_language;
     private TextView tv_inputCurrent;
     private TextView tv_languageCurrent;
     private TextView tv_deviceNameCurrent;
-    private TextView tv_screensaverTime;
 
     private ImageView arrow_input;
     private ImageView arrow_language;
@@ -67,7 +64,6 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
                 break;
         }
         super.onCreate(savedInstanceState);
-        getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         setContentView(R.layout.activity_universal);
         twdUtils = new TwdUtils();
         twdUtils.hideSystemUI(this);
@@ -85,11 +81,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
             LL_language.requestFocus();
         } else if (selectItem ==2) {
             LL_device.requestFocus();
-        } else if (selectItem ==3) {
-            LL_screensaver.requestFocus();
-        } else if (selectItem == 4) {
-            LL_access.requestFocus();
-        } else if (selectItem == 5) {
+        } else if (selectItem == 3) {
             LL_time.requestFocus();
         }
         //当前输入法
@@ -232,23 +224,18 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         LL_input = findViewById(R.id.universal_LL_input);
         LL_language = findViewById(R.id.universal_LL_language);
         LL_device = findViewById(R.id.universal_LL_deviceName);
-        LL_screensaver = findViewById(R.id.universal_LL_Screensaver);
-        LL_access = findViewById(R.id.universal_LL_access);
         LL_time = findViewById(R.id.universal_LL_time);
         tv_input = findViewById(R.id.universal_tv_input);
         tv_language = findViewById(R.id.universal_tv_language);
         tv_inputCurrent = findViewById(R.id.universal_tv_inputcurrent);
         tv_languageCurrent = findViewById(R.id.universal_tv_languagecurrent);
         tv_deviceNameCurrent = findViewById(R.id.universal_tv_namecurrent);
-        tv_screensaverTime = findViewById(R.id.universal_tv_screensaverTime);
         arrow_input = findViewById(R.id.arrow_input);
         arrow_language = findViewById(R.id.arrow_language);
 
         LL_input.setOnClickListener(this);
         LL_language.setOnClickListener(this);
         LL_device.setOnClickListener(this);
-        LL_screensaver.setOnClickListener(this);
-        LL_access.setOnClickListener(this);
         LL_time.setOnClickListener(this);
 
         LL_input.requestFocus();
@@ -268,20 +255,7 @@ public class UniversalActivity extends AppCompatActivity implements View.OnClick
         }else if (view.getId() == R.id.universal_LL_deviceName){
             selectItem = 2;
             showDialog();
-        } else if (view.getId() == R.id.universal_LL_Screensaver) {
-            selectItem = 3;
-            intent = new Intent();
-            intent.setComponent(new ComponentName("com.android.tv.settings","com.android.tv.settings.device.display.daydream.DaydreamActivity"));
-            startActivity(intent);
-        }else if (view.getId() == R.id.universal_LL_access){
-            selectItem = 4;
-            intent = new Intent(Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
-            if (intent.resolveActivity(getPackageManager())!=null){
-                startActivity(intent);
-            } else {
-                Log.i(TAG, "onCreate: 不可以解析");
-            }
-        }else {
+        } else {
             selectItem = 5;
             intent = new Intent(this,TimeDateActivity.class);
             startActivity(intent);

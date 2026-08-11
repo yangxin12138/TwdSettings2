@@ -53,34 +53,36 @@
                 android:text="@string/universal_index_input_tv"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/universal_tv_marginStart"
-                android:textDirection="ltr"/>
+                android:layout_marginStart="@dimen/universal_tv_marginStart" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
             <TextView
                 android:duplicateParentState="true"
                 android:id="@+id/universal_tv_inputcurrent"
                 android:text=""
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="4"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:singleLine="true"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_input"
                 android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/universal_LL_language"
@@ -99,34 +101,36 @@
                 android:text="@string/universal_index_language_tv"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/universal_tv_marginStart"
-                android:textDirection="ltr"/>
+                android:layout_marginStart="@dimen/universal_tv_marginStart" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
             <TextView
                 android:duplicateParentState="true"
                 android:id="@+id/universal_tv_languagecurrent"
                 android:text=""
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="4"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:singleLine="true"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_language"
                 android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/universal_LL_deviceName"
@@ -145,108 +149,36 @@
                 android:text="@string/universal_index_deviceName_tv"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/universal_tv_marginStart"
-                android:textDirection="ltr"/>
+                android:layout_marginStart="@dimen/universal_tv_marginStart" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
             <TextView
                 android:duplicateParentState="true"
                 android:id="@+id/universal_tv_namecurrent"
                 android:text=""
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="4"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:singleLine="true"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_deviceName"
                 android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/universal_LL_Screensaver"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/universal_content_LL_height"
-            android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:background="?bBg"
-            android:visibility="gone">
-            <TextView
-                android:duplicateParentState="true"
-                android:id="@+id/universal_tv_Screensaver"
-                android:text="@string/universal_index_Screensaver_tv"
-                android:textSize="@dimen/universal_tv_textSize"
-                android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/universal_tv_marginStart"
-                android:textDirection="ltr"/>
-            <TextView
-                android:duplicateParentState="true"
-                android:id="@+id/universal_tv_screensaverTime"
-                android:text=""
-                android:textSize="@dimen/universal_tv_textSize"
-                android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="4"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center_vertical" />
-            <ImageView
-                android:duplicateParentState="true"
-                android:id="@+id/arrow_Screensaver"
-                android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/universal_LL_access"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/universal_content_LL_height"
-            android:layout_marginTop="@dimen/LL_content_marginTop"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:background="?bBg"
-            android:visibility="gone">
-            <TextView
-                android:duplicateParentState="true"
-                android:id="@+id/universal_tv_access"
-                android:text="@string/universal_index_access_tv"
-                android:textSize="@dimen/universal_tv_textSize"
-                android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="9"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/universal_tv_marginStart"
-                android:textDirection="ltr"/>
-            <ImageView
-                android:duplicateParentState="true"
-                android:id="@+id/arrow_access"
-                android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
         </LinearLayout>
 
         <LinearLayout
@@ -267,20 +199,23 @@
                 android:text="@string/str_timeanddate"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="9"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/universal_tv_marginStart"
-                android:textDirection="ltr"/>
+                android:layout_marginStart="@dimen/universal_tv_marginStart" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_time"
                 android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

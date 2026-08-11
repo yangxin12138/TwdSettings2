@@ -51,20 +51,23 @@
                 android:text="@string/device_index_info_tv"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/devices_info_tv_marginStart"
                 android:textDirection="ltr"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent"/>
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_info"
                 android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/devices_LL_storage"
@@ -83,20 +86,23 @@
                 android:text="@string/device_index_storage_tv"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/devices_storage_tv_marginStart"
                 android:textDirection="ltr"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent"/>
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_storage"
                 android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/devices_LL_factory"
@@ -115,20 +121,23 @@
                 android:text="@string/device_index_factory_tv"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/devices_storage_tv_marginStart"
                 android:textDirection="ltr"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent"/>
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_factory"
                 android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
         </LinearLayout>
 
         <LinearLayout
@@ -148,20 +157,23 @@
                 android:text="@string/device_index_update_tv"
                 android:textSize="@dimen/universal_tv_textSize"
                 android:textColor="?textColor"
-                android:layout_width="0dp"
-                android:layout_weight="5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/devices_storage_tv_marginStart"
                 android:textDirection="ltr"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent"/>
             <ImageView
                 android:duplicateParentState="true"
                 android:id="@+id/arrow_update"
                 android:src="?arrowSrc"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/universal_current_arrow_height"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/devices_info_tv_marginStart"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

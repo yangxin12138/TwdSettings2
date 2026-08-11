@@ -11,18 +11,21 @@
         android:text="微信输入法"
         android:textSize="@dimen/universal_tv_textSize"
         android:textColor="@color/white"
-        android:layout_width="0dp"
-        android:layout_weight="5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/universal_input_list_name_paddingStart"
         android:gravity="center_vertical"
         android:textDirection="ltr"
         android:layout_gravity="center_vertical"/>
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
     <ImageView
         android:id="@+id/iv_inputSelect"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/universal_input_list_ivSelect_height"
-        android:layout_gravity="center_vertical"/>
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/universal_input_list_ivSelect_width"/>
 </LinearLayout>

@@ -48,9 +48,8 @@
 
             <TextView
                 android:id="@+id/time_switch"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
                 android:duplicateParentState="true"
                 android:gravity="center_vertical"
                 android:text="@string/time_usenettime"
@@ -58,10 +57,13 @@
                 android:textDirection="ltr"
                 android:textSize="@dimen/time_text_size" />
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_auto"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:paddingEnd="@dimen/switch_paddingEnd"
                 android:layout_gravity="center_vertical"
                 android:layout_height="wrap_content"
@@ -84,8 +86,7 @@
             android:layout_marginTop="@dimen/LL_content_marginTop">
             <TextView
                 android:id="@+id/time_title"
-                android:layout_width="0dp"
-                android:layout_weight="6"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="?textColor"
                 android:text="@string/time_settime"
@@ -93,11 +94,15 @@
                 android:gravity="center_vertical"
                 android:textDirection="ltr"
                 android:textSize="@dimen/time_text_size"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/time_summary"
-                android:layout_width="0dp"
-                android:layout_weight="6"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:paddingEnd="@dimen/switch_paddingEnd"
                 android:gravity="center"
                 android:text="08:00 AM"
                 android:textSize="@dimen/time_text_size"
@@ -116,8 +121,7 @@
             android:layout_marginTop="@dimen/LL_content_marginTop">
             <TextView
                 android:id="@+id/date_title"
-                android:layout_width="0dp"
-                android:layout_weight="6"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="?textColor"
                 android:text="@string/time_setdate"
@@ -125,11 +129,15 @@
                 android:gravity="center_vertical"
                 android:textDirection="ltr"
                 android:textSize="@dimen/time_text_size"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/date_summary"
-                android:layout_width="0dp"
-                android:layout_weight="6"
+                android:layout_width="wrap_content"
                 android:gravity="center"
+                android:paddingEnd="@dimen/switch_paddingEnd"
                 android:layout_height="match_parent"
                 android:text="1997/01/01"
                 android:textSize="@dimen/time_text_size"
@@ -150,8 +158,7 @@
 
             <TextView
                 android:id="@+id/is24Hours_switch_title"
-                android:layout_width="0dp"
-                android:layout_weight="4"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="?textColor"
                 android:text="@string/time_use24hours"
@@ -159,10 +166,13 @@
                 android:textSize="@dimen/time_text_size"
                 android:textDirection="ltr"
                 android:gravity="center_vertical"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_24Hours"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:paddingEnd="@dimen/switch_paddingEnd"
                 android:layout_gravity="center_vertical"
                 android:layout_height="wrap_content"
@@ -185,19 +195,21 @@
             android:layout_marginTop="@dimen/LL_content_marginTop">
             <TextView
                 android:id="@+id/timeZone_title"
-                android:layout_width="0dp"
-                android:layout_weight="6"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="?textColor"
                 android:text="@string/time_settimezone"
                 android:duplicateParentState="true"
                 android:textSize="@dimen/time_text_size"
-                android:textDirection="ltr"
                 android:gravity="center_vertical"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/timeZone_summary"
-                android:layout_width="0dp"
-                android:layout_weight="6"
+                android:layout_width="wrap_content"
+                android:paddingEnd="@dimen/switch_paddingEnd"
                 android:layout_height="match_parent"
                 android:duplicateParentState="true"
                 android:text=""
