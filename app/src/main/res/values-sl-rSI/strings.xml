@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Najprej morate vklopiti samodejno ostrenje.</string>
     <string name="projector_auto_projector_tip">Najprej moraš vklopiti samodejno projekcijo.</string>
     <string name="projector_auto_projector_off_tip">Najprej moraš izklopiti samodejno projekcijo.</string>
+    <string name="device_index_screen_5min">5 minuti</string>
+    <string name="device_index_screen_15min">15 minut</string>
+    <string name="device_index_screen_30min">30 minut</string>
+    <string name="device_index_screen_1hours">1 Ura</string>
+    <string name="device_index_screen_2hours">2 Ur</string>
+    <string name="device_index_screen_never">Nikoli</string>
 </resources>

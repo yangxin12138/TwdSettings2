@@ -250,4 +250,10 @@
     <string name="projector_auto_tip">まずオートフォーカスをオンにする必要があります</string>
     <string name="projector_auto_projector_tip">まず自動投影をオンにする必要があります</string>
     <string name="projector_auto_projector_off_tip">まず自動投影をオフにする必要があります</string>
+    <string name="device_index_screen_5min">5分間</string>
+    <string name="device_index_screen_15min">15分間</string>
+    <string name="device_index_screen_30min">30分間</string>
+    <string name="device_index_screen_1hours">1時間</string>
+    <string name="device_index_screen_2hours">2時間</string>
+    <string name="device_index_screen_never">決して</string>
 </resources>

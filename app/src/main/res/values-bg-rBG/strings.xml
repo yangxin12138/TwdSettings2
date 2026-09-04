@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Първо трябва да включите автофокуса</string>
     <string name="projector_auto_projector_tip">Първо трябва да включите автоматичната проекция.</string>
     <string name="projector_auto_projector_off_tip">Първо трябва да изключите автоматичната проекция.</string>
+    <string name="device_index_screen_5min">5 Минути</string>
+    <string name="device_index_screen_15min">15 Минути</string>
+    <string name="device_index_screen_30min">30 Минути</string>
+    <string name="device_index_screen_1hours">1 час</string>
+    <string name="device_index_screen_2hours">2 часа</string>
+    <string name="device_index_screen_never">Никога</string>
 </resources>

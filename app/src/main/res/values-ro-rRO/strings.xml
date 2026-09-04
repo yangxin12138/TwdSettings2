@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Trebuie să activați mai întâi focalizarea automată</string>
     <string name="projector_auto_projector_tip">Trebuie să activați mai întâi proiecția automată</string>
     <string name="projector_auto_projector_off_tip">Trebuie să dezactivați mai întâi proiecția automată</string>
+    <string name="device_index_screen_5min">5 Minute</string>
+    <string name="device_index_screen_15min">15 Minute</string>
+    <string name="device_index_screen_30min">30 Minute</string>
+    <string name="device_index_screen_1hours">1 Oră</string>
+    <string name="device_index_screen_2hours">2 Ore</string>
+    <string name="device_index_screen_never">Niciodată</string>
 </resources>

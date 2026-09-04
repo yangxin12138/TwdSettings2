@@ -251,4 +251,10 @@
     <string name="projector_auto_tip">需要先開啟自動對焦</string>
     <string name="projector_auto_projector_tip">您需要先開啟自動投影</string>
     <string name="projector_auto_projector_off_tip">您需要先關閉自動投影</string>
+    <string name="device_index_screen_5min">5 分鐘</string>
+    <string name="device_index_screen_15min">15分鐘</string>
+    <string name="device_index_screen_30min">30分鐘</string>
+    <string name="device_index_screen_1hours">1小時</string>
+    <string name="device_index_screen_2hours">2小時</string>
+    <string name="device_index_screen_never">永不</string>
 </resources>

@@ -502,4 +502,11 @@ Example: 24"</string>
     <string name="projector_auto_tip">You need to turn on auto focus first</string>
     <string name="projector_auto_projector_tip">You need to turn on auto projection first</string>
     <string name="projector_auto_projector_off_tip">You need to turn off auto projection first</string>
+
+    <string name="device_index_screen_5min">5 Minutes</string>
+    <string name="device_index_screen_15min">15 Minutes</string>
+    <string name="device_index_screen_30min">30 Minutes</string>
+    <string name="device_index_screen_1hours">1 Hour</string>
+    <string name="device_index_screen_2hours">2 Hours</string>
+    <string name="device_index_screen_never">Never</string>
 </resources>

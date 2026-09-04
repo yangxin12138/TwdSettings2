@@ -251,4 +251,10 @@ Clique em [Tentar novamente] para emparelhar novamente o controle remoto Bluetoo
     <string name="projector_auto_tip">Precisa de ativar o foco automático primeiro</string>
     <string name="projector_auto_projector_tip">Precisa de ativar a projeção automática primeiro</string>
     <string name="projector_auto_projector_off_tip">Precisa de desligar a projeção automática primeiro</string>
+    <string name="device_index_screen_5min">5 Minutes</string>
+    <string name="device_index_screen_15min">15 Minutes</string>
+    <string name="device_index_screen_30min">30 Minutes</string>
+    <string name="device_index_screen_1hours">1 Hora</string>
+    <string name="device_index_screen_2hours">2 Horas</string>
+    <string name="device_index_screen_never">Nunca</string>
 </resources>

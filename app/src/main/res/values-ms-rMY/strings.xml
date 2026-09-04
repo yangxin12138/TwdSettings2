@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Anda perlu mengaktifkan fokus auto terlebih dahulu</string>
     <string name="projector_auto_projector_tip">Anda perlu menghidupkan projeksi auto terlebih dahulu</string>
     <string name="projector_auto_projector_off_tip">Anda perlu mematikan projeksi auto terlebih dahulu</string>
+    <string name="device_index_screen_5min">5 Minit</string>
+    <string name="device_index_screen_15min">15 Minit</string>
+    <string name="device_index_screen_30min">30 Minit</string>
+    <string name="device_index_screen_1hours">1 Jam</string>
+    <string name="device_index_screen_2hours">2 Jam</string>
+    <string name="device_index_screen_never">Tidak pernah</string>
 </resources>

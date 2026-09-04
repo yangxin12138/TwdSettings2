@@ -116,13 +116,13 @@
     <dimen name="universal_input_list_name_textSize">15sp</dimen>
 
     <!--device-->
-    <dimen name="devices_content_LL_paddingStart">63dp</dimen>
-    <dimen name="devices_content_LL_paddingEnd">63dp</dimen>
-    <dimen name="devices_content_LL_height">47dp</dimen>
+    <dimen name="devices_content_LL_paddingStart">80dp</dimen>
+    <dimen name="devices_content_LL_paddingEnd">80dp</dimen>
+    <dimen name="devices_content_LL_height">35dp</dimen>
     <dimen name="devices_content_LL_paddingTop">20dp</dimen>
     <dimen name="devices_info_tv_textSize">13sp</dimen>
     <dimen name="devices_storage_tv_textSize">13sp</dimen>
-    <dimen name="device_marginTop">3dp</dimen>
+    <dimen name="device_marginTop">8dp</dimen>
     <dimen name="device_info_marginStart">90dp</dimen>
     <dimen name="main_title_textsize">16.0sp</dimen>
     <dimen name="item_lr_txt_size">10.0sp</dimen>
@@ -215,4 +215,13 @@
     <dimen name="wifi_switch_paddingStart_End">15.0dip</dimen>
     <dimen name="device_name_marginStart">50dp</dimen>
     <dimen name="selector_factory_bt_width">2.0dip</dimen>
+
+    <dimen name="screen_timeout_layout_width">260dp</dimen>
+    <dimen name="screen_timeout_padding">15dp</dimen>
+    <dimen name="screen_timeout_min_width">300dp</dimen>
+    <dimen name="screen_timeout_fl_height">35dp</dimen>
+    <dimen name="screen_timeout_tv_size">15sp</dimen>
+    <dimen name="screen_timeout_iv_width">20dp</dimen>
+    <dimen name="screen_timeout_iv_margin_start">20dp</dimen>
+    <dimen name="screen_timeout_fl_margin_top">7dp</dimen>
 </resources>

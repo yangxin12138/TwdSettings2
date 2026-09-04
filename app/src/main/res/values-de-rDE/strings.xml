@@ -250,4 +250,10 @@ Klicken Sie bitte auf [Erneut versuchen], um die Bluetooth-Fernbedienung erneut 
     <string name="projector_auto_tip">Sie müssen zuerst den Autofokus einschalten</string>
     <string name="projector_auto_projector_tip">Sie müssen zuerst die automatische Projektion aktivieren</string>
     <string name="projector_auto_projector_off_tip">Sie müssen zuerst die automatische Projektion ausschalten</string>
+    <string name="device_index_screen_5min">5 Minuten</string>
+    <string name="device_index_screen_15min">15 Minuten</string>
+    <string name="device_index_screen_30min">30 Minuten</string>
+    <string name="device_index_screen_1hours">1 Stunde</string>
+    <string name="device_index_screen_2hours">2 Stunden</string>
+    <string name="device_index_screen_never">Niemals</string>
 </resources>

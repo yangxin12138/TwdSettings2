@@ -252,4 +252,10 @@ Fare clic su [Riprova] per riassociare il telecomando Bluetooth."</string>
     <string name="projector_auto_tip">Devi prima attivare la messa a fuoco automatica</string>
     <string name="projector_auto_projector_tip">Devi prima attivare la proiezione automatica</string>
     <string name="projector_auto_projector_off_tip">Devi prima disattivare la proiezione automatica</string>
+    <string name="device_index_screen_5min">5 Minuti</string>
+    <string name="device_index_screen_15min">15 Minuti</string>
+    <string name="device_index_screen_30min">30 Minuti</string>
+    <string name="device_index_screen_1hours">1 Ora</string>
+    <string name="device_index_screen_2hours">2 Ore</string>
+    <string name="device_index_screen_never">Mai</string>
 </resources>

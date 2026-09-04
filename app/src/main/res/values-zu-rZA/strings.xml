@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Kudingeka uvule ukugxila okuzenzakalelayo kuqala</string>
     <string name="projector_auto_projector_tip">Kudingeka uvule ukubonisa okuzenzakalelayo kuqala</string>
     <string name="projector_auto_projector_off_tip">Kudingeka uvale ukubonisa okuzenzakalelayo kuqala</string>
+    <string name="device_index_screen_5min">5 Imizuzu</string>
+    <string name="device_index_screen_15min">15 Imizuzu</string>
+    <string name="device_index_screen_30min">30 Imizuzu</string>
+    <string name="device_index_screen_1hours">1 Ihora</string>
+    <string name="device_index_screen_2hours">2 Ihora</string>
+    <string name="device_index_screen_never">Ngeke</string>
 </resources>

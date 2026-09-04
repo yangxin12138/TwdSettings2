@@ -240,4 +240,10 @@
     <string name="projector_auto_projection_title">Auto -trapez</string>
     <string name="projector_auto_focus_title">Auto fokus</string>
     <string name="index_usb_listener">Otkriven je vanjski uređaj za pohranu, želite li otvoriti upravljanje datotekama?</string>
+    <string name="device_index_screen_5min">5 minuta</string>
+    <string name="device_index_screen_15min">15 minuta</string>
+    <string name="device_index_screen_30min">30 minuta</string>
+    <string name="device_index_screen_1hours">1 sat</string>
+    <string name="device_index_screen_2hours">2 sata</string>
+    <string name="device_index_screen_never">Nikada</string>
 </resources>

@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Kailangan muna mong i-activate ang auto focus</string>
     <string name="projector_auto_projector_tip">Kailangan muna mong i-activate ang auto projection</string>
     <string name="projector_auto_projector_off_tip">Kailangan muna mong i-off ang auto projection</string>
+    <string name="device_index_screen_5min">5 Minuto</string>
+    <string name="device_index_screen_15min">15 Minuto</string>
+    <string name="device_index_screen_30min">30 Minutos</string>
+    <string name="device_index_screen_1hours">1 Oras</string>
+    <string name="device_index_screen_2hours">2 Oras</string>
+    <string name="device_index_screen_never">Sige</string>
 </resources>

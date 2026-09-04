@@ -251,4 +251,10 @@
     <string name="projector_auto_tip">먼저 자동 초점을 켜야 합니다.</string>
     <string name="projector_auto_projector_tip">먼저 자동 투사를 켜야 합니다.</string>
     <string name="projector_auto_projector_off_tip">먼저 자동 투사 기능을 꺼야 합니다.</string>
+    <string name="device_index_screen_5min">5분</string>
+    <string name="device_index_screen_15min">15분</string>
+    <string name="device_index_screen_30min">30분</string>
+    <string name="device_index_screen_1hours">1시간</string>
+    <string name="device_index_screen_2hours">2시간</string>
+    <string name="device_index_screen_never">절대</string>
 </resources>

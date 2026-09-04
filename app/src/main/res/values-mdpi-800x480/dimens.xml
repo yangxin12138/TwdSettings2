@@ -212,4 +212,13 @@
     <dimen name="wifi_switch_paddingStart_End">30.0dip</dimen>
     <dimen name="device_name_marginStart">150dp</dimen>
     <dimen name="selector_factory_bt_width">4.0dip</dimen>
+
+    <dimen name="screen_timeout_layout_width">260dp</dimen>
+    <dimen name="screen_timeout_padding">15dp</dimen>
+    <dimen name="screen_timeout_min_width">300dp</dimen>
+    <dimen name="screen_timeout_fl_height">35dp</dimen>
+    <dimen name="screen_timeout_tv_size">15sp</dimen>
+    <dimen name="screen_timeout_iv_width">20dp</dimen>
+    <dimen name="screen_timeout_iv_margin_start">20dp</dimen>
+    <dimen name="screen_timeout_fl_margin_top">7dp</dimen>
 </resources>

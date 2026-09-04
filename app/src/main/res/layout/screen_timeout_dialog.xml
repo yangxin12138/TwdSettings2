@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/screen_timeout_layout_width"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/background_color"
+    android:padding="@dimen/screen_timeout_padding"
+    android:minWidth="@dimen/screen_timeout_min_width">
+
+    <FrameLayout
+        android:id="@+id/item_5min"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/screen_timeout_fl_height"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="?bBg">
+
+        <!-- 全局居中文字 -->
+        <TextView
+            android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/device_index_screen_5min"
+            android:textSize="@dimen/screen_timeout_tv_size"
+            android:textColor="?textColor"/>
+
+        <!-- 左侧图标 -->
+        <ImageView
+            android:duplicateParentState="true"
+            android:id="@+id/iv_check_5min"
+            android:layout_width="@dimen/screen_timeout_iv_width"
+            android:layout_height="@dimen/screen_timeout_iv_width"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="@dimen/screen_timeout_iv_margin_start"
+            android:src="?attr/icon_projection_selected"
+            android:visibility="visible"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/item_15min"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/screen_timeout_fl_height"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="?bBg"
+        android:layout_marginTop="@dimen/screen_timeout_fl_margin_top">
+
+        <!-- 全局居中文字 -->
+        <TextView
+            android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/device_index_screen_15min"
+            android:textSize="@dimen/screen_timeout_tv_size"
+            android:textColor="?textColor"/>
+
+        <!-- 左侧图标 -->
+        <ImageView
+            android:duplicateParentState="true"
+            android:id="@+id/iv_check_15min"
+            android:layout_width="@dimen/screen_timeout_iv_width"
+            android:layout_height="@dimen/screen_timeout_iv_width"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="@dimen/screen_timeout_iv_margin_start"
+            android:src="?attr/icon_projection_selected"
+            android:visibility="visible"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/item_30min"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/screen_timeout_fl_height"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="?bBg"
+        android:layout_marginTop="@dimen/screen_timeout_fl_margin_top">
+
+        <!-- 全局居中文字 -->
+        <TextView
+            android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/device_index_screen_30min"
+            android:textSize="@dimen/screen_timeout_tv_size"
+            android:textColor="?textColor"/>
+
+        <!-- 左侧图标 -->
+        <ImageView
+            android:duplicateParentState="true"
+            android:id="@+id/iv_check_30min"
+            android:layout_width="@dimen/screen_timeout_iv_width"
+            android:layout_height="@dimen/screen_timeout_iv_width"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="@dimen/screen_timeout_iv_margin_start"
+            android:src="?attr/icon_projection_selected"
+            android:visibility="visible"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/item_1hour"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/screen_timeout_fl_height"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="?bBg"
+        android:layout_marginTop="@dimen/screen_timeout_fl_margin_top">
+
+        <!-- 全局居中文字 -->
+        <TextView
+            android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/device_index_screen_1hours"
+            android:textSize="@dimen/screen_timeout_tv_size"
+            android:textColor="?textColor"/>
+
+        <!-- 左侧图标 -->
+        <ImageView
+            android:duplicateParentState="true"
+            android:id="@+id/iv_check_1hour"
+            android:layout_width="@dimen/screen_timeout_iv_width"
+            android:layout_height="@dimen/screen_timeout_iv_width"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="@dimen/screen_timeout_iv_margin_start"
+            android:src="?attr/icon_projection_selected"
+            android:visibility="visible"/>
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/item_2hours"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/screen_timeout_fl_height"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="?bBg"
+        android:layout_marginTop="@dimen/screen_timeout_fl_margin_top">
+
+        <!-- 全局居中文字 -->
+        <TextView
+            android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/device_index_screen_2hours"
+            android:textSize="@dimen/screen_timeout_tv_size"
+            android:textColor="?textColor"/>
+
+        <!-- 左侧图标 -->
+        <ImageView
+            android:duplicateParentState="true"
+            android:id="@+id/iv_check_2hours"
+            android:layout_width="@dimen/screen_timeout_iv_width"
+            android:layout_height="@dimen/screen_timeout_iv_width"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="@dimen/screen_timeout_iv_margin_start"
+            android:src="?attr/icon_projection_selected"
+            android:visibility="visible"/>
+
+    </FrameLayout>
+    <!-- never条目 -->
+    <FrameLayout
+        android:id="@+id/item_never"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/screen_timeout_fl_height"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="?bBg"
+        android:layout_marginTop="@dimen/screen_timeout_fl_margin_top">
+
+        <!-- 全局居中文字 -->
+        <TextView
+            android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/device_index_screen_never"
+            android:textSize="@dimen/screen_timeout_tv_size"
+            android:textColor="?textColor"/>
+
+        <!-- 左侧图标 -->
+        <ImageView
+            android:duplicateParentState="true"
+            android:id="@+id/iv_check_never"
+            android:layout_width="@dimen/screen_timeout_iv_width"
+            android:layout_height="@dimen/screen_timeout_iv_width"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="@dimen/screen_timeout_iv_margin_start"
+            android:src="?attr/icon_projection_selected"
+            android:visibility="visible"/>
+
+    </FrameLayout>
+
+</LinearLayout>

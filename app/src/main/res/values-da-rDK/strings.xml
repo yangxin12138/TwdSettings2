@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Du skal tænde for autofokus først</string>
     <string name="projector_auto_projector_tip">Du skal tænde for automatisk projektion først</string>
     <string name="projector_auto_projector_off_tip">Du skal slukke for automatisk projektion først</string>
+    <string name="device_index_screen_5min">5 Minutter</string>
+    <string name="device_index_screen_15min">15 Minutter</string>
+    <string name="device_index_screen_30min">30 Minutter</string>
+    <string name="device_index_screen_1hours">1 time</string>
+    <string name="device_index_screen_2hours">2 timer</string>
+    <string name="device_index_screen_never">Aldrig</string>
 </resources>

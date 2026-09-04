@@ -252,4 +252,10 @@ Veuillez cliquer sur [Réessayer] pour réassocier la télécommande Bluetooth.<
     <string name="projector_auto_tip">Vous devez d\'abord activer la mise au point automatique</string>
     <string name="projector_auto_projector_tip">Vous devez d’abord activer la projection automatique</string>
     <string name="projector_auto_projector_off_tip">Vous devez d’abord désactiver la projection automatique</string>
+    <string name="device_index_screen_5min">5 Minutes</string>
+    <string name="device_index_screen_15min">15 Minutes</string>
+    <string name="device_index_screen_30min">30 Minutes</string>
+    <string name="device_index_screen_1hours">1 Heure</string>
+    <string name="device_index_screen_2hours">2 Heures</string>
+    <string name="device_index_screen_never">Jamais</string>
 </resources>

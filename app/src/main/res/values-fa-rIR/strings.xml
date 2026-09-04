@@ -252,5 +252,11 @@
     <string name="projector_auto_tip">ابتدا باید فوکوس خودکار را روشن کنید</string>
     <string name="projector_auto_projector_tip">ابتدا باید نمایش خودکار را روشن کنید</string>
     <string name="projector_auto_projector_off_tip">ابتدا باید پروژکتور خودکار را خاموش کنید</string>
+    <string name="device_index_screen_5min">5 دقیقه</string>
+    <string name="device_index_screen_15min">15 دقیقه</string>
+    <string name="device_index_screen_30min">30 دقیقه</string>
+    <string name="device_index_screen_1hours">1 ساعت</string>
+    <string name="device_index_screen_2hours">2 ساعت</string>
+    <string name="device_index_screen_never">هرگز</string>
 
 </resources>

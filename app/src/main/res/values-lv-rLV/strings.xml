@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Vispirms jāieslēdz autofokuss</string>
     <string name="projector_auto_projector_tip">Jums vispirms jāieslēdz automātiskā projekcija</string>
     <string name="projector_auto_projector_off_tip">Jums vispirms jāizslēdz automātiskā projekcija</string>
+    <string name="device_index_screen_5min">5 Minūtes</string>
+    <string name="device_index_screen_15min">15 Minutes</string>
+    <string name="device_index_screen_30min">30 Minutes</string>
+    <string name="device_index_screen_1hours">1 Stundas</string>
+    <string name="device_index_screen_2hours">2 Stundas</string>
+    <string name="device_index_screen_never">Never</string>
 </resources>

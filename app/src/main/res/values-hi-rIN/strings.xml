@@ -252,4 +252,10 @@
     <string name="projector_auto_tip">आपको सबसे पहले ऑटो फोकस चालू करना होगा</string>
     <string name="projector_auto_projector_tip">आपको पहले स्वचालित प्रक्षेपण चालू करना होगा</string>
     <string name="projector_auto_projector_off_tip">आपको पहले ऑटो प्रोजेक्शन बंद करना होगा</string>
+    <string name="device_index_screen_5min">5 मिनट</string>
+    <string name="device_index_screen_15min">15 मिनट</string>
+    <string name="device_index_screen_30min">30 मिनट</string>
+    <string name="device_index_screen_1hours">1 घंटे</string>
+    <string name="device_index_screen_2hours">2 घंटे</string>
+    <string name="device_index_screen_never">कभी नहीं</string>
 </resources>

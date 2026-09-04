@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Először be kell kapcsolni az autofókuszt</string>
     <string name="projector_auto_projector_tip">Először be kell kapcsolnia az automatikus vetítést</string>
     <string name="projector_auto_projector_off_tip">Először ki kell kapcsolnia az automatikus vetítést</string>
+    <string name="device_index_screen_5min">5 perc</string>
+    <string name="device_index_screen_15min">15 perc</string>
+    <string name="device_index_screen_30min">30 perc</string>
+    <string name="device_index_screen_1hours">1 óra</string>
+    <string name="device_index_screen_2hours">2 óra</string>
+    <string name="device_index_screen_never">Soha</string>
 </resources>

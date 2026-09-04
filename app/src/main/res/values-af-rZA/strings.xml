@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Jy moet eerste skakel op outomaties fokus</string>
     <string name="projector_auto_projector_tip">Jy moet eerste skakel op outomatiese projeksie</string>
     <string name="projector_auto_projector_off_tip">Jy moet eerste outomatiese projeksie afskakel</string>
+    <string name="device_index_screen_5min">5 Minute</string>
+    <string name="device_index_screen_15min">15 Minute</string>
+    <string name="device_index_screen_30min">30 Minute</string>
+    <string name="device_index_screen_1hours">1 Uur</string>
+    <string name="device_index_screen_2hours">2 Uur</string>
+    <string name="device_index_screen_never">Nooit</string>
 </resources>

@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Du må skru på bilfokus først.</string>
     <string name="projector_auto_projector_tip">Du må skru på autoprosjektet først.</string>
     <string name="projector_auto_projector_off_tip">Du må skru av autoprosjektet først.</string>
+    <string name="device_index_screen_5min">5 Minutter</string>
+    <string name="device_index_screen_15min">15 Minutter</string>
+    <string name="device_index_screen_30min">30 Minutter</string>
+    <string name="device_index_screen_1hours">1 Time</string>
+    <string name="device_index_screen_2hours">2 Timer</string>
+    <string name="device_index_screen_never">Aldri</string>
 </resources>

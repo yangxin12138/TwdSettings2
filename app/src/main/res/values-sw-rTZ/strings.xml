@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Unahitaji kugeuka auto kuzingatia kwanza</string>
     <string name="projector_auto_projector_tip">Unahitaji kugeuka juu ya auto projection kwanza</string>
     <string name="projector_auto_projector_off_tip">Unahitaji kuzima auto projection kwanza</string>
+    <string name="device_index_screen_5min">Dakika 5</string>
+    <string name="device_index_screen_15min">Dakika 15</string>
+    <string name="device_index_screen_30min">Dakika 30</string>
+    <string name="device_index_screen_1hours">Saa 1</string>
+    <string name="device_index_screen_2hours">Saa 2</string>
+    <string name="device_index_screen_never">Kamwe</string>
 </resources>

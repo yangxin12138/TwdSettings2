@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Ensin on otettava autokeskittyminen käyttöön</string>
     <string name="projector_auto_projector_tip">Ensin on otettava automaattinen projektio käyttöön.</string>
     <string name="projector_auto_projector_off_tip">Sinun täytyy sammuttaa automaattinen projektio ensin</string>
+    <string name="device_index_screen_5min">5 minuuttia</string>
+    <string name="device_index_screen_15min">15 minuuttia</string>
+    <string name="device_index_screen_30min">30 minuuttia</string>
+    <string name="device_index_screen_1hours">1 tunti</string>
+    <string name="device_index_screen_2hours">2 tuntia</string>
+    <string name="device_index_screen_never">Ei koskaan</string>
 </resources>

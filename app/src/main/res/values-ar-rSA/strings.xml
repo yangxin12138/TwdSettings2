@@ -250,4 +250,10 @@
     <string name="projector_auto_tip">يجب عليك تشغيل التركيز التلقائي أولاً</string>
     <string name="projector_auto_projector_tip">يجب عليك تشغيل العرض التلقائي أولاً</string>
     <string name="projector_auto_projector_off_tip">يجب عليك إيقاف تشغيل العرض التلقائي أولاً</string>
+    <string name="device_index_screen_5min">5 دقيقة</string>
+    <string name="device_index_screen_15min">15 دقيقة</string>
+    <string name="device_index_screen_30min">30 دقيقة</string>
+    <string name="device_index_screen_1hours">ساعة واحدة</string>
+    <string name="device_index_screen_2hours">ساعتان</string>
+    <string name="device_index_screen_never">مطلقًا</string>
 </resources>

@@ -252,4 +252,10 @@ Bluetooth uzaktan kumandayı yeniden eşleştirmek için lütfen [Tekrar Dene] �
     <string name="projector_auto_tip">Önce otomatik odaklamayı açmanız gerekiyor</string>
     <string name="projector_auto_projector_tip">Öncelikle otomatik projeksiyonu açmanız gerekiyor</string>
     <string name="projector_auto_projector_off_tip">Öncelikle otomatik projeksiyonu kapatmanız gerekiyor</string>
+    <string name="device_index_screen_5min">5 Dakika</string>
+    <string name="device_index_screen_15min">15 Dakika</string>
+    <string name="device_index_screen_30min">30 Dakika</string>
+    <string name="device_index_screen_1hours">1 Saat</string>
+    <string name="device_index_screen_2hours">2 Saat</string>
+    <string name="device_index_screen_never">Asla</string>
 </resources>

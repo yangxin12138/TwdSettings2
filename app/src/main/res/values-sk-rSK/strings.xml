@@ -40,6 +40,12 @@
     <string name="str_cancel">zrušiť</string>
     <string name="str_common">Bežný</string>
     <string name="index_usb_listener">Zistené externé úložné zariadenie, chcete otvoriť správu súborov?</string>
+    <string name="device_index_screen_5min">5 Minút</string>
+    <string name="device_index_screen_15min">15 Minút</string>
+    <string name="device_index_screen_30min">30 Minút</string>
+    <string name="device_index_screen_1hours">1 Hodina</string>
+    <string name="device_index_screen_2hours">2 Hodiny</string>
+    <string name="device_index_screen_never">Nikdy</string>
     <string name="device_info_softwareDate">Čas kompilácie</string>
     <string name="projection_vertical_projection_title">Vertikálny lichobežník</string>
     <string name="projector_auto_tip">Najprv musíte zapnúť automatické zaostrovanie</string>

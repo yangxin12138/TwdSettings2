@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">U moet eerst de autofocus inschakelen</string>
     <string name="projector_auto_projector_tip">U moet eerst automatische projectie inschakelen</string>
     <string name="projector_auto_projector_off_tip">U moet eerst de automatische projectie uitschakelen</string>
+    <string name="device_index_screen_5min">5 minuten</string>
+    <string name="device_index_screen_15min">15 minuten</string>
+    <string name="device_index_screen_30min">30 minuten</string>
+    <string name="device_index_screen_1hours">1 uur</string>
+    <string name="device_index_screen_2hours">2 uur</string>
+    <string name="device_index_screen_never">Nooit</string>
 </resources>

@@ -243,4 +243,10 @@
     <string name="projector_auto_tip">Nejdřív je třeba zapnout automatické zaostřování.</string>
     <string name="projector_auto_projector_tip">Nejdřív je třeba zapnout automatickou projekci.</string>
     <string name="projector_auto_projector_off_tip">Nejdřív musíte vypnout automatickou projekci.</string>
+    <string name="device_index_screen_5min">5 minut</string>
+    <string name="device_index_screen_15min">15 minut</string>
+    <string name="device_index_screen_30min">30 minut</string>
+    <string name="device_index_screen_1hours">1 hodina</string>
+    <string name="device_index_screen_2hours">2 hodiny</string>
+    <string name="device_index_screen_never">Nikdy</string>
 </resources>

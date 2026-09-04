@@ -248,4 +248,10 @@
     <string name="projector_auto_tip">Bạn cần bật Auto Focus trước</string>
     <string name="projector_auto_projector_tip">Bạn cần bật tự động chiếu trước</string>
     <string name="projector_auto_projector_off_tip">Bạn cần tắt tự động chiếu trước</string>
+    <string name="device_index_screen_5min">5 Minutes</string>
+    <string name="device_index_screen_15min">15 Minutes</string>
+    <string name="device_index_screen_30min">30 Minutes</string>
+    <string name="device_index_screen_1hours">1 Giờ</string>
+    <string name="device_index_screen_2hours">2 Giờ</string>
+    <string name="device_index_screen_never">Không bao giờ</string>
 </resources>

@@ -253,4 +253,10 @@
     <string name="projector_auto_tip">คุณต้องเปิดโฟกัสอัตโนมัติก่อน</string>
     <string name="projector_auto_projector_tip">คุณต้องเปิดการฉายภาพอัตโนมัติก่อน</string>
     <string name="projector_auto_projector_off_tip">คุณต้องปิดการฉายภาพอัตโนมัติก่อน</string>
+    <string name="device_index_screen_5min">5 นาที</string>
+    <string name="device_index_screen_15min">15 นาที</string>
+    <string name="device_index_screen_30min">30 นาที</string>
+    <string name="device_index_screen_1hours">1 ชั่วโมง</string>
+    <string name="device_index_screen_2hours">2 ชั่วโมง</string>
+    <string name="device_index_screen_never">ไม่เคย</string>
 </resources>
